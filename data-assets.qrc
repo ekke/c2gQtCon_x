@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>data-assets/cacheSettingsData.json</file>
+		<file>data-assets/prod/cacheCustomer.json</file>
+		<file>data-assets/test/cacheCustomer.json</file>
+    </qresource>
+</RCC>
