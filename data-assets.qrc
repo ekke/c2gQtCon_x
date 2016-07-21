@@ -5,5 +5,37 @@
         <file>data-assets/test/cacheCustomer.json</file>
         <file>data-assets/conference/schedule.json</file>
         <file>data-assets/conference/speakers.json</file>
+        <file>data-assets/conference/floorplan/bcc_room_mapping.txt</file>
+        <file>data-assets/conference/floorplan/building_1.png</file>
+        <file>data-assets/conference/floorplan/floor_1.png</file>
+        <file>data-assets/conference/floorplan/floor_2.png</file>
+        <file>data-assets/conference/floorplan/floor_3.png</file>
+        <file>data-assets/conference/floorplan/room_1.png</file>
+        <file>data-assets/conference/floorplan/room_10.png</file>
+        <file>data-assets/conference/floorplan/room_11.png</file>
+        <file>data-assets/conference/floorplan/room_12.png</file>
+        <file>data-assets/conference/floorplan/room_13.png</file>
+        <file>data-assets/conference/floorplan/room_14.png</file>
+        <file>data-assets/conference/floorplan/room_15.png</file>
+        <file>data-assets/conference/floorplan/room_16.png</file>
+        <file>data-assets/conference/floorplan/room_17.png</file>
+        <file>data-assets/conference/floorplan/room_18.png</file>
+        <file>data-assets/conference/floorplan/room_19.png</file>
+        <file>data-assets/conference/floorplan/room_2.png</file>
+        <file>data-assets/conference/floorplan/room_20.png</file>
+        <file>data-assets/conference/floorplan/room_21.png</file>
+        <file>data-assets/conference/floorplan/room_22.png</file>
+        <file>data-assets/conference/floorplan/room_23.png</file>
+        <file>data-assets/conference/floorplan/room_24.png</file>
+        <file>data-assets/conference/floorplan/room_25.png</file>
+        <file>data-assets/conference/floorplan/room_26.png</file>
+        <file>data-assets/conference/floorplan/room_27.png</file>
+        <file>data-assets/conference/floorplan/room_3.png</file>
+        <file>data-assets/conference/floorplan/room_4.png</file>
+        <file>data-assets/conference/floorplan/room_5.png</file>
+        <file>data-assets/conference/floorplan/room_6.png</file>
+        <file>data-assets/conference/floorplan/room_7.png</file>
+        <file>data-assets/conference/floorplan/room_8.png</file>
+        <file>data-assets/conference/floorplan/room_9.png</file>
     </qresource>
 </RCC>
