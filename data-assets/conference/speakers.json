@@ -1,0 +1,758 @@
+[
+  {
+    "id": 137,
+    "first_name": "",
+    "last_name": "",
+    "abstract": "",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 689,
+    "first_name": "Alain",
+    "last_name": "Martin",
+    "abstract": "I started to work at Ableton (Berlin. Germany) in January 2014 and my first task was to build Qt 5.1 with Visual Studio 2013. Now I am part of the DevTools team, which creates and improves tools for the application developers, and I am in charge of how and when we update and build our Qt packages, which nowadays also include KDE's KItemModels.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 699,
+    "first_name": "Andrew",
+    "last_name": "Knight",
+    "abstract": "Andrew Knight is an active Qt contributor/Approver, former \"Troll\", and former platform maintainer of the Qt for Windows Runtime port. He currently focuses on Qt-based mobile and embedded solutions at Intopalo.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 712,
+    "first_name": "Arno",
+    "last_name": "Schoedl",
+    "abstract": "Arno holds a PhD in Computer Vision from the Georgia Institute of Technology (2002), and is founder and Technical Director of think-cell Software GmbH in Berlin. The company develops think-cell chart, a charting and presentation software written in more than 1 million lines of C++. Recently, think-cell became the key sponsor of the computer language group at DIN, the German Institute for Standardization, and is now participating in the C++ standardization effort at the International Organization for Standardization (ISO).",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 690,
+    "first_name": "Eric",
+    "last_name": "Bader",
+    "abstract": "Eric Bader is a Product Manager at Esri, Inc., located in Redlands California. He manages the ArcGIS Runtime SDK products for Qt, Java and Android. He has over 25 years of professional GIS experience. He has been at Esri since 1991, during which time he has served in many GIS technical roles, including technical consultant, developer evangelist, software developer, product engineer and technical product manager. ",
+    "avatar": "http://conf.qtcon.org//system/avatars/690/original/Eric_Bader.jpg?1463520601"
+  },
+  {
+    "id": 679,
+    "first_name": "Friedemann",
+    "last_name": "Metzger",
+    "abstract": "I fell in love with Qt when I was a student. My first contact was with version 4.7 in a course at university. As a result of this I started participating on open source projects written in Qt in my spare time. In 2012 I started working on commercial Qt UI projects at Ergosign, one of the leading UX design- and development companies in Germany. Today I manage Qt projects for our customers, many of which are global players from all over the world.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 697,
+    "first_name": "Harri",
+    "last_name": "Porten",
+    "abstract": "Harri Porten is co-founder and co-CEO of froglogic GmbH, a company that has specialized on automated testing tools for Qt programmers. After learning about Qt through his involvement with the Open Source KDE Community Harri was working as a Senior Software Engineer at the Trolltech, the original makers of Qt in Oslo.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 672,
+    "first_name": "Morten",
+    "last_name": "Jorgensen",
+    "abstract": "Morten has been developing C++ and Qt for 10 years on most platforms available and in several countries around the world. Currently he works for Atlassian developing the HipChat native clients for Windows and Linux. When he does not work he like to sleep in shelters with his kids and carbonise the sausages over a fire and he does metal casting in his backyard.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 701,
+    "first_name": "Nasir ",
+    "last_name": "Usman Imam",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 670,
+    "first_name": "Reginald",
+    "last_name": "Stadlbauer",
+    "abstract": "Reginald co-founded froglogic, the creator of the Squish GUI testing tool with special support for automating Qt/QML GUI tests and Squish Coco, the code coverage analysis tool for C, C++, C#, Tcl and QML/JS. \r\n\r\nBefore founding froglogic, Reginald worked as Senior Software Engineer at Trolltech, the original makers of Qt. \r\n\r\nToday Reginald is involved in all aspects of the Squish product as co-CEO of the company.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 696,
+    "first_name": "Sean",
+    "last_name": "Harmer",
+    "abstract": "Dr Sean Harmer holds a Ph.D. in Astrophysics and a Master of Science degree in Mathematics & Astrophysics. Sean has been developing with C++ and Qt since 1998 and in a commercial setting since 2003. Sean has been involved in  developing software in many areas including engineering, safety & risk, oil & gas, visualization and numerical simulations. Sean is the maintainer of Qt 3D and is currently heading up operations at KDAB UK where he is regularly involved in the development of Qt 5, the QNX port of Qt, OpenGL, and presenting professional Qt and OpenGL training courses. Sean is a keen swimmer, tea drinker and curry eater.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 671,
+    "first_name": "Sebastiano",
+    "last_name": "Galazzo",
+    "abstract": "Passionate of new technologies, focused on wearable devices powering them with artificial intelligence I'm a sport man and proud dad.\r\nhttps://www.linkedin.com/in/sebastianogalazzo",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 700,
+    "first_name": "Simon",
+    "last_name": "Hausmann",
+    "abstract": "",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 656,
+    "first_name": "Victor",
+    "last_name": "Kropp",
+    "abstract": "Passionate software developer at JetBrains and marathoner.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 680,
+    "first_name": "Enrico",
+    "last_name": "Miglino",
+    "abstract": "Owner of Balearic Dynamics, a small research company, I design and create hardware and software devices for innovative applications, releasing OSHW and Open Source software products.\r\nSoftware designer and developer at NXP PLMA (Product Line Mobile Audio) in Nijmegen, The Netherlands.",
+    "avatar": "http://conf.qtcon.org//system/avatars/680/original/B-Logo-Shine.png?1463314879"
+  },
+  {
+    "id": 667,
+    "first_name": "Nicolas",
+    "last_name": "Froment",
+    "abstract": "MuseScore CTO and co-founder. Software architect. Desktop, web & mobile. FLOSS advocate. Drummer. ",
+    "avatar": "http://conf.qtcon.org//system/avatars/667/original/nicolas_carre%CC%81.jpg?1462742646"
+  },
+  {
+    "id": 840,
+    "first_name": "Andrea",
+    "last_name": "Bräu",
+    "abstract": "Andi started to be Freifunker in 2006 in Weimar. He is active in the freifunk.net webteam and board member of Förderverein freie Netzwerke. He works as software developer and database specialist in software projects. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 636,
+    "first_name": "Boudhayan",
+    "last_name": "Gupta",
+    "abstract": "I'm generally a bumbling idiot who's driven by occasional bursts of inspiration to lay down code that does something useful. I dabble in analog electronics, like learning new languages (human languages too) and am a transit nerd.",
+    "avatar": "http://conf.qtcon.org//system/avatars/636/original/hackergotchi-bgupta.png?1451936973"
+  },
+  {
+    "id": 48,
+    "first_name": "Andreas",
+    "last_name": "Cord-Landwehr",
+    "abstract": "Andreas is a KDE developer for about 5 years. His contributions mostly go into KDE Edu, where he maintains Rocs and Artikulate. Since last year he provides a development environment Docker Image for Android cross-compiling and made several KF5 libraries ready for use on Android.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 811,
+    "first_name": "Dimitar",
+    "last_name": "Dimitrov",
+    "abstract": "Dimi is a Bulgarian political scientist who currently works as Free Knowledge Ambassador of the Wikimedia Movement to the EU. He is based in Brussels where his major focus is to „fix copyright”. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 817,
+    "first_name": "Elio",
+    "last_name": "Qoshi",
+    "abstract": "Elio is an avid open source designer, involved at various open source & free software projects, including Mozilla, Fedora, Glucosio and GalliumOS. He is a Board Member at Open Labs Hackerspace in Tirana, Albania which promotes FLOSS since 2012. Furthermore, Elio works as a Community Manager for SitePoint, where he also writes on various topics, mostly open source. When he is not co-organizing OSCAL (Open Source Conference Albania), Elio pursues his bachelor studies at the University of Arts in Tirana, Albania. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 809,
+    "first_name": "Emanuel",
+    "last_name": "Feld",
+    "abstract": "Emanuel Feld is a Washington, DC-based environmental policy researcher turned technologist. He volunteers with the local Code for America brigade (often building tools for the public library) and, most recently, worked on open data policy, evangelized open source, and wrote code with the DC government's innovation unit. Previously, he lived in Cambodia, where he helped build out the country's first open data NGO. He's trying to pick up German again, which he last studied in middle school! ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 804,
+    "first_name": "Georg",
+    "last_name": "Greve",
+    "abstract": " Georg Greve is an entrepreneur and strategist. Currently CEO and president of the board at Kolab Systems AG. Previously he was founding president of the Free Software Foundation Europe (FSFE), initiated the battle against OOXML, consulted Google and various governments and has been writing for a long time, and in 2009 received the Federal Cross of Merit on Ribbon for his work for Open Standards and Free Software. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 833,
+    "first_name": "Gijs",
+    "last_name": "Hillenius ",
+    "abstract": "Gijs Hillenius is the expert team leader and senior editor for the European Commission’s Open Source Observatory & Repository (OSOR.eu), part of Joinup.ec.europa.eu. He's been involved with the OSOR since early 2007. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 254,
+    "first_name": "Olivier",
+    "last_name": "Goffart",
+    "abstract": "Olivier Goffart started working with Qt 15 years ago with his involvement in KDE.\r\nHe was then hired by Trolltech to work on Qt in 2007.\r\nHe has been working on various areas of Qt including the itemview framework, the widget stylesheets, QtScript,\r\nthe QObject internals, and the QML debugger for Creator.\r\nHe is now the co-founder of Woboq, a company based in Berlin focusing on Qt",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 1068,
+    "first_name": "Hanno",
+    "last_name": "Böck",
+    "abstract": "Hanno Böck started the Fuzzing Project in 2014 as an effort to improve the security of free software code. In May the Linux Foundation's Core Infrastructure Initiative decided to fund this work. The speaker Hanno Böck is working as a freelance journalist and regularly writes about IT security issues for various publications. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 810,
+    "first_name": "Italo",
+    "last_name": "Vignoli",
+    "abstract": " Italo Vignoli is a founder and a team member of The Document Foundation, with responsibility for marketing and communication. He is also a spokesman for the project. In 2014, he has founded Associazione LibreItalia, the not for profit which represents the Italian LibreOffice community. In 2016 he has been elected to the OSI board of directors. Italo is a communications consultant with thirty years of experience in the field of high technologies, a member of Ferpi - the Italian Association of Public Relation Professionals - and a visiting professor of high tech marketing, public speaking and public relations in universities and post-graduate courses. Italo has a Degree in Humanities at the University of Milan, and Master Degrees in Marketing, Public Relations and Journalism at different US and Italian universities. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 819,
+    "first_name": "Jens",
+    "last_name": "Ohlig",
+    "abstract": "Jens Ohlig works in the software development department of Wikimedia Deutschland and has been involved with Wikidata from the beginning. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 806,
+    "first_name": "Johannes ",
+    "last_name": "Loxen",
+    "abstract": " Johannes Loxen is founder of SerNet, a Goettingen and Berlin based company. SerNet works on information security and free software for customers worldwide. Every software released by SerNet is free and open source software. Well known projects that SerNet supports with own developers are Samba and verinice. Johannes initiated OPOSSO because no similar solution was available as free software and it was badly needed! ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 818,
+    "first_name": "Jona",
+    "last_name": "Azizaj",
+    "abstract": "I am Jona, a third year student of Business Informatics at University of Tirana. Meanwhile I am a member of Open Labs Hackerspace where i am involved in many open source projects we promote there like GNU/Linux, LibreOffice, Mozilla, Wikipedia, OpenStreetMap etc, and also co-organiser of Open Source Conference Albania (OSCAL). I am also part of Fedora Project and I am the first Fedora Ambassador in Albania. I've participated in different conferences (the latest is DORS CLUC conference) representing womens in Fedora Project, the way we deal with this huge gender gap and the steps we've taken to reduce it. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 916,
+    "first_name": "Julien",
+    "last_name": "Rabier",
+    "abstract": "Co-founder of a non-profit and local ISP in France, Ilico; also Vice-president of FFDN, a federation of non-profit ISPs. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 566,
+    "first_name": "Ken",
+    "last_name": "Vermette",
+    "abstract": "Ken Vermette is a designer and developer from Canada who was unwittingly sucked into the KDE VDG.",
+    "avatar": "http://conf.qtcon.org//system/avatars/566/original/kver.png?1459955272"
+  },
+  {
+    "id": 825,
+    "first_name": "Karel ",
+    "last_name": "De Vriendt ",
+    "abstract": " Long time user of Linux and other open source software. Former European Commission official (retired). After a series of operational responsibilities (user support, email, networking, application development), leader of the team responsible for the IDABC (http://ec.europa.eu/idabc/) programme. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 799,
+    "first_name": "Karsten ",
+    "last_name": "Gerloff",
+    "abstract": "Karsten Gerloff works in Open Source Governance at Siemens Corporate Technology, supporting one of the world's largest engineering firms in engaging profitably with Free Software. From 2009 to 2015, he was the president of the Free Software Foundation Europe, where he led the organisation's work to put users in control of technology. As an activist, Karsten has a decade's worth of experience in representing the Free Software community's interests towards policy makers, businesses and the general public. ",
+    "avatar": "http://conf.qtcon.org//system/avatars/799/original/kg.icon_400x400.png?1467366852"
+  },
+  {
+    "id": 867,
+    "first_name": "Kristi",
+    "last_name": "Progri",
+    "abstract": "I have been involved in FLOSS communities since 2013, where I discovered the wonderful Mozilla Community in Albania also. As someone with a non technical background, contributing to Mozilla has been an inspiring process for me, as I was able to comprehend the vivid world of the open web, where everyone can contribute, regardless of their background.\r\n\r\nI became a Mozilla Rep in late 2015, after contributing as a Firefox Student Ambassador since 2014. I'm happy to have had the chance to co-organize Mozilla Weekend events in Berlin and TIrana, intensive 2 day events focused on onboarding new contributors at Mozilla.\r\n\r\nFurthermore, I have been part of the organizer committee of Open Source Conference Albania aka OSCAL, since the very first edition in 2014. The experience I gained throughout organizing local and regional events have helped me shape my vision as a Mozillian as well.\r\n\r\nCurrently, I study International Affairs at the European University of Tirana, Albania which comes in perfectly with my role as a community leader in the Albanian community, helping to grow participation and growth locally.\r\n",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 820,
+    "first_name": "Lluis",
+    "last_name": "Esquerda ",
+    "abstract": "When I started this project on the year 2010 little did I know I would end up battling city councils and companies to release their data as public feeds, nor I could imagine pybikes [3] was going to help create apps for all platforms [4] without having to code a single line. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 805,
+    "first_name": "Lydia ",
+    "last_name": "Nardaits",
+    "abstract": "Lydia Nardaits, 33 years, Berlin studied in Vienna with main focus on Digital Anthropology professionally working in diverse digital fields since 2008, currently for a global brand web project working for diverse NGOs and OS projects since 2004, specialized in fundraising experience in professional fundraising fo IT company on national & EU level fan and supporter of open source software and projects (especially open source web design, open CMS, Mozilla, Osmand, GIMP...) publication: Zur Konzeption einer digitalen Diaspora (ISBN-10: 3639346734) ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 703,
+    "first_name": "Michael",
+    "last_name": "Schloh von Bennewitz",
+    "abstract": "Michael Schloh von Bennewitz is a computer scientist specializing in network engineering, embedded design, and mobile platform development. Responsible for research, development, and maintenance of packages in several community software repositories, he actively contributes to the Opensource development community.\r\n\r\nMichael speaks four languages fluently and presents at technical events every year. He has presented for groups including Cable & Wireless, Nokia, Mozilla, Ubuntu, ARIN, Droidcon, AstriCon, Minix, the Mobile World Congress, and Dockercon. His speaking style is humorous, using gestures and good eye contact, and he writes public online slide decks in HTML5.\r\n\r\nMichael's IoT knowledge profits from years of work at telecoms and relationships with industry leaders. He is a Intel innovator, Samsung partner, and Mozilla contributor with the mandate to promote IoT technology.\r\n\r\nAdditional information is found at http://michael.schloh.com/",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 711,
+    "first_name": "Mathias",
+    "last_name": "Hasselmann",
+    "abstract": "Senior Software Engineer at KDAB focused on software architecture and craftsmanship, who has found his love in Qt during the Maemo project.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 827,
+    "first_name": "Matthias ",
+    "last_name": "Kirschner",
+    "abstract": "Matthias Kirschner is President of FSFE. In 1999 he started using GNU/Linux and realised that software is deeply involved in all aspects of our lives. Matthias is convinced that this technology has to empower society not restrict it. While studying Political and Administrative Science he joined FSFE in 2004.\r\n\r\nHe helps other organisations, companies and governments to understand how they can benefit from Free Software -- which gives everybody the rights to use, understand, adapt and share software -- and how those rights help to support freedom of speech, freedom of press or privacy.\r\n\r\nMatthias loves playing with his baby son, and in his spare time assists in wilderness first aid seminars, enjoys comics like XKCD and Transmetropolitan; Monty Python and Die Ärzte.",
+    "avatar": "http://conf.qtcon.org//system/avatars/827/original/kirschner.jpg?1466498233"
+  },
+  {
+    "id": 824,
+    "first_name": "Michael",
+    "last_name": "Christen ",
+    "abstract": "I am the maintainer of the free search engine software YaCy.net <http://yacy.net/> and I started to publish software with the GPL license in 2004. I have a Master of Computer Science degree and work as freelance consultant since 2000. Since 2008 my professional work has a relation to the free software I published. I created the first architecture for the German Digital Library because of my work for free software and I design and develop search engines for Universities, Government and Companies. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 812,
+    "first_name": "Michal",
+    "last_name": "Czyzewski",
+    "abstract": "Hacker, Free Software and crypto evangelist, privacy expert. Member of Warsaw Hackerspace and Panoptykon Foundation,host of Warsaw CryptoParty",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 831,
+    "first_name": "Michal",
+    "last_name": "Wozniak",
+    "abstract": "",
+    "avatar": "http://conf.qtcon.org//system/avatars/831/original/MichalWozniak-800x1066.jpg?1466585764"
+  },
+  {
+    "id": 821,
+    "first_name": "Miriam",
+    "last_name": "Ballhausen",
+    "abstract": "Miriam Ballhausen works as Attorney at Law at JBB Rechtsanwälte, a Berlin-based law firm specialised in IT/IP law. At JBB Rechtsanwälte Miriam Ballhausen especially advises clients on Open Source License Compliance and helps developers and rightholders enforce open source license, especially the GPL in Germany. Since joining JBB Rechtsanwälte in 2012 Miriam Ballhausen has been successfully involved in various GPL enforcement cases.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 838,
+    "first_name": "Monic ",
+    "last_name": "Meisel",
+    "abstract": "Monic is one the the co-founders of freifunk.net and organizes community events, is active in refugee projects and is board member of Förderverein freie Netzwerke e.V. She works as Senior Consultant as product manager in software projects.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 642,
+    "first_name": "Rajdeep",
+    "last_name": "Kaur",
+    "abstract": "I am a B.Tech third year student of NIT Durgapur from Computer Science stream,  I have been contributing for KDE since last year and have been enthusiastic about FOSS ever since. ",
+    "avatar": "http://conf.qtcon.org//system/avatars/642/original/IMG_40306091519208.jpeg?1455200436"
+  },
+  {
+    "id": 50,
+    "first_name": "Lydia",
+    "last_name": "Pintscher",
+    "abstract": "Lydia is the current President of KDE e.V. She is passionate about enabling people to make awesome happen around Free Software and Free Culture.",
+    "avatar": "http://conf.qtcon.org//system/avatars/50/original/Lydia-Pintscher2.jpg?1434214461"
+  },
+  {
+    "id": 802,
+    "first_name": "Peter ",
+    "last_name": "Ganten",
+    "abstract": " Peter Ganten is CEO of Univention, the company he founded in 2002. Together with the incredible team at Univention Peter has made it possible for thousands of organizations world wide to successfully use Open Source software. Peter is also the chairman of the Open Source Business Alliance, which is the Open Source business association in the German-speaking area. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 25,
+    "first_name": "Nicolás",
+    "last_name": "Alvarez",
+    "abstract": "",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 796,
+    "first_name": "Rafael ",
+    "last_name": "Laguna",
+    "abstract": "Co-founder of Open-Xchange, Rafael Laguna was chairman of the board until 2008 when he became CEO. Under his guidance, Open-Xchnage extended its product offerings into SaaS and merged with open source champions Dovecot and PowerDNS.",
+    "avatar": "http://conf.qtcon.org//system/avatars/796/original/rafael_laguna_.jpg?1466416954"
+  },
+  {
+    "id": 815,
+    "first_name": "Ralf Peter ",
+    "last_name": "Reimann",
+    "abstract": "Ralf Peter Reimann has studied computer science and Protestant theology. He is working as web team leader of the Evangelical Church in the Rhineland. He was president of the European Christian Internet Conference and he is secretary of the Word Association of Christian Communication Europe Region and blogs at theonet.de.",
+    "avatar": "http://conf.qtcon.org//system/avatars/815/original/Ralf_Peter_Reimann.jpg?1466427589"
+  },
+  {
+    "id": 800,
+    "first_name": "Regina ",
+    "last_name": "Sipos",
+    "abstract": "6+ years in the UN/ITU setting up their first platform for social entrepreneurs using tech in innovative ways and now manager of Ashoka Digital, a program for the world´s biggest network of social entrepreneurs with a new focus on digital visionaries. Apart from setting up these programs bringing the two very remote worlds together, I also gathered years of hands-on experience working with the innovators ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 145,
+    "first_name": "Jonathan",
+    "last_name": "Riddell",
+    "abstract": "Jonathan is an international freedom fighter, battling the forces of tyranny and repression through the medium of KDE software.\r\n",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 803,
+    "first_name": "Robert",
+    "last_name": "Partyka",
+    "abstract": "Robert Partyka - FLOSS activist & enthusiast. Software developer & architect. Company owner. Vice-president of the board of Polish Linux Users Group (PLUG). Enthusiast of new technologies and sf&f literature. Supporter of initiatives to promote open standards and free / open source software. For many years performing lectures on FLOSS congresses about the economics of open-source software and related topics. An activist in protection of the freedom and privacy projects like Anti-ACTA movement in Poland in 2012. ",
+    "avatar": "http://conf.qtcon.org//system/avatars/803/original/robert_p.jpg?1466502463"
+  },
+  {
+    "id": 816,
+    "first_name": "Roberto",
+    "last_name": "Di Cosmo",
+    "abstract": "Roberto Di Cosmo holds a PhD in Computer Science and is currently Computer Science professor at University Paris Diderot, after teaching for almost a decade at Ecole Normale Supérieure in Paris, and spending a few years at INRIA. He has been actively involved in research in theoretical computing, specifically in functional programming, parallel and distributed programming, the semanticsof programming languages, type systems, rewriting and linear logic. He focus now on new scientific problems posed by the general adoption of Free Software, with a particular focus on static analysis of large software collections, that were at the core of the european reseach project Mancoosi. Following the evolution of our society under the impact of IT with great interest, he is a long term Free Software advocate, contributing to its adoption since 1998 with the best-seller Hijacking the world, seminars, articles and software. He has created the Free Software thematic group of Systematic in October 2007, and is the director of IRILL, a research structure dedicated to Free and Open Source Software quality. Roberto leads the Software Heritage initiative. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 807,
+    "first_name": "Sam",
+    "last_name": "Tuke",
+    "abstract": " Sam is an Open Source entrepreneur, developer, & CEO of phpList. He's managed marketing for LibreOffice & Collabora, executed campaigns for the Free Software Foundation Europe and Gnu Privacy Guard (GnuPG), and engineered systems for ownCloud. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 798,
+    "first_name": "Sonia",
+    "last_name": "Montegiove",
+    "abstract": "Sonia Montegiove is an ICT specialist and trainer and a freelance\r\njournalist and blogger on ICT themes. She is member of the coordination\r\ngroup of the LibreUmbria, Umbrian migration project to LibreOffice. She\r\nis member of TDF and she is LibreItalia President and co-founder. She is\r\nworking with LibreItalia in the project of migration to LibreOffice of\r\nItalian Minister of Defence (120.000 desktops).",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 801,
+    "first_name": "Stefan",
+    "last_name": "Richter",
+    "abstract": "Stefan started programming in 1983 and founded his company freiheit.com technologies in 1999 because he “wanted to write code all the time”. His first task in his newly founded company was the installation of GNU/Linux on a new laptop; he was then heading out to build software that would run only in browsers, which used a Unix/Linux backend. As almost everyone was using Windows at that time, he gave his best to convince other people to move over to the free software side, too. In 2003, he became a volunteer and donor for the FSFE and an activist against proprietary software. ",
+    "avatar": "http://conf.qtcon.org//system/avatars/801/original/stefan_ritcher.jpeg?1467015638"
+  },
+  {
+    "id": 832,
+    "first_name": "Steffen",
+    "last_name": "Evers",
+    "abstract": " On one hand, software is becoming the key element for more and more businesses. On the other hand, the price for software has never been lower. In addition, today it is increasingly provisioned through the World Wide Web and cloud computing in the form of services rather than products. The successful establishment of base technologies, platforms and associated business ecosystems therefore plays an increasingly important role in the context of software. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 814,
+    "first_name": "Tobias ",
+    "last_name": "Schrank",
+    "abstract": " I am a linguist by training and a free software enthusiast ever since I started coding. Since 2015 I am also a fellow of the FSFE. I have been working at both technical and non-technical universities for several years. In this time I have experienced a wide array of different attitudes towards software and software freedom. Moreover, together with some of my colleagues I formed a working group for free software at my current lab. ",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 822,
+    "first_name": "Walter ",
+    "last_name": "Van Holst ",
+    "abstract": "Walter has a background in both information management and law. His day job is drafting IT-contracts and negotiating them. By night he moonlights as a volunteer for Vrijschrift and is their liaison to EDRi, European Digital Rights, a European umbrella for NGOs in the field of digital rights. His Twitter handle is @whvholst.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 665,
+    "first_name": "Bruno",
+    "last_name": "de Oliveira Abinader",
+    "abstract": "Bruno is an application developer at Mapbox. Open source enthusiast, Bruno has contributed to various upstream projects like KDE, WebKit and Servo for Samsung and Nokia. Thiago is a performance and embedded expert at Mapbox. Before joining Mapbox, Thiago tuned major browsers for the Intel platform and developed Qt phones at Nokia.",
+    "avatar": "http://conf.qtcon.org//system/avatars/665/original/0a132dd16b209f0830586127657bf9e1.jpeg?1463041940"
+  },
+  {
+    "id": 7,
+    "first_name": "Àlex",
+    "last_name": "Fiestas",
+    "abstract": "My name is Àlex Fiestas, I have been working at KDE for 7 years mostly\r\nwriting code in many different areas as well as in social endeavors like organizing sprint and other events.\r\n\r\nCurrently I find myself working as an architect at Open365, a cloud platform designed to compete with the likes of Google Docs/Office365 where we mix Web and Desktop technologies to achieve it.",
+    "avatar": "http://conf.qtcon.org//system/avatars/7/original/avatar.jpg?1360062556"
+  },
+  {
+    "id": 16,
+    "first_name": "Aleix",
+    "last_name": "Pol Gonzalez",
+    "abstract": "I'm Aleix Pol Gonzalez, I've been developing KDE software for longtime, I've been sponsored to do it during the last few years by Blue Systems.\r\n\r\nI'm interested in IDE's, Education software and mostly anything that will make the world better through Open Source software and technologies.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 692,
+    "first_name": "BogDan",
+    "last_name": "Vatra",
+    "abstract": "BogDan Vatra is a Software Engineer at KDAB and has been using Qt since 2002 and is the original author of Qt for Android port and the maintainer of this platform.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 371,
+    "first_name": "Bhushan",
+    "last_name": "Shah",
+    "abstract": "",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 88,
+    "first_name": "Thomas",
+    "last_name": "Pfeiffer",
+    "abstract": "As the person mainly responsible for usability matters within KDE's VDG, Thomas works to keep developers, designers and his fellow usability professionals focused on our common goal: Creating the best experience possible for our users!\r\n\r\nRecently, he has taken up an additional focus: Trying to move KDE forward as a community, both in terms of helping us find a direction and in terms of communicating with the outside world.",
+    "avatar": "http://conf.qtcon.org//system/avatars/88/original/Profilfoto_quadratisch_sw.jpg?1365894922"
+  },
+  {
+    "id": 42,
+    "first_name": "Cornelius",
+    "last_name": "Schumacher",
+    "abstract": "Cornelius found Qt in 1998 and fell in love with it. This lead him to KDE, where he stuck around until today. He has written lots of code, maintained applications, and worked on a variety of projects and initiatives. He served on the board of KDE e.V. for nine years. He also is involved in other communities, such as openSUSE, Qt, ownCloud, and makes a point of fostering collaboration between projects and communities. In his day job Cornelius works for SUSE as an engineering manager.\r\n",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 150,
+    "first_name": "David",
+    "last_name": "Edmundson",
+    "abstract": "David Edmundson is a long time KDE hacker currently working for Blue Systems. David is now an active maintainer of the Plasma desktop.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 688,
+    "first_name": "Ariel",
+    "last_name": "Molina",
+    "abstract": "CEO/Founder and lead software architect at EDIS Interactive. Working on, creating and developing highly interactive applications for mid and huge-sized multitouch screens. 5 years experience on Qt. A scientist to be, turned to an entrepreneur who successfully leveraged science background with visually rich elements to generate impressive applications for entertainment, museums, education and fun.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 314,
+    "first_name": "David",
+    "last_name": "Faure",
+    "abstract": "David Faure, very-long-time KDE developer (some say \"dinosaur\").\r\nMaintainer of many parts of the KDE frameworks (component technology, network\r\ntransparency, compression file formations, applications cache)\r\nand contributes to Qt 5 as needed by the KDE frameworks.\r\n",
+    "avatar": "http://conf.qtcon.org//system/avatars/314/original/david-cm-photoshoot.jpg?1428142148"
+  },
+  {
+    "id": 17,
+    "first_name": "Daniel",
+    "last_name": "Vrátil",
+    "abstract": "Daniel is a software engineer at KDAB and an active KDE contributor. In KDE he works primarily on the KDE PIM. Daniel also contributes to the Fedora distribution as co-maintainer of the KDE stack.",
+    "avatar": "http://conf.qtcon.org//system/avatars/17/original/redhat-avatar.jpg?1363095641"
+  },
+  {
+    "id": 698,
+    "first_name": "Johan",
+    "last_name": "Thelin",
+    "abstract": "Johan Thelin has worked with Qt for more than 10 years and is the author of the Foundations of Qt Development.",
+    "avatar": "http://conf.qtcon.org//system/avatars/698/original/Johan_Thelin.png?1465680516"
+  },
+  {
+    "id": 663,
+    "first_name": "Shawn",
+    "last_name": "Rutledge",
+    "abstract": "Qt Quick maintainer, trying to focus on better support for pointing devices: tablets, touchscreens and mice.  End up doing a lot of other things with Qt.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 124,
+    "first_name": "Kevin",
+    "last_name": "Ottens",
+    "abstract": "Kevin Ottens has more than 10 years experience working with Qt. He is also a long term contributor of the KDE community where he focused for a long while on libraries API design and architecture. Graduating in 2007, he has a PhD in computer science which led him to focus on ontologies engineering and multi-agent systems. In 2012, he participated in the creation of the KDE Manifesto. Nowadays he spends time rethinking his job via a strong interest in software craftsmanship. Kevin's job at KDAB includes giving trainings and the responsibility of community liaison with KDE. He still lives in Toulouse where he serves as part time teacher in his former university.",
+    "avatar": "http://conf.qtcon.org//system/avatars/124/original/kevin_ottens.png?1399407684"
+  },
+  {
+    "id": 158,
+    "first_name": "Helio",
+    "last_name": "Chissini de Castro",
+    "abstract": "Helio Chissini de Castro is Software Integrator Engineer from BMW CarIT software development and long time KDE contributor. At BMW CarIT is working right now on the LSi team, Linux Software Integration, in the enablement of QtCreator as main IDE to drive the personalized SDK for future projects.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 709,
+    "first_name": "Tobias",
+    "last_name": "Hunger",
+    "abstract": "Tobias Hunger works for The Qt Company on Qt Creator.",
+    "avatar": "http://conf.qtcon.org//system/avatars/709/original/avatar.jpg?1464875018"
+  },
+  {
+    "id": 155,
+    "first_name": "Ivan",
+    "last_name": "Čukić",
+    "abstract": "Have been a long time KDE contributor mainly working on the Plasma workspace, and lower-level frameworks for tracking and predicting the user actions.\r\n\r\nLately, a vocal evangelist regarding the use of the new C++11 features, as well as older seldomly known C++ idioms, for cleaner and safer development practices throughout the KDE community.",
+    "avatar": "http://conf.qtcon.org//system/avatars/155/original/ivan_cukic.png?1461231971"
+  },
+  {
+    "id": 256,
+    "first_name": "Jean-Baptiste",
+    "last_name": "Kempf",
+    "abstract": "Jean-Baptiste Kempf is the president of the VideoLAN non-profit organization and one of the lead developers of the open source VLC media player.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 96,
+    "first_name": "Jan",
+    "last_name": "Grulich",
+    "abstract": "I'm a software engineer at Red Hat where my responsibility is to maintain KDE and Qt in Red Hat Enterprise Linux and Fedora. I also contribute to few KDE projects related to NetworkManager and ModemManager support in KDE.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 655,
+    "first_name": "James",
+    "last_name": "McDonnell",
+    "abstract": "Software Engineer at QNX Software Systems",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 694,
+    "first_name": "Johan",
+    "last_name": "Helsing",
+    "abstract": "Johan is a software engineer at The Qt Company in Oslo, Norway. Since February 2016 he has been working with the graphics team on the QtWayland module. He has previously worked in IT consulting for Bekk Consulting AS. Johan holds a M. Sc. degree in computer science from the Norwegian University of Science and Technology (NTNU).",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 398,
+    "first_name": "Kai Uwe",
+    "last_name": "Broulik",
+    "abstract": "23 years old, KDE Plasma core developer, working as a software developer with focus on QML-based apps for iOS, Android, and other thriving mobile platforms.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 231,
+    "first_name": "Kevin",
+    "last_name": "Funk",
+    "abstract": "Software engineer at KDAB, Kevin has actively developed with Qt since 2006 and has a special interest in tooling and profiling. An active contributor to KDAB's GammaRay analyzer, state machine tooling, Kevin is responsible for the Continuous Integration System within KDAB. He's one of the lead developers of the KDevelop IDE, and is pushing for cross-platform success inside KDE. Kevin holds a Masters Degree in Computer Science",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 683,
+    "first_name": "Florent",
+    "last_name": "Revest",
+    "abstract": "19 years old computer science student at INSA Toulouse, I've been crazy about programming and free softwares since my youngest age. I already created several open-source embedded projects like a Qt4 Desktop Environment, an x86 experimental kernel, a quadcopter autopilot and ground control station and a FOSS OS for smartwatches.",
+    "avatar": "http://conf.qtcon.org//system/avatars/683/original/908424.jpeg?1463228852"
+  },
+  {
+    "id": 675,
+    "first_name": "Kai",
+    "last_name": "Koehne",
+    "abstract": "Kai is a Senior Manager R&D at The Qt Company. He's currently heading the WebEngine and BuildSystems team in the Berlin office of The Qt Company.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 653,
+    "first_name": "Laszlo",
+    "last_name": "Agocs",
+    "abstract": "Laszlo is a senior software engineer at The Qt Company in Oslo, Norway. After years of UI framework development on various Nokia mobile platforms and developing mobile GPUs at ARM, he is now working full time on Qt. His focus is on graphics and windowing system integrations, in particular on devices running Embedded Linux. However, in a true cross-platform Qt spirit, he is not afraid of other platforms either. He is a major contributor to QtGui, QtQuick, and is the maintainer of the embedded-focused linuxfb and eglfs platform plugins.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 549,
+    "first_name": "Dan Leinir Turthra",
+    "last_name": "Jensen",
+    "abstract": "Dan, or Leinir as they are known to most, has been an active part of the KDE community for about a decade, through their time at university, which resulted in a Master's degree in Information Technology specialising in Game and Engine Programming. While still at university, they were headhunted to work on the openDesktop.org content distribution network, as a part of the Bretzn project. More recently they were a part of the Calligra team which cooperated with Intel on the creation of Calligra Gemini, an office suite designed for use with multi form factor devices, and which they are now the official maintainer of. After the conclusion of that project, they were hired by blue systems to begin work on Shashlik, and after a while of working on that moved onto building the Peruse comic book reader. Outside of employment, they have worked on the Amarok and GamingFreedom.org projects, and outside of KDE is an author of science fiction and not too shabby when it comes to knocking up a bit of food.",
+    "avatar": "http://conf.qtcon.org//system/avatars/549/original/texrat-leinir_256x256-plug-bg.png?1463562487"
+  },
+  {
+    "id": 46,
+    "first_name": "Martin",
+    "last_name": "Gräßlin",
+    "abstract": "Martin Gräßlin is a KDE developer since 2008 with primary focus on the window manager and compositor of the KDE Plasma workspaces, KWin. He is employed by BlueSystems GmbH to work on KWin and Plasma.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 22,
+    "first_name": "Milian",
+    "last_name": "Wolff",
+    "abstract": "I work at KDAB as a Software Engineer and contribute to KDE for quite some years now. I am one of the most active contributors to KDevelop and Kate. Tooling in general is of huge interest to me, I wrote the Massif-Visualizer and more recently heaptrack to aid developers in improving the memory consumption of their applications. Additionally, I started to contribute to Linux perf. At KDAB I also worked on GammaRay which is invaluable to any Qt developer. Recently, I also started training developers in the art of debugging and profiling software with various tools.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 134,
+    "first_name": "Mirko",
+    "last_name": "Boehm",
+    "abstract": "KDE dinosaur. ThreadWeaver developer. Organised 2 Akademies. Author of the KDE e.V. statutes.",
+    "avatar": "http://conf.qtcon.org//system/avatars/134/original/Mirko-for_Dummies.jpg?1464453358"
+  },
+  {
+    "id": 437,
+    "first_name": "Mustapha",
+    "last_name": "Abubakar",
+    "abstract": "Mustapha is a Qt C++ programmer. He is working with the translation project of KDE Desktop Environment into HAUSA Language and had the opportunity to participate in KDE aKademy in 2008.\r\n\r\nMustapha and Nasiru are the key organizers of the first international conference on free and open source software in Nigeria which took place at Bayero University Kano (BUK) in collaboration with HUTSOFT Nigeria with more than 500 participants in 2009 and 2010.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 89,
+    "first_name": "Marta",
+    "last_name": "Rybczyńska",
+    "abstract": "Marta Rybczynska has network security background and 10 years of experience in embedded development. She has been working with embedded operating systems like Linux and various real-time ones, system libraries and frameworks up to user interfaces. Currently she is working at Kalray on the device drivers and operating systems on the massive multicore MPPA256 platform. Her other activites include contribution to KDE where she is Vice-President and Treasurer of KDE e.V. She has experience with presentations on both scientific and free software conferences and is interested in public speaking.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 704,
+    "first_name": "Morten",
+    "last_name": "Sørvig",
+    "abstract": "Morten Johan Sørvig has contributed to the high-DPI support in Qt.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 212,
+    "first_name": "Jędrzej",
+    "last_name": "Nowacki",
+    "abstract": "Jędrzej Nowacki is a senior software engineer at The Qt Company. He started programing at the age of seven and have not stopped since. For the last few years he has worked with and for Qt, under different company names. His focus changed from QtWebkit and QtScript to QtCore and Enginio modules, to Coin (Qt continuous integration system) but still he enjoys improving different parts of Qt.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 684,
+    "first_name": "Ralf",
+    "last_name": "Nolden",
+    "abstract": "I'm a former KDevelop, KDE developer(1998-2004), since 2004 working again in electrical engineering and industrial automation. Since 2014, restarted my involvement through Qt programming and FreeBSD ports maintenance participation in the KDE/FreeBSD initiative.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 695,
+    "first_name": "Paolo",
+    "last_name": "Angelelli",
+    "abstract": "Paolo Angelelli is a software engineer at The Qt Company in Oslo. He's passionate about Qt, graphics and multimedia and his current focus is on QtLocation.\r\nHe has a background in scientific visualization. \r\nIn his spare time he enjoys tennis and hacking together Qt applications.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 686,
+    "first_name": "Giuseppe",
+    "last_name": "D'Angelo",
+    "abstract": "Giuseppe holds a BSc in Computer Science. He is a long time contributor to Qt, having used Qt since 2000, and an Approver in the Qt Project. In KDAB, Giuseppe is a Senior Software Engineer and a Trainer, working on a number of C++ and QML projects, most of them requiring OpenGL knowledge. His contributions to Qt range from containers and regular expressions to GUI and OpenGL. A free software passionate, before joining KDAB, he organized conferences on opensource around Italy, especially about Perl.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 112,
+    "first_name": "Pradeepto",
+    "last_name": "Bhattacharya",
+    "abstract": "Pradeepto Bhattacharya was the founder of KDE India. He has contributed to KDE in different ways - code & community. Previously he has served as a Director in the KDE e.V. Board. He has been organising conf.kde.in either as the main organiser or as a mentor since 2011. Previously he has been spreading the word of KDE across India by speaking at various conferences and universities.\r\n\r\nHe works for Red Hat Technologies as member of the newly formed Developer Tools Engineering Group. He lives with his wife in Pune.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 673,
+    "first_name": "Richard",
+    "last_name": "Moore",
+    "abstract": "CTO of Westpoint Ltd (Security Testing), SSL/TLS hacker, maintainer of Qt Network and long time KDE developer.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 594,
+    "first_name": "Sagar Chand",
+    "last_name": "Agarwal",
+    "abstract": "Google Summer of Code 2015, Google Summer of Code 2016 Mentor, Google Code-In 2015 Mentor and Season of KDE Mentor",
+    "avatar": "http://conf.qtcon.org//system/avatars/594/original/12932806_600607236771274_4754099135534365943_n.jpg?1462718307"
+  },
+  {
+    "id": 541,
+    "first_name": "Sandro",
+    "last_name": "Andrade",
+    "abstract": "Sandro Andrade is a professor at Federal Institute of Education, Science, and Technology of Bahia (IFBA) - Brazil. He holds a PhD in Computer Science and has been involved in projects with C++ since 1996 and has nearly 14 years of experience with Qt development. Since 2008, Sandro has been doing contributions in coding, promotion, and community management for KDE.",
+    "avatar": "http://conf.qtcon.org//system/avatars/541/original/sandro-fisl17.png?1463952951"
+  },
+  {
+    "id": 101,
+    "first_name": "Sebastian",
+    "last_name": "Kügler",
+    "abstract": "Sebastian has been working on Plasma from its beginnings. He maintains several of the default components in Plasma, and has worked on almost all parts of it at one time or another. Sebastian has also been instrumental in setting up the KDE e.V. Marketing Working group, has served on KDE e.V.'s board of directors for several years, and has managed the releases of KDE SC throughout the KDE SC 4 series.\r\nSebastian works for Blue Systems, where he leads the team working on KDE projects. In his free time, he enjoys scuba diving, photography, travelling and likes to indulge in food and music.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 44,
+    "first_name": "Stephen",
+    "last_name": "Kelly",
+    "abstract": "Stephen has been a KDE user and contributor for almost 10 years, moving through the application stack to the Frameworks and the buildsystem. This also led to contributions in Qt through the qt-project and consulting as part of KDAB.\r\n\r\nCurrently Stephen is at Ableton in Berlin working on frameworks based on Qt and QML.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 674,
+    "first_name": "Ulf",
+    "last_name": "Hermann",
+    "abstract": "Ulf Hermann has been working at Digia and the Qt Company since 2013, mostly on tooling integration between Qt and Qt Creator, with a special focus on the QML profiler.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 403,
+    "first_name": "Mario",
+    "last_name": "Fux",
+    "abstract": "Using and contributing to Free Software and Open Data since more than 15 years in 2009 I started to organize the annual Randa Meetings. Beneath Akademy these are the biggest sprints or meetings KDE organizes. Personally I have a Master's degree in education, computer sciences and computational linguistics, working as a teacher and webmaster and am married and a father of 1 and 4 years old sons.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 341,
+    "first_name": "Jos",
+    "last_name": "van den Oever",
+    "abstract": "Jos is a KDE contributor since 2005 and has worked in Calligra (previously KOffice), WebODF and Strigi. Jos is the KDE representative for the OpenDocument Format at OASIS.\r\n",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 118,
+    "first_name": "Volker",
+    "last_name": "Krause",
+    "abstract": "Volker started working with Qt and contributing to KDE back in 2002. He maintained KDE's personal information management service Akonadi for a few years and in 2010 he started the GammaRay project, to address the need for (by then not yet existing) QML debugging tools. Volker is a Qt approver and works as software engineer, consultant and trainer at KDAB, and leads KDAB's contributions to the Qt Automotive Suite.",
+    "avatar": "http://conf.qtcon.org//system/avatars/118/original/volker.jpg?1363374023"
+  }
+]

@@ -15,9 +15,11 @@ const QString settingsDataFile = "/settingsData.json";
 
 using namespace ekke::constants;
 
-ApplicationUI::ApplicationUI(QObject *parent) : QObject(parent), mDataManager(new DataManager(this))
+ApplicationUI::ApplicationUI(QObject *parent) : QObject(parent), mDataManager(new DataManager(this)), mDataUtil(new DataUtil(this))
 {
     mSettingsData = mDataManager->settingsData();
+
+    mDataUtil->init(mDataManager);
 
     mCachingDone = false;
     mCachingInWork = false;
@@ -27,6 +29,7 @@ ApplicationUI::ApplicationUI(QObject *parent) : QObject(parent), mDataManager(ne
 void ApplicationUI::addContextProperty(QQmlContext *context)
 {
     context->setContextProperty("dataManager", mDataManager);
+    context->setContextProperty("dataUtil", mDataUtil);
 }
 
 /* Change Theme Palette */

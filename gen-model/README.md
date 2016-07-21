@@ -12,3 +12,5 @@ The Generator is based on a Generator for BlackBerry 10 - Cascades APPS and must
 At the end in some months you'll found it Open Source (http://mobaDSL.org)
 
 At the moment excuse not-so-optimal-generated code ;-)
+
+c2gQtCon.dtos contains the data model. (Xtext, Xtend)

@@ -85,21 +85,12 @@ Flickable {
             }
             HorizontalDivider {}
             RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Have FUN playing around with the App\nPlease remember: this is only an EXAMPLE App demonstrating HowTo use QtQuickControls 2\nA full featured Business App of course will have some more logic behind the scene.\n")
-                }
-            }
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Please follow my blog to understand the concepts.\n")
+                ButtonFlat {
+                    text: qsTr("prepare")
+                    textColor: primaryColor
+                    onClicked: {
+                        dataUtil.prepareConference()
+                    }
                 }
             }
             HorizontalDivider {}

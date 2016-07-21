@@ -24,7 +24,8 @@ HEADERS += \
     cpp/gen/SessionTrack.hpp \
     cpp/gen/Speaker.hpp \
     cpp/gen/SpeakerAPI.hpp \
-    cpp/gen/SpeakerImage.hpp
+    cpp/gen/SpeakerImage.hpp \
+    cpp/datautil.hpp
 
 SOURCES += cpp/main.cpp \
     cpp/applicationui.cpp \
@@ -44,7 +45,8 @@ SOURCES += cpp/main.cpp \
     cpp/gen/SessionTrack.cpp \
     cpp/gen/Speaker.cpp \
     cpp/gen/SpeakerAPI.cpp \
-    cpp/gen/SpeakerImage.cpp
+    cpp/gen/SpeakerImage.cpp \
+    cpp/datautil.cpp
 
 lupdate_only {
     SOURCES +=  qml/main.qml \
@@ -66,8 +68,9 @@ OTHER_FILES += images/black/*.png \
     images/extra/*.png \
     translations/*.* \
     data-assets/*.json \
-	data-assets/prod/*.json \
-	data-assets/test/*.json \
+    data-assets/prod/*.json \
+    data-assets/test/*.json \
+    data-assets/conference/*.json \
     images/LICENSE \
     LICENSE \
     *.md
@@ -116,4 +119,4 @@ qtPrepareTool(LRELEASE, lrelease)
  }
 
 DISTFILES += \
-    cpp/gen/README.md
+    gen-model/README.md

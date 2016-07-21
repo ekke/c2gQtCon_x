@@ -1,7 +1,9 @@
 <RCC>
     <qresource prefix="/">
         <file>data-assets/cacheSettingsData.json</file>
-		<file>data-assets/prod/cacheCustomer.json</file>
-		<file>data-assets/test/cacheCustomer.json</file>
+        <file>data-assets/prod/cacheCustomer.json</file>
+        <file>data-assets/test/cacheCustomer.json</file>
+        <file>data-assets/conference/schedule.json</file>
+        <file>data-assets/conference/speakers.json</file>
     </qresource>
 </RCC>

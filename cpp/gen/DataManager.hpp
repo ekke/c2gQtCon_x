@@ -45,6 +45,9 @@ Q_PROPERTY(QQmlListProperty<SpeakerAPI> speakerAPIPropertyList READ speakerAPIPr
 
 public:
     DataManager(QObject *parent = 0);
+	
+	friend class DataUtil;
+	
     virtual ~DataManager();
     Q_INVOKABLE
     void init();

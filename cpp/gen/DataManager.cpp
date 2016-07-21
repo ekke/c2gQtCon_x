@@ -64,7 +64,7 @@ DataManager::DataManager(QObject *parent) :
         if(!ok) {
             qFatal("App won't work - cannot create data directory");
         }
-        qDebug() << "Data Path redirected to PUBLIC CCHE: " << mDataPath;
+        qDebug() << "Data Path redirected to PUBLIC CACHE: " << mDataPath;
         // tip: copy settingsData to public cache to see the content
         // but settings will always be used from AppDataLocation
     }
