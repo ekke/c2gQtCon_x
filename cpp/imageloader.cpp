@@ -10,7 +10,6 @@
 #include <QSslConfiguration>
 #include <qfile.h>
 #include <QImage>
-#include <QBuffer>
 
 /**
  *  This class implements a image loader which will initialize a network request in asynchronous manner.
@@ -39,6 +38,8 @@ void ImageLoader::loadSpeaker(QObject* dataObject)
     // stores the object so we can catch it later
     request.setOriginatingObject(dataObject);
 
+    // QtCon redirects Speaker Images to https://
+    // to avoid ssl errors:
     QSslConfiguration conf = request.sslConfiguration();
     conf.setPeerVerifyMode(QSslSocket::VerifyNone);
     request.setSslConfiguration(conf);
@@ -69,6 +70,8 @@ void ImageLoader::onReplyFinished()
                         reply->deleteLater();
                         return;
                     }
+                    // using a QImage because downloaded speaker images can have different dpi - so we adjust this here-
+                    // dpi = dpm * 0.0254   dpm = spi/0.0254
                     // we want to have 72 dpi (2835 dpm) images
                     if(originImage.dotsPerMeterX() > 2835) {
                         originImage.setDotsPerMeterX(2835);
@@ -77,8 +80,7 @@ void ImageLoader::onReplyFinished()
                         originImage.setDotsPerMeterY(2835);
                     }
                     originImage.save(m_filename);
-                    // using a QImage because downloaded speaker images can have different dpi - so we adjust this here-
-    //                // write to file
+    //                // this is normaly used for images without any modifications:
     //                QFile dataFile(m_filename);
     //                dataFile.open(QIODevice::WriteOnly);
     //                dataFile.write(data);
