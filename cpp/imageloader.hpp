@@ -28,7 +28,8 @@ public:
 
 Q_SIGNALS:
 
-    void loaded(QObject* dataObject, bool success);
+    void loaded(QObject* dataObject, int width, int height);
+    void loadingFailed(QObject* dataObject, QString message);
 
 private Q_SLOTS:
 

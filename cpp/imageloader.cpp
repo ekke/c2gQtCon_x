@@ -9,6 +9,8 @@
 #include <QtNetwork/qnetworkreply.h>
 #include <QSslConfiguration>
 #include <qfile.h>
+#include <QImage>
+#include <QBuffer>
 
 /**
  *  This class implements a image loader which will initialize a network request in asynchronous manner.
@@ -16,7 +18,7 @@
  *  Then it signals the interested parties about the result.
  */
 ImageLoader::ImageLoader(const QString &imageUrl, const QString &filename, QObject* parent) :
-        QObject(parent), m_imageUrl(imageUrl), m_filename(filename)
+    QObject(parent), m_imageUrl(imageUrl), m_filename(filename)
 {
 }
 
@@ -55,35 +57,49 @@ void ImageLoader::onReplyFinished()
 {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
 
-    QString response;
     if (reply) {
         if (reply->error() == QNetworkReply::NoError) {
             const int available = reply->bytesAvailable();
             if (available > 0) {
-                const QByteArray data(reply->readAll());
-
                 int httpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                if(httpStatusCode == 301) {
-                    qDebug() << "301: Content Moved Permanently: " << m_imageUrl;
-                    qDebug() << "NOW: " << reply->header(QNetworkRequest::LocationHeader);
-                    emit loaded(reply->request().originatingObject(), false);
-                    return;
+                if(httpStatusCode == 200) {
+                    QImage originImage = QImage::fromData(reply->readAll());
+                    if(originImage.isNull()) {
+                        emit loadingFailed(reply->request().originatingObject(), "Cannot construct Image from data: " + m_imageUrl);
+                        reply->deleteLater();
+                        return;
+                    }
+                    // we want to have 72 dpi (2835 dpm) images
+                    if(originImage.dotsPerMeterX() > 2835) {
+                        originImage.setDotsPerMeterX(2835);
+                    }
+                    if(originImage.dotsPerMeterY() > 2835) {
+                        originImage.setDotsPerMeterY(2835);
+                    }
+                    originImage.save(m_filename);
+                    // using a QImage because downloaded speaker images can have different dpi - so we adjust this here-
+    //                // write to file
+    //                QFile dataFile(m_filename);
+    //                dataFile.open(QIODevice::WriteOnly);
+    //                dataFile.write(data);
+    //                dataFile.close();
+                    emit loaded(reply->request().originatingObject(), originImage.width(), originImage.height());
+                } else {
+                    QString message;
+                    if(httpStatusCode == 301) {
+                        message = "redirected to "+reply->header(QNetworkRequest::LocationHeader).toString();
+
+                    } else {
+                        message = "Wrong HTTP Status: " + httpStatusCode;
+                    }
+                    emit loadingFailed(reply->request().originatingObject(), message);
                 }
-                qDebug() << "HTTP Status: " << httpStatusCode << " " << m_filename;
-                // write to file
-                QFile dataFile(m_filename);
-                dataFile.open(QIODevice::WriteOnly);
-                dataFile.write(data);
-                dataFile.close();
-                emit loaded(reply->request().originatingObject(), true);
             }
         } else {
-            qDebug() << "CANNOT write image " << m_filename << " error: " << reply->error() << reply->errorString();
-            emit loaded(reply->request().originatingObject(), false);
+            qDebug() << "ERROR loading image " << m_filename << " " << reply->error() << reply->errorString();
+            emit loadingFailed(reply->request().originatingObject(), reply->errorString());
         }
 
         reply->deleteLater();
-    } else {
-        // ????
     }
 }
