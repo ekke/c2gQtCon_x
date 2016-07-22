@@ -29,10 +29,45 @@ void DataUtil::prepareConference() {
         qWarning() << "Preparation must be done from public cache";
         return;
     }
-
-    // QString schedulePath = mDataManager->mDataAssetsPath + "conference/schedule.json";
-    QString speakersPath = mDataManager->mDataAssetsPath + "conference/speakers.json";
     qDebug() << "PREPARE CONFERENCE ";
+    // prepare sessions
+    prepareSessions();
+    // prepare speaker
+    prepareSpeaker();
+    // download speaker images
+    prepareSpeakerImages();
+
+}
+
+void DataUtil::prepareSessions()
+{
+    QString schedulePath = mDataManager->mDataAssetsPath + "conference/schedule.json";
+    qDebug() << "PREPARE SESSIONS ";
+    QVariantList dataList;
+
+    QFile readFile(schedulePath);
+    if(!readFile.exists()) {
+        qWarning() << "Schedule Path not found " << schedulePath;
+        return;
+    }
+    if (!readFile.open(QIODevice::ReadOnly)) {
+        qWarning() << "Couldn't open file: " << schedulePath;
+        return;
+    }
+    QJsonDocument jda = QJsonDocument::fromJson(readFile.readAll());
+    readFile.close();
+    if(!jda.isObject()) {
+        qWarning() << "Couldn't create JSON from file: " << schedulePath;
+        return;
+    }
+    qDebug() << "QJsonDocument for schedule with Object :)";
+    // TODO
+}
+
+void DataUtil::prepareSpeaker()
+{
+    QString speakersPath = mDataManager->mDataAssetsPath + "conference/speakers.json";
+    qDebug() << "PREPARE SPEAKER ";
     QVariantList dataList;
 
     QFile readFile(speakersPath);
@@ -80,7 +115,7 @@ void DataUtil::prepareConference() {
             } else {
                 SpeakerImage* speakerImage = mDataManager->createSpeakerImage();
                 speakerImage->setSpeakerId(speaker->speakerId());
-                speakerImage->setOriginImageUrl(avatar);
+                speakerImage->setOriginImageUrl(avatar.replace("http://","https://"));
                 speakerImage->setSuffix(sl.last());
                 mDataManager->insertSpeakerImage(speakerImage);
                 speaker->resolveSpeakerImageAsDataObject(speakerImage);
@@ -90,4 +125,20 @@ void DataUtil::prepareConference() {
     } // end for
     mDataManager->saveSpeakerToCache();
     mDataManager->saveSpeakerImageToCache();
+}
+
+void DataUtil::prepareSpeakerImages()
+{
+    QString speakerImagessPath = mDataManager->mDataPath; //  + "conference/speaker_origin/";
+    for (int i = 0; i < mDataManager->mAllSpeakerImage.size(); ++i) {
+        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->mAllSpeakerImage.at(i);
+        QString fileName;
+        fileName = "speaker_";
+        fileName.append(QString::number(speakerImage->speakerId()));
+        fileName.append('.');
+        fileName.append(speakerImage->suffix());
+        mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagessPath+fileName, this);
+        // connect
+        mImageLoader->loadSpeaker(speakerImage);
+    }
 }

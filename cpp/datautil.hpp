@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "gen/DataManager.hpp"
+#include "imageloader.hpp"
 
 class DataUtil : public QObject
 {
@@ -15,6 +16,15 @@ public:
     Q_INVOKABLE
     void prepareConference();
 
+    Q_INVOKABLE
+    void prepareSessions();
+
+    Q_INVOKABLE
+    void prepareSpeaker();
+
+    Q_INVOKABLE
+    void prepareSpeakerImages();
+
 signals:
 
 public slots:
@@ -22,6 +32,8 @@ public slots:
 private:
 
     DataManager* mDataManager;
+
+    ImageLoader* mImageLoader;
 
 };
 

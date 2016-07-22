@@ -2,7 +2,7 @@
 TEMPLATE = app
 TARGET = c2gQtCon_x
 
-QT += qml quick core
+QT += qml quick core network
 CONFIG += c++11
 
 HEADERS += \
@@ -25,7 +25,8 @@ HEADERS += \
     cpp/gen/Speaker.hpp \
     cpp/gen/SpeakerAPI.hpp \
     cpp/gen/SpeakerImage.hpp \
-    cpp/datautil.hpp
+    cpp/datautil.hpp \
+    cpp/imageloader.hpp
 
 SOURCES += cpp/main.cpp \
     cpp/applicationui.cpp \
@@ -46,7 +47,8 @@ SOURCES += cpp/main.cpp \
     cpp/gen/Speaker.cpp \
     cpp/gen/SpeakerAPI.cpp \
     cpp/gen/SpeakerImage.cpp \
-    cpp/datautil.cpp
+    cpp/datautil.cpp \
+    cpp/imageloader.cpp
 
 lupdate_only {
     SOURCES +=  qml/main.qml \
