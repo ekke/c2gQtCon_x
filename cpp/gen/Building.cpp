@@ -319,6 +319,7 @@ void Building::setFloors(QList<Floor*> floors)
 	if (floors != mFloors) {
 		mFloors = floors;
 		emit floorsChanged(floors);
+		emit floorsPropertyListChanged();
 	}
 }
 

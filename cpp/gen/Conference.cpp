@@ -652,6 +652,7 @@ void Conference::setDays(QList<Day*> days)
 	if (days != mDays) {
 		mDays = days;
 		emit daysChanged(days);
+		emit daysPropertyListChanged();
 	}
 }
 

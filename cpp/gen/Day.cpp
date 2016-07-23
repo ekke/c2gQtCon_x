@@ -361,6 +361,7 @@ void Day::setSessions(QList<Session*> sessions)
 	if (sessions != mSessions) {
 		mSessions = sessions;
 		emit sessionsChanged(sessions);
+		emit sessionsPropertyListChanged();
 	}
 }
 

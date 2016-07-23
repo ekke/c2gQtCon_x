@@ -430,6 +430,7 @@ void Floor::setRooms(QList<Room*> rooms)
 	if (rooms != mRooms) {
 		mRooms = rooms;
 		emit roomsChanged(rooms);
+		emit roomsPropertyListChanged();
 	}
 }
 

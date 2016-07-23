@@ -1451,6 +1451,7 @@ void Session::setPresenter(QList<Speaker*> presenter)
 	if (presenter != mPresenter) {
 		mPresenter = presenter;
 		emit presenterChanged(presenter);
+		emit presenterPropertyListChanged();
 	}
 }
 

@@ -598,6 +598,7 @@ void SessionAPI::setPersons(QList<PersonsAPI*> persons)
 	if (persons != mPersons) {
 		mPersons = persons;
 		emit personsChanged(persons);
+		emit personsPropertyListChanged();
 	}
 }
 
