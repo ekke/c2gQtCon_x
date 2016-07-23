@@ -5,6 +5,7 @@
 #include <QJsonObject>
 #include <QFile>
 #include <QDir>
+#include <QImage>
 
 DataUtil::DataUtil(QObject *parent) : QObject(parent)
 {
@@ -69,7 +70,7 @@ void DataUtil::prepareConference() {
 
 void DataUtil::prepareSessions()
 {
-    QString schedulePath = mDataManager->mDataAssetsPath + "conference/schedule.json";
+    const QString schedulePath = mDataManager->mDataAssetsPath + "conference/schedule.json";
     qDebug() << "PREPARE SESSIONS ";
     QVariantList dataList;
 
@@ -94,7 +95,7 @@ void DataUtil::prepareSessions()
 
 void DataUtil::prepareSpeaker()
 {
-    QString speakersPath = mDataManager->mDataAssetsPath + "conference/speakers.json";
+    const QString speakersPath = mDataManager->mDataAssetsPath + "conference/speakers.json";
     qDebug() << "PREPARE SPEAKER ";
     QVariantList dataList;
 
@@ -157,7 +158,7 @@ void DataUtil::prepareSpeaker()
 
 void DataUtil::prepareSpeakerImages()
 {
-    QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
     qDebug() << "storing Speaker Images here: " << speakerImagesPath;
     if (mDataManager->allSpeakerImage().size() > 0) {
         SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->mAllSpeakerImage.at(0);
@@ -185,8 +186,9 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
     speakerImage->setDownloadFailed(false);
     speakerImage->setInAssets(true);
     speakerImage->setInData(false);
+    prepareHighDpiImages(speakerImage, width, height);
     // more to load ?
-    QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
     for (int i = 0; i < mDataManager->allSpeakerImage().size(); ++i) {
         SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->allSpeakerImage().at(i);
         if (!speakerImage->downloadSuccess() && !speakerImage->downloadFailed()) {
@@ -208,4 +210,98 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
     } // for all speaker images
     qDebug() << "cache SPEAKER IMAGES";
     mDataManager->saveSpeakerImageToCache();
+}
+
+void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {
+    const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    QString fileName;
+    fileName = speakerImagesPath + "speaker_";
+    fileName.append(QString::number(speakerImage->speakerId()));
+    QString originFileName;
+    originFileName = fileName + "." + speakerImage->suffix();
+    const int size1 = 48;
+    const int size2 = 96;
+    const int size3 = 144;
+    const int size4 = 192;
+    if(width >= height) {
+        if(width < size1) {
+            speakerImage->setMaxScaleFactor(0);
+            return;
+        }
+        QFile originFile(originFileName);
+        if(!originFile.exists()) {
+            qWarning() << "SpeakerImage Path not found " << originFileName;
+            return;
+        }
+        if (!originFile.open(QIODevice::ReadOnly)) {
+            qWarning() << "Couldn't open file: " << originFileName;
+            return;
+        }
+        QImage originImage = QImage::fromData(originFile.readAll());
+        if(originImage.isNull()) {
+            qWarning() << "Cannot construct Image from file: " << originFileName;
+            return;
+        }
+         QImage scaledImage;
+        if(width >= size1) {
+            scaledImage = originImage.scaledToWidth(size1);
+            scaledImage.save(originFileName);
+            speakerImage->setMaxScaleFactor(1);
+        }
+        if(width >= size2) {
+            scaledImage = originImage.scaledToWidth(size2);
+            scaledImage.save(fileName+"@2x."+speakerImage->suffix());
+            speakerImage->setMaxScaleFactor(2);
+        }
+        if(width >= size3) {
+            scaledImage = originImage.scaledToWidth(size3);
+            scaledImage.save(fileName+"@3x."+speakerImage->suffix());
+            speakerImage->setMaxScaleFactor(3);
+        }
+        if(width >= size4) {
+            scaledImage = originImage.scaledToWidth(size4);
+            scaledImage.save(fileName+"@4x."+speakerImage->suffix());
+            speakerImage->setMaxScaleFactor(4);
+        }
+    } else {
+        if(height < size1) {
+            speakerImage->setMaxScaleFactor(0);
+            return;
+        }
+        QFile originFile(originFileName);
+        if(!originFile.exists()) {
+            qWarning() << "SpeakerImage Path not found " << originFileName;
+            return;
+        }
+        if (!originFile.open(QIODevice::ReadOnly)) {
+            qWarning() << "Couldn't open file: " << originFileName;
+            return;
+        }
+        QImage originImage = QImage::fromData(originFile.readAll());
+        if(originImage.isNull()) {
+            qWarning() << "Cannot construct Image from file: " << originFileName;
+            return;
+        }
+         QImage scaledImage;
+        if(height >= size1) {
+            scaledImage = originImage.scaledToHeight(size1);
+            scaledImage.save(originFileName);
+            speakerImage->setMaxScaleFactor(1);
+        }
+        if(height >= size2) {
+            scaledImage = originImage.scaledToHeight(size2);
+            scaledImage.save(fileName+"@2x."+speakerImage->suffix());
+            speakerImage->setMaxScaleFactor(2);
+        }
+        if(height >= size3) {
+            scaledImage = originImage.scaledToHeight(size3);
+            scaledImage.save(fileName+"@3x."+speakerImage->suffix());
+            speakerImage->setMaxScaleFactor(3);
+        }
+        if(height >= size4) {
+            scaledImage = originImage.scaledToHeight(size4);
+            scaledImage.save(fileName+"@4x."+speakerImage->suffix());
+            speakerImage->setMaxScaleFactor(4);
+        }
+    }
 }

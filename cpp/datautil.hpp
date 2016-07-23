@@ -36,6 +36,8 @@ private:
 
     ImageLoader* mImageLoader;
 
+    void prepareHighDpiImages(SpeakerImage *speakerImage, int width, int height);
+
 };
 
 #endif // DATAUTIL_H
