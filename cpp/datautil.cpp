@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QFile>
+#include <QDir>
 
 DataUtil::DataUtil(QObject *parent) : QObject(parent)
 {
@@ -15,6 +16,7 @@ void DataUtil::init(DataManager* dataManager)
     mDataManager = dataManager;
 }
 
+// P R E   C O N F E R E N C E   S T U F F
 /**
  * Prepare was done before submitting the App to AppStore
  * Use public Cache
@@ -30,6 +32,32 @@ void DataUtil::prepareConference() {
         return;
     }
     qDebug() << "PREPARE CONFERENCE ";
+    // check dirs for pre-conference stuff
+    // these directories never used for normal app-runtime
+    // data/conference
+    QString directory = mDataManager->mDataPath + "conference/";
+    QDir myDir;
+    bool exists;
+    exists = myDir.exists(directory);
+    if (!exists) {
+        bool ok = myDir.mkpath(directory);
+        if(!ok) {
+            qWarning() << "Couldn't create conference dir " << directory;
+            return;
+        }
+        qDebug() << "created directory conference " << directory;
+    }
+    // data/conference/speakerImages
+    directory.append("speakerImages/");
+    exists = myDir.exists(directory);
+    if (!exists) {
+        bool ok = myDir.mkpath(directory);
+        if(!ok) {
+            qWarning() << "Couldn't create speakerImages dir " << directory;
+            return;
+        }
+        qDebug() << "created directory speakerImages " << directory;
+    }
     // prepare sessions
     prepareSessions();
     // prepare speaker
@@ -123,22 +151,61 @@ void DataUtil::prepareSpeaker()
         }
         mDataManager->insertSpeaker(speaker);
     } // end for
+    qDebug() << "cache SPEAKER";
     mDataManager->saveSpeakerToCache();
-    mDataManager->saveSpeakerImageToCache();
 }
 
 void DataUtil::prepareSpeakerImages()
 {
-    QString speakerImagessPath = mDataManager->mDataPath; //  + "conference/speaker_origin/";
-    for (int i = 0; i < mDataManager->mAllSpeakerImage.size(); ++i) {
-        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->mAllSpeakerImage.at(i);
+    QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    qDebug() << "storing Speaker Images here: " << speakerImagesPath;
+    if (mDataManager->allSpeakerImage().size() > 0) {
+        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->mAllSpeakerImage.at(0);
         QString fileName;
         fileName = "speaker_";
         fileName.append(QString::number(speakerImage->speakerId()));
         fileName.append('.');
         fileName.append(speakerImage->suffix());
-        mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagessPath+fileName, this);
-        // connect
+        mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagesPath+fileName, this);
+        bool res = connect(mImageLoader, SIGNAL(loaded(QObject*, int, int)), this,
+                           SLOT(onSpeakerImageLoaded(QObject*, int, int)));
+        if (!res) {
+            Q_ASSERT(res);
+        }
         mImageLoader->loadSpeaker(speakerImage);
     }
+}
+
+void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
+{
+    mImageLoader->deleteLater();
+    qDebug() << "onSpeakerImage  L O A D E D ";
+    SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
+    speakerImage->setDownloadSuccess(true);
+    speakerImage->setDownloadFailed(false);
+    speakerImage->setInAssets(true);
+    speakerImage->setInData(false);
+    // more to load ?
+    QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    for (int i = 0; i < mDataManager->allSpeakerImage().size(); ++i) {
+        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->allSpeakerImage().at(i);
+        if (!speakerImage->downloadSuccess() && !speakerImage->downloadFailed()) {
+            qDebug() << "loading..." << speakerImage->speakerId() << " " << width << "x" << height;
+            QString fileName;
+            fileName = "speaker_";
+            fileName.append(QString::number(speakerImage->speakerId()));
+            fileName.append('.');
+            fileName.append(speakerImage->suffix());
+            mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagesPath+fileName, this);
+            bool res = connect(mImageLoader, SIGNAL(loaded(QObject*, int, int)), this,
+                               SLOT(onSpeakerImageLoaded(QObject*, int, int)));
+            if (!res) {
+                Q_ASSERT(res);
+            }
+            mImageLoader->loadSpeaker(speakerImage);
+            return;
+        }
+    } // for all speaker images
+    qDebug() << "cache SPEAKER IMAGES";
+    mDataManager->saveSpeakerImageToCache();
 }

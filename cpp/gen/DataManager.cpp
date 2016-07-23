@@ -56,6 +56,7 @@ DataManager::DataManager(QObject *parent) :
     // now check if public cache is used
     if (mSettingsData->hasPublicCache()) {
         // great while testing: access files from file explorer
+        // only works on Android - on iOS it helps to use a 2nd cache for dev
         mDataRoot = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation).value(0);
         // per ex. /data/ekkescorner/theAppName
         mDataRoot += mSettingsData->publicRoot4Dev();
@@ -70,8 +71,10 @@ DataManager::DataManager(QObject *parent) :
     }
 #else
     qDebug() << "Running a RELEASE BUILD";
-    // check if JSON is compact
+    // always use compact JSON in release builds
     mSettingsData->setUseCompactJsonFormat(true);
+    // never use public data path in releae build
+    mSettingsData->setPublicRoot4Dev(false);
 #endif
     // now set the compact or indent mode for JSON Documents
     mCompactJson = mSettingsData->useCompactJsonFormat();

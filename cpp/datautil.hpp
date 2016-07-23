@@ -28,6 +28,7 @@ public:
 signals:
 
 public slots:
+    void onSpeakerImageLoaded(QObject* dataObject, int width, int height);
 
 private:
 
