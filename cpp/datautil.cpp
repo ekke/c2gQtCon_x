@@ -90,6 +90,62 @@ void DataUtil::prepareSessions()
         return;
     }
     qDebug() << "QJsonDocument for schedule with Object :)";
+    QVariantMap map;
+    map = jda.toVariant().toMap();
+    if(map.isEmpty()) {
+        qWarning() << "Schedule is no Map";
+        return;
+    }
+    map = map.value("schedule").toMap();
+    if(map.isEmpty()) {
+        qWarning() << "No 'schedule' found";
+        return;
+    }
+    qDebug() << "VERSION: " + map.value("version").toString();
+    map = map.value("conference").toMap();
+    if(map.isEmpty()) {
+        qWarning() << "No 'conference' found";
+        return;
+    }
+    qDebug() << "TITLE: " << map.value("title").toString();
+    QVariantList dayList;
+    dayList = map.value("days").toList();
+    if(dayList.isEmpty()) {
+        qWarning() << "No 'days' found";
+        return;
+    }
+    qDebug() << "DAYS: " << dayList.size();
+    QVariantMap dayMap;
+    dayMap = dayList.first().toMap();
+    if(dayMap.isEmpty()) {
+        qWarning() << "No 'DAY' found";
+        return;
+    }
+    qDebug() << "DATE: " << dayMap.value("date").toString();
+    QVariantMap roomMap;
+    roomMap = dayMap.value("rooms").toMap();
+    QStringList roomKeys = roomMap.keys();
+    qDebug() << "ROOMS: " << roomKeys;
+    if(roomKeys.isEmpty()) {
+        qWarning() << "No 'ROOMS' found for DAY";
+        return;
+    }
+    QVariantList sessionList;
+    sessionList = roomMap.value(roomKeys.at(0)).toList();
+    if(sessionList.isEmpty()) {
+        qWarning() << "No 'sessions' found. DAY: ROOM: ";
+        return;
+    }
+    QVariantMap sessionMap;
+    sessionMap = sessionList.at(0).toMap();
+    if(sessionMap.isEmpty()) {
+        qWarning() << "No 'SESSION' DAY: xx ROOM: xx cannot get MAP";
+        return;
+    }
+    SessionAPI* sessionAPI = mDataManager->createSessionAPI();
+    sessionAPI->fillFromForeignMap(sessionMap);
+    qDebug() << sessionAPI->title();
+    qDebug() << sessionAPI->start();
     // TODO
 }
 

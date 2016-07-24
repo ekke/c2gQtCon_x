@@ -192,7 +192,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B05+B06": [
                   {
                     "id": "638",
@@ -338,7 +338,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B07+B08": [
                   {
                     "id": "648",
@@ -502,7 +502,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B09": [
                   {
                     "id": "657",
@@ -666,7 +666,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A03": [
                   {
                     "id": "594",
@@ -830,7 +830,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A04": [
                   {
                     "id": "603",
@@ -994,7 +994,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A08": [
                   {
                     "id": "630",
@@ -1158,7 +1158,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A06": [
                   {
                     "id": "621",
@@ -1322,7 +1322,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A05": [
                   {
                     "id": "612",
@@ -1486,7 +1486,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B03": [
                   {
                     "id": "666",
@@ -1650,7 +1650,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B04": [
                   {
                     "id": "675",
@@ -1814,7 +1814,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B95": [
                   {
                     "id": "684",
@@ -1978,7 +1978,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B02": [
                   {
                     "id": "564",
@@ -2160,7 +2160,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B01": [
                   {
                     "id": "702",
@@ -2324,7 +2324,7 @@
                     "links": [
                     ]
                   }
-              ],
+              ]
             }
           },
           {
@@ -2482,7 +2482,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B05+B06": [
                   {
                     "id": "391",
@@ -2581,7 +2581,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B07+B08": [
                   {
                     "id": "355",
@@ -2671,7 +2671,7 @@
                     "type": "60min",
                     "language": "",
                     "abstract": "The intuitive simplicity of QML is blessing and curse at the same time, because Java Script and Property Bindings do not necessarily encourage to write nice and clean source code. In my session, I will talk about the lessons I learned over the last 5 years of professional UI development with Qt. As well as best practices for QML code- and project structure, I will present tricks, workarounds and problem solving strategies for common and frequently asked QML problems, such as: -How do I set up a well organised QML project with outsourced colours, fonts and icons?  -How to implement flyouts, overlays or dialogs with a well-thought-out z-layering concept?  -How to detect click-events outside a Component (very useful to close an overlay)?  -How to develop custom controls in QML that are not only easy to use for the end user but also for the developers? ",
-                    "description": "QtQuick is very performant: it runs on pretty much any platform and has a very steep learning curve. This is why Qt currently belongs to the most modern and versatile UI technologies on the market. QML allows to solve many problems with astonishingly little effort. In some cases however, seemingly small problems can result in big questions. In these situations it’s important to really understand the relevant concepts.		 In my session I want to share my experience by presenting reusable techniques that will save a lot of time. For example: -A well organised QML UI project template with outsourced colours, fonts and icons (singleton components / singleton js files).		 -A generic way to handle multiple Z-layers combined with a way to catch click-events outsides the the component&#x27;s own rectangle.  -Example for handling declarative view interactions using a self-populating menu tree.",
+                    "description": "QtQuick is very performant: it runs on pretty much any platform and has a very steep learning curve. This is why Qt currently belongs to the most modern and versatile UI technologies on the market. QML allows to solve many problems with astonishingly little effort. In some cases however, seemingly small problems can result in big questions. In these situations it’s important to really understand the relevant concepts.  In my session I want to share my experience by presenting reusable techniques that will save a lot of time.  For example: A well organised QML UI project template with outsourced colours, fonts and icons (singleton components / singleton js files). A generic way to handle multiple Z-layers combined with a way to catch click-events outsides the the components own rectangle. Example for handling declarative view interactions using a self-populating menu tree.",
                     "persons": [
                         {"id": "679",  "full_public_name": ".", "first_name": "Friedemann", "last_name": "Metzger" }
                     ],
@@ -2696,7 +2696,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B09": [
                   {
                     "id": "411",
@@ -2793,7 +2793,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A03": [
                   {
                     "id": "445",
@@ -2926,7 +2926,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A04": [
                   {
                     "id": "337",
@@ -3080,7 +3080,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A08": [
                   {
                     "id": "742",
@@ -3251,7 +3251,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A06": [
                   {
                     "id": "714",
@@ -3384,7 +3384,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A05": [
                   {
                     "id": "431",
@@ -3407,7 +3407,7 @@
                         {"url": "https://edu-europalab.rhcloud.com/doku.php?id=tutors", "title": "Workshop Inventory"}
                     ]
                   }
-              ]
+              ],
               "B03": [
                   {
                     "id": "430",
@@ -3485,7 +3485,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B04": [
                   {
                     "id": "432",
@@ -3558,12 +3558,12 @@
                     "abstract": "Let&#x27;s talk about the different QtWeb* modules we have in Qt, most prominently QtWebEngine.",
                     "description": "Let&#x27;s talk about the different QtWeb* modules we have in Qt, most prominently QtWebEngine.",
                     "persons": [
-                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Koehne" }
+                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Köhne" }
                     ],
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B95": [
                   {
                     "id": "525",
@@ -3637,7 +3637,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B02": [
                   {
                     "id": "562",
@@ -3711,9 +3711,9 @@
                     "links": [
                     ]
                   }
-              ]
-              "B01": [
               ],
+              "B01": [
+              ]
             }
           },
           {
@@ -3739,7 +3739,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B05+B06": [
                   {
                     "id": "519",
@@ -3837,7 +3837,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B07+B08": [
                   {
                     "id": "368",
@@ -3916,7 +3916,7 @@
                         {"url": "https://www.mapbox.com/blog/qt-framework-support/", "title": "Mapbox blog: Qt official support announcement"}
                     ]
                   }
-              ]
+              ],
               "B09": [
                   {
                     "id": "499",
@@ -4009,7 +4009,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A03": [
                   {
                     "id": "464",
@@ -4163,7 +4163,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A04": [
                   {
                     "id": "336",
@@ -4303,7 +4303,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A08": [
                   {
                     "id": "331",
@@ -4443,7 +4443,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A06": [
                   {
                     "id": "433",
@@ -4520,7 +4520,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A05": [
                   {
                     "id": "412",
@@ -4555,7 +4555,7 @@
                     "abstract": "Let&#x27;s get together and talk about Qt and build systems, namely qmake, cmake, and qbs.",
                     "description": "Let&#x27;s get together and talk about Qt and build systems, namely qmake, cmake, and qbs.",
                     "persons": [
-                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Koehne" }
+                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Köhne" }
                     ],
                     "links": [
                     ]
@@ -4597,7 +4597,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B03": [
                   {
                     "id": "526",
@@ -4671,7 +4671,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B04": [
                   {
                     "id": "716",
@@ -4799,7 +4799,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B95": [
                   {
                     "id": "448",
@@ -4910,7 +4910,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B02": [
                   {
                     "id": "565",
@@ -4984,9 +4984,9 @@
                     "links": [
                     ]
                   }
-              ]
-              "B01": [
               ],
+              "B01": [
+              ]
             }
           },
           {
@@ -4994,7 +4994,7 @@
             "date": "2016-09-04",
             "rooms": {
               "C01": [
-              ]
+              ],
               "B05+B06": [
                   {
                     "id": "371",
@@ -5095,7 +5095,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B07+B08": [
                   {
                     "id": "334",
@@ -5210,7 +5210,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B09": [
                   {
                     "id": "434",
@@ -5349,7 +5349,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A03": [
                   {
                     "id": "582",
@@ -5484,7 +5484,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A04": [
                   {
                     "id": "435",
@@ -5538,7 +5538,7 @@
                     "abstract": "Let&#x27;s discuss how to handle 3rdparty code in Qt in the future. ",
                     "description": "Qt ships with a lot of 3rd party code, not under CLA. This means the code cannot be relicensed, making it difficult to comply. Furthermore, not closely following any update changes might result in security issues.  Let&#x27;s discuss how to improve the situation, e.g. by a more structured approach similar to Chromium: - 3rd party code must always be in a &#x27;3rdparty&#x27; folder - 3rd party code must always be included with a &#x27;README.qt&#x27; file with details about the use of the code, where it&#x27;s hosted upstream etc - Documentation of 3rd party code is directly generated out of these files.  Furthermore we might discuss which 3rd party code we can get rid of at all, whether we can directly include upstream git repositories, use tools and standards like SPDX, provide a tool to scan for 3rd party code in custom builds ... ",
                     "persons": [
-                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Koehne" }
+                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Köhne" }
                     ],
                     "links": [
                     ]
@@ -5562,7 +5562,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A08": [
                   {
                     "id": "333",
@@ -5640,7 +5640,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A06": [
                   {
                     "id": "508",
@@ -5732,7 +5732,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "A05": [
                   {
                     "id": "507",
@@ -5806,7 +5806,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B03": [
                   {
                     "id": "384",
@@ -5822,7 +5822,7 @@
                     "abstract": "Panel discussion on contributing to Qt. What are people&#x27;s experience when contributing? What impedes new and old contributors?",
                     "description": "Panel discussion on contributing to Qt. What are people&#x27;s experience when contributing? What impedes new and old contributors?",
                     "persons": [
-                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Koehne" }
+                        {"id": "675",  "full_public_name": "kkoehne", "first_name": "Kai", "last_name": "Köhne" }
                     ],
                     "links": [
                     ]
@@ -5881,7 +5881,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B04": [
                   {
                     "id": "722",
@@ -6027,7 +6027,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B95": [
                   {
                     "id": "463",
@@ -6178,7 +6178,7 @@
                     "links": [
                     ]
                   }
-              ]
+              ],
               "B02": [
                   {
                     "id": "569",
@@ -6234,12 +6234,13 @@
                     "links": [
                     ]
                   }
-              ]
-              "B01": [
               ],
+              "B01": [
+              ]
             }
           }
       ]
     }
   }
 }
+
