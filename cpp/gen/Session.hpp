@@ -10,6 +10,7 @@
 
 // forward declaration (target references to this)
 class Speaker;
+#include "SessionLink.hpp"
 // forward declaration (target references to this)
 class Day;
 // forward declaration (target references to this)
@@ -67,6 +68,8 @@ class Session: public QObject
 
 	// QQmlListProperty to get easy access from QML
 	Q_PROPERTY(QQmlListProperty<Speaker> presenterPropertyList READ presenterPropertyList NOTIFY presenterPropertyListChanged)
+	// QQmlListProperty to get easy access from QML
+	Q_PROPERTY(QQmlListProperty<SessionLink> sessionLinksPropertyList READ sessionLinksPropertyList NOTIFY sessionLinksPropertyListChanged)
 
 public:
 	Session(QObject *parent = 0);
@@ -291,6 +294,41 @@ public:
 	void setPresenter(QList<Speaker*> presenter);
 	// access from QML to presenter
 	QQmlListProperty<Speaker> presenterPropertyList();
+	
+	Q_INVOKABLE
+	QVariantList sessionLinksAsQVariantList();
+	
+	Q_INVOKABLE
+	QVariantList sessionLinksAsForeignQVariantList();
+
+	
+	Q_INVOKABLE
+	void addToSessionLinks(SessionLink* sessionLink);
+	
+	Q_INVOKABLE
+	bool removeFromSessionLinks(SessionLink* sessionLink);
+
+	Q_INVOKABLE
+	void clearSessionLinks();
+
+	// lazy Array of independent Data Objects: only keys are persisted
+	Q_INVOKABLE
+	bool areSessionLinksKeysResolved();
+
+	Q_INVOKABLE
+	QStringList sessionLinksKeys();
+
+	Q_INVOKABLE
+	void resolveSessionLinksKeys(QList<SessionLink*> sessionLinks);
+	
+	Q_INVOKABLE
+	int sessionLinksCount();
+	
+	 // access from C++ to sessionLinks
+	QList<SessionLink*> sessionLinks();
+	void setSessionLinks(QList<SessionLink*> sessionLinks);
+	// access from QML to sessionLinks
+	QQmlListProperty<SessionLink> sessionLinksPropertyList();
 
 
 	virtual ~Session();
@@ -336,6 +374,10 @@ public:
 	void presenterChanged(QList<Speaker*> presenter);
 	void addedToPresenter(Speaker* speaker);
 	void presenterPropertyListChanged();
+	
+	void sessionLinksChanged(QList<SessionLink*> sessionLinks);
+	void addedToSessionLinks(SessionLink* sessionLink);
+	void sessionLinksPropertyListChanged();
 	
 	
 
@@ -388,6 +430,18 @@ private:
 	static int presenterPropertyCount(QQmlListProperty<Speaker> *presenterList);
 	static Speaker* atPresenterProperty(QQmlListProperty<Speaker> *presenterList, int pos);
 	static void clearPresenterProperty(QQmlListProperty<Speaker> *presenterList);
+	
+	// lazy Array of independent Data Objects: only keys are persisted
+	QStringList mSessionLinksKeys;
+	bool mSessionLinksKeysResolved;
+	QList<SessionLink*> mSessionLinks;
+	// implementation for QQmlListProperty to use
+	// QML functions for List of SessionLink*
+	static void appendToSessionLinksProperty(QQmlListProperty<SessionLink> *sessionLinksList,
+		SessionLink* sessionLink);
+	static int sessionLinksPropertyCount(QQmlListProperty<SessionLink> *sessionLinksList);
+	static SessionLink* atSessionLinksProperty(QQmlListProperty<SessionLink> *sessionLinksList, int pos);
+	static void clearSessionLinksProperty(QQmlListProperty<SessionLink> *sessionLinksList);
 	
 
 	Q_DISABLE_COPY (Session)

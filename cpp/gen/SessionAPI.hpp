@@ -5,25 +5,23 @@
 #include <qvariant.h>
 #include <QQmlListProperty>
 #include <QStringList>
-#include <QDate>
 #include <QTime>
 
 
 #include "PersonsAPI.hpp"
+#include "SessionLinkAPI.hpp"
 
 
 class SessionAPI: public QObject
 {
 	Q_OBJECT
 
-	Q_PROPERTY(int id READ id WRITE setId NOTIFY idChanged FINAL)
-	Q_PROPERTY(int dayIndex READ dayIndex WRITE setDayIndex NOTIFY dayIndexChanged FINAL)
-	Q_PROPERTY(QDate conferenceDay READ conferenceDay WRITE setConferenceDay NOTIFY conferenceDayChanged FINAL)
+	Q_PROPERTY(int sessionId READ sessionId WRITE setSessionId NOTIFY sessionIdChanged FINAL)
 	Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged FINAL)
 	Q_PROPERTY(QString subtitle READ subtitle WRITE setSubtitle NOTIFY subtitleChanged FINAL)
 	Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged FINAL)
 	Q_PROPERTY(QString sessionType READ sessionType WRITE setSessionType NOTIFY sessionTypeChanged FINAL)
-	Q_PROPERTY(QTime start READ start WRITE setStart NOTIFY startChanged FINAL)
+	Q_PROPERTY(QTime startTime READ startTime WRITE setStartTime NOTIFY startTimeChanged FINAL)
 	Q_PROPERTY(QString duration READ duration WRITE setDuration NOTIFY durationChanged FINAL)
 	Q_PROPERTY(QString abstractText READ abstractText WRITE setAbstractText NOTIFY abstractTextChanged FINAL)
 	Q_PROPERTY(QString room READ room WRITE setRoom NOTIFY roomChanged FINAL)
@@ -31,6 +29,8 @@ class SessionAPI: public QObject
 
 	// QQmlListProperty to get easy access from QML
 	Q_PROPERTY(QQmlListProperty<PersonsAPI> personsPropertyList READ personsPropertyList NOTIFY personsPropertyListChanged)
+	// QQmlListProperty to get easy access from QML
+	Q_PROPERTY(QQmlListProperty<SessionLinkAPI> sessionLinksPropertyList READ sessionLinksPropertyList NOTIFY sessionLinksPropertyListChanged)
 
 public:
 	SessionAPI(QObject *parent = 0);
@@ -51,15 +51,8 @@ public:
 	QVariantMap toForeignMap();
 	QVariantMap toCacheMap();
 
-	int id() const;
-	void setId(int id);
-	int dayIndex() const;
-	void setDayIndex(int dayIndex);
-	QDate conferenceDay() const;
-
-	Q_INVOKABLE
-	bool hasConferenceDay();
-	void setConferenceDay(QDate conferenceDay);
+	int sessionId() const;
+	void setSessionId(int sessionId);
 	QString title() const;
 	void setTitle(QString title);
 	QString subtitle() const;
@@ -68,14 +61,14 @@ public:
 	void setDescription(QString description);
 	QString sessionType() const;
 	void setSessionType(QString sessionType);
-	QTime start() const;
+	QTime startTime() const;
 
 	Q_INVOKABLE
-	bool hasStart();
+	bool hasStartTime();
 
 	Q_INVOKABLE
-	void setStartFromPickerValue(QString startValue);
-	void setStart(QTime start);
+	void setStartTimeFromPickerValue(QString startTimeValue);
+	void setStartTime(QTime startTime);
 	QString duration() const;
 	void setDuration(QString duration);
 	QString abstractText() const;
@@ -120,20 +113,53 @@ public:
 	void setPersons(QList<PersonsAPI*> persons);
 	// access from QML to persons
 	QQmlListProperty<PersonsAPI> personsPropertyList();
+	
+	Q_INVOKABLE
+	QVariantList sessionLinksAsQVariantList();
+	
+	Q_INVOKABLE
+	QVariantList sessionLinksAsForeignQVariantList();
+
+	
+	Q_INVOKABLE
+	void addToSessionLinks(SessionLinkAPI* sessionLinkAPI);
+	
+	Q_INVOKABLE
+	bool removeFromSessionLinks(SessionLinkAPI* sessionLinkAPI);
+
+	Q_INVOKABLE
+	void clearSessionLinks();
+
+	// lazy Array of independent Data Objects: only keys are persisted
+	Q_INVOKABLE
+	bool areSessionLinksKeysResolved();
+
+	Q_INVOKABLE
+	QStringList sessionLinksKeys();
+
+	Q_INVOKABLE
+	void resolveSessionLinksKeys(QList<SessionLinkAPI*> sessionLinks);
+	
+	Q_INVOKABLE
+	int sessionLinksCount();
+	
+	 // access from C++ to sessionLinks
+	QList<SessionLinkAPI*> sessionLinks();
+	void setSessionLinks(QList<SessionLinkAPI*> sessionLinks);
+	// access from QML to sessionLinks
+	QQmlListProperty<SessionLinkAPI> sessionLinksPropertyList();
 
 
 	virtual ~SessionAPI();
 
 	Q_SIGNALS:
 
-	void idChanged(int id);
-	void dayIndexChanged(int dayIndex);
-	void conferenceDayChanged(QDate conferenceDay);
+	void sessionIdChanged(int sessionId);
 	void titleChanged(QString title);
 	void subtitleChanged(QString subtitle);
 	void descriptionChanged(QString description);
 	void sessionTypeChanged(QString sessionType);
-	void startChanged(QTime start);
+	void startTimeChanged(QTime startTime);
 	void durationChanged(QString duration);
 	void abstractTextChanged(QString abstractText);
 	void roomChanged(QString room);
@@ -142,18 +168,20 @@ public:
 	void addedToPersons(PersonsAPI* personsAPI);
 	void personsPropertyListChanged();
 	
+	void sessionLinksChanged(QList<SessionLinkAPI*> sessionLinks);
+	void addedToSessionLinks(SessionLinkAPI* sessionLinkAPI);
+	void sessionLinksPropertyListChanged();
+	
 	
 
 private:
 
-	int mId;
-	int mDayIndex;
-	QDate mConferenceDay;
+	int mSessionId;
 	QString mTitle;
 	QString mSubtitle;
 	QString mDescription;
 	QString mSessionType;
-	QTime mStart;
+	QTime mStartTime;
 	QString mDuration;
 	QString mAbstractText;
 	QString mRoom;
@@ -169,6 +197,18 @@ private:
 	static int personsPropertyCount(QQmlListProperty<PersonsAPI> *personsList);
 	static PersonsAPI* atPersonsProperty(QQmlListProperty<PersonsAPI> *personsList, int pos);
 	static void clearPersonsProperty(QQmlListProperty<PersonsAPI> *personsList);
+	
+	// lazy Array of independent Data Objects: only keys are persisted
+	QStringList mSessionLinksKeys;
+	bool mSessionLinksKeysResolved;
+	QList<SessionLinkAPI*> mSessionLinks;
+	// implementation for QQmlListProperty to use
+	// QML functions for List of SessionLinkAPI*
+	static void appendToSessionLinksProperty(QQmlListProperty<SessionLinkAPI> *sessionLinksList,
+		SessionLinkAPI* sessionLinkAPI);
+	static int sessionLinksPropertyCount(QQmlListProperty<SessionLinkAPI> *sessionLinksList);
+	static SessionLinkAPI* atSessionLinksProperty(QQmlListProperty<SessionLinkAPI> *sessionLinksList, int pos);
+	static void clearSessionLinksProperty(QQmlListProperty<SessionLinkAPI> *sessionLinksList);
 	
 
 	Q_DISABLE_COPY (SessionAPI)

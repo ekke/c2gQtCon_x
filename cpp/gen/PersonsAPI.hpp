@@ -11,7 +11,7 @@ class PersonsAPI: public QObject
 {
 	Q_OBJECT
 
-	Q_PROPERTY(int id READ id WRITE setId NOTIFY idChanged FINAL)
+	Q_PROPERTY(int speakerId READ speakerId WRITE setSpeakerId NOTIFY speakerIdChanged FINAL)
 
 
 public:
@@ -31,8 +31,8 @@ public:
 	QVariantMap toForeignMap();
 	QVariantMap toCacheMap();
 
-	int id() const;
-	void setId(int id);
+	int speakerId() const;
+	void setSpeakerId(int speakerId);
 
 
 
@@ -40,12 +40,12 @@ public:
 
 	Q_SIGNALS:
 
-	void idChanged(int id);
+	void speakerIdChanged(int speakerId);
 	
 
 private:
 
-	int mId;
+	int mSpeakerId;
 
 	Q_DISABLE_COPY (PersonsAPI)
 };

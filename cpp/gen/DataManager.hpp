@@ -14,12 +14,14 @@
 #include "ScheduleItem.hpp"
 #include "Favorite.hpp"
 #include "Bookmark.hpp"
+#include "SessionLink.hpp"
 #include "Speaker.hpp"
 #include "SpeakerImage.hpp"
 #include "SessionTrack.hpp"
 #include "Day.hpp"
 #include "SessionAPI.hpp"
 #include "PersonsAPI.hpp"
+#include "SessionLinkAPI.hpp"
 #include "SpeakerAPI.hpp"
 
 class DataManager: public QObject
@@ -35,12 +37,14 @@ Q_PROPERTY(QQmlListProperty<Session> sessionPropertyList READ sessionPropertyLis
 Q_PROPERTY(QQmlListProperty<ScheduleItem> scheduleItemPropertyList READ scheduleItemPropertyList NOTIFY scheduleItemPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Favorite> favoritePropertyList READ favoritePropertyList NOTIFY favoritePropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Bookmark> bookmarkPropertyList READ bookmarkPropertyList NOTIFY bookmarkPropertyListChanged)
+Q_PROPERTY(QQmlListProperty<SessionLink> sessionLinkPropertyList READ sessionLinkPropertyList NOTIFY sessionLinkPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Speaker> speakerPropertyList READ speakerPropertyList NOTIFY speakerPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<SpeakerImage> speakerImagePropertyList READ speakerImagePropertyList NOTIFY speakerImagePropertyListChanged)
 Q_PROPERTY(QQmlListProperty<SessionTrack> sessionTrackPropertyList READ sessionTrackPropertyList NOTIFY sessionTrackPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Day> dayPropertyList READ dayPropertyList NOTIFY dayPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<SessionAPI> sessionAPIPropertyList READ sessionAPIPropertyList NOTIFY sessionAPIPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<PersonsAPI> personsAPIPropertyList READ personsAPIPropertyList NOTIFY personsAPIPropertyListChanged)
+Q_PROPERTY(QQmlListProperty<SessionLinkAPI> sessionLinkAPIPropertyList READ sessionLinkAPIPropertyList NOTIFY sessionLinkAPIPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<SpeakerAPI> speakerAPIPropertyList READ speakerAPIPropertyList NOTIFY speakerAPIPropertyListChanged)
 
 public:
@@ -415,6 +419,44 @@ public:
     Bookmark* findBookmarkBySessionId(const int& sessionId);
 
 	
+	
+	Q_INVOKABLE
+	QList<SessionLink*> listOfSessionLinkForKeys(QStringList keyList);
+
+	Q_INVOKABLE
+	QVariantList sessionLinkAsQVariantList();
+
+	Q_INVOKABLE
+	QList<QObject*> allSessionLink();
+
+	Q_INVOKABLE
+	void deleteSessionLink();
+
+	// access from QML to list of all SessionLink
+	QQmlListProperty<SessionLink> sessionLinkPropertyList();
+
+	Q_INVOKABLE
+	SessionLink* createSessionLink();
+
+	Q_INVOKABLE
+	void undoCreateSessionLink(SessionLink* sessionLink);
+
+	Q_INVOKABLE
+	void insertSessionLink(SessionLink* sessionLink);
+
+	Q_INVOKABLE
+	void insertSessionLinkFromMap(const QVariantMap& sessionLinkMap, const bool& useForeignProperties);
+
+	Q_INVOKABLE
+	bool deleteSessionLink(SessionLink* sessionLink);
+	
+
+	Q_INVOKABLE
+	bool deleteSessionLinkByUuid(const QString& uuid);
+
+	Q_INVOKABLE
+	SessionLink* findSessionLinkByUuid(const QString& uuid);
+	
 
 	Q_INVOKABLE
 	void resolveSpeakerReferences(Speaker* speaker);
@@ -610,10 +652,10 @@ public:
 	
 
 	Q_INVOKABLE
-	bool deleteSessionAPIById(const int& id);
+	bool deleteSessionAPIBySessionId(const int& sessionId);
 
 	Q_INVOKABLE
-    SessionAPI* findSessionAPIById(const int& id);
+    SessionAPI* findSessionAPIBySessionId(const int& sessionId);
 
 	
 	
@@ -649,11 +691,49 @@ public:
 	
 
 	Q_INVOKABLE
-	bool deletePersonsAPIById(const int& id);
+	bool deletePersonsAPIBySpeakerId(const int& speakerId);
 
 	Q_INVOKABLE
-    PersonsAPI* findPersonsAPIById(const int& id);
+    PersonsAPI* findPersonsAPIBySpeakerId(const int& speakerId);
 
+	
+	
+	Q_INVOKABLE
+	QList<SessionLinkAPI*> listOfSessionLinkAPIForKeys(QStringList keyList);
+
+	Q_INVOKABLE
+	QVariantList sessionLinkAPIAsQVariantList();
+
+	Q_INVOKABLE
+	QList<QObject*> allSessionLinkAPI();
+
+	Q_INVOKABLE
+	void deleteSessionLinkAPI();
+
+	// access from QML to list of all SessionLinkAPI
+	QQmlListProperty<SessionLinkAPI> sessionLinkAPIPropertyList();
+
+	Q_INVOKABLE
+	SessionLinkAPI* createSessionLinkAPI();
+
+	Q_INVOKABLE
+	void undoCreateSessionLinkAPI(SessionLinkAPI* sessionLinkAPI);
+
+	Q_INVOKABLE
+	void insertSessionLinkAPI(SessionLinkAPI* sessionLinkAPI);
+
+	Q_INVOKABLE
+	void insertSessionLinkAPIFromMap(const QVariantMap& sessionLinkAPIMap, const bool& useForeignProperties);
+
+	Q_INVOKABLE
+	bool deleteSessionLinkAPI(SessionLinkAPI* sessionLinkAPI);
+	
+
+	Q_INVOKABLE
+	bool deleteSessionLinkAPIByUuid(const QString& uuid);
+
+	Q_INVOKABLE
+	SessionLinkAPI* findSessionLinkAPIByUuid(const QString& uuid);
 	
 	
 	Q_INVOKABLE
@@ -703,12 +783,14 @@ public:
     void initScheduleItemFromCache();
     void initFavoriteFromCache();
     void initBookmarkFromCache();
+    void initSessionLinkFromCache();
     void initSpeakerFromCache();
     void initSpeakerImageFromCache();
     void initSessionTrackFromCache();
     void initDayFromCache();
     void initSessionAPIFromCache();
     void initPersonsAPIFromCache();
+    void initSessionLinkAPIFromCache();
     void initSpeakerAPIFromCache();
 	Q_INVOKABLE
 	SettingsData* settingsData();
@@ -750,6 +832,10 @@ Q_SIGNALS:
 	void deletedFromAllBookmarkBySessionId(int sessionId);
 	void deletedFromAllBookmark(Bookmark* bookmark);
 	void bookmarkPropertyListChanged();
+	void addedToAllSessionLink(SessionLink* sessionLink);
+	void deletedFromAllSessionLinkByUuid(QString uuid);
+	void deletedFromAllSessionLink(SessionLink* sessionLink);
+	void sessionLinkPropertyListChanged();
 	void addedToAllSpeaker(Speaker* speaker);
 	void deletedFromAllSpeakerBySpeakerId(int speakerId);
 	void deletedFromAllSpeaker(Speaker* speaker);
@@ -767,13 +853,17 @@ Q_SIGNALS:
 	void deletedFromAllDay(Day* day);
 	void dayPropertyListChanged();
 	void addedToAllSessionAPI(SessionAPI* sessionAPI);
-	void deletedFromAllSessionAPIById(int id);
+	void deletedFromAllSessionAPIBySessionId(int sessionId);
 	void deletedFromAllSessionAPI(SessionAPI* sessionAPI);
 	void sessionAPIPropertyListChanged();
 	void addedToAllPersonsAPI(PersonsAPI* personsAPI);
-	void deletedFromAllPersonsAPIById(int id);
+	void deletedFromAllPersonsAPIBySpeakerId(int speakerId);
 	void deletedFromAllPersonsAPI(PersonsAPI* personsAPI);
 	void personsAPIPropertyListChanged();
+	void addedToAllSessionLinkAPI(SessionLinkAPI* sessionLinkAPI);
+	void deletedFromAllSessionLinkAPIByUuid(QString uuid);
+	void deletedFromAllSessionLinkAPI(SessionLinkAPI* sessionLinkAPI);
+	void sessionLinkAPIPropertyListChanged();
 	void addedToAllSpeakerAPI(SpeakerAPI* speakerAPI);
 	void deletedFromAllSpeakerAPIById(int id);
 	void deletedFromAllSpeakerAPI(SpeakerAPI* speakerAPI);
@@ -899,6 +989,19 @@ private:
     static void clearBookmarkProperty(
     	QQmlListProperty<Bookmark> *bookmarkList);
     	
+    QList<QObject*> mAllSessionLink;
+    // implementation for QQmlListProperty to use
+    // QML functions for List of All SessionLink*
+    static void appendToSessionLinkProperty(
+    	QQmlListProperty<SessionLink> *sessionLinkList,
+    	SessionLink* sessionLink);
+    static int sessionLinkPropertyCount(
+    	QQmlListProperty<SessionLink> *sessionLinkList);
+    static SessionLink* atSessionLinkProperty(
+    	QQmlListProperty<SessionLink> *sessionLinkList, int pos);
+    static void clearSessionLinkProperty(
+    	QQmlListProperty<SessionLink> *sessionLinkList);
+    	
     QList<QObject*> mAllSpeaker;
     // implementation for QQmlListProperty to use
     // QML functions for List of All Speaker*
@@ -977,6 +1080,19 @@ private:
     static void clearPersonsAPIProperty(
     	QQmlListProperty<PersonsAPI> *personsAPIList);
     	
+    QList<QObject*> mAllSessionLinkAPI;
+    // implementation for QQmlListProperty to use
+    // QML functions for List of All SessionLinkAPI*
+    static void appendToSessionLinkAPIProperty(
+    	QQmlListProperty<SessionLinkAPI> *sessionLinkAPIList,
+    	SessionLinkAPI* sessionLinkAPI);
+    static int sessionLinkAPIPropertyCount(
+    	QQmlListProperty<SessionLinkAPI> *sessionLinkAPIList);
+    static SessionLinkAPI* atSessionLinkAPIProperty(
+    	QQmlListProperty<SessionLinkAPI> *sessionLinkAPIList, int pos);
+    static void clearSessionLinkAPIProperty(
+    	QQmlListProperty<SessionLinkAPI> *sessionLinkAPIList);
+    	
     QList<QObject*> mAllSpeakerAPI;
     // implementation for QQmlListProperty to use
     // QML functions for List of All SpeakerAPI*
@@ -999,12 +1115,14 @@ private:
     void saveScheduleItemToCache();
     void saveFavoriteToCache();
     void saveBookmarkToCache();
+    void saveSessionLinkToCache();
     void saveSpeakerToCache();
     void saveSpeakerImageToCache();
     void saveSessionTrackToCache();
     void saveDayToCache();
     void saveSessionAPIToCache();
     void savePersonsAPIToCache();
+    void saveSessionLinkAPIToCache();
     void saveSpeakerAPIToCache();
 
 

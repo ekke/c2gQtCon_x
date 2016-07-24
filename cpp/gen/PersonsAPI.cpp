@@ -3,16 +3,16 @@
 #include <quuid.h>
 
 // keys of QVariantMap used in this APP
-static const QString idKey = "id";
+static const QString speakerIdKey = "speakerId";
 
 // keys used from Server API etc
-static const QString idForeignKey = "id";
+static const QString speakerIdForeignKey = "id";
 
 /*
  * Default Constructor if PersonsAPI not initialized from QVariantMap
  */
 PersonsAPI::PersonsAPI(QObject *parent) :
-        QObject(parent), mId(-1)
+        QObject(parent), mSpeakerId(-1)
 {
 }
 
@@ -25,7 +25,7 @@ PersonsAPI::PersonsAPI(QObject *parent) :
  */
 void PersonsAPI::fillFromMap(const QVariantMap& personsAPIMap)
 {
-	mId = personsAPIMap.value(idKey).toInt();
+	mSpeakerId = personsAPIMap.value(speakerIdKey).toInt();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -36,7 +36,7 @@ void PersonsAPI::fillFromMap(const QVariantMap& personsAPIMap)
  */
 void PersonsAPI::fillFromForeignMap(const QVariantMap& personsAPIMap)
 {
-	mId = personsAPIMap.value(idForeignKey).toInt();
+	mSpeakerId = personsAPIMap.value(speakerIdForeignKey).toInt();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -47,7 +47,7 @@ void PersonsAPI::fillFromForeignMap(const QVariantMap& personsAPIMap)
  */
 void PersonsAPI::fillFromCacheMap(const QVariantMap& personsAPIMap)
 {
-	mId = personsAPIMap.value(idKey).toInt();
+	mSpeakerId = personsAPIMap.value(speakerIdKey).toInt();
 }
 
 void PersonsAPI::prepareNew()
@@ -59,7 +59,7 @@ void PersonsAPI::prepareNew()
  */
 bool PersonsAPI::isValid()
 {
-	if (mId == -1) {
+	if (mSpeakerId == -1) {
 		return false;
 	}
 	return true;
@@ -73,7 +73,7 @@ bool PersonsAPI::isValid()
 QVariantMap PersonsAPI::toMap()
 {
 	QVariantMap personsAPIMap;
-	personsAPIMap.insert(idKey, mId);
+	personsAPIMap.insert(speakerIdKey, mSpeakerId);
 	return personsAPIMap;
 }
 
@@ -85,7 +85,7 @@ QVariantMap PersonsAPI::toMap()
 QVariantMap PersonsAPI::toForeignMap()
 {
 	QVariantMap personsAPIMap;
-	personsAPIMap.insert(idForeignKey, mId);
+	personsAPIMap.insert(speakerIdForeignKey, mSpeakerId);
 	return personsAPIMap;
 }
 
@@ -102,18 +102,18 @@ QVariantMap PersonsAPI::toCacheMap()
 	return toMap();
 }
 // ATT 
-// Mandatory: id
-// Domain KEY: id
-int PersonsAPI::id() const
+// Mandatory: speakerId
+// Domain KEY: speakerId
+int PersonsAPI::speakerId() const
 {
-	return mId;
+	return mSpeakerId;
 }
 
-void PersonsAPI::setId(int id)
+void PersonsAPI::setSpeakerId(int speakerId)
 {
-	if (id != mId) {
-		mId = id;
-		emit idChanged(id);
+	if (speakerId != mSpeakerId) {
+		mSpeakerId = speakerId;
+		emit speakerIdChanged(speakerId);
 	}
 }
 

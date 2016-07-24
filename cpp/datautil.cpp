@@ -145,7 +145,7 @@ void DataUtil::prepareSessions()
     SessionAPI* sessionAPI = mDataManager->createSessionAPI();
     sessionAPI->fillFromForeignMap(sessionMap);
     qDebug() << sessionAPI->title();
-    qDebug() << sessionAPI->start();
+    qDebug() << sessionAPI->startTime();
     // TODO
 }
 

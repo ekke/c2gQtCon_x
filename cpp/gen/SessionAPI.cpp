@@ -3,51 +3,52 @@
 #include <quuid.h>
 
 // keys of QVariantMap used in this APP
-static const QString idKey = "id";
-static const QString dayIndexKey = "dayIndex";
-static const QString conferenceDayKey = "conferenceDay";
+static const QString sessionIdKey = "sessionId";
 static const QString titleKey = "title";
 static const QString subtitleKey = "subtitle";
 static const QString descriptionKey = "description";
 static const QString sessionTypeKey = "sessionType";
-static const QString startKey = "start";
+static const QString startTimeKey = "startTime";
 static const QString durationKey = "duration";
 static const QString abstractTextKey = "abstractText";
 static const QString roomKey = "room";
 static const QString trackKey = "track";
 static const QString personsKey = "persons";
+static const QString sessionLinksKey = "sessionLinks";
 
 // keys used from Server API etc
-static const QString idForeignKey = "id";
-static const QString dayIndexForeignKey = "dayIndex";
-static const QString conferenceDayForeignKey = "conferenceDay";
+static const QString sessionIdForeignKey = "id";
 static const QString titleForeignKey = "title";
 static const QString subtitleForeignKey = "subtitle";
 static const QString descriptionForeignKey = "description";
-static const QString sessionTypeForeignKey = "sessionType";
-static const QString startForeignKey = "start";
+static const QString sessionTypeForeignKey = "type";
+static const QString startTimeForeignKey = "start";
 static const QString durationForeignKey = "duration";
 static const QString abstractTextForeignKey = "abstract";
 static const QString roomForeignKey = "room";
 static const QString trackForeignKey = "track";
 static const QString personsForeignKey = "persons";
+static const QString sessionLinksForeignKey = "links";
 
 /*
  * Default Constructor if SessionAPI not initialized from QVariantMap
  */
 SessionAPI::SessionAPI(QObject *parent) :
-        QObject(parent), mId(-1), mDayIndex(0), mTitle(""), mSubtitle(""), mDescription(""), mSessionType(""), mDuration(""), mAbstractText(""), mRoom(""), mTrack("")
+        QObject(parent), mSessionId(-1), mTitle(""), mSubtitle(""), mDescription(""), mSessionType(""), mDuration(""), mAbstractText(""), mRoom(""), mTrack("")
 {
 	// Date, Time or Timestamp ? construct null value
-	mConferenceDay = QDate();
-	mStart = QTime();
+	mStartTime = QTime();
 		// lazy Arrays where only keys are persisted
 		mPersonsKeysResolved = false;
+		mSessionLinksKeysResolved = false;
 }
 
 bool SessionAPI::isAllResolved()
 {
     if(!arePersonsKeysResolved()) {
+        return false;
+    }
+    if(!areSessionLinksKeysResolved()) {
         return false;
     }
     return true;
@@ -62,28 +63,18 @@ bool SessionAPI::isAllResolved()
  */
 void SessionAPI::fillFromMap(const QVariantMap& sessionAPIMap)
 {
-	mId = sessionAPIMap.value(idKey).toInt();
-	mDayIndex = sessionAPIMap.value(dayIndexKey).toInt();
-	if (sessionAPIMap.contains(conferenceDayKey)) {
-		// always getting the Date as a String (from server or JSON)
-		QString conferenceDayAsString = sessionAPIMap.value(conferenceDayKey).toString();
-		mConferenceDay = QDate::fromString(conferenceDayAsString, "yyyy-MM-dd");
-		if (!mConferenceDay.isValid()) {
-			mConferenceDay = QDate();
-			qDebug() << "mConferenceDay is not valid for String: " << conferenceDayAsString;
-		}
-	}
+	mSessionId = sessionAPIMap.value(sessionIdKey).toInt();
 	mTitle = sessionAPIMap.value(titleKey).toString();
 	mSubtitle = sessionAPIMap.value(subtitleKey).toString();
 	mDescription = sessionAPIMap.value(descriptionKey).toString();
 	mSessionType = sessionAPIMap.value(sessionTypeKey).toString();
-	if (sessionAPIMap.contains(startKey)) {
+	if (sessionAPIMap.contains(startTimeKey)) {
 		// always getting the Date as a String (from server or JSON)
-		QString startAsString = sessionAPIMap.value(startKey).toString();
-		mStart = QTime::fromString(startAsString, "HH:mm");
-		if (!mStart.isValid()) {
-			mStart = QTime();
-			qDebug() << "mStart is not valid for String: " << startAsString;
+		QString startTimeAsString = sessionAPIMap.value(startTimeKey).toString();
+		mStartTime = QTime::fromString(startTimeAsString, "HH:mm");
+		if (!mStartTime.isValid()) {
+			mStartTime = QTime();
+			qDebug() << "mStartTime is not valid for String: " << startTimeAsString;
 		}
 	}
 	mDuration = sessionAPIMap.value(durationKey).toString();
@@ -95,6 +86,11 @@ void SessionAPI::fillFromMap(const QVariantMap& sessionAPIMap)
 	// mPersons must be resolved later if there are keys
 	mPersonsKeysResolved = (mPersonsKeys.size() == 0);
 	mPersons.clear();
+	// mSessionLinks is (lazy loaded) Array of SessionLinkAPI*
+	mSessionLinksKeys = sessionAPIMap.value(sessionLinksKey).toStringList();
+	// mSessionLinks must be resolved later if there are keys
+	mSessionLinksKeysResolved = (mSessionLinksKeys.size() == 0);
+	mSessionLinks.clear();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -105,28 +101,18 @@ void SessionAPI::fillFromMap(const QVariantMap& sessionAPIMap)
  */
 void SessionAPI::fillFromForeignMap(const QVariantMap& sessionAPIMap)
 {
-	mId = sessionAPIMap.value(idForeignKey).toInt();
-	mDayIndex = sessionAPIMap.value(dayIndexForeignKey).toInt();
-	if (sessionAPIMap.contains(conferenceDayForeignKey)) {
-		// always getting the Date as a String (from server or JSON)
-		QString conferenceDayAsString = sessionAPIMap.value(conferenceDayForeignKey).toString();
-		mConferenceDay = QDate::fromString(conferenceDayAsString, "yyyy-MM-dd");
-		if (!mConferenceDay.isValid()) {
-			mConferenceDay = QDate();
-			qDebug() << "mConferenceDay is not valid for String: " << conferenceDayAsString;
-		}
-	}
+	mSessionId = sessionAPIMap.value(sessionIdForeignKey).toInt();
 	mTitle = sessionAPIMap.value(titleForeignKey).toString();
 	mSubtitle = sessionAPIMap.value(subtitleForeignKey).toString();
 	mDescription = sessionAPIMap.value(descriptionForeignKey).toString();
 	mSessionType = sessionAPIMap.value(sessionTypeForeignKey).toString();
-	if (sessionAPIMap.contains(startForeignKey)) {
+	if (sessionAPIMap.contains(startTimeForeignKey)) {
 		// always getting the Date as a String (from server or JSON)
-		QString startAsString = sessionAPIMap.value(startForeignKey).toString();
-		mStart = QTime::fromString(startAsString, "HH:mm");
-		if (!mStart.isValid()) {
-			mStart = QTime();
-			qDebug() << "mStart is not valid for String: " << startAsString;
+		QString startTimeAsString = sessionAPIMap.value(startTimeForeignKey).toString();
+		mStartTime = QTime::fromString(startTimeAsString, "HH:mm");
+		if (!mStartTime.isValid()) {
+			mStartTime = QTime();
+			qDebug() << "mStartTime is not valid for String: " << startTimeAsString;
 		}
 	}
 	mDuration = sessionAPIMap.value(durationForeignKey).toString();
@@ -138,6 +124,11 @@ void SessionAPI::fillFromForeignMap(const QVariantMap& sessionAPIMap)
 	// mPersons must be resolved later if there are keys
 	mPersonsKeysResolved = (mPersonsKeys.size() == 0);
 	mPersons.clear();
+	// mSessionLinks is (lazy loaded) Array of SessionLinkAPI*
+	mSessionLinksKeys = sessionAPIMap.value(sessionLinksForeignKey).toStringList();
+	// mSessionLinks must be resolved later if there are keys
+	mSessionLinksKeysResolved = (mSessionLinksKeys.size() == 0);
+	mSessionLinks.clear();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -148,28 +139,18 @@ void SessionAPI::fillFromForeignMap(const QVariantMap& sessionAPIMap)
  */
 void SessionAPI::fillFromCacheMap(const QVariantMap& sessionAPIMap)
 {
-	mId = sessionAPIMap.value(idKey).toInt();
-	mDayIndex = sessionAPIMap.value(dayIndexKey).toInt();
-	if (sessionAPIMap.contains(conferenceDayKey)) {
-		// always getting the Date as a String (from server or JSON)
-		QString conferenceDayAsString = sessionAPIMap.value(conferenceDayKey).toString();
-		mConferenceDay = QDate::fromString(conferenceDayAsString, "yyyy-MM-dd");
-		if (!mConferenceDay.isValid()) {
-			mConferenceDay = QDate();
-			qDebug() << "mConferenceDay is not valid for String: " << conferenceDayAsString;
-		}
-	}
+	mSessionId = sessionAPIMap.value(sessionIdKey).toInt();
 	mTitle = sessionAPIMap.value(titleKey).toString();
 	mSubtitle = sessionAPIMap.value(subtitleKey).toString();
 	mDescription = sessionAPIMap.value(descriptionKey).toString();
 	mSessionType = sessionAPIMap.value(sessionTypeKey).toString();
-	if (sessionAPIMap.contains(startKey)) {
+	if (sessionAPIMap.contains(startTimeKey)) {
 		// always getting the Date as a String (from server or JSON)
-		QString startAsString = sessionAPIMap.value(startKey).toString();
-		mStart = QTime::fromString(startAsString, "HH:mm");
-		if (!mStart.isValid()) {
-			mStart = QTime();
-			qDebug() << "mStart is not valid for String: " << startAsString;
+		QString startTimeAsString = sessionAPIMap.value(startTimeKey).toString();
+		mStartTime = QTime::fromString(startTimeAsString, "HH:mm");
+		if (!mStartTime.isValid()) {
+			mStartTime = QTime();
+			qDebug() << "mStartTime is not valid for String: " << startTimeAsString;
 		}
 	}
 	mDuration = sessionAPIMap.value(durationKey).toString();
@@ -181,6 +162,11 @@ void SessionAPI::fillFromCacheMap(const QVariantMap& sessionAPIMap)
 	// mPersons must be resolved later if there are keys
 	mPersonsKeysResolved = (mPersonsKeys.size() == 0);
 	mPersons.clear();
+	// mSessionLinks is (lazy loaded) Array of SessionLinkAPI*
+	mSessionLinksKeys = sessionAPIMap.value(sessionLinksKey).toStringList();
+	// mSessionLinks must be resolved later if there are keys
+	mSessionLinksKeysResolved = (mSessionLinksKeys.size() == 0);
+	mSessionLinks.clear();
 }
 
 void SessionAPI::prepareNew()
@@ -192,7 +178,7 @@ void SessionAPI::prepareNew()
  */
 bool SessionAPI::isValid()
 {
-	if (mId == -1) {
+	if (mSessionId == -1) {
 		return false;
 	}
 	return true;
@@ -219,20 +205,32 @@ QVariantMap SessionAPI::toMap()
 	for (int i = 0; i < mPersons.size(); ++i) {
 		PersonsAPI* personsAPI;
 		personsAPI = mPersons.at(i);
-		mPersonsKeys << QString::number(personsAPI->id());
+		mPersonsKeys << QString::number(personsAPI->speakerId());
 	}
 	sessionAPIMap.insert(personsKey, mPersonsKeys);
-	sessionAPIMap.insert(idKey, mId);
-	sessionAPIMap.insert(dayIndexKey, mDayIndex);
-	if (hasConferenceDay()) {
-		sessionAPIMap.insert(conferenceDayKey, mConferenceDay.toString("yyyy-MM-dd"));
+	// mSessionLinks points to SessionLinkAPI*
+	// lazy array: persist only keys
+	//
+	// if keys alreadyy resolved: clear them
+	// otherwise reuse the keys and add objects from mPositions
+	// this can happen if added to objects without resolving keys before
+	if(mSessionLinksKeysResolved) {
+		mSessionLinksKeys.clear();
 	}
+	// add objects from mPositions
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+		SessionLinkAPI* sessionLinkAPI;
+		sessionLinkAPI = mSessionLinks.at(i);
+		mSessionLinksKeys << sessionLinkAPI->uuid();
+	}
+	sessionAPIMap.insert(sessionLinksKey, mSessionLinksKeys);
+	sessionAPIMap.insert(sessionIdKey, mSessionId);
 	sessionAPIMap.insert(titleKey, mTitle);
 	sessionAPIMap.insert(subtitleKey, mSubtitle);
 	sessionAPIMap.insert(descriptionKey, mDescription);
 	sessionAPIMap.insert(sessionTypeKey, mSessionType);
-	if (hasStart()) {
-		sessionAPIMap.insert(startKey, mStart.toString("HH:mm"));
+	if (hasStartTime()) {
+		sessionAPIMap.insert(startTimeKey, mStartTime.toString("HH:mm"));
 	}
 	sessionAPIMap.insert(durationKey, mDuration);
 	sessionAPIMap.insert(abstractTextKey, mAbstractText);
@@ -262,20 +260,32 @@ QVariantMap SessionAPI::toForeignMap()
 	for (int i = 0; i < mPersons.size(); ++i) {
 		PersonsAPI* personsAPI;
 		personsAPI = mPersons.at(i);
-		mPersonsKeys << QString::number(personsAPI->id());
+		mPersonsKeys << QString::number(personsAPI->speakerId());
 	}
 	sessionAPIMap.insert(personsKey, mPersonsKeys);
-	sessionAPIMap.insert(idForeignKey, mId);
-	sessionAPIMap.insert(dayIndexForeignKey, mDayIndex);
-	if (hasConferenceDay()) {
-		sessionAPIMap.insert(conferenceDayForeignKey, mConferenceDay.toString("yyyy-MM-dd"));
+	// mSessionLinks points to SessionLinkAPI*
+	// lazy array: persist only keys
+	//
+	// if keys alreadyy resolved: clear them
+	// otherwise reuse the keys and add objects from mPositions
+	// this can happen if added to objects without resolving keys before
+	if(mSessionLinksKeysResolved) {
+		mSessionLinksKeys.clear();
 	}
+	// add objects from mPositions
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+		SessionLinkAPI* sessionLinkAPI;
+		sessionLinkAPI = mSessionLinks.at(i);
+		mSessionLinksKeys << sessionLinkAPI->uuid();
+	}
+	sessionAPIMap.insert(sessionLinksKey, mSessionLinksKeys);
+	sessionAPIMap.insert(sessionIdForeignKey, mSessionId);
 	sessionAPIMap.insert(titleForeignKey, mTitle);
 	sessionAPIMap.insert(subtitleForeignKey, mSubtitle);
 	sessionAPIMap.insert(descriptionForeignKey, mDescription);
 	sessionAPIMap.insert(sessionTypeForeignKey, mSessionType);
-	if (hasStart()) {
-		sessionAPIMap.insert(startForeignKey, mStart.toString("HH:mm"));
+	if (hasStartTime()) {
+		sessionAPIMap.insert(startTimeForeignKey, mStartTime.toString("HH:mm"));
 	}
 	sessionAPIMap.insert(durationForeignKey, mDuration);
 	sessionAPIMap.insert(abstractTextForeignKey, mAbstractText);
@@ -297,59 +307,19 @@ QVariantMap SessionAPI::toCacheMap()
 	return toMap();
 }
 // ATT 
-// Mandatory: id
-// Domain KEY: id
-int SessionAPI::id() const
+// Mandatory: sessionId
+// Domain KEY: sessionId
+int SessionAPI::sessionId() const
 {
-	return mId;
+	return mSessionId;
 }
 
-void SessionAPI::setId(int id)
+void SessionAPI::setSessionId(int sessionId)
 {
-	if (id != mId) {
-		mId = id;
-		emit idChanged(id);
+	if (sessionId != mSessionId) {
+		mSessionId = sessionId;
+		emit sessionIdChanged(sessionId);
 	}
-}
-// ATT 
-// Optional: dayIndex
-int SessionAPI::dayIndex() const
-{
-	return mDayIndex;
-}
-
-void SessionAPI::setDayIndex(int dayIndex)
-{
-	if (dayIndex != mDayIndex) {
-		mDayIndex = dayIndex;
-		emit dayIndexChanged(dayIndex);
-	}
-}
-// ATT 
-// Optional: conferenceDay
-/**
- * in QML set DateTimePicker value this way:
- * myPicker.value = new Date(conferenceDay)
- */
-QDate SessionAPI::conferenceDay() const
-{
-	return mConferenceDay;
-}
-
-/**
- * from QML DateTime Picker use as parameter:
- * conferenceDay = new Date(myPicker.value)
- */
-void SessionAPI::setConferenceDay(QDate conferenceDay)
-{
-	if (conferenceDay != mConferenceDay) {
-		mConferenceDay = conferenceDay;
-		emit conferenceDayChanged(conferenceDay);
-	}
-}
-bool SessionAPI::hasConferenceDay()
-{
-	return !mConferenceDay.isNull() && mConferenceDay.isValid();
 }
 // ATT 
 // Optional: title
@@ -408,21 +378,21 @@ void SessionAPI::setSessionType(QString sessionType)
 	}
 }
 // ATT 
-// Optional: start
+// Optional: startTime
 /**
  * in QML set DateTimePicker value this way:
- * myPicker.value = myPicker.dateFromTime(start)
+ * myPicker.value = myPicker.dateFromTime(startTime)
  */
-QTime SessionAPI::start() const
+QTime SessionAPI::startTime() const
 {
-	return mStart;
+	return mStartTime;
 }
 
-void SessionAPI::setStart(QTime start)
+void SessionAPI::setStartTime(QTime startTime)
 {
-	if (start != mStart) {
-		mStart = start;
-		emit startChanged(start);
+	if (startTime != mStartTime) {
+		mStartTime = startTime;
+		emit startTimeChanged(startTime);
 	}
 }
 /**
@@ -430,17 +400,17 @@ void SessionAPI::setStart(QTime start)
  * Convenience method to make it easy to set the value from QML
  * use myPicker.value.toTimeString() as Parameter
  */
-void SessionAPI::setStartFromPickerValue(QString startValue)
+void SessionAPI::setStartTimeFromPickerValue(QString startTimeValue)
 {
-    QTime start = QTime::fromString(startValue.left(8), "HH:mm:ss");
-    if (start != mStart) {
-        mStart = start;
-        emit startChanged(start);
+    QTime startTime = QTime::fromString(startTimeValue.left(8), "HH:mm:ss");
+    if (startTime != mStartTime) {
+        mStartTime = startTime;
+        emit startTimeChanged(startTime);
     }
 }
-bool SessionAPI::hasStart()
+bool SessionAPI::hasStartTime()
 {
-	return !mStart.isNull() && mStart.isValid();
+	return !mStartTime.isNull() && mStartTime.isValid();
 }
 // ATT 
 // Optional: duration
@@ -661,6 +631,172 @@ void SessionAPI::clearPersonsProperty(QQmlListProperty<PersonsAPI> *personsList)
         sessionAPI->mPersons.clear();
     } else {
         qWarning() << "cannot clear persons " << "Object is not of type SessionAPI*";
+    }
+}
+
+// ATT 
+// Optional: sessionLinks
+QVariantList SessionAPI::sessionLinksAsQVariantList()
+{
+	QVariantList sessionLinksList;
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+        sessionLinksList.append((mSessionLinks.at(i))->toMap());
+    }
+	return sessionLinksList;
+}
+QVariantList SessionAPI::sessionLinksAsForeignQVariantList()
+{
+	QVariantList sessionLinksList;
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+        sessionLinksList.append((mSessionLinks.at(i))->toForeignMap());
+    }
+	return sessionLinksList;
+}
+// no create() or undoCreate() because dto is root object
+// see methods in DataManager
+/**
+ * you can add sessionLinks without resolving existing keys before
+ * attention: before looping through the objects
+ * you must resolveSessionLinksKeys
+ */
+void SessionAPI::addToSessionLinks(SessionLinkAPI* sessionLinkAPI)
+{
+    mSessionLinks.append(sessionLinkAPI);
+    emit addedToSessionLinks(sessionLinkAPI);
+    emit sessionLinksPropertyListChanged();
+}
+
+bool SessionAPI::removeFromSessionLinks(SessionLinkAPI* sessionLinkAPI)
+{
+    bool ok = false;
+    ok = mSessionLinks.removeOne(sessionLinkAPI);
+    if (!ok) {
+    	qDebug() << "SessionLinkAPI* not found in sessionLinks";
+    	return false;
+    }
+    emit sessionLinksPropertyListChanged();
+    // sessionLinks are independent - DON'T delete them
+    return true;
+}
+void SessionAPI::clearSessionLinks()
+{
+    for (int i = mSessionLinks.size(); i > 0; --i) {
+        removeFromSessionLinks(mSessionLinks.last());
+    }
+}
+
+/**
+ * lazy Array of independent Data Objects: only keys are persited
+ * so we get a list of keys (uuid or domain keys) from map
+ * and we persist only the keys toMap()
+ * after initializing the keys must be resolved:
+ * - get the list of keys: sessionLinksKeys()
+ * - resolve them from DataManager
+ * - then resolveSessionLinksKeys()
+ */
+bool SessionAPI::areSessionLinksKeysResolved()
+{
+    return mSessionLinksKeysResolved;
+}
+
+QStringList SessionAPI::sessionLinksKeys()
+{
+    return mSessionLinksKeys;
+}
+
+/**
+ * Objects from sessionLinksKeys will be added to existing sessionLinks
+ * This enables to use addToSessionLinks() without resolving before
+ * Hint: it's your responsibility to resolve before looping thru sessionLinks
+ */
+void SessionAPI::resolveSessionLinksKeys(QList<SessionLinkAPI*> sessionLinks)
+{
+    if(mSessionLinksKeysResolved){
+        return;
+    }
+    // don't clear mSessionLinks (see above)
+    for (int i = 0; i < sessionLinks.size(); ++i) {
+        addToSessionLinks(sessionLinks.at(i));
+    }
+    mSessionLinksKeysResolved = true;
+}
+
+int SessionAPI::sessionLinksCount()
+{
+    return mSessionLinks.size();
+}
+QList<SessionLinkAPI*> SessionAPI::sessionLinks()
+{
+	return mSessionLinks;
+}
+void SessionAPI::setSessionLinks(QList<SessionLinkAPI*> sessionLinks) 
+{
+	if (sessionLinks != mSessionLinks) {
+		mSessionLinks = sessionLinks;
+		emit sessionLinksChanged(sessionLinks);
+		emit sessionLinksPropertyListChanged();
+	}
+}
+
+/**
+ * to access lists from QML we're using QQmlListProperty
+ * and implement methods to append, count and clear
+ * now from QML we can use
+ * sessionAPI.sessionLinksPropertyList.length to get the size
+ * sessionAPI.sessionLinksPropertyList[2] to get SessionLinkAPI* at position 2
+ * sessionAPI.sessionLinksPropertyList = [] to clear the list
+ * or get easy access to properties like
+ * sessionAPI.sessionLinksPropertyList[2].myPropertyName
+ */
+QQmlListProperty<SessionLinkAPI> SessionAPI::sessionLinksPropertyList()
+{
+    return QQmlListProperty<SessionLinkAPI>(this, 0, &SessionAPI::appendToSessionLinksProperty,
+            &SessionAPI::sessionLinksPropertyCount, &SessionAPI::atSessionLinksProperty,
+            &SessionAPI::clearSessionLinksProperty);
+}
+void SessionAPI::appendToSessionLinksProperty(QQmlListProperty<SessionLinkAPI> *sessionLinksList,
+        SessionLinkAPI* sessionLinkAPI)
+{
+    SessionAPI *sessionAPIObject = qobject_cast<SessionAPI *>(sessionLinksList->object);
+    if (sessionAPIObject) {
+        sessionAPIObject->mSessionLinks.append(sessionLinkAPI);
+        emit sessionAPIObject->addedToSessionLinks(sessionLinkAPI);
+    } else {
+        qWarning() << "cannot append SessionLinkAPI* to sessionLinks " << "Object is not of type SessionAPI*";
+    }
+}
+int SessionAPI::sessionLinksPropertyCount(QQmlListProperty<SessionLinkAPI> *sessionLinksList)
+{
+    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(sessionLinksList->object);
+    if (sessionAPI) {
+        return sessionAPI->mSessionLinks.size();
+    } else {
+        qWarning() << "cannot get size sessionLinks " << "Object is not of type SessionAPI*";
+    }
+    return 0;
+}
+SessionLinkAPI* SessionAPI::atSessionLinksProperty(QQmlListProperty<SessionLinkAPI> *sessionLinksList, int pos)
+{
+    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(sessionLinksList->object);
+    if (sessionAPI) {
+        if (sessionAPI->mSessionLinks.size() > pos) {
+            return sessionAPI->mSessionLinks.at(pos);
+        }
+        qWarning() << "cannot get SessionLinkAPI* at pos " << pos << " size is "
+                << sessionAPI->mSessionLinks.size();
+    } else {
+        qWarning() << "cannot get SessionLinkAPI* at pos " << pos << "Object is not of type SessionAPI*";
+    }
+    return 0;
+}
+void SessionAPI::clearSessionLinksProperty(QQmlListProperty<SessionLinkAPI> *sessionLinksList)
+{
+    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(sessionLinksList->object);
+    if (sessionAPI) {
+        // sessionLinks are independent - DON'T delete them
+        sessionAPI->mSessionLinks.clear();
+    } else {
+        qWarning() << "cannot clear sessionLinks " << "Object is not of type SessionAPI*";
     }
 }
 

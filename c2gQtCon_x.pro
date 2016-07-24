@@ -26,7 +26,9 @@ HEADERS += \
     cpp/gen/SpeakerAPI.hpp \
     cpp/gen/SpeakerImage.hpp \
     cpp/datautil.hpp \
-    cpp/imageloader.hpp
+    cpp/imageloader.hpp \
+    cpp/gen/SessionLink.hpp \
+    cpp/gen/SessionLinkAPI.hpp
 
 SOURCES += cpp/main.cpp \
     cpp/applicationui.cpp \
@@ -48,7 +50,9 @@ SOURCES += cpp/main.cpp \
     cpp/gen/SpeakerAPI.cpp \
     cpp/gen/SpeakerImage.cpp \
     cpp/datautil.cpp \
-    cpp/imageloader.cpp
+    cpp/imageloader.cpp \
+    cpp/gen/SessionLink.cpp \
+    cpp/gen/SessionLinkAPI.cpp
 
 lupdate_only {
     SOURCES +=  qml/main.qml \

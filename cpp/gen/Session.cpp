@@ -36,6 +36,7 @@ static const QString abstractTextKey = "abstractText";
 static const QString isFavoriteKey = "isFavorite";
 static const QString isBookmarkedKey = "isBookmarked";
 static const QString presenterKey = "presenter";
+static const QString sessionLinksKey = "sessionLinks";
 static const QString sessionDayKey = "sessionDay";
 static const QString roomKey = "room";
 static const QString sessionTrackKey = "sessionTrack";
@@ -63,6 +64,7 @@ static const QString abstractTextForeignKey = "abstractText";
 static const QString isFavoriteForeignKey = "isFavorite";
 static const QString isBookmarkedForeignKey = "isBookmarked";
 static const QString presenterForeignKey = "presenter";
+static const QString sessionLinksForeignKey = "sessionLinks";
 static const QString sessionDayForeignKey = "sessionDay";
 static const QString roomForeignKey = "room";
 static const QString sessionTrackForeignKey = "sessionTrack";
@@ -103,6 +105,7 @@ Session::Session(QObject *parent) :
 	// bool mIsBookmarked
 		// lazy Arrays where only keys are persisted
 		mPresenterKeysResolved = false;
+		mSessionLinksKeysResolved = false;
 }
 
 bool Session::isAllResolved()
@@ -126,6 +129,9 @@ bool Session::isAllResolved()
 		return false;
 	}
     if(!arePresenterKeysResolved()) {
+        return false;
+    }
+    if(!areSessionLinksKeysResolved()) {
         return false;
     }
     return true;
@@ -227,6 +233,11 @@ void Session::fillFromMap(const QVariantMap& sessionMap)
 	// mPresenter must be resolved later if there are keys
 	mPresenterKeysResolved = (mPresenterKeys.size() == 0);
 	mPresenter.clear();
+	// mSessionLinks is (lazy loaded) Array of SessionLink*
+	mSessionLinksKeys = sessionMap.value(sessionLinksKey).toStringList();
+	// mSessionLinks must be resolved later if there are keys
+	mSessionLinksKeysResolved = (mSessionLinksKeys.size() == 0);
+	mSessionLinks.clear();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -324,6 +335,11 @@ void Session::fillFromForeignMap(const QVariantMap& sessionMap)
 	// mPresenter must be resolved later if there are keys
 	mPresenterKeysResolved = (mPresenterKeys.size() == 0);
 	mPresenter.clear();
+	// mSessionLinks is (lazy loaded) Array of SessionLink*
+	mSessionLinksKeys = sessionMap.value(sessionLinksForeignKey).toStringList();
+	// mSessionLinks must be resolved later if there are keys
+	mSessionLinksKeysResolved = (mSessionLinksKeys.size() == 0);
+	mSessionLinks.clear();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -415,6 +431,11 @@ void Session::fillFromCacheMap(const QVariantMap& sessionMap)
 	// mPresenter must be resolved later if there are keys
 	mPresenterKeysResolved = (mPresenterKeys.size() == 0);
 	mPresenter.clear();
+	// mSessionLinks is (lazy loaded) Array of SessionLink*
+	mSessionLinksKeys = sessionMap.value(sessionLinksKey).toStringList();
+	// mSessionLinks must be resolved later if there are keys
+	mSessionLinksKeysResolved = (mSessionLinksKeys.size() == 0);
+	mSessionLinks.clear();
 }
 
 void Session::prepareNew()
@@ -484,6 +505,22 @@ QVariantMap Session::toMap()
 		mPresenterKeys << QString::number(speaker->speakerId());
 	}
 	sessionMap.insert(presenterKey, mPresenterKeys);
+	// mSessionLinks points to SessionLink*
+	// lazy array: persist only keys
+	//
+	// if keys alreadyy resolved: clear them
+	// otherwise reuse the keys and add objects from mPositions
+	// this can happen if added to objects without resolving keys before
+	if(mSessionLinksKeysResolved) {
+		mSessionLinksKeys.clear();
+	}
+	// add objects from mPositions
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+		SessionLink* sessionLink;
+		sessionLink = mSessionLinks.at(i);
+		mSessionLinksKeys << sessionLink->uuid();
+	}
+	sessionMap.insert(sessionLinksKey, mSessionLinksKeys);
 	sessionMap.insert(sessionIdKey, mSessionId);
 	sessionMap.insert(isDeprecatedKey, mIsDeprecated);
 	sessionMap.insert(sortKeyKey, mSortKey);
@@ -557,6 +594,22 @@ QVariantMap Session::toForeignMap()
 		mPresenterKeys << QString::number(speaker->speakerId());
 	}
 	sessionMap.insert(presenterKey, mPresenterKeys);
+	// mSessionLinks points to SessionLink*
+	// lazy array: persist only keys
+	//
+	// if keys alreadyy resolved: clear them
+	// otherwise reuse the keys and add objects from mPositions
+	// this can happen if added to objects without resolving keys before
+	if(mSessionLinksKeysResolved) {
+		mSessionLinksKeys.clear();
+	}
+	// add objects from mPositions
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+		SessionLink* sessionLink;
+		sessionLink = mSessionLinks.at(i);
+		mSessionLinksKeys << sessionLink->uuid();
+	}
+	sessionMap.insert(sessionLinksKey, mSessionLinksKeys);
 	sessionMap.insert(sessionIdForeignKey, mSessionId);
 	sessionMap.insert(isDeprecatedForeignKey, mIsDeprecated);
 	sessionMap.insert(sortKeyForeignKey, mSortKey);
@@ -630,6 +683,22 @@ QVariantMap Session::toCacheMap()
 		mPresenterKeys << QString::number(speaker->speakerId());
 	}
 	sessionMap.insert(presenterKey, mPresenterKeys);
+	// mSessionLinks points to SessionLink*
+	// lazy array: persist only keys
+	//
+	// if keys alreadyy resolved: clear them
+	// otherwise reuse the keys and add objects from mPositions
+	// this can happen if added to objects without resolving keys before
+	if(mSessionLinksKeysResolved) {
+		mSessionLinksKeys.clear();
+	}
+	// add objects from mPositions
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+		SessionLink* sessionLink;
+		sessionLink = mSessionLinks.at(i);
+		mSessionLinksKeys << sessionLink->uuid();
+	}
+	sessionMap.insert(sessionLinksKey, mSessionLinksKeys);
 	sessionMap.insert(sessionIdKey, mSessionId);
 	sessionMap.insert(isDeprecatedKey, mIsDeprecated);
 	sessionMap.insert(sortKeyKey, mSortKey);
@@ -1514,6 +1583,172 @@ void Session::clearPresenterProperty(QQmlListProperty<Speaker> *presenterList)
         session->mPresenter.clear();
     } else {
         qWarning() << "cannot clear presenter " << "Object is not of type Session*";
+    }
+}
+
+// ATT 
+// Optional: sessionLinks
+QVariantList Session::sessionLinksAsQVariantList()
+{
+	QVariantList sessionLinksList;
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+        sessionLinksList.append((mSessionLinks.at(i))->toMap());
+    }
+	return sessionLinksList;
+}
+QVariantList Session::sessionLinksAsForeignQVariantList()
+{
+	QVariantList sessionLinksList;
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+        sessionLinksList.append((mSessionLinks.at(i))->toForeignMap());
+    }
+	return sessionLinksList;
+}
+// no create() or undoCreate() because dto is root object
+// see methods in DataManager
+/**
+ * you can add sessionLinks without resolving existing keys before
+ * attention: before looping through the objects
+ * you must resolveSessionLinksKeys
+ */
+void Session::addToSessionLinks(SessionLink* sessionLink)
+{
+    mSessionLinks.append(sessionLink);
+    emit addedToSessionLinks(sessionLink);
+    emit sessionLinksPropertyListChanged();
+}
+
+bool Session::removeFromSessionLinks(SessionLink* sessionLink)
+{
+    bool ok = false;
+    ok = mSessionLinks.removeOne(sessionLink);
+    if (!ok) {
+    	qDebug() << "SessionLink* not found in sessionLinks";
+    	return false;
+    }
+    emit sessionLinksPropertyListChanged();
+    // sessionLinks are independent - DON'T delete them
+    return true;
+}
+void Session::clearSessionLinks()
+{
+    for (int i = mSessionLinks.size(); i > 0; --i) {
+        removeFromSessionLinks(mSessionLinks.last());
+    }
+}
+
+/**
+ * lazy Array of independent Data Objects: only keys are persited
+ * so we get a list of keys (uuid or domain keys) from map
+ * and we persist only the keys toMap()
+ * after initializing the keys must be resolved:
+ * - get the list of keys: sessionLinksKeys()
+ * - resolve them from DataManager
+ * - then resolveSessionLinksKeys()
+ */
+bool Session::areSessionLinksKeysResolved()
+{
+    return mSessionLinksKeysResolved;
+}
+
+QStringList Session::sessionLinksKeys()
+{
+    return mSessionLinksKeys;
+}
+
+/**
+ * Objects from sessionLinksKeys will be added to existing sessionLinks
+ * This enables to use addToSessionLinks() without resolving before
+ * Hint: it's your responsibility to resolve before looping thru sessionLinks
+ */
+void Session::resolveSessionLinksKeys(QList<SessionLink*> sessionLinks)
+{
+    if(mSessionLinksKeysResolved){
+        return;
+    }
+    // don't clear mSessionLinks (see above)
+    for (int i = 0; i < sessionLinks.size(); ++i) {
+        addToSessionLinks(sessionLinks.at(i));
+    }
+    mSessionLinksKeysResolved = true;
+}
+
+int Session::sessionLinksCount()
+{
+    return mSessionLinks.size();
+}
+QList<SessionLink*> Session::sessionLinks()
+{
+	return mSessionLinks;
+}
+void Session::setSessionLinks(QList<SessionLink*> sessionLinks) 
+{
+	if (sessionLinks != mSessionLinks) {
+		mSessionLinks = sessionLinks;
+		emit sessionLinksChanged(sessionLinks);
+		emit sessionLinksPropertyListChanged();
+	}
+}
+
+/**
+ * to access lists from QML we're using QQmlListProperty
+ * and implement methods to append, count and clear
+ * now from QML we can use
+ * session.sessionLinksPropertyList.length to get the size
+ * session.sessionLinksPropertyList[2] to get SessionLink* at position 2
+ * session.sessionLinksPropertyList = [] to clear the list
+ * or get easy access to properties like
+ * session.sessionLinksPropertyList[2].myPropertyName
+ */
+QQmlListProperty<SessionLink> Session::sessionLinksPropertyList()
+{
+    return QQmlListProperty<SessionLink>(this, 0, &Session::appendToSessionLinksProperty,
+            &Session::sessionLinksPropertyCount, &Session::atSessionLinksProperty,
+            &Session::clearSessionLinksProperty);
+}
+void Session::appendToSessionLinksProperty(QQmlListProperty<SessionLink> *sessionLinksList,
+        SessionLink* sessionLink)
+{
+    Session *sessionObject = qobject_cast<Session *>(sessionLinksList->object);
+    if (sessionObject) {
+        sessionObject->mSessionLinks.append(sessionLink);
+        emit sessionObject->addedToSessionLinks(sessionLink);
+    } else {
+        qWarning() << "cannot append SessionLink* to sessionLinks " << "Object is not of type Session*";
+    }
+}
+int Session::sessionLinksPropertyCount(QQmlListProperty<SessionLink> *sessionLinksList)
+{
+    Session *session = qobject_cast<Session *>(sessionLinksList->object);
+    if (session) {
+        return session->mSessionLinks.size();
+    } else {
+        qWarning() << "cannot get size sessionLinks " << "Object is not of type Session*";
+    }
+    return 0;
+}
+SessionLink* Session::atSessionLinksProperty(QQmlListProperty<SessionLink> *sessionLinksList, int pos)
+{
+    Session *session = qobject_cast<Session *>(sessionLinksList->object);
+    if (session) {
+        if (session->mSessionLinks.size() > pos) {
+            return session->mSessionLinks.at(pos);
+        }
+        qWarning() << "cannot get SessionLink* at pos " << pos << " size is "
+                << session->mSessionLinks.size();
+    } else {
+        qWarning() << "cannot get SessionLink* at pos " << pos << "Object is not of type Session*";
+    }
+    return 0;
+}
+void Session::clearSessionLinksProperty(QQmlListProperty<SessionLink> *sessionLinksList)
+{
+    Session *session = qobject_cast<Session *>(sessionLinksList->object);
+    if (session) {
+        // sessionLinks are independent - DON'T delete them
+        session->mSessionLinks.clear();
+    } else {
+        qWarning() << "cannot clear sessionLinks " << "Object is not of type Session*";
     }
 }
 
