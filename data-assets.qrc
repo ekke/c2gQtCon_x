@@ -37,5 +37,6 @@
         <file>data-assets/conference/floorplan/room_7.png</file>
         <file>data-assets/conference/floorplan/room_8.png</file>
         <file>data-assets/conference/floorplan/room_9.png</file>
+        <file>data-assets/conference/qtcon_datamodel.pdf</file>
     </qresource>
 </RCC>
