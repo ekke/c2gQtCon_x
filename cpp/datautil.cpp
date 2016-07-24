@@ -19,11 +19,16 @@ void DataUtil::init(DataManager* dataManager)
 
 // P R E   C O N F E R E N C E   S T U F F
 /**
- * Prepare was done before submitting the App to AppStore
+ * Prepare will be done before submitting the App to AppStore
  * Use public Cache
+ * Best practice:
+ * 1. remove app from dev device
+ * 2. start app, switch to public cache
+ * 3. restart app
  * If all done send files from Phone to PC/Mac
  * Copy them into data-assets /prod or /test
- * Then users will get this directly by installing the app
+ * Test again after deleteing app from dev device
+ * Now Users will get this directly by installing the app
  * and updates are fast
  */
 void DataUtil::prepareConference() {
@@ -59,13 +64,100 @@ void DataUtil::prepareConference() {
         }
         qDebug() << "created directory speakerImages " << directory;
     }
+    // create some data for this specific conference
+    prepareEventData();
     // prepare sessions
     prepareSessions();
     // prepare speaker
     prepareSpeaker();
     // download speaker images
     prepareSpeakerImages();
+    // now cache all the data
+    // if ok - copied to qrc: data-assets
+    qDebug() << "cache DATA";
+    mDataManager->saveConferenceToCache();
+    mDataManager->saveDayToCache();
+    mDataManager->saveBuildingToCache();
+    mDataManager->saveFloorToCache();
+    mDataManager->saveRoomToCache();
+    mDataManager->saveSessionToCache();
+    mDataManager->saveSpeakerToCache();
+    qDebug() << "PREPARE   D O N E - WAIT FOR IMAGES";
+}
 
+// conference, days, building-floor-rooms
+void DataUtil::prepareEventData() {
+    qDebug() << "PREPARE EVENT ";
+    const QString YYYY_MM_DD = "yyyy-MM-dd";
+    // CONFERENCE
+    mDataManager->deleteConference();
+    mDataManager->deleteDay();
+    //
+    Conference* conference = mDataManager->createConference();
+    conference->setConferenceName("QtCON");
+    conference->setConferenceCity("Berlin");
+    QString venueAddress;
+    venueAddress = "BCC Berlin Congress Center";
+    venueAddress.append("\n");
+    venueAddress.append("Tagungszentrum Mitte");
+    venueAddress.append("\n");
+    venueAddress.append("Alexanderstr. 11");
+    venueAddress.append("\n");
+    venueAddress.append("10178 Berlin");
+    venueAddress.append("\n");
+    venueAddress.append("Deutschland");
+    conference->setAddress(venueAddress);
+    conference->setTimeZoneName("Europe/Amsterdam");
+    conference->setTimeZoneOffsetSeconds(1 * 60 * 60); // +01:00 GMT
+    conference->setConferenceFrom(QDate::fromString("2016-09-01", YYYY_MM_DD));
+    conference->setConferenceTo(QDate::fromString("2015-09-04", YYYY_MM_DD));
+    conference->setHashTag("#QtCon16");
+    conference->setHomePage("http://www.qtcon.org/");
+    QString coordinate;
+    coordinate = QString::number(52.520778)+";"+QString::number(13.416515);
+    // conference->coordinate()->setLatitude(52.520778);
+    // conference->coordinate()->setLongitude(13.416515);
+    conference->setCoordinate(coordinate);
+    mDataManager->insertConference(conference);
+    // DAYS
+    // Days dayOfWeek 1=monday, 7 = sunday
+    // thursday
+    Day* day = mDataManager->createDay();
+    day->setId(1);
+    day->setWeekDay(4);
+    day->setConferenceDay(QDate::fromString("2016-09-01", YYYY_MM_DD));
+    conference->addToDays(day);
+    mDataManager->insertDay(day);
+    // friday
+    day = mDataManager->createDay();
+    day->setId(2);
+    day->setWeekDay(5);
+    day->setConferenceDay(QDate::fromString("2016-09-02", YYYY_MM_DD));
+    conference->addToDays(day);
+    mDataManager->insertDay(day);
+    // saturday
+    day = mDataManager->createDay();
+    day->setId(3);
+    day->setWeekDay(6);
+    day->setConferenceDay(QDate::fromString("2016-09-03", YYYY_MM_DD));
+    conference->addToDays(day);
+    mDataManager->insertDay(day);
+    // sunday
+    day = mDataManager->createDay();
+    day->setId(4);
+    day->setWeekDay(1);
+    day->setConferenceDay(QDate::fromString("2016-09-04", YYYY_MM_DD));
+    conference->addToDays(day);
+    mDataManager->insertDay(day);
+    // BUILDING
+    // Building and FLOORS already created
+    // ROOMS created, but delete current sessions yet
+    qDebug() << "ROOMS: #" << mDataManager->allRoom().size();
+    for (int r = 0; r < mDataManager->allRoom().size(); ++r) {
+        Room* room = (Room*) mDataManager->allRoom().at(r);
+        room->clearSessions();
+    }
+    //
 }
 
 void DataUtil::prepareSessions()
@@ -207,10 +299,11 @@ void DataUtil::prepareSpeaker()
                 speaker->resolveSpeakerImageAsDataObject(speakerImage);
             }
         }
-        // mDataManager->insertSpeaker(speaker);
+        // using MultiMap to get Speakers sorted
         mm.insert(speaker->sortKey(), speaker);
+    } // end for all SpeakersAPI
 
-    } // end for
+    // insert sorted Speakers
     mDataManager->mAllSpeaker.clear();
     QMapIterator<QString, Speaker*> speakerIterator(mm);
     while (speakerIterator.hasNext()) {
@@ -218,8 +311,6 @@ void DataUtil::prepareSpeaker()
         mDataManager->insertSpeaker(speakerIterator.value());
     }
 
-    qDebug() << "cache SPEAKER";
-    mDataManager->saveSpeakerToCache();
 }
 
 void DataUtil::prepareSpeakerImages()
@@ -274,8 +365,9 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
             return;
         }
     } // for all speaker images
-    qDebug() << "cache SPEAKER IMAGES";
+    // N OW cache speaker images
     mDataManager->saveSpeakerImageToCache();
+    qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
 }
 
 void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {
@@ -308,7 +400,7 @@ void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int h
             qWarning() << "Cannot construct Image from file: " << originFileName;
             return;
         }
-         QImage scaledImage;
+        QImage scaledImage;
         if(width >= size1) {
             scaledImage = originImage.scaledToWidth(size1);
             scaledImage.save(originFileName);
@@ -348,7 +440,7 @@ void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int h
             qWarning() << "Cannot construct Image from file: " << originFileName;
             return;
         }
-         QImage scaledImage;
+        QImage scaledImage;
         if(height >= size1) {
             scaledImage = originImage.scaledToHeight(size1);
             scaledImage.save(originFileName);

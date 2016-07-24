@@ -1,10 +1,5 @@
 <RCC>
     <qresource prefix="/">
-        <file>data-assets/cacheSettingsData.json</file>
-        <file>data-assets/prod/cacheCustomer.json</file>
-        <file>data-assets/test/cacheCustomer.json</file>
-        <file>data-assets/conference/schedule.json</file>
-        <file>data-assets/conference/speakers.json</file>
         <file>data-assets/conference/floorplan/bcc_room_mapping.txt</file>
         <file>data-assets/conference/floorplan/building_1.png</file>
         <file>data-assets/conference/floorplan/floor_1.png</file>
@@ -38,5 +33,11 @@
         <file>data-assets/conference/floorplan/room_8.png</file>
         <file>data-assets/conference/floorplan/room_9.png</file>
         <file>data-assets/conference/qtcon_datamodel.pdf</file>
+        <file>data-assets/conference/schedule.json</file>
+        <file>data-assets/conference/speakers.json</file>
+        <file>data-assets/prod/cacheBuilding.json</file>
+        <file>data-assets/prod/cacheFloor.json</file>
+        <file>data-assets/prod/cacheRoom.json</file>
+        <file>data-assets/cacheSettingsData.json</file>
     </qresource>
 </RCC>

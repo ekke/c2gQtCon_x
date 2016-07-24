@@ -1,0 +1,8 @@
+[
+   {
+      "buildingId" : 1,
+      "buildingName" : "BCC Berlin Congress Center",
+      "floors" : [ "1", "2", "3" ],
+      "inAssets" : true
+   }
+]

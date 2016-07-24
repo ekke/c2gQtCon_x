@@ -1,0 +1,191 @@
+[
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 1,
+      "roomName" : "A01",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 2,
+      "roomName" : "A02",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 3,
+      "roomName" : "A03-04",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 4,
+      "roomName" : "A03",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 5,
+      "roomName" : "A04",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 6,
+      "roomName" : "A05-06",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 7,
+      "roomName" : "A05",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 8,
+      "roomName" : "A06",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 9,
+      "roomName" : "A07",
+      "sessions" : []
+   },
+   {
+      "floor" : 1,
+      "inAssets" : true,
+      "roomId" : 10,
+      "roomName" : "A08",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 11,
+      "roomName" : "B01",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 12,
+      "roomName" : "B02",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 13,
+      "roomName" : "B03",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 14,
+      "roomName" : "B04",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 15,
+      "roomName" : "B05-06",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 16,
+      "roomName" : "B05",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 17,
+      "roomName" : "B06",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 18,
+      "roomName" : "B07-08",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 19,
+      "roomName" : "B07",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 20,
+      "roomName" : "B08",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 21,
+      "roomName" : "B09",
+      "sessions" : []
+   },
+   {
+      "floor" : 3,
+      "inAssets" : true,
+      "roomId" : 22,
+      "roomName" : "C01",
+      "sessions" : []
+   },
+   {
+      "floor" : 3,
+      "inAssets" : true,
+      "roomId" : 23,
+      "roomName" : "C02",
+      "sessions" : []
+   },
+   {
+      "floor" : 3,
+      "inAssets" : true,
+      "roomId" : 24,
+      "roomName" : "C03",
+      "sessions" : []
+   },
+   {
+      "floor" : 3,
+      "inAssets" : true,
+      "roomId" : 25,
+      "roomName" : "C04",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 26,
+      "roomName" : "B01-02",
+      "sessions" : []
+   },
+   {
+      "floor" : 2,
+      "inAssets" : true,
+      "roomId" : 27,
+      "roomName" : "B95",
+      "sessions" : []
+   }
+]

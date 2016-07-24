@@ -77,6 +77,7 @@ OTHER_FILES += images/black/*.png \
     data-assets/prod/*.json \
     data-assets/test/*.json \
     data-assets/conference/*.json \
+    data-assets/conference/floorplan/*.png \
     images/LICENSE \
     LICENSE \
     *.md

@@ -3,7 +3,7 @@
     "darkTheme": false,
     "hasPublicCache": false,
     "id": 1,
-    "isProductionEnvironment": false,
+    "isProductionEnvironment": true,
     "primaryColor": 8,
     "useCompactJsonFormat": true,
     "version": 1,

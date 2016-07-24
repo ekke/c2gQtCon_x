@@ -38,6 +38,7 @@ private:
 
     void prepareHighDpiImages(SpeakerImage *speakerImage, int width, int height);
 
+    void prepareEventData();
 };
 
 #endif // DATAUTIL_H
