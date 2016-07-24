@@ -117,7 +117,7 @@ void DataUtil::prepareEventData() {
     conference->setConferenceFrom(QDate::fromString("2016-09-01", YYYY_MM_DD));
     conference->setConferenceTo(QDate::fromString("2015-09-04", YYYY_MM_DD));
     conference->setHashTag("#QtCon16");
-    conference->setHomePage("http://www.qtcon.org/");
+    conference->setHomePage("http://qtcon.org/");
     QString coordinate;
     coordinate = QString::number(52.520778)+";"+QString::number(13.416515);
     // conference->coordinate()->setLatitude(52.520778);
@@ -250,7 +250,7 @@ void DataUtil::prepareSessions()
             QVariantList sessionList;
             sessionList = roomMap.value(roomKeys.at(r)).toList();
             if(sessionList.isEmpty()) {
-                qWarning() << "No 'sessions' found. DAY: " << i << " ROOM: " << roomKeys.at(r);
+                qWarning() << "DAY: " << dayDate << " ROOM: " << roomKeys.at(r) << " ignored - No Sessions available";
                 continue;
             }
             Room* room;
@@ -263,15 +263,15 @@ void DataUtil::prepareSessions()
                 }
             }
             if(!found) {
-                qWarning() << "No Room* found for " << dayDate;
+                qWarning() << "Room* not found for " << dayDate << " Room: " << roomKeys.at(r);
                 // TODO add new Room
                 continue;
             }
             for (int sl = 0; sl < sessionList.size(); ++sl) {
                 QVariantMap sessionMap;
-                sessionMap = sessionList.at(0).toMap();
+                sessionMap = sessionList.at(sl).toMap();
                 if(sessionMap.isEmpty()) {
-                    qWarning() << "No 'SESSION' Map DAY: " << i << " ROOM: " << roomKeys.at(r);
+                    qWarning() << "No 'SESSION' Map DAY: " << dayDate << " ROOM: " << roomKeys.at(r);
                     continue;
                 }
                 SessionAPI* sessionAPI = mDataManager->createSessionAPI();
@@ -285,7 +285,7 @@ void DataUtil::prepareSessions()
                     minutes = duration.last().toInt();
                     minutes += duration.first().toInt()*60;
                 } else {
-                    qWarning() << "Duration wrong: " << sessionAPI->duration() << " DAY: " << i << " ROOM: " << roomKeys.at(r);
+                    qWarning() << "Duration wrong: " << sessionAPI->duration() << " DAY: " << dayDate << " ROOM: " << roomKeys.at(r);
                 }
                 session->setMinutes(minutes);
                 session->setEndTime(session->startTime().addSecs(minutes * 60));
@@ -322,7 +322,7 @@ void DataUtil::prepareSessions()
         } // room keys
     } // for days list
     // insert sorted Sessions
-    mDataManager->mAllSpeaker.clear();
+    mDataManager->mAllSession.clear();
     QMapIterator<QString, Session*> sessionIterator(sessionSortMap);
     while (sessionIterator.hasNext()) {
         sessionIterator.next();
