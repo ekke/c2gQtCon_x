@@ -171,6 +171,7 @@ void DataUtil::prepareSpeaker()
         return;
     }
     qDebug() << "QJsonDocument for speakers with Array :)";
+    QMultiMap<QString, Speaker*> mm;
     dataList = jda.toVariant().toList();
     const QString DEFAULT_IMAGE = "http://conf.qtcon.org/person_original.png";
     for (int i = 0; i < dataList.size(); ++i) {
@@ -185,7 +186,7 @@ void DataUtil::prepareSpeaker()
             speaker->setName(speaker->name()+" ");
         }
         speaker->setName(speaker->name()+speakerAPI->lastName());
-        speaker->setSortKey(speaker->name().left(5).toUpper());
+        speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
         speaker->setSortGroup(speaker->sortKey().left(1));
         if(speakerAPI->avatar().length() > 0 && speakerAPI->avatar() != DEFAULT_IMAGE) {
             QString avatar = speakerAPI->avatar();
@@ -206,8 +207,17 @@ void DataUtil::prepareSpeaker()
                 speaker->resolveSpeakerImageAsDataObject(speakerImage);
             }
         }
-        mDataManager->insertSpeaker(speaker);
+        // mDataManager->insertSpeaker(speaker);
+        mm.insert(speaker->sortKey(), speaker);
+
     } // end for
+    mDataManager->mAllSpeaker.clear();
+    QMapIterator<QString, Speaker*> speakerIterator(mm);
+    while (speakerIterator.hasNext()) {
+        speakerIterator.next();
+        mDataManager->insertSpeaker(speakerIterator.value());
+    }
+
     qDebug() << "cache SPEAKER";
     mDataManager->saveSpeakerToCache();
 }
