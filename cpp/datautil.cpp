@@ -349,9 +349,14 @@ void DataUtil::prepareSessions()
                 // TRACK
                 SessionTrack* sessionTrack;
                 found = false;
+                QString trackName;
+                trackName = sessionAPI->track();
+                if(trackName.isEmpty()) {
+                    trackName = "*****";
+                }
                 for (int tr = 0; tr < mDataManager->mAllSessionTrack.size(); ++tr) {
                     sessionTrack = (SessionTrack*) mDataManager->mAllSessionTrack.at(tr);
-                    if(sessionTrack->name() == sessionAPI->track()) {
+                    if(sessionTrack->name() == trackName) {
                         found = true;
                         break;
                     }
@@ -360,13 +365,47 @@ void DataUtil::prepareSessions()
                     sessionTrack = mDataManager->createSessionTrack();
                     conference->setLastSessionTrackId(conference->lastSessionTrackId()+1);
                     sessionTrack->setTrackId(conference->lastSessionTrackId());
-                    sessionTrack->setName(sessionAPI->track());
+                    sessionTrack->setName(trackName);
                     sessionTrack->setInAssets(true);
                     mDataManager->insertSessionTrack(sessionTrack);
                 }
                 session->setSessionTrack(sessionTrack->trackId());
-                // SCHEDULE
-
+                // SCHEDULE or what else
+                // setting some boolean here makes it easier to distinguish in UI
+                if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
+                    ScheduleItem* scheduleItem = mDataManager->createScheduleItem();
+                    if(trackName == "Break") {
+                        scheduleItem->setIsBreak(true);
+                    } else {
+                        if(session->title().contains("Registration")) {
+                            scheduleItem->setIsRegistration(true);
+                        } else {
+                            if(session->title().contains("Lunch")) {
+                                scheduleItem->setIsLunch(true);
+                            } else {
+                                scheduleItem->setIsEvent(true);
+                            }
+                        }
+                    }
+                } else {
+                    if(session->title().contains("Lightning")) {
+                        session->setIsLightning(true);
+                    } else {
+                        if(session->title().contains("Keynote")) {
+                            session->setIsKeynote(true);
+                        } else {
+                            if(trackName == "Community") {
+                                session->setIsCommunity(true);
+                            } else {
+                                if(dayDate == "2016-09-01" && session->title().contains("Training")) {
+                                    session->setIsTraining(true);
+                                } else {
+                                    session->setIsSession(true);
+                                }
+                            }
+                        }
+                    }
+                }
                 // SORT
                 session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm"));
                 sessionSortMap.insert(session->sortKey(), session);
@@ -419,8 +458,13 @@ void DataUtil::prepareSpeaker()
             speaker->setName(speaker->name()+" ");
         }
         speaker->setName(speaker->name()+speakerAPI->lastName());
-        speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
-        speaker->setSortGroup(speaker->sortKey().left(1));
+        if(speaker->name().length() > 0) {
+            speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
+            speaker->setSortGroup(speaker->sortKey().left(1));
+        } else {
+            speaker->setSortKey("*");
+            speaker->setSortGroup("*");
+        }
         if(speakerAPI->avatar().length() > 0 && speakerAPI->avatar() != DEFAULT_IMAGE) {
             QString avatar = speakerAPI->avatar();
             QStringList sl = avatar.split("?");
