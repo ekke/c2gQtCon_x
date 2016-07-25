@@ -374,19 +374,27 @@ void DataUtil::prepareSessions()
                 // setting some boolean here makes it easier to distinguish in UI
                 if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
                     ScheduleItem* scheduleItem = mDataManager->createScheduleItem();
-                    if(trackName == "Break") {
-                        scheduleItem->setIsBreak(true);
+                    if(session->title().contains("Evening event")) {
+                        scheduleItem->setIsEvent(true);
                     } else {
-                        if(session->title().contains("Registration")) {
-                            scheduleItem->setIsRegistration(true);
+                        if(trackName == "Break") {
+                            scheduleItem->setIsBreak(true);
                         } else {
-                            if(session->title().contains("Lunch")) {
-                                scheduleItem->setIsLunch(true);
+                            if(session->title().contains("Registration")) {
+                                scheduleItem->setIsRegistration(true);
                             } else {
-                                scheduleItem->setIsEvent(true);
+                                if(session->title().contains("Lunch")) {
+                                    scheduleItem->setIsLunch(true);
+                                } else {
+                                    scheduleItem->setIsEvent(true);
+                                }
                             }
                         }
                     }
+                    scheduleItem->setSessionId(session->sessionId());
+                    session->setScheduleItem(scheduleItem->sessionId());
+                    scheduleItem->setSession(session->sessionId());
+                    mDataManager->insertScheduleItem(scheduleItem);
                 } else {
                     if(session->title().contains("Lightning")) {
                         session->setIsLightning(true);
