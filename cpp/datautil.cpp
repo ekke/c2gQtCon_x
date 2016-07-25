@@ -274,8 +274,42 @@ void DataUtil::prepareSessions()
                     qWarning() << "No 'SESSION' Map DAY: " << dayDate << " ROOM: " << roomKeys.at(r);
                     continue;
                 }
+                // adjust persons
+                QStringList persons;
+                QVariantList personsList;
+                personsList = sessionMap.value("persons").toList();
+                if (personsList.size() > 0) {
+                    for (int pvl = 0; pvl < personsList.size(); ++pvl) {
+                        QVariantMap map = personsList.at(pvl).toMap();
+                        if(map.contains("id")) {
+                            persons.append(map.value("id").toString());
+                        }
+                    }
+                    sessionMap.insert("persons", persons);
+                }
                 SessionAPI* sessionAPI = mDataManager->createSessionAPI();
                 sessionAPI->fillFromForeignMap(sessionMap);
+                // ignore unwanted Sessions
+                if(sessionAPI->title() == "Registration and Coffee" && sessionAPI->room() != "B02") {
+                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+                    continue;
+                }
+                if(sessionAPI->title() == "Lunch" && sessionAPI->room() != "B02") {
+                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+                    continue;
+                }
+                if(sessionAPI->title() == "Coffee break" && sessionAPI->room() != "B02") {
+                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+                    continue;
+                }
+                if(sessionAPI->title() == "Evening event" && sessionAPI->room() != "B02") {
+                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+                    continue;
+                }
+                if(sessionAPI->title() == "Welcome" && sessionAPI->room() != "C01") {
+                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+                    continue;
+                }
                 Session* session = mDataManager->createSession();
                 session->fillFromMap(sessionAPI->toMap());
                 QStringList duration;
