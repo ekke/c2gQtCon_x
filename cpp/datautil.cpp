@@ -68,10 +68,11 @@ void DataUtil::prepareConference() {
     }
     // create some data for this specific conference
     prepareEventData();
-    // prepare sessions
-    prepareSessions();
     // prepare speaker
     prepareSpeaker();
+    // prepare sessions
+    // speaker must exist because sessions will be added to
+    prepareSessions();
     // download speaker images
     prepareSpeakerImages();
     // now cache all the data
@@ -97,8 +98,48 @@ void DataUtil::prepareEventData() {
     // CONFERENCE
     mDataManager->deleteConference();
     mDataManager->deleteDay();
+    mDataManager->deleteSession();
+    mDataManager->deleteScheduleItem();
+    mDataManager->deleteSessionLink();
+    mDataManager->deleteSpeaker();
+    mDataManager->deleteSpeakerImage();
     //
     Conference* conference = mDataManager->createConference();
+    int lastNr = 0;
+    for (int i = 0; i < mDataManager->allBuilding().size(); ++i) {
+        Building* building = (Building*) mDataManager->allBuilding().at(i);
+        if(building->buildingId() > lastNr) {
+            lastNr = building->buildingId();
+        }
+    }
+    conference->setLastBuildingId(lastNr);
+    lastNr = 0;
+    for (int i = 0; i < mDataManager->allFloor().size(); ++i) {
+        Floor* floor = (Floor*) mDataManager->allFloor().at(i);
+        if(floor->floorId() > lastNr) {
+            lastNr = floor->floorId();
+        }
+    }
+    conference->setLastFloorId(lastNr);
+    lastNr = 0;
+    for (int i = 0; i < mDataManager->allRoom().size(); ++i) {
+        Room* room = (Room*) mDataManager->allRoom().at(i);
+        if(room->roomId() > lastNr) {
+            lastNr = room->roomId();
+        }
+        room->clearSessions();
+    }
+    conference->setLastRoomId(lastNr);
+    lastNr = 0;
+    for (int i = 0; i < mDataManager->allSessionTrack().size(); ++i) {
+        SessionTrack* track = (SessionTrack*) mDataManager->allSessionTrack().at(i);
+        if(track->trackId() > lastNr) {
+            lastNr = track->trackId();
+        }
+        track->clearSessions();
+    }
+    conference->setLastSessionTrackId(lastNr);
+
     conference->setConferenceName("QtCON");
     conference->setConferenceCity("Berlin");
     QString venueAddress;
@@ -172,7 +213,6 @@ void DataUtil::prepareSessions()
     QMultiMap<QString, Session*> sessionSortMap;
     Conference* conference;
     conference = (Conference*) mDataManager->allConference().first();
-    QVariantList dataList;
 
     QFile readFile(schedulePath);
     if(!readFile.exists()) {
@@ -225,7 +265,6 @@ void DataUtil::prepareSessions()
         QString dayDate;
         dayDate = dayMap.value("date").toString();
         qDebug() << "processing DATE: " << dayDate;
-        // conference->setConferenceFrom(QDate::fromString("2016-09-01", YYYY_MM_DD));
         Day* day;
         bool found = false;
         for (int dl = 0; dl < mDataManager->mAllDay.size(); ++dl) {
@@ -421,12 +460,39 @@ void DataUtil::prepareSessions()
         } // room keys
     } // for days list
     // insert sorted Sessions
-    mDataManager->mAllSession.clear();
     QMapIterator<QString, Session*> sessionIterator(sessionSortMap);
     while (sessionIterator.hasNext()) {
         sessionIterator.next();
-        mDataManager->insertSession(sessionIterator.value());
-    }
+        Session* session = sessionIterator.value();
+        mDataManager->insertSession(session);
+        Room* room = mDataManager->findRoomByRoomId(session->room());
+        if(room != NULL) {
+            room->addToSessions(session);
+        } else {
+            qWarning() << "ROOM is NULL for Session " << session->sessionId() << " #:" << session->room();
+        }
+        Day* day = mDataManager->findDayById(session->sessionDay());
+        if(day != NULL) {
+            day->addToSessions(session);
+        } else {
+            qWarning() << "DAY is NULL for Session " << session->sessionId() << " #:" << session->sessionDay();
+        }
+        SessionTrack* sessionTrack = mDataManager->findSessionTrackByTrackId(session->sessionTrack());
+        if(sessionTrack != NULL) {
+            sessionTrack->addToSessions(session);
+        } else {
+            qWarning() << "TRACK is NULL for Session " << session->sessionId() << " #:" << session->sessionTrack();
+        }
+        for (int i = 0; i < session->presenterKeys().size(); ++i) {
+            int pKey = session->presenterKeys().at(i).toInt();
+            Speaker* speaker = (Speaker*) mDataManager->findSpeakerBySpeakerId(pKey);
+            if(speaker != NULL) {
+                speaker->addToSessions(session);
+            } else {
+                qWarning() << "SPEAKER is NULL for Session " << session->sessionId() << " #:" << pKey;
+            }
+        } // for presenter
+    } // while all sessions
 }
 
 void DataUtil::prepareSpeaker()
