@@ -275,17 +275,35 @@ void DataUtil::prepareSessions()
                     continue;
                 }
                 // adjust persons
-                QStringList persons;
+                // TODO if full_public_name set it to Speaker where it's not delivered from Server
+                QStringList personKeys;
                 QVariantList personsList;
                 personsList = sessionMap.value("persons").toList();
                 if (personsList.size() > 0) {
                     for (int pvl = 0; pvl < personsList.size(); ++pvl) {
                         QVariantMap map = personsList.at(pvl).toMap();
                         if(map.contains("id")) {
-                            persons.append(map.value("id").toString());
+                            personKeys.append(map.value("id").toString());
                         }
                     }
-                    sessionMap.insert("persons", persons);
+                    sessionMap.insert("persons", personKeys);
+                }
+                // create and adjust links
+                QStringList linkKeys;
+                QVariantList linksList;
+                linksList = sessionMap.value("links").toList();
+                if (linksList.size() > 0) {
+                    for (int lvl = 0; lvl < linksList.size(); ++lvl) {
+                        QVariantMap map = linksList.at(lvl).toMap();
+                        if(map.contains("url")) {
+                            SessionLink* sessionLink = mDataManager->createSessionLink();
+                            sessionLink->setUrl(map.value("url").toString());
+                            sessionLink->setTitle(map.value("title").toString());
+                            mDataManager->insertSessionLink(sessionLink);
+                            linkKeys.append(sessionLink->uuid());
+                        }
+                    }
+                    sessionMap.insert("links", linkKeys);
                 }
                 SessionAPI* sessionAPI = mDataManager->createSessionAPI();
                 sessionAPI->fillFromForeignMap(sessionMap);
