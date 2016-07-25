@@ -10,6 +10,7 @@ static const QString isDeprecatedKey = "isDeprecated";
 static const QString sortKeyKey = "sortKey";
 static const QString sortGroupKey = "sortGroup";
 static const QString nameKey = "name";
+static const QString publicNameKey = "publicName";
 static const QString bioKey = "bio";
 static const QString speakerImageKey = "speakerImage";
 static const QString sessionsKey = "sessions";
@@ -20,6 +21,7 @@ static const QString isDeprecatedForeignKey = "isDeprecated";
 static const QString sortKeyForeignKey = "sortKey";
 static const QString sortGroupForeignKey = "sortGroup";
 static const QString nameForeignKey = "name";
+static const QString publicNameForeignKey = "publicName";
 static const QString bioForeignKey = "bio";
 static const QString speakerImageForeignKey = "speakerImage";
 static const QString sessionsForeignKey = "sessions";
@@ -28,7 +30,7 @@ static const QString sessionsForeignKey = "sessions";
  * Default Constructor if Speaker not initialized from QVariantMap
  */
 Speaker::Speaker(QObject *parent) :
-        QObject(parent), mSpeakerId(-1), mIsDeprecated(false), mSortKey(""), mSortGroup(""), mName(""), mBio("")
+        QObject(parent), mSpeakerId(-1), mIsDeprecated(false), mSortKey(""), mSortGroup(""), mName(""), mPublicName(""), mBio("")
 {
 	// lazy references:
 	mSpeakerImage = -1;
@@ -63,6 +65,7 @@ void Speaker::fillFromMap(const QVariantMap& speakerMap)
 	mSortKey = speakerMap.value(sortKeyKey).toString();
 	mSortGroup = speakerMap.value(sortGroupKey).toString();
 	mName = speakerMap.value(nameKey).toString();
+	mPublicName = speakerMap.value(publicNameKey).toString();
 	mBio = speakerMap.value(bioKey).toString();
 	// speakerImage lazy pointing to SpeakerImage* (domainKey: speakerId)
 	if (speakerMap.contains(speakerImageKey)) {
@@ -91,6 +94,7 @@ void Speaker::fillFromForeignMap(const QVariantMap& speakerMap)
 	mSortKey = speakerMap.value(sortKeyForeignKey).toString();
 	mSortGroup = speakerMap.value(sortGroupForeignKey).toString();
 	mName = speakerMap.value(nameForeignKey).toString();
+	mPublicName = speakerMap.value(publicNameForeignKey).toString();
 	mBio = speakerMap.value(bioForeignKey).toString();
 	// speakerImage lazy pointing to SpeakerImage* (domainKey: speakerId)
 	if (speakerMap.contains(speakerImageForeignKey)) {
@@ -119,6 +123,7 @@ void Speaker::fillFromCacheMap(const QVariantMap& speakerMap)
 	mSortKey = speakerMap.value(sortKeyKey).toString();
 	mSortGroup = speakerMap.value(sortGroupKey).toString();
 	mName = speakerMap.value(nameKey).toString();
+	mPublicName = speakerMap.value(publicNameKey).toString();
 	mBio = speakerMap.value(bioKey).toString();
 	// speakerImage lazy pointing to SpeakerImage* (domainKey: speakerId)
 	if (speakerMap.contains(speakerImageKey)) {
@@ -182,6 +187,7 @@ QVariantMap Speaker::toMap()
 	speakerMap.insert(sortKeyKey, mSortKey);
 	speakerMap.insert(sortGroupKey, mSortGroup);
 	speakerMap.insert(nameKey, mName);
+	speakerMap.insert(publicNameKey, mPublicName);
 	speakerMap.insert(bioKey, mBio);
 	return speakerMap;
 }
@@ -219,6 +225,7 @@ QVariantMap Speaker::toForeignMap()
 	speakerMap.insert(sortKeyForeignKey, mSortKey);
 	speakerMap.insert(sortGroupForeignKey, mSortGroup);
 	speakerMap.insert(nameForeignKey, mName);
+	speakerMap.insert(publicNameForeignKey, mPublicName);
 	speakerMap.insert(bioForeignKey, mBio);
 	return speakerMap;
 }
@@ -371,6 +378,20 @@ void Speaker::setName(QString name)
 	if (name != mName) {
 		mName = name;
 		emit nameChanged(name);
+	}
+}
+// ATT 
+// Optional: publicName
+QString Speaker::publicName() const
+{
+	return mPublicName;
+}
+
+void Speaker::setPublicName(QString publicName)
+{
+	if (publicName != mPublicName) {
+		mPublicName = publicName;
+		emit publicNameChanged(publicName);
 	}
 }
 // ATT 

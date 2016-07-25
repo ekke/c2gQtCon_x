@@ -14,6 +14,7 @@ class SpeakerAPI: public QObject
 	Q_PROPERTY(int id READ id WRITE setId NOTIFY idChanged FINAL)
 	Q_PROPERTY(QString firstName READ firstName WRITE setFirstName NOTIFY firstNameChanged FINAL)
 	Q_PROPERTY(QString lastName READ lastName WRITE setLastName NOTIFY lastNameChanged FINAL)
+	Q_PROPERTY(QString publicName READ publicName WRITE setPublicName NOTIFY publicNameChanged FINAL)
 	Q_PROPERTY(QString bio READ bio WRITE setBio NOTIFY bioChanged FINAL)
 	Q_PROPERTY(QString avatar READ avatar WRITE setAvatar NOTIFY avatarChanged FINAL)
 
@@ -41,6 +42,8 @@ public:
 	void setFirstName(QString firstName);
 	QString lastName() const;
 	void setLastName(QString lastName);
+	QString publicName() const;
+	void setPublicName(QString publicName);
 	QString bio() const;
 	void setBio(QString bio);
 	QString avatar() const;
@@ -55,6 +58,7 @@ public:
 	void idChanged(int id);
 	void firstNameChanged(QString firstName);
 	void lastNameChanged(QString lastName);
+	void publicNameChanged(QString publicName);
 	void bioChanged(QString bio);
 	void avatarChanged(QString avatar);
 	
@@ -64,6 +68,7 @@ private:
 	int mId;
 	QString mFirstName;
 	QString mLastName;
+	QString mPublicName;
 	QString mBio;
 	QString mAvatar;
 

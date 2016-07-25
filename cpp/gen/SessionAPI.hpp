@@ -28,7 +28,7 @@ class SessionAPI: public QObject
 	Q_PROPERTY(QString track READ track WRITE setTrack NOTIFY trackChanged FINAL)
 
 	// QQmlListProperty to get easy access from QML
-	Q_PROPERTY(QQmlListProperty<PersonsAPI> personsPropertyList READ personsPropertyList NOTIFY personsPropertyListChanged)
+	Q_PROPERTY(QQmlListProperty<PersonsAPI> presenterPropertyList READ presenterPropertyList NOTIFY presenterPropertyListChanged)
 	// QQmlListProperty to get easy access from QML
 	Q_PROPERTY(QQmlListProperty<SessionLinkAPI> sessionLinksPropertyList READ sessionLinksPropertyList NOTIFY sessionLinksPropertyListChanged)
 
@@ -80,39 +80,39 @@ public:
 
 	
 	Q_INVOKABLE
-	QVariantList personsAsQVariantList();
+	QVariantList presenterAsQVariantList();
 	
 	Q_INVOKABLE
-	QVariantList personsAsForeignQVariantList();
+	QVariantList presenterAsForeignQVariantList();
 
 	
 	Q_INVOKABLE
-	void addToPersons(PersonsAPI* personsAPI);
+	void addToPresenter(PersonsAPI* personsAPI);
 	
 	Q_INVOKABLE
-	bool removeFromPersons(PersonsAPI* personsAPI);
+	bool removeFromPresenter(PersonsAPI* personsAPI);
 
 	Q_INVOKABLE
-	void clearPersons();
+	void clearPresenter();
 
 	// lazy Array of independent Data Objects: only keys are persisted
 	Q_INVOKABLE
-	bool arePersonsKeysResolved();
+	bool arePresenterKeysResolved();
 
 	Q_INVOKABLE
-	QStringList personsKeys();
+	QStringList presenterKeys();
 
 	Q_INVOKABLE
-	void resolvePersonsKeys(QList<PersonsAPI*> persons);
+	void resolvePresenterKeys(QList<PersonsAPI*> presenter);
 	
 	Q_INVOKABLE
-	int personsCount();
+	int presenterCount();
 	
-	 // access from C++ to persons
-	QList<PersonsAPI*> persons();
-	void setPersons(QList<PersonsAPI*> persons);
-	// access from QML to persons
-	QQmlListProperty<PersonsAPI> personsPropertyList();
+	 // access from C++ to presenter
+	QList<PersonsAPI*> presenter();
+	void setPresenter(QList<PersonsAPI*> presenter);
+	// access from QML to presenter
+	QQmlListProperty<PersonsAPI> presenterPropertyList();
 	
 	Q_INVOKABLE
 	QVariantList sessionLinksAsQVariantList();
@@ -164,9 +164,9 @@ public:
 	void abstractTextChanged(QString abstractText);
 	void roomChanged(QString room);
 	void trackChanged(QString track);
-	void personsChanged(QList<PersonsAPI*> persons);
-	void addedToPersons(PersonsAPI* personsAPI);
-	void personsPropertyListChanged();
+	void presenterChanged(QList<PersonsAPI*> presenter);
+	void addedToPresenter(PersonsAPI* personsAPI);
+	void presenterPropertyListChanged();
 	
 	void sessionLinksChanged(QList<SessionLinkAPI*> sessionLinks);
 	void addedToSessionLinks(SessionLinkAPI* sessionLinkAPI);
@@ -187,16 +187,16 @@ private:
 	QString mRoom;
 	QString mTrack;
 	// lazy Array of independent Data Objects: only keys are persisted
-	QStringList mPersonsKeys;
-	bool mPersonsKeysResolved;
-	QList<PersonsAPI*> mPersons;
+	QStringList mPresenterKeys;
+	bool mPresenterKeysResolved;
+	QList<PersonsAPI*> mPresenter;
 	// implementation for QQmlListProperty to use
 	// QML functions for List of PersonsAPI*
-	static void appendToPersonsProperty(QQmlListProperty<PersonsAPI> *personsList,
+	static void appendToPresenterProperty(QQmlListProperty<PersonsAPI> *presenterList,
 		PersonsAPI* personsAPI);
-	static int personsPropertyCount(QQmlListProperty<PersonsAPI> *personsList);
-	static PersonsAPI* atPersonsProperty(QQmlListProperty<PersonsAPI> *personsList, int pos);
-	static void clearPersonsProperty(QQmlListProperty<PersonsAPI> *personsList);
+	static int presenterPropertyCount(QQmlListProperty<PersonsAPI> *presenterList);
+	static PersonsAPI* atPresenterProperty(QQmlListProperty<PersonsAPI> *presenterList, int pos);
+	static void clearPresenterProperty(QQmlListProperty<PersonsAPI> *presenterList);
 	
 	// lazy Array of independent Data Objects: only keys are persisted
 	QStringList mSessionLinksKeys;

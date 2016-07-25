@@ -21,6 +21,7 @@ class Speaker: public QObject
 	Q_PROPERTY(QString sortKey READ sortKey WRITE setSortKey NOTIFY sortKeyChanged FINAL)
 	Q_PROPERTY(QString sortGroup READ sortGroup WRITE setSortGroup NOTIFY sortGroupChanged FINAL)
 	Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged FINAL)
+	Q_PROPERTY(QString publicName READ publicName WRITE setPublicName NOTIFY publicNameChanged FINAL)
 	Q_PROPERTY(QString bio READ bio WRITE setBio NOTIFY bioChanged FINAL)
 	// speakerImage lazy pointing to SpeakerImage* (domainKey: speakerId)
 	Q_PROPERTY(int speakerImage READ speakerImage WRITE setSpeakerImage NOTIFY speakerImageChanged FINAL)
@@ -58,6 +59,8 @@ public:
 	void setSortGroup(QString sortGroup);
 	QString name() const;
 	void setName(QString name);
+	QString publicName() const;
+	void setPublicName(QString publicName);
 	QString bio() const;
 	void setBio(QString bio);
 	// speakerImage lazy pointing to SpeakerImage* (domainKey: speakerId)
@@ -127,6 +130,7 @@ public:
 	void sortKeyChanged(QString sortKey);
 	void sortGroupChanged(QString sortGroup);
 	void nameChanged(QString name);
+	void publicNameChanged(QString publicName);
 	void bioChanged(QString bio);
 	// speakerImage lazy pointing to SpeakerImage* (domainKey: speakerId)
 	void speakerImageChanged(int speakerImage);
@@ -144,6 +148,7 @@ private:
 	QString mSortKey;
 	QString mSortGroup;
 	QString mName;
+	QString mPublicName;
 	QString mBio;
 	int mSpeakerImage;
 	bool mSpeakerImageInvalid;

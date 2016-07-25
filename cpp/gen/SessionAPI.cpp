@@ -13,7 +13,7 @@ static const QString durationKey = "duration";
 static const QString abstractTextKey = "abstractText";
 static const QString roomKey = "room";
 static const QString trackKey = "track";
-static const QString personsKey = "persons";
+static const QString presenterKey = "presenter";
 static const QString sessionLinksKey = "sessionLinks";
 
 // keys used from Server API etc
@@ -27,7 +27,7 @@ static const QString durationForeignKey = "duration";
 static const QString abstractTextForeignKey = "abstract";
 static const QString roomForeignKey = "room";
 static const QString trackForeignKey = "track";
-static const QString personsForeignKey = "persons";
+static const QString presenterForeignKey = "persons";
 static const QString sessionLinksForeignKey = "links";
 
 /*
@@ -39,13 +39,13 @@ SessionAPI::SessionAPI(QObject *parent) :
 	// Date, Time or Timestamp ? construct null value
 	mStartTime = QTime();
 		// lazy Arrays where only keys are persisted
-		mPersonsKeysResolved = false;
+		mPresenterKeysResolved = false;
 		mSessionLinksKeysResolved = false;
 }
 
 bool SessionAPI::isAllResolved()
 {
-    if(!arePersonsKeysResolved()) {
+    if(!arePresenterKeysResolved()) {
         return false;
     }
     if(!areSessionLinksKeysResolved()) {
@@ -81,11 +81,11 @@ void SessionAPI::fillFromMap(const QVariantMap& sessionAPIMap)
 	mAbstractText = sessionAPIMap.value(abstractTextKey).toString();
 	mRoom = sessionAPIMap.value(roomKey).toString();
 	mTrack = sessionAPIMap.value(trackKey).toString();
-	// mPersons is (lazy loaded) Array of PersonsAPI*
-	mPersonsKeys = sessionAPIMap.value(personsKey).toStringList();
-	// mPersons must be resolved later if there are keys
-	mPersonsKeysResolved = (mPersonsKeys.size() == 0);
-	mPersons.clear();
+	// mPresenter is (lazy loaded) Array of PersonsAPI*
+	mPresenterKeys = sessionAPIMap.value(presenterKey).toStringList();
+	// mPresenter must be resolved later if there are keys
+	mPresenterKeysResolved = (mPresenterKeys.size() == 0);
+	mPresenter.clear();
 	// mSessionLinks is (lazy loaded) Array of SessionLinkAPI*
 	mSessionLinksKeys = sessionAPIMap.value(sessionLinksKey).toStringList();
 	// mSessionLinks must be resolved later if there are keys
@@ -119,11 +119,11 @@ void SessionAPI::fillFromForeignMap(const QVariantMap& sessionAPIMap)
 	mAbstractText = sessionAPIMap.value(abstractTextForeignKey).toString();
 	mRoom = sessionAPIMap.value(roomForeignKey).toString();
 	mTrack = sessionAPIMap.value(trackForeignKey).toString();
-	// mPersons is (lazy loaded) Array of PersonsAPI*
-	mPersonsKeys = sessionAPIMap.value(personsForeignKey).toStringList();
-	// mPersons must be resolved later if there are keys
-	mPersonsKeysResolved = (mPersonsKeys.size() == 0);
-	mPersons.clear();
+	// mPresenter is (lazy loaded) Array of PersonsAPI*
+	mPresenterKeys = sessionAPIMap.value(presenterForeignKey).toStringList();
+	// mPresenter must be resolved later if there are keys
+	mPresenterKeysResolved = (mPresenterKeys.size() == 0);
+	mPresenter.clear();
 	// mSessionLinks is (lazy loaded) Array of SessionLinkAPI*
 	mSessionLinksKeys = sessionAPIMap.value(sessionLinksForeignKey).toStringList();
 	// mSessionLinks must be resolved later if there are keys
@@ -157,11 +157,11 @@ void SessionAPI::fillFromCacheMap(const QVariantMap& sessionAPIMap)
 	mAbstractText = sessionAPIMap.value(abstractTextKey).toString();
 	mRoom = sessionAPIMap.value(roomKey).toString();
 	mTrack = sessionAPIMap.value(trackKey).toString();
-	// mPersons is (lazy loaded) Array of PersonsAPI*
-	mPersonsKeys = sessionAPIMap.value(personsKey).toStringList();
-	// mPersons must be resolved later if there are keys
-	mPersonsKeysResolved = (mPersonsKeys.size() == 0);
-	mPersons.clear();
+	// mPresenter is (lazy loaded) Array of PersonsAPI*
+	mPresenterKeys = sessionAPIMap.value(presenterKey).toStringList();
+	// mPresenter must be resolved later if there are keys
+	mPresenterKeysResolved = (mPresenterKeys.size() == 0);
+	mPresenter.clear();
 	// mSessionLinks is (lazy loaded) Array of SessionLinkAPI*
 	mSessionLinksKeys = sessionAPIMap.value(sessionLinksKey).toStringList();
 	// mSessionLinks must be resolved later if there are keys
@@ -192,22 +192,22 @@ bool SessionAPI::isValid()
 QVariantMap SessionAPI::toMap()
 {
 	QVariantMap sessionAPIMap;
-	// mPersons points to PersonsAPI*
+	// mPresenter points to PersonsAPI*
 	// lazy array: persist only keys
 	//
 	// if keys alreadyy resolved: clear them
 	// otherwise reuse the keys and add objects from mPositions
 	// this can happen if added to objects without resolving keys before
-	if(mPersonsKeysResolved) {
-		mPersonsKeys.clear();
+	if(mPresenterKeysResolved) {
+		mPresenterKeys.clear();
 	}
 	// add objects from mPositions
-	for (int i = 0; i < mPersons.size(); ++i) {
+	for (int i = 0; i < mPresenter.size(); ++i) {
 		PersonsAPI* personsAPI;
-		personsAPI = mPersons.at(i);
-		mPersonsKeys << QString::number(personsAPI->speakerId());
+		personsAPI = mPresenter.at(i);
+		mPresenterKeys << QString::number(personsAPI->speakerId());
 	}
-	sessionAPIMap.insert(personsKey, mPersonsKeys);
+	sessionAPIMap.insert(presenterKey, mPresenterKeys);
 	// mSessionLinks points to SessionLinkAPI*
 	// lazy array: persist only keys
 	//
@@ -247,22 +247,22 @@ QVariantMap SessionAPI::toMap()
 QVariantMap SessionAPI::toForeignMap()
 {
 	QVariantMap sessionAPIMap;
-	// mPersons points to PersonsAPI*
+	// mPresenter points to PersonsAPI*
 	// lazy array: persist only keys
 	//
 	// if keys alreadyy resolved: clear them
 	// otherwise reuse the keys and add objects from mPositions
 	// this can happen if added to objects without resolving keys before
-	if(mPersonsKeysResolved) {
-		mPersonsKeys.clear();
+	if(mPresenterKeysResolved) {
+		mPresenterKeys.clear();
 	}
 	// add objects from mPositions
-	for (int i = 0; i < mPersons.size(); ++i) {
+	for (int i = 0; i < mPresenter.size(); ++i) {
 		PersonsAPI* personsAPI;
-		personsAPI = mPersons.at(i);
-		mPersonsKeys << QString::number(personsAPI->speakerId());
+		personsAPI = mPresenter.at(i);
+		mPresenterKeys << QString::number(personsAPI->speakerId());
 	}
-	sessionAPIMap.insert(personsKey, mPersonsKeys);
+	sessionAPIMap.insert(presenterKey, mPresenterKeys);
 	// mSessionLinks points to SessionLinkAPI*
 	// lazy array: persist only keys
 	//
@@ -469,53 +469,53 @@ void SessionAPI::setTrack(QString track)
 	}
 }
 // ATT 
-// Optional: persons
-QVariantList SessionAPI::personsAsQVariantList()
+// Optional: presenter
+QVariantList SessionAPI::presenterAsQVariantList()
 {
-	QVariantList personsList;
-	for (int i = 0; i < mPersons.size(); ++i) {
-        personsList.append((mPersons.at(i))->toMap());
+	QVariantList presenterList;
+	for (int i = 0; i < mPresenter.size(); ++i) {
+        presenterList.append((mPresenter.at(i))->toMap());
     }
-	return personsList;
+	return presenterList;
 }
-QVariantList SessionAPI::personsAsForeignQVariantList()
+QVariantList SessionAPI::presenterAsForeignQVariantList()
 {
-	QVariantList personsList;
-	for (int i = 0; i < mPersons.size(); ++i) {
-        personsList.append((mPersons.at(i))->toForeignMap());
+	QVariantList presenterList;
+	for (int i = 0; i < mPresenter.size(); ++i) {
+        presenterList.append((mPresenter.at(i))->toForeignMap());
     }
-	return personsList;
+	return presenterList;
 }
 // no create() or undoCreate() because dto is root object
 // see methods in DataManager
 /**
- * you can add persons without resolving existing keys before
+ * you can add presenter without resolving existing keys before
  * attention: before looping through the objects
- * you must resolvePersonsKeys
+ * you must resolvePresenterKeys
  */
-void SessionAPI::addToPersons(PersonsAPI* personsAPI)
+void SessionAPI::addToPresenter(PersonsAPI* personsAPI)
 {
-    mPersons.append(personsAPI);
-    emit addedToPersons(personsAPI);
-    emit personsPropertyListChanged();
+    mPresenter.append(personsAPI);
+    emit addedToPresenter(personsAPI);
+    emit presenterPropertyListChanged();
 }
 
-bool SessionAPI::removeFromPersons(PersonsAPI* personsAPI)
+bool SessionAPI::removeFromPresenter(PersonsAPI* personsAPI)
 {
     bool ok = false;
-    ok = mPersons.removeOne(personsAPI);
+    ok = mPresenter.removeOne(personsAPI);
     if (!ok) {
-    	qDebug() << "PersonsAPI* not found in persons";
+    	qDebug() << "PersonsAPI* not found in presenter";
     	return false;
     }
-    emit personsPropertyListChanged();
-    // persons are independent - DON'T delete them
+    emit presenterPropertyListChanged();
+    // presenter are independent - DON'T delete them
     return true;
 }
-void SessionAPI::clearPersons()
+void SessionAPI::clearPresenter()
 {
-    for (int i = mPersons.size(); i > 0; --i) {
-        removeFromPersons(mPersons.last());
+    for (int i = mPresenter.size(); i > 0; --i) {
+        removeFromPresenter(mPresenter.last());
     }
 }
 
@@ -524,51 +524,51 @@ void SessionAPI::clearPersons()
  * so we get a list of keys (uuid or domain keys) from map
  * and we persist only the keys toMap()
  * after initializing the keys must be resolved:
- * - get the list of keys: personsKeys()
+ * - get the list of keys: presenterKeys()
  * - resolve them from DataManager
- * - then resolvePersonsKeys()
+ * - then resolvePresenterKeys()
  */
-bool SessionAPI::arePersonsKeysResolved()
+bool SessionAPI::arePresenterKeysResolved()
 {
-    return mPersonsKeysResolved;
+    return mPresenterKeysResolved;
 }
 
-QStringList SessionAPI::personsKeys()
+QStringList SessionAPI::presenterKeys()
 {
-    return mPersonsKeys;
+    return mPresenterKeys;
 }
 
 /**
- * Objects from personsKeys will be added to existing persons
- * This enables to use addToPersons() without resolving before
- * Hint: it's your responsibility to resolve before looping thru persons
+ * Objects from presenterKeys will be added to existing presenter
+ * This enables to use addToPresenter() without resolving before
+ * Hint: it's your responsibility to resolve before looping thru presenter
  */
-void SessionAPI::resolvePersonsKeys(QList<PersonsAPI*> persons)
+void SessionAPI::resolvePresenterKeys(QList<PersonsAPI*> presenter)
 {
-    if(mPersonsKeysResolved){
+    if(mPresenterKeysResolved){
         return;
     }
-    // don't clear mPersons (see above)
-    for (int i = 0; i < persons.size(); ++i) {
-        addToPersons(persons.at(i));
+    // don't clear mPresenter (see above)
+    for (int i = 0; i < presenter.size(); ++i) {
+        addToPresenter(presenter.at(i));
     }
-    mPersonsKeysResolved = true;
+    mPresenterKeysResolved = true;
 }
 
-int SessionAPI::personsCount()
+int SessionAPI::presenterCount()
 {
-    return mPersons.size();
+    return mPresenter.size();
 }
-QList<PersonsAPI*> SessionAPI::persons()
+QList<PersonsAPI*> SessionAPI::presenter()
 {
-	return mPersons;
+	return mPresenter;
 }
-void SessionAPI::setPersons(QList<PersonsAPI*> persons) 
+void SessionAPI::setPresenter(QList<PersonsAPI*> presenter) 
 {
-	if (persons != mPersons) {
-		mPersons = persons;
-		emit personsChanged(persons);
-		emit personsPropertyListChanged();
+	if (presenter != mPresenter) {
+		mPresenter = presenter;
+		emit presenterChanged(presenter);
+		emit presenterPropertyListChanged();
 	}
 }
 
@@ -576,61 +576,61 @@ void SessionAPI::setPersons(QList<PersonsAPI*> persons)
  * to access lists from QML we're using QQmlListProperty
  * and implement methods to append, count and clear
  * now from QML we can use
- * sessionAPI.personsPropertyList.length to get the size
- * sessionAPI.personsPropertyList[2] to get PersonsAPI* at position 2
- * sessionAPI.personsPropertyList = [] to clear the list
+ * sessionAPI.presenterPropertyList.length to get the size
+ * sessionAPI.presenterPropertyList[2] to get PersonsAPI* at position 2
+ * sessionAPI.presenterPropertyList = [] to clear the list
  * or get easy access to properties like
- * sessionAPI.personsPropertyList[2].myPropertyName
+ * sessionAPI.presenterPropertyList[2].myPropertyName
  */
-QQmlListProperty<PersonsAPI> SessionAPI::personsPropertyList()
+QQmlListProperty<PersonsAPI> SessionAPI::presenterPropertyList()
 {
-    return QQmlListProperty<PersonsAPI>(this, 0, &SessionAPI::appendToPersonsProperty,
-            &SessionAPI::personsPropertyCount, &SessionAPI::atPersonsProperty,
-            &SessionAPI::clearPersonsProperty);
+    return QQmlListProperty<PersonsAPI>(this, 0, &SessionAPI::appendToPresenterProperty,
+            &SessionAPI::presenterPropertyCount, &SessionAPI::atPresenterProperty,
+            &SessionAPI::clearPresenterProperty);
 }
-void SessionAPI::appendToPersonsProperty(QQmlListProperty<PersonsAPI> *personsList,
+void SessionAPI::appendToPresenterProperty(QQmlListProperty<PersonsAPI> *presenterList,
         PersonsAPI* personsAPI)
 {
-    SessionAPI *sessionAPIObject = qobject_cast<SessionAPI *>(personsList->object);
+    SessionAPI *sessionAPIObject = qobject_cast<SessionAPI *>(presenterList->object);
     if (sessionAPIObject) {
-        sessionAPIObject->mPersons.append(personsAPI);
-        emit sessionAPIObject->addedToPersons(personsAPI);
+        sessionAPIObject->mPresenter.append(personsAPI);
+        emit sessionAPIObject->addedToPresenter(personsAPI);
     } else {
-        qWarning() << "cannot append PersonsAPI* to persons " << "Object is not of type SessionAPI*";
+        qWarning() << "cannot append PersonsAPI* to presenter " << "Object is not of type SessionAPI*";
     }
 }
-int SessionAPI::personsPropertyCount(QQmlListProperty<PersonsAPI> *personsList)
+int SessionAPI::presenterPropertyCount(QQmlListProperty<PersonsAPI> *presenterList)
 {
-    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(personsList->object);
+    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(presenterList->object);
     if (sessionAPI) {
-        return sessionAPI->mPersons.size();
+        return sessionAPI->mPresenter.size();
     } else {
-        qWarning() << "cannot get size persons " << "Object is not of type SessionAPI*";
+        qWarning() << "cannot get size presenter " << "Object is not of type SessionAPI*";
     }
     return 0;
 }
-PersonsAPI* SessionAPI::atPersonsProperty(QQmlListProperty<PersonsAPI> *personsList, int pos)
+PersonsAPI* SessionAPI::atPresenterProperty(QQmlListProperty<PersonsAPI> *presenterList, int pos)
 {
-    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(personsList->object);
+    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(presenterList->object);
     if (sessionAPI) {
-        if (sessionAPI->mPersons.size() > pos) {
-            return sessionAPI->mPersons.at(pos);
+        if (sessionAPI->mPresenter.size() > pos) {
+            return sessionAPI->mPresenter.at(pos);
         }
         qWarning() << "cannot get PersonsAPI* at pos " << pos << " size is "
-                << sessionAPI->mPersons.size();
+                << sessionAPI->mPresenter.size();
     } else {
         qWarning() << "cannot get PersonsAPI* at pos " << pos << "Object is not of type SessionAPI*";
     }
     return 0;
 }
-void SessionAPI::clearPersonsProperty(QQmlListProperty<PersonsAPI> *personsList)
+void SessionAPI::clearPresenterProperty(QQmlListProperty<PersonsAPI> *presenterList)
 {
-    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(personsList->object);
+    SessionAPI *sessionAPI = qobject_cast<SessionAPI *>(presenterList->object);
     if (sessionAPI) {
-        // persons are independent - DON'T delete them
-        sessionAPI->mPersons.clear();
+        // presenter are independent - DON'T delete them
+        sessionAPI->mPresenter.clear();
     } else {
-        qWarning() << "cannot clear persons " << "Object is not of type SessionAPI*";
+        qWarning() << "cannot clear presenter " << "Object is not of type SessionAPI*";
     }
 }
 
