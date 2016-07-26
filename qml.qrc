@@ -53,5 +53,8 @@
         <file>qml/popups/PopupError.qml</file>
         <file>qml/popups/DatePicker.qml</file>
         <file>qml/popups/TimePicker.qml</file>
+        <file>qml/navigation/SpeakerNavigation.qml</file>
+        <file>qml/pages/SpeakerListPage.qml</file>
+        <file>qml/pages/SpeakerDetailPage.qml</file>
     </qresource>
 </RCC>

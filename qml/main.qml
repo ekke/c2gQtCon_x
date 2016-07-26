@@ -113,7 +113,7 @@ ApplicationWindow {
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerSubtitle.qml", "name": "Business", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Customer", "icon": "business.png", "source": "../pages/CustomerPage.qml", "showCounter":false, "showMarker":true, "a_p":2, "canGoBack":false},
-        // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Orders", "icon": "description.png", "source": "../navigation/OrdersNavigation.qml", "showCounter":true, "showMarker":false, "a_p":2, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Speaker", "icon": "description.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Calendar", "icon": "calendar.png", "source": "../pages/CalendarTestPage.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":false},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Settings", "icon": "settings.png", "source": "../navigation/SettingsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":true},
@@ -129,7 +129,7 @@ ApplicationWindow {
         "",
         "",
         // qsTr("Biz Data Customer"),
-        // qsTr("Biz Data Orders"),
+        qsTr("Speaker"),
         // qsTr("Biz Data Calendar"),
         "",
         qsTr("Biz Data Settings"),
@@ -144,7 +144,7 @@ ApplicationWindow {
         {},
         {},
         // {"counter":0, "marker":"transparent"},
-        // {"counter":0, "marker":""},
+        {"counter":0, "marker":""},
         // {"counter":0, "marker":""},
         {},
         {"counter":0, "marker":""},
@@ -155,7 +155,7 @@ ApplicationWindow {
     // plus max 4 from drawer: home, customer, orders, settings
     // favoritesModel maps to index from navigationModel
     property var favoritesModel: [
-        0, 4
+        0, 3, 5
     ]
     property int firstActiveDestination: 0
     property int navigationIndex: firstActiveDestination
@@ -273,6 +273,8 @@ ApplicationWindow {
                 console.log("startupDelayedTimer START")
                 rootPane.initialItem.showInfo("Initialize Data ...")
                 dataManager.init()
+                dataManager.resolveReferencesForAllSpeaker()
+                dataManager.resolveReferencesForAllSession()
                 rootPane.initialItem.showInfo("Create Navigation Controls ...")
                 // add navigation model for DEBUG BUILD ?
                 if(myApp.isDebugBuild()) {
