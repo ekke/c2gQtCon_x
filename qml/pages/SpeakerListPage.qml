@@ -37,21 +37,24 @@ Page {
         id: speakerRowComponent
         ColumnLayout {
             id: dataColumn
-            Layout.fillWidth: true
+            // without this divider not over total width
+            implicitWidth: appWindow.width
             RowLayout {
                 spacing: 20
                 Layout.fillWidth: true
                 Layout.leftMargin: 16+12
-                Layout.rightMargin: 12
+                Layout.rightMargin: 6
                 Layout.topMargin: 6
                 SpeakerImageItem {
                     speaker: model.modelData
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
+                    width: dataColumn.implicitWidth
                     spacing: 0
                     LabelSubheading {
-                        leftPadding: 6
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         rightPadding: 12
                         text: model.modelData.name.length? model.modelData.name : qsTr("Unnamed Speaker")
                         font.bold: true
@@ -59,7 +62,8 @@ Page {
                     } // label
                     // TODO Bugreport wrapmode not working
                     LabelBody {
-                        leftPadding: 6
+                        anchors.left: parent.left
+                        anchors.right: parent.right
                         rightPadding: 12
                         text: dataColumn.ListView.view.sessionInfo(model.modelData)
                         wrapMode: Label.WordWrap

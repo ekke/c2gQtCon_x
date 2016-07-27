@@ -9,7 +9,6 @@ Item {
     height: 1
     anchors.left: parent.left
     anchors.right: parent.right
-    anchors.margins: 6
     Rectangle {
         width: parent.width
         height: 1

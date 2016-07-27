@@ -72,9 +72,49 @@ Page {
                     text: qsTr("Sessions")
                     color: primaryColor
                 }
+                HorizontalDivider{
+                    visible: speaker.sessionsPropertyList.length
+                }
+
+                Repeater {
+                    model: speaker.sessionsPropertyList
+
+                    ColumnLayout {
+                        Layout.fillWidth: true
+                        RowLayout {
+                            Layout.fillWidth: true
+                            Layout.leftMargin: 16
+                            Layout.rightMargin: 6
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+
+                                LabelSubheading {
+                                    text: modelData.title
+                                    font.bold: true
+                                    wrapMode: Label.WordWrap
+                                }
+
+                                LabelBody {
+                                    text: modelData.subtitle
+                                    wrapMode: Label.WordWrap
+                                }
+                            } // col in row
+                        } // row
+                        HorizontalListDivider{}
+                    } // rep col
+                } // repeater
+
 
             } // col layout
         } // root
+
+
+
+
+
+
+
         ScrollIndicator.vertical: ScrollIndicator { }
     } // flickable
     // emitting a Signal could be another option
