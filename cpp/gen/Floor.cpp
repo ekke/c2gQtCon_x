@@ -379,6 +379,7 @@ void Floor::clearRooms()
     for (int i = mRooms.size(); i > 0; --i) {
         removeFromRooms(mRooms.last());
     }
+    mRoomsKeys.clear();
 }
 
 /**

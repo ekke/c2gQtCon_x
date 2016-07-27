@@ -517,6 +517,7 @@ void SessionAPI::clearPresenter()
     for (int i = mPresenter.size(); i > 0; --i) {
         removeFromPresenter(mPresenter.last());
     }
+    mPresenterKeys.clear();
 }
 
 /**
@@ -683,6 +684,7 @@ void SessionAPI::clearSessionLinks()
     for (int i = mSessionLinks.size(); i > 0; --i) {
         removeFromSessionLinks(mSessionLinks.last());
     }
+    mSessionLinksKeys.clear();
 }
 
 /**

@@ -268,6 +268,7 @@ void Building::clearFloors()
     for (int i = mFloors.size(); i > 0; --i) {
         removeFromFloors(mFloors.last());
     }
+    mFloorsKeys.clear();
 }
 
 /**

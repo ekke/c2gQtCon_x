@@ -601,6 +601,7 @@ void Conference::clearDays()
     for (int i = mDays.size(); i > 0; --i) {
         removeFromDays(mDays.last());
     }
+    mDaysKeys.clear();
 }
 
 /**
