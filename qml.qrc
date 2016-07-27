@@ -56,5 +56,6 @@
         <file>qml/navigation/SpeakerNavigation.qml</file>
         <file>qml/pages/SpeakerListPage.qml</file>
         <file>qml/pages/SpeakerDetailPage.qml</file>
+        <file>qml/pages/SpeakerImageItem.qml</file>
     </qresource>
 </RCC>

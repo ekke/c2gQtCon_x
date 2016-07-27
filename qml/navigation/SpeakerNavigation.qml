@@ -39,7 +39,7 @@ Page {
         }
 
         function pushSpeakerDetail(speakerId) {
-            speakerDetailPageLoader.orderNr = speakerId
+            speakerDetailPageLoader.speakerId = speakerId
             speakerDetailPageLoader.active = true
         }
 

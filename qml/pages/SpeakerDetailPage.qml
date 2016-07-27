@@ -21,6 +21,7 @@ Page {
     onSpeakerIdChanged: {
         if(speakerId > 0) {
             speaker = dataManager.findSpeakerBySpeakerId(speakerId)
+            speakerImage.speaker = speaker
             // already resolved for the list
             // dataManager.resolveOrderReferences(order)
             // customer = order.customerAsDataObject
@@ -39,29 +40,30 @@ Page {
             id: root
             anchors.fill: parent
             ColumnLayout {
+                Layout.fillWidth: true
                 anchors.right: parent.right
                 anchors.left: parent.left
                 LabelHeadline {
+                    topPadding: 16
+                    bottomPadding: 16
                     leftPadding: 10
                     text: speaker.name
                 }
                 RowLayout {
+                    Layout.fillWidth: true
                     Layout.leftMargin: 16
-                    LabelBodySecondary {
-                        topPadding: 6
-                        leftPadding: 10
-                        rightPadding: 10
-                        wrapMode: Text.WordWrap
-                        text: qsTr("Bio")
-                        Layout.preferredWidth: 1
+                    Layout.rightMargin: 6
+                    Layout.bottomMargin: 12
+                    SpeakerImageItem {
+                        id: speakerImage
+                        anchors.top: parent.top
                     }
-                    LabelBody {
-                        topPadding: 6
+                    LabelSubheading {
                         leftPadding: 10
                         rightPadding: 10
                         wrapMode: Text.WordWrap
                         text: speaker.bio
-                        Layout.preferredWidth: 2
+                        //Layout.preferredWidth: 2
                     }
                 } // row
                 HorizontalDivider {}

@@ -17,24 +17,19 @@ Page {
     // SECTION HEADER
     Component {
         id: sectionHeading
-        ToolBar {
+        ColumnLayout {
             width: parent.width
-            // using z 1 because section header must under list header
-            z:1
-            background: Rectangle{color: Material.background}
-            ColumnLayout {
-                width: parent.width
-                LabelTitle {
-                    topPadding: 6
-                    bottomPadding: 6
-                    leftPadding: 24
-                    text: section
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: primaryColor
-                }
-                HorizontalListDivider{}
-            } // col layout
-        } // toolbar
+            LabelTitle {
+                topPadding: 6
+                bottomPadding: 6
+                leftPadding: 16
+                text: section
+                anchors.verticalCenter: parent.verticalCenter
+                color: primaryColor
+                font.bold: true
+            }
+            HorizontalListDivider{}
+        } // col layout
     }
 
     // LIST ROW DELEGTE
@@ -43,42 +38,41 @@ Page {
         ColumnLayout {
             id: dataColumn
             Layout.fillWidth: true
-            anchors.left: parent.left
-            anchors.right: parent.right
             RowLayout {
                 spacing: 20
                 Layout.fillWidth: true
-                Layout.leftMargin: 12
+                Layout.leftMargin: 16+12
                 Layout.rightMargin: 12
                 Layout.topMargin: 6
-                Item {
-                    id: imageItem
-                    height: 64
-                    width: 64
-                    Image {
-                        visible: model.modelData.hasSpeakerImage()
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        fillMode: Image.Pad
-                        source: model.modelData.hasSpeakerImage()? "qrc:/data-assets/conference/speakerImages/speaker_"+model.modelData.speakerId+"."+model.modelData.speakerImageAsDataObject.suffix : ""
-                    } // image
-                    IconInactive {
-                        visible: !model.modelData.hasSpeakerImage()
-                        imageSize: 48
-                        imageName: "person.png"
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        fillMode: Image.Pad
+                SpeakerImageItem {
+                    speaker: model.modelData
+                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    spacing: 0
+                    LabelSubheading {
+                        leftPadding: 6
+                        rightPadding: 12
+                        text: model.modelData.name.length? model.modelData.name : qsTr("Unnamed Speaker")
+                        font.bold: true
+                        wrapMode: Label.WordWrap
+                    } // label
+                    // TODO Bugreport wrapmode not working
+                    LabelBody {
+                        leftPadding: 6
+                        rightPadding: 12
+                        text: dataColumn.ListView.view.sessionInfo(model.modelData)
+                        wrapMode: Label.WordWrap
+                        maximumLineCount: 3
+                        elide: Label.ElideRight
                     }
-                } // icon item
-
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 24
-                    rightPadding: 12
-                    text: model.modelData.name.length? model.modelData.name : qsTr("Unnamed Speaker")
-                    wrapMode: Label.WordWrap
-                } // label
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        navPane.pushSpeakerDetail(model.modelData.speakerId)
+                    }
+                } // mouse
             } // end Row Layout
             HorizontalListDivider{}
         } // end Col Layout
@@ -109,6 +103,16 @@ Page {
 
         ScrollIndicator.vertical: ScrollIndicator { }
 
+        function sessionInfo(speaker) {
+            var s = ""
+            for (var i = 0; i < speaker.sessionsAsQVariantList().length; i++) {
+                if(i > 0) {
+                    s += "\n"
+                }
+                s += speaker.sessionsAsQVariantList()[i].title
+            }
+            return s
+        }
     } // end listView
 
     Component.onDestruction: {
