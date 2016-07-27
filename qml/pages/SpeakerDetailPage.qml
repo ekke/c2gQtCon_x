@@ -47,7 +47,7 @@ Page {
                     topPadding: 16
                     bottomPadding: 16
                     leftPadding: 10
-                    text: speaker.name
+                    text: speaker.name.length? speaker.name : qsTr("Unnamed Speaker")
                 }
                 RowLayout {
                     Layout.fillWidth: true
@@ -67,9 +67,9 @@ Page {
                     }
                 } // row
                 HorizontalDivider {}
-                LabelSubheading {
+                LabelHeadline {
                     leftPadding: 10
-                    text: qsTr("Sessions")
+                    text: qsTr("Talks")
                     color: primaryColor
                 }
                 HorizontalDivider{
@@ -88,6 +88,73 @@ Page {
 
                             ColumnLayout {
                                 Layout.fillWidth: true
+                                anchors.top: parent.top
+                                ButtonOneChar {
+                                    Layout.leftMargin: 14
+                                    Layout.rightMargin: 14
+                                    text: speakerDetailPage.characterForButton(modelData)
+                                    backgroundColor: accentColor
+                                    textColor: textOnAccent
+                                }
+                                LabelBody {
+                                    text: modelData.minutes + qsTr(" Minutes")
+                                }
+
+
+                            }
+
+
+
+                            ColumnLayout {
+                                Layout.fillWidth: true
+                                Layout.leftMargin: 10
+                                Layout.rightMargin: 10
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    IconActive{
+                                        imageSize: 18
+                                        imageName: "calendar.png"
+                                    }
+                                    LabelBody {
+                                        text: modelData.sessionDayAsDataObject.conferenceDay.toLocaleDateString()
+                                    }
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    IconActive{
+                                        imageSize: 18
+                                        imageName: "time.png"
+                                    }
+                                    LabelBody {
+                                        text: modelData.startTime.toLocaleTimeString("HH:mm") + " - " + modelData.endTime.toLocaleTimeString("HH:mm")
+                                    }
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    IconActive{
+                                        imageSize: 18
+                                        imageName: "directions.png"
+                                    }
+                                    LabelBody {
+                                        text: modelData.roomAsDataObject.roomName
+                                    }
+                                }
+
+                                RowLayout {
+                                    Layout.fillWidth: true
+                                    visible: trackLabel.text.length
+                                    IconActive{
+                                        imageSize: 18
+                                        imageName: "description.png"
+                                    }
+                                    LabelBody {
+                                        id: trackLabel
+                                        text: modelData.sessionTrackAsDataObject.name != "*****" ? modelData.sessionTrackAsDataObject.name : ""
+                                    }
+                                }
 
                                 LabelSubheading {
                                     text: modelData.title
@@ -96,9 +163,25 @@ Page {
                                 }
 
                                 LabelBody {
+                                    visible: modelData.subtitle.length
                                     text: modelData.subtitle
                                     wrapMode: Label.WordWrap
                                 }
+
+                                LabelSubheading {
+                                    visible: modelData.presenterPropertyList.length > 1
+                                    text: qsTr("Co - Speaker:")
+                                    color: primaryColor
+                                    font.bold: true
+                                    wrapMode: Label.WordWrap
+                                }
+                                LabelBody {
+                                    visible: modelData.presenterPropertyList.length > 1
+                                    text: speakerDetailPage.coSpeakers(modelData)
+                                    font.bold: true
+                                    wrapMode: Label.WordWrap
+                                }
+
                             } // col in row
                         } // row
                         HorizontalListDivider{}
@@ -120,6 +203,34 @@ Page {
     // emitting a Signal could be another option
     Component.onDestruction: {
         cleanup()
+    }
+
+    function characterForButton(session) {
+        if(session.isTraining) {
+            return "T"
+        }
+        if(session.isLightning) {
+            return "L"
+        }
+        if(session.isKeynote) {
+            return "K"
+        }
+        if(session.isCommunity) {
+            return "C"
+        }
+        return "S"
+    }
+    function coSpeakers(session) {
+        var s = ""
+        for (var i = 0; i < session.presenterPropertyList.length; i++) {
+            if(session.presenterPropertyList[i].speakerId != speakerDetailPage.speakerId) {
+                if(s.length) {
+                    s += "\n"
+                }
+                s += session.presenterPropertyList[i].name
+            }
+        }
+        return s
     }
 
     // called immediately after Loader.loaded
