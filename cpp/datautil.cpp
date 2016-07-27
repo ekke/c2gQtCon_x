@@ -29,7 +29,7 @@ void DataUtil::init(DataManager* dataManager)
  * 3. restart app
  * If all done send files from Phone to PC/Mac
  * Copy them into data-assets /prod or /test
- * Test again after deleteing app from dev device
+ * Test again after deleting app from dev device
  * Now Users will get this directly by installing the app
  * and updates are fast
  */
@@ -634,10 +634,10 @@ void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int h
     fileName.append(QString::number(speakerImage->speakerId()));
     QString originFileName;
     originFileName = fileName + "." + speakerImage->suffix();
-    const int size1 = 48;
-    const int size2 = 96;
-    const int size3 = 144;
-    const int size4 = 192;
+    const int size1 = 64;
+    const int size2 = 128;
+    const int size3 = 192;
+    const int size4 = 256;
     if(width >= height) {
         if(width < size1) {
             speakerImage->setMaxScaleFactor(0);

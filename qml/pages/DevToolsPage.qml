@@ -24,10 +24,6 @@ Flickable {
         ColumnLayout {
             anchors.right: parent.right
             anchors.left: parent.left
-            LabelHeadline {
-                leftPadding: 10
-                text: qsTr("Settings Data (QObject*)")
-            }
             LabelSubheading {
                 topPadding: 12
                 bottomPadding: 12
@@ -139,6 +135,46 @@ Flickable {
                     rightPadding: 10
                     wrapMode: Text.WordWrap
                     text: qsTr("You must restart to enable dev tools settings")
+                    Layout.preferredWidth: 1
+                    font.italic: true
+                }
+            } // row
+            HorizontalDivider {}
+            LabelHeadline {
+                leftPadding: 10
+                text: qsTr("Prepare the Conference Data")
+            }
+            RowLayout {
+                ButtonFlat {
+                    text: qsTr("prepare")
+                    textColor: primaryColor
+                    onClicked: {
+                        dataUtil.prepareConference()
+                    }
+                }
+            }
+            // "/storage/emulated/0/data/ekkescorner/c2gQtCon_x/data/conference/"
+            // "/storage/emulated/0/data/ekkescorner/c2gQtCon_x/data/conference/speakerImages/"
+            RowLayout {
+                Layout.leftMargin: 16
+                LabelBodySecondary {
+                    anchors.verticalCenter: parent.verticalCenter
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Prepare Conference must run with public cache.\nWhile running watch debug log in QtCreator.\nIf all went well data can be delivered as qrc:/data-assets.\nMore info inside src.")
+                    Layout.preferredWidth: 1
+                    font.italic: true
+                }
+            } // row
+            RowLayout {
+                Layout.leftMargin: 16
+                LabelBodySecondary {
+                    anchors.verticalCenter: parent.verticalCenter
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Conference data stored at:\n/storage/emulated/0/data/ekkescorner/c2gQtCon_x/data/conference/")
                     Layout.preferredWidth: 1
                     font.italic: true
                 }

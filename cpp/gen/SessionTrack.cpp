@@ -268,6 +268,7 @@ void SessionTrack::clearSessions()
     for (int i = mSessions.size(); i > 0; --i) {
         removeFromSessions(mSessions.last());
     }
+    mSessionsKeys.clear();
 }
 
 /**

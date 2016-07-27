@@ -84,16 +84,6 @@ Flickable {
                 }
             }
             HorizontalDivider {}
-            RowLayout {
-                ButtonFlat {
-                    text: qsTr("prepare")
-                    textColor: primaryColor
-                    onClicked: {
-                        dataUtil.prepareConference()
-                    }
-                }
-            }
-            HorizontalDivider {}
         } // col layout
     } // root
     ScrollIndicator.vertical: ScrollIndicator { }
