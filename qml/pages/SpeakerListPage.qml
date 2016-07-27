@@ -24,7 +24,7 @@ Page {
             background: Rectangle{color: Material.background}
             ColumnLayout {
                 width: parent.width
-                LabelHeadline {
+                LabelTitle {
                     topPadding: 6
                     bottomPadding: 6
                     leftPadding: 24
@@ -56,14 +56,23 @@ Page {
                     height: 64
                     width: 64
                     Image {
+                        visible: model.modelData.hasSpeakerImage()
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.horizontalCenter: parent.horizontalCenter
                         fillMode: Image.Pad
                         source: model.modelData.hasSpeakerImage()? "qrc:/data-assets/conference/speakerImages/speaker_"+model.modelData.speakerId+"."+model.modelData.speakerImageAsDataObject.suffix : ""
                     } // image
+                    IconInactive {
+                        visible: !model.modelData.hasSpeakerImage()
+                        imageSize: 48
+                        imageName: "person.png"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        fillMode: Image.Pad
+                    }
                 } // icon item
 
-                LabelTitle {
+                LabelSubheading {
                     topPadding: 6
                     leftPadding: 24
                     rightPadding: 12
