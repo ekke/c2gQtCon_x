@@ -1,0 +1,106 @@
+[
+    {
+        "isBreak": false,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": true,
+        "session": 564,
+        "sessionId": 564
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 577,
+        "sessionId": 577
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 578,
+        "sessionId": 578
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 579,
+        "sessionId": 579
+    },
+    {
+        "isBreak": false,
+        "isEvent": true,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 580,
+        "sessionId": 580
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 561,
+        "sessionId": 561
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 562,
+        "sessionId": 562
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 558,
+        "sessionId": 558
+    },
+    {
+        "isBreak": false,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": true,
+        "session": 565,
+        "sessionId": 565
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 567,
+        "sessionId": 567
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 568,
+        "sessionId": 568
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 569,
+        "sessionId": 569
+    },
+    {
+        "isBreak": true,
+        "isEvent": false,
+        "isLunch": false,
+        "isRegistration": false,
+        "session": 570,
+        "sessionId": 570
+    }
+]

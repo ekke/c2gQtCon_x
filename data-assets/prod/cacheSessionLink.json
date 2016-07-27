@@ -1,0 +1,132 @@
+[
+    {
+        "title": "Me giving a presentation at an Atlassian User Group meetup",
+        "url": "https://youtu.be/qlWD0ecLL3M",
+        "uuid": "f35ba645-3ad0-416c-98e5-482dbb590ef5"
+    },
+    {
+        "title": "Workshop Wiki",
+        "url": "https://edu-europalab.rhcloud.com/",
+        "uuid": "f2b549b1-eb6c-444c-896a-90dc5cf7f114"
+    },
+    {
+        "title": "Workshop Inventory",
+        "url": "https://edu-europalab.rhcloud.com/doku.php?id=tutors",
+        "uuid": "3b50bce8-28f4-426a-b42b-58be281901a7"
+    },
+    {
+        "title": "JetBrains",
+        "url": "https://www.jetbrains.com/",
+        "uuid": "a64f15ce-2af4-4ef2-9c87-fb0310fa89b8"
+    },
+    {
+        "title": "App Preview",
+        "url": "http://blog.jetbrains.com/blog/2016/05/25/introducing-jetbrains-toolbox-app/",
+        "uuid": "1a4cd2ee-c76a-4597-bbad-d100a1a8895b"
+    },
+    {
+        "title": "NXP Semiconductors Mobile Audio",
+        "url": "http://www.nxp.com/video/demo-boost-micro-speaker-sound-with-tfa9887-mobile-audio-system-from-nxp:TFA9887-MICRO-SPEAKER-DEMO",
+        "uuid": "ca7bf699-4b5f-4c5a-add9-104176d05b21"
+    },
+    {
+        "title": "One of the involved components in the monitoring system",
+        "url": "http://www.nxp.com/products/media-and-audio-processing/audio-amplifiers/amplifiers-for-portable-devices/3.7-w-audio-system-with-adaptive-sound-maximizer-and-speaker-protection:TFA9887UK",
+        "uuid": "9ab4486c-b146-4467-ad8a-d8a7eda6a22d"
+    },
+    {
+        "title": "Another monitored device",
+        "url": "https://chipworks.secure.force.com/catalog/ProductDetails?sku=NXP-TFA9890&amp;viewState=DetailView&amp;cartID=&amp;g=",
+        "uuid": "b0f47e3c-79a6-4bfc-a476-97388022c7db"
+    },
+    {
+        "title": "Peruse Website",
+        "url": "http://peruse.kde.org/",
+        "uuid": "d3c11d2c-1f70-49ca-ac61-c566b864d8df"
+    },
+    {
+        "title": "Open Collaboration Services",
+        "url": "http://www.open-collaboration-services.org/ocs/",
+        "uuid": "4b0a070d-93c0-4703-b590-cc04f8eefb33"
+    },
+    {
+        "title": "Personal blog",
+        "url": "http://www.jgrulich.cz/",
+        "uuid": "81cbe324-3660-4fe3-b8a2-47ec584ad6d1"
+    },
+    {
+        "title": "KDE/FreeBSD Team",
+        "url": "https://freebsd.kde.org/",
+        "uuid": "02f98285-4eea-4e4a-a613-402c159e1d30"
+    },
+    {
+        "title": "KDE announcing its Vision",
+        "url": "https://dot.kde.org/2016/04/05/kde-presents-its-vision-future",
+        "uuid": "aa225af2-d48c-43f3-886d-b8c3f93eddbb"
+    },
+    {
+        "title": "Minuet Web Site",
+        "url": "https://minuet.kde.org",
+        "uuid": "fd7d392d-e6bc-444c-a82d-65fc8ae47e81"
+    },
+    {
+        "title": "Open365 cloud services",
+        "url": "https://cloud.open365.io/",
+        "uuid": "d3639915-5d02-4055-b52c-bb467bbb7ac1"
+    },
+    {
+        "title": "Artificial Intelligence for publuc administrations",
+        "url": "https://www.youtube.com/watch?v=KW4w4nqROG8",
+        "uuid": "d3dff738-d7d0-48bb-9e42-f572cd2cdddd"
+    },
+    {
+        "title": "think-cell career",
+        "url": "https://www.think-cell.com/career",
+        "uuid": "b77bd288-10cd-47e1-bf31-71e5b1b3f4ba"
+    },
+    {
+        "title": "Mapbox blog: Qt official support announcement",
+        "url": "https://www.mapbox.com/blog/qt-framework-support/",
+        "uuid": "fc4208ee-42a0-4d65-a2a3-ff80210839c5"
+    },
+    {
+        "title": "Meditech prototype on Element14, Challenge Version",
+        "url": "https://www.element14.com/community/community/design-challenges/sci-fi-your-pi/blog/authors/balearicdynamics?start=0",
+        "uuid": "26e19879-2509-4c3d-9674-fc79200122dd"
+    },
+    {
+        "title": "Meditech Challenge Award winner author interview",
+        "url": "https://www.element14.com/community/docs/DOC-78417?ICID=scifi-4posters-ban",
+        "uuid": "4c416004-fd12-4f62-9ce5-b6f6f553c273"
+    },
+    {
+        "title": "Meditech 2015 Project of the Year Award Winner",
+        "url": "https://www.element14.com/community/polls/2206",
+        "uuid": "54913c44-b990-4ea5-8855-71d432570d91"
+    },
+    {
+        "title": "Meditech videos playlist",
+        "url": "https://www.youtube.com/playlist?list=PLRev3GqgmNtHd7jk7E23Ez-GaBDjvhwl-",
+        "uuid": "d7e11745-7e2e-4bd2-81ae-ad644c81b424"
+    },
+    {
+        "title": "Project&#x27;s website",
+        "url": "http://asteroidos.org/",
+        "uuid": "10d3c9f0-168c-48d1-b0b1-46ddb56dc7c9"
+    },
+    {
+        "title": "Project&#x27;s GitHub",
+        "url": "https://github.com/AsteroidOS",
+        "uuid": "ea18569e-db1d-416f-a550-08857c368958"
+    },
+    {
+        "title": "Project&#x27;s Twitter account",
+        "url": "https://twitter.com/AsteroidOS",
+        "uuid": "2a75b207-00fa-4e01-8747-2eaba986a465"
+    },
+    {
+        "title": "GCompris Presentation Slides",
+        "url": "https://docs.google.com/presentation/d/1ASvUpuYeCoxdD6ZbJ6hAN0Dm-WbDNFMsxC57oxxMubM/edit?usp=sharing",
+        "uuid": "ce618b5a-aa58-462a-be37-c9dd1c15ffcc"
+    }
+]
