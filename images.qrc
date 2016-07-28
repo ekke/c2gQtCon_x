@@ -16,6 +16,10 @@
         <file>images/black/x18/block@2x.png</file>
         <file>images/black/x18/block@3x.png</file>
         <file>images/black/x18/block@4x.png</file>
+        <file>images/black/x18/break.png</file>
+        <file>images/black/x18/break@2x.png</file>
+        <file>images/black/x18/break@3x.png</file>
+        <file>images/black/x18/break@4x.png</file>
         <file>images/black/x18/bus.png</file>
         <file>images/black/x18/bus@2x.png</file>
         <file>images/black/x18/bus@3x.png</file>
@@ -92,6 +96,10 @@
         <file>images/black/x18/list@2x.png</file>
         <file>images/black/x18/list@3x.png</file>
         <file>images/black/x18/list@4x.png</file>
+        <file>images/black/x18/lunch.png</file>
+        <file>images/black/x18/lunch@2x.png</file>
+        <file>images/black/x18/lunch@3x.png</file>
+        <file>images/black/x18/lunch@4x.png</file>
         <file>images/black/x18/mail.png</file>
         <file>images/black/x18/mail@2x.png</file>
         <file>images/black/x18/mail@3x.png</file>
@@ -104,6 +112,10 @@
         <file>images/black/x18/my_location@2x.png</file>
         <file>images/black/x18/my_location@3x.png</file>
         <file>images/black/x18/my_location@4x.png</file>
+        <file>images/black/x18/party_event.png</file>
+        <file>images/black/x18/party_event@2x.png</file>
+        <file>images/black/x18/party_event@3x.png</file>
+        <file>images/black/x18/party_event@4x.png</file>
         <file>images/black/x18/person.png</file>
         <file>images/black/x18/person@2x.png</file>
         <file>images/black/x18/person@3x.png</file>
@@ -124,6 +136,10 @@
         <file>images/black/x18/settings@2x.png</file>
         <file>images/black/x18/settings@3x.png</file>
         <file>images/black/x18/settings@4x.png</file>
+        <file>images/black/x18/speaker.png</file>
+        <file>images/black/x18/speaker@2x.png</file>
+        <file>images/black/x18/speaker@3x.png</file>
+        <file>images/black/x18/speaker@4x.png</file>
         <file>images/black/x18/stars.png</file>
         <file>images/black/x18/stars@2x.png</file>
         <file>images/black/x18/stars@3x.png</file>
@@ -136,6 +152,10 @@
         <file>images/black/x18/supervisor@2x.png</file>
         <file>images/black/x18/supervisor@3x.png</file>
         <file>images/black/x18/supervisor@4x.png</file>
+        <file>images/black/x18/tag.png</file>
+        <file>images/black/x18/tag@2x.png</file>
+        <file>images/black/x18/tag@3x.png</file>
+        <file>images/black/x18/tag@4x.png</file>
         <file>images/black/x18/team_member.png</file>
         <file>images/black/x18/team_member@2x.png</file>
         <file>images/black/x18/team_member@3x.png</file>
@@ -152,6 +172,10 @@
         <file>images/black/x18/upload@2x.png</file>
         <file>images/black/x18/upload@3x.png</file>
         <file>images/black/x18/upload@4x.png</file>
+        <file>images/black/x18/venue.png</file>
+        <file>images/black/x18/venue@2x.png</file>
+        <file>images/black/x18/venue@3x.png</file>
+        <file>images/black/x18/venue@4x.png</file>
         <file>images/black/x18/work.png</file>
         <file>images/black/x18/work@2x.png</file>
         <file>images/black/x18/work@3x.png</file>
@@ -172,6 +196,10 @@
         <file>images/black/x36/block@2x.png</file>
         <file>images/black/x36/block@3x.png</file>
         <file>images/black/x36/block@4x.png</file>
+        <file>images/black/x36/break.png</file>
+        <file>images/black/x36/break@2x.png</file>
+        <file>images/black/x36/break@3x.png</file>
+        <file>images/black/x36/break@4x.png</file>
         <file>images/black/x36/bus.png</file>
         <file>images/black/x36/bus@2x.png</file>
         <file>images/black/x36/bus@3x.png</file>
@@ -248,6 +276,10 @@
         <file>images/black/x36/list@2x.png</file>
         <file>images/black/x36/list@3x.png</file>
         <file>images/black/x36/list@4x.png</file>
+        <file>images/black/x36/lunch.png</file>
+        <file>images/black/x36/lunch@2x.png</file>
+        <file>images/black/x36/lunch@3x.png</file>
+        <file>images/black/x36/lunch@4x.png</file>
         <file>images/black/x36/mail.png</file>
         <file>images/black/x36/mail@2x.png</file>
         <file>images/black/x36/mail@3x.png</file>
@@ -260,6 +292,10 @@
         <file>images/black/x36/my_location@2x.png</file>
         <file>images/black/x36/my_location@3x.png</file>
         <file>images/black/x36/my_location@4x.png</file>
+        <file>images/black/x36/party_event.png</file>
+        <file>images/black/x36/party_event@2x.png</file>
+        <file>images/black/x36/party_event@3x.png</file>
+        <file>images/black/x36/party_event@4x.png</file>
         <file>images/black/x36/person.png</file>
         <file>images/black/x36/person@2x.png</file>
         <file>images/black/x36/person@3x.png</file>
@@ -280,6 +316,10 @@
         <file>images/black/x36/settings@2x.png</file>
         <file>images/black/x36/settings@3x.png</file>
         <file>images/black/x36/settings@4x.png</file>
+        <file>images/black/x36/speaker.png</file>
+        <file>images/black/x36/speaker@2x.png</file>
+        <file>images/black/x36/speaker@3x.png</file>
+        <file>images/black/x36/speaker@4x.png</file>
         <file>images/black/x36/stars.png</file>
         <file>images/black/x36/stars@2x.png</file>
         <file>images/black/x36/stars@3x.png</file>
@@ -292,6 +332,10 @@
         <file>images/black/x36/supervisor@2x.png</file>
         <file>images/black/x36/supervisor@3x.png</file>
         <file>images/black/x36/supervisor@4x.png</file>
+        <file>images/black/x36/tag.png</file>
+        <file>images/black/x36/tag@2x.png</file>
+        <file>images/black/x36/tag@3x.png</file>
+        <file>images/black/x36/tag@4x.png</file>
         <file>images/black/x36/team_member.png</file>
         <file>images/black/x36/team_member@2x.png</file>
         <file>images/black/x36/team_member@3x.png</file>
@@ -308,6 +352,10 @@
         <file>images/black/x36/upload@2x.png</file>
         <file>images/black/x36/upload@3x.png</file>
         <file>images/black/x36/upload@4x.png</file>
+        <file>images/black/x36/venue.png</file>
+        <file>images/black/x36/venue@2x.png</file>
+        <file>images/black/x36/venue@3x.png</file>
+        <file>images/black/x36/venue@4x.png</file>
         <file>images/black/x36/work.png</file>
         <file>images/black/x36/work@2x.png</file>
         <file>images/black/x36/work@3x.png</file>
@@ -328,6 +376,10 @@
         <file>images/black/x48/block@2x.png</file>
         <file>images/black/x48/block@3x.png</file>
         <file>images/black/x48/block@4x.png</file>
+        <file>images/black/x48/break.png</file>
+        <file>images/black/x48/break@2x.png</file>
+        <file>images/black/x48/break@3x.png</file>
+        <file>images/black/x48/break@4x.png</file>
         <file>images/black/x48/bus.png</file>
         <file>images/black/x48/bus@2x.png</file>
         <file>images/black/x48/bus@3x.png</file>
@@ -404,6 +456,10 @@
         <file>images/black/x48/list@2x.png</file>
         <file>images/black/x48/list@3x.png</file>
         <file>images/black/x48/list@4x.png</file>
+        <file>images/black/x48/lunch.png</file>
+        <file>images/black/x48/lunch@2x.png</file>
+        <file>images/black/x48/lunch@3x.png</file>
+        <file>images/black/x48/lunch@4x.png</file>
         <file>images/black/x48/mail.png</file>
         <file>images/black/x48/mail@2x.png</file>
         <file>images/black/x48/mail@3x.png</file>
@@ -416,6 +472,10 @@
         <file>images/black/x48/my_location@2x.png</file>
         <file>images/black/x48/my_location@3x.png</file>
         <file>images/black/x48/my_location@4x.png</file>
+        <file>images/black/x48/party_event.png</file>
+        <file>images/black/x48/party_event@2x.png</file>
+        <file>images/black/x48/party_event@3x.png</file>
+        <file>images/black/x48/party_event@4x.png</file>
         <file>images/black/x48/person.png</file>
         <file>images/black/x48/person@2x.png</file>
         <file>images/black/x48/person@3x.png</file>
@@ -436,6 +496,10 @@
         <file>images/black/x48/settings@2x.png</file>
         <file>images/black/x48/settings@3x.png</file>
         <file>images/black/x48/settings@4x.png</file>
+        <file>images/black/x48/speaker.png</file>
+        <file>images/black/x48/speaker@2x.png</file>
+        <file>images/black/x48/speaker@3x.png</file>
+        <file>images/black/x48/speaker@4x.png</file>
         <file>images/black/x48/stars.png</file>
         <file>images/black/x48/stars@2x.png</file>
         <file>images/black/x48/stars@3x.png</file>
@@ -448,6 +512,10 @@
         <file>images/black/x48/supervisor@2x.png</file>
         <file>images/black/x48/supervisor@3x.png</file>
         <file>images/black/x48/supervisor@4x.png</file>
+        <file>images/black/x48/tag.png</file>
+        <file>images/black/x48/tag@2x.png</file>
+        <file>images/black/x48/tag@3x.png</file>
+        <file>images/black/x48/tag@4x.png</file>
         <file>images/black/x48/team_member.png</file>
         <file>images/black/x48/team_member@2x.png</file>
         <file>images/black/x48/team_member@3x.png</file>
@@ -464,6 +532,10 @@
         <file>images/black/x48/upload@2x.png</file>
         <file>images/black/x48/upload@3x.png</file>
         <file>images/black/x48/upload@4x.png</file>
+        <file>images/black/x48/venue.png</file>
+        <file>images/black/x48/venue@2x.png</file>
+        <file>images/black/x48/venue@3x.png</file>
+        <file>images/black/x48/venue@4x.png</file>
         <file>images/black/x48/work.png</file>
         <file>images/black/x48/work@2x.png</file>
         <file>images/black/x48/work@3x.png</file>
@@ -484,6 +556,10 @@
         <file>images/black/block@2x.png</file>
         <file>images/black/block@3x.png</file>
         <file>images/black/block@4x.png</file>
+        <file>images/black/break.png</file>
+        <file>images/black/break@2x.png</file>
+        <file>images/black/break@3x.png</file>
+        <file>images/black/break@4x.png</file>
         <file>images/black/bus.png</file>
         <file>images/black/bus@2x.png</file>
         <file>images/black/bus@3x.png</file>
@@ -560,6 +636,10 @@
         <file>images/black/list@2x.png</file>
         <file>images/black/list@3x.png</file>
         <file>images/black/list@4x.png</file>
+        <file>images/black/lunch.png</file>
+        <file>images/black/lunch@2x.png</file>
+        <file>images/black/lunch@3x.png</file>
+        <file>images/black/lunch@4x.png</file>
         <file>images/black/mail.png</file>
         <file>images/black/mail@2x.png</file>
         <file>images/black/mail@3x.png</file>
@@ -576,6 +656,10 @@
         <file>images/black/my_location@2x.png</file>
         <file>images/black/my_location@3x.png</file>
         <file>images/black/my_location@4x.png</file>
+        <file>images/black/party_event.png</file>
+        <file>images/black/party_event@2x.png</file>
+        <file>images/black/party_event@3x.png</file>
+        <file>images/black/party_event@4x.png</file>
         <file>images/black/person.png</file>
         <file>images/black/person@2x.png</file>
         <file>images/black/person@3x.png</file>
@@ -596,6 +680,10 @@
         <file>images/black/settings@2x.png</file>
         <file>images/black/settings@3x.png</file>
         <file>images/black/settings@4x.png</file>
+        <file>images/black/speaker.png</file>
+        <file>images/black/speaker@2x.png</file>
+        <file>images/black/speaker@3x.png</file>
+        <file>images/black/speaker@4x.png</file>
         <file>images/black/stars.png</file>
         <file>images/black/stars@2x.png</file>
         <file>images/black/stars@3x.png</file>
@@ -608,6 +696,10 @@
         <file>images/black/supervisor@2x.png</file>
         <file>images/black/supervisor@3x.png</file>
         <file>images/black/supervisor@4x.png</file>
+        <file>images/black/tag.png</file>
+        <file>images/black/tag@2x.png</file>
+        <file>images/black/tag@3x.png</file>
+        <file>images/black/tag@4x.png</file>
         <file>images/black/team_member.png</file>
         <file>images/black/team_member@2x.png</file>
         <file>images/black/team_member@3x.png</file>
@@ -624,6 +716,10 @@
         <file>images/black/upload@2x.png</file>
         <file>images/black/upload@3x.png</file>
         <file>images/black/upload@4x.png</file>
+        <file>images/black/venue.png</file>
+        <file>images/black/venue@2x.png</file>
+        <file>images/black/venue@3x.png</file>
+        <file>images/black/venue@4x.png</file>
         <file>images/black/work.png</file>
         <file>images/black/work@2x.png</file>
         <file>images/black/work@3x.png</file>
@@ -652,6 +748,10 @@
         <file>images/white/x18/block@2x.png</file>
         <file>images/white/x18/block@3x.png</file>
         <file>images/white/x18/block@4x.png</file>
+        <file>images/white/x18/break.png</file>
+        <file>images/white/x18/break@2x.png</file>
+        <file>images/white/x18/break@3x.png</file>
+        <file>images/white/x18/break@4x.png</file>
         <file>images/white/x18/bus.png</file>
         <file>images/white/x18/bus@2x.png</file>
         <file>images/white/x18/bus@3x.png</file>
@@ -728,6 +828,10 @@
         <file>images/white/x18/list@2x.png</file>
         <file>images/white/x18/list@3x.png</file>
         <file>images/white/x18/list@4x.png</file>
+        <file>images/white/x18/lunch.png</file>
+        <file>images/white/x18/lunch@2x.png</file>
+        <file>images/white/x18/lunch@3x.png</file>
+        <file>images/white/x18/lunch@4x.png</file>
         <file>images/white/x18/mail.png</file>
         <file>images/white/x18/mail@2x.png</file>
         <file>images/white/x18/mail@3x.png</file>
@@ -740,6 +844,10 @@
         <file>images/white/x18/my_location@2x.png</file>
         <file>images/white/x18/my_location@3x.png</file>
         <file>images/white/x18/my_location@4x.png</file>
+        <file>images/white/x18/party_event.png</file>
+        <file>images/white/x18/party_event@2x.png</file>
+        <file>images/white/x18/party_event@3x.png</file>
+        <file>images/white/x18/party_event@4x.png</file>
         <file>images/white/x18/person.png</file>
         <file>images/white/x18/person@2x.png</file>
         <file>images/white/x18/person@3x.png</file>
@@ -760,6 +868,10 @@
         <file>images/white/x18/settings@2x.png</file>
         <file>images/white/x18/settings@3x.png</file>
         <file>images/white/x18/settings@4x.png</file>
+        <file>images/white/x18/speaker.png</file>
+        <file>images/white/x18/speaker@2x.png</file>
+        <file>images/white/x18/speaker@3x.png</file>
+        <file>images/white/x18/speaker@4x.png</file>
         <file>images/white/x18/stars.png</file>
         <file>images/white/x18/stars@2x.png</file>
         <file>images/white/x18/stars@3x.png</file>
@@ -772,6 +884,10 @@
         <file>images/white/x18/supervisor@2x.png</file>
         <file>images/white/x18/supervisor@3x.png</file>
         <file>images/white/x18/supervisor@4x.png</file>
+        <file>images/white/x18/tag.png</file>
+        <file>images/white/x18/tag@2x.png</file>
+        <file>images/white/x18/tag@3x.png</file>
+        <file>images/white/x18/tag@4x.png</file>
         <file>images/white/x18/team_member.png</file>
         <file>images/white/x18/team_member@2x.png</file>
         <file>images/white/x18/team_member@3x.png</file>
@@ -788,6 +904,10 @@
         <file>images/white/x18/upload@2x.png</file>
         <file>images/white/x18/upload@3x.png</file>
         <file>images/white/x18/upload@4x.png</file>
+        <file>images/white/x18/venue.png</file>
+        <file>images/white/x18/venue@2x.png</file>
+        <file>images/white/x18/venue@3x.png</file>
+        <file>images/white/x18/venue@4x.png</file>
         <file>images/white/x18/work.png</file>
         <file>images/white/x18/work@2x.png</file>
         <file>images/white/x18/work@3x.png</file>
@@ -808,6 +928,10 @@
         <file>images/white/x36/block@2x.png</file>
         <file>images/white/x36/block@3x.png</file>
         <file>images/white/x36/block@4x.png</file>
+        <file>images/white/x36/break.png</file>
+        <file>images/white/x36/break@2x.png</file>
+        <file>images/white/x36/break@3x.png</file>
+        <file>images/white/x36/break@4x.png</file>
         <file>images/white/x36/bus.png</file>
         <file>images/white/x36/bus@2x.png</file>
         <file>images/white/x36/bus@3x.png</file>
@@ -884,6 +1008,10 @@
         <file>images/white/x36/list@2x.png</file>
         <file>images/white/x36/list@3x.png</file>
         <file>images/white/x36/list@4x.png</file>
+        <file>images/white/x36/lunch.png</file>
+        <file>images/white/x36/lunch@2x.png</file>
+        <file>images/white/x36/lunch@3x.png</file>
+        <file>images/white/x36/lunch@4x.png</file>
         <file>images/white/x36/mail.png</file>
         <file>images/white/x36/mail@2x.png</file>
         <file>images/white/x36/mail@3x.png</file>
@@ -896,6 +1024,10 @@
         <file>images/white/x36/my_location@2x.png</file>
         <file>images/white/x36/my_location@3x.png</file>
         <file>images/white/x36/my_location@4x.png</file>
+        <file>images/white/x36/party_event.png</file>
+        <file>images/white/x36/party_event@2x.png</file>
+        <file>images/white/x36/party_event@3x.png</file>
+        <file>images/white/x36/party_event@4x.png</file>
         <file>images/white/x36/person.png</file>
         <file>images/white/x36/person@2x.png</file>
         <file>images/white/x36/person@3x.png</file>
@@ -916,6 +1048,10 @@
         <file>images/white/x36/settings@2x.png</file>
         <file>images/white/x36/settings@3x.png</file>
         <file>images/white/x36/settings@4x.png</file>
+        <file>images/white/x36/speaker.png</file>
+        <file>images/white/x36/speaker@2x.png</file>
+        <file>images/white/x36/speaker@3x.png</file>
+        <file>images/white/x36/speaker@4x.png</file>
         <file>images/white/x36/stars.png</file>
         <file>images/white/x36/stars@2x.png</file>
         <file>images/white/x36/stars@3x.png</file>
@@ -928,6 +1064,10 @@
         <file>images/white/x36/supervisor@2x.png</file>
         <file>images/white/x36/supervisor@3x.png</file>
         <file>images/white/x36/supervisor@4x.png</file>
+        <file>images/white/x36/tag.png</file>
+        <file>images/white/x36/tag@2x.png</file>
+        <file>images/white/x36/tag@3x.png</file>
+        <file>images/white/x36/tag@4x.png</file>
         <file>images/white/x36/team_member.png</file>
         <file>images/white/x36/team_member@2x.png</file>
         <file>images/white/x36/team_member@3x.png</file>
@@ -944,6 +1084,10 @@
         <file>images/white/x36/upload@2x.png</file>
         <file>images/white/x36/upload@3x.png</file>
         <file>images/white/x36/upload@4x.png</file>
+        <file>images/white/x36/venue.png</file>
+        <file>images/white/x36/venue@2x.png</file>
+        <file>images/white/x36/venue@3x.png</file>
+        <file>images/white/x36/venue@4x.png</file>
         <file>images/white/x36/work.png</file>
         <file>images/white/x36/work@2x.png</file>
         <file>images/white/x36/work@3x.png</file>
@@ -964,6 +1108,10 @@
         <file>images/white/x48/block@2x.png</file>
         <file>images/white/x48/block@3x.png</file>
         <file>images/white/x48/block@4x.png</file>
+        <file>images/white/x48/break.png</file>
+        <file>images/white/x48/break@2x.png</file>
+        <file>images/white/x48/break@3x.png</file>
+        <file>images/white/x48/break@4x.png</file>
         <file>images/white/x48/bus.png</file>
         <file>images/white/x48/bus@2x.png</file>
         <file>images/white/x48/bus@3x.png</file>
@@ -1040,6 +1188,10 @@
         <file>images/white/x48/list@2x.png</file>
         <file>images/white/x48/list@3x.png</file>
         <file>images/white/x48/list@4x.png</file>
+        <file>images/white/x48/lunch.png</file>
+        <file>images/white/x48/lunch@2x.png</file>
+        <file>images/white/x48/lunch@3x.png</file>
+        <file>images/white/x48/lunch@4x.png</file>
         <file>images/white/x48/mail.png</file>
         <file>images/white/x48/mail@2x.png</file>
         <file>images/white/x48/mail@3x.png</file>
@@ -1052,6 +1204,10 @@
         <file>images/white/x48/my_location@2x.png</file>
         <file>images/white/x48/my_location@3x.png</file>
         <file>images/white/x48/my_location@4x.png</file>
+        <file>images/white/x48/party_event.png</file>
+        <file>images/white/x48/party_event@2x.png</file>
+        <file>images/white/x48/party_event@3x.png</file>
+        <file>images/white/x48/party_event@4x.png</file>
         <file>images/white/x48/person.png</file>
         <file>images/white/x48/person@2x.png</file>
         <file>images/white/x48/person@3x.png</file>
@@ -1072,6 +1228,10 @@
         <file>images/white/x48/settings@2x.png</file>
         <file>images/white/x48/settings@3x.png</file>
         <file>images/white/x48/settings@4x.png</file>
+        <file>images/white/x48/speaker.png</file>
+        <file>images/white/x48/speaker@2x.png</file>
+        <file>images/white/x48/speaker@3x.png</file>
+        <file>images/white/x48/speaker@4x.png</file>
         <file>images/white/x48/stars.png</file>
         <file>images/white/x48/stars@2x.png</file>
         <file>images/white/x48/stars@3x.png</file>
@@ -1084,6 +1244,10 @@
         <file>images/white/x48/supervisor@2x.png</file>
         <file>images/white/x48/supervisor@3x.png</file>
         <file>images/white/x48/supervisor@4x.png</file>
+        <file>images/white/x48/tag.png</file>
+        <file>images/white/x48/tag@2x.png</file>
+        <file>images/white/x48/tag@3x.png</file>
+        <file>images/white/x48/tag@4x.png</file>
         <file>images/white/x48/team_member.png</file>
         <file>images/white/x48/team_member@2x.png</file>
         <file>images/white/x48/team_member@3x.png</file>
@@ -1100,6 +1264,10 @@
         <file>images/white/x48/upload@2x.png</file>
         <file>images/white/x48/upload@3x.png</file>
         <file>images/white/x48/upload@4x.png</file>
+        <file>images/white/x48/venue.png</file>
+        <file>images/white/x48/venue@2x.png</file>
+        <file>images/white/x48/venue@3x.png</file>
+        <file>images/white/x48/venue@4x.png</file>
         <file>images/white/x48/work.png</file>
         <file>images/white/x48/work@2x.png</file>
         <file>images/white/x48/work@3x.png</file>
@@ -1120,6 +1288,10 @@
         <file>images/white/block@2x.png</file>
         <file>images/white/block@3x.png</file>
         <file>images/white/block@4x.png</file>
+        <file>images/white/break.png</file>
+        <file>images/white/break@2x.png</file>
+        <file>images/white/break@3x.png</file>
+        <file>images/white/break@4x.png</file>
         <file>images/white/bus.png</file>
         <file>images/white/bus@2x.png</file>
         <file>images/white/bus@3x.png</file>
@@ -1196,6 +1368,10 @@
         <file>images/white/list@2x.png</file>
         <file>images/white/list@3x.png</file>
         <file>images/white/list@4x.png</file>
+        <file>images/white/lunch.png</file>
+        <file>images/white/lunch@2x.png</file>
+        <file>images/white/lunch@3x.png</file>
+        <file>images/white/lunch@4x.png</file>
         <file>images/white/mail.png</file>
         <file>images/white/mail@2x.png</file>
         <file>images/white/mail@3x.png</file>
@@ -1212,6 +1388,10 @@
         <file>images/white/my_location@2x.png</file>
         <file>images/white/my_location@3x.png</file>
         <file>images/white/my_location@4x.png</file>
+        <file>images/white/party_event.png</file>
+        <file>images/white/party_event@2x.png</file>
+        <file>images/white/party_event@3x.png</file>
+        <file>images/white/party_event@4x.png</file>
         <file>images/white/person.png</file>
         <file>images/white/person@2x.png</file>
         <file>images/white/person@3x.png</file>
@@ -1232,6 +1412,10 @@
         <file>images/white/settings@2x.png</file>
         <file>images/white/settings@3x.png</file>
         <file>images/white/settings@4x.png</file>
+        <file>images/white/speaker.png</file>
+        <file>images/white/speaker@2x.png</file>
+        <file>images/white/speaker@3x.png</file>
+        <file>images/white/speaker@4x.png</file>
         <file>images/white/stars.png</file>
         <file>images/white/stars@2x.png</file>
         <file>images/white/stars@3x.png</file>
@@ -1244,6 +1428,10 @@
         <file>images/white/supervisor@2x.png</file>
         <file>images/white/supervisor@3x.png</file>
         <file>images/white/supervisor@4x.png</file>
+        <file>images/white/tag.png</file>
+        <file>images/white/tag@2x.png</file>
+        <file>images/white/tag@3x.png</file>
+        <file>images/white/tag@4x.png</file>
         <file>images/white/team_member.png</file>
         <file>images/white/team_member@2x.png</file>
         <file>images/white/team_member@3x.png</file>
@@ -1260,6 +1448,10 @@
         <file>images/white/upload@2x.png</file>
         <file>images/white/upload@3x.png</file>
         <file>images/white/upload@4x.png</file>
+        <file>images/white/venue.png</file>
+        <file>images/white/venue@2x.png</file>
+        <file>images/white/venue@3x.png</file>
+        <file>images/white/venue@4x.png</file>
         <file>images/white/work.png</file>
         <file>images/white/work@2x.png</file>
         <file>images/white/work@3x.png</file>
