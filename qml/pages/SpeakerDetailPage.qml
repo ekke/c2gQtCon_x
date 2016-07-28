@@ -68,9 +68,17 @@ Page {
                 } // row
                 HorizontalDivider {}
                 LabelHeadline {
+                    visible: speaker.sessionsPropertyList.length
                     leftPadding: 10
                     text: qsTr("Talks")
                     color: primaryColor
+                }
+                LabelBodySecondary {
+                    visible: speaker.sessionsPropertyList.length
+                    leftPadding: 10
+                    font.italic: true
+                    text: qsTr("Tap on the left Icon to see the Talk in Detail.\nTap on the Star Icon to add to / remove from your personal schedule.")
+                    wrapMode: Text.WordWrap
                 }
                 HorizontalDivider{
                     visible: speaker.sessionsPropertyList.length
@@ -80,13 +88,16 @@ Page {
                     model: speaker.sessionsPropertyList
 
                     ColumnLayout {
+                        // base column
                         Layout.fillWidth: true
                         RowLayout {
+                            // base row
                             Layout.fillWidth: true
                             Layout.leftMargin: 16
                             Layout.rightMargin: 6
 
                             ColumnLayout {
+                                // repeater left column
                                 Layout.fillWidth: true
                                 anchors.top: parent.top
                                 ButtonOneChar {
@@ -99,18 +110,15 @@ Page {
                                 LabelBody {
                                     text: modelData.minutes + qsTr(" Minutes")
                                 }
-
-
-                            }
-
-
+                            } // repeater left column
 
                             ColumnLayout {
+                                // repeater right column
                                 Layout.fillWidth: true
                                 Layout.leftMargin: 10
                                 Layout.rightMargin: 10
-
                                 RowLayout {
+                                    // repeater date row
                                     Layout.fillWidth: true
                                     IconActive{
                                         imageSize: 18
@@ -119,31 +127,54 @@ Page {
                                     LabelBody {
                                         text: modelData.sessionDayAsDataObject.conferenceDay.toLocaleDateString()
                                     }
-                                }
-
+                                } // // repeater date row
                                 RowLayout {
+                                    // repeater time and room besides favorite button
                                     Layout.fillWidth: true
-                                    IconActive{
-                                        imageSize: 18
-                                        imageName: "time.png"
-                                    }
-                                    LabelBody {
-                                        text: modelData.startTime.toLocaleTimeString("HH:mm") + " - " + modelData.endTime.toLocaleTimeString("HH:mm")
-                                    }
-                                }
+                                    ColumnLayout {
+                                        // time room column
+                                        Layout.fillWidth: true
+                                        RowLayout {
+                                            // repeater time row
+                                            Layout.fillWidth: true
+                                            IconActive{
+                                                imageSize: 18
+                                                imageName: "time.png"
+                                            }
+                                            LabelBody {
+                                                text: modelData.startTime.toLocaleTimeString("HH:mm") + " - " + modelData.endTime.toLocaleTimeString("HH:mm")
+                                            }
+                                        } // repeater time row
+                                        RowLayout {
+                                            // repeater room row
+                                            Layout.fillWidth: true
+                                            IconActive{
+                                                imageSize: 18
+                                                imageName: "directions.png"
+                                            }
+                                            LabelBody {
+                                                text: modelData.roomAsDataObject.roomName
+                                            }
+                                        } // repeater room row
+                                    } // // time room column
+                                    IconActive {
+                                        id: favoritesIcon
+                                        imageSize: 36
+                                        imageName: "stars.png"
+                                        anchors.left: bookmarkIcon.right
+                                        anchors.right: parent.right
+                                        anchors.top: parent.top
+                                        MouseArea {
+                                            anchors.fill: parent
+                                            onClicked: {
+                                                favoritesIcon.imageName = "done.png"
+                                            }
+                                        }
+                                    } // favoritesIcon
+                                } // repeater time and room besides favorite button
 
                                 RowLayout {
-                                    Layout.fillWidth: true
-                                    IconActive{
-                                        imageSize: 18
-                                        imageName: "directions.png"
-                                    }
-                                    LabelBody {
-                                        text: modelData.roomAsDataObject.roomName
-                                    }
-                                }
-
-                                RowLayout {
+                                    // repeater track row
                                     Layout.fillWidth: true
                                     visible: trackLabel.text.length
                                     IconActive{
@@ -154,38 +185,34 @@ Page {
                                         id: trackLabel
                                         text: modelData.sessionTrackAsDataObject.name != "*****" ? modelData.sessionTrackAsDataObject.name : ""
                                     }
-                                }
-
+                                } // repeater track row
                                 LabelSubheading {
                                     text: modelData.title
                                     font.bold: true
                                     wrapMode: Label.WordWrap
-                                }
-
+                                } // title
                                 LabelBody {
                                     visible: modelData.subtitle.length
                                     text: modelData.subtitle
                                     wrapMode: Label.WordWrap
-                                }
-
+                                } // subtitle
                                 LabelSubheading {
                                     visible: modelData.presenterPropertyList.length > 1
                                     text: qsTr("Co - Speaker:")
                                     color: primaryColor
                                     font.bold: true
                                     wrapMode: Label.WordWrap
-                                }
+                                } // co-speakers header
                                 LabelBody {
                                     visible: modelData.presenterPropertyList.length > 1
                                     text: speakerDetailPage.coSpeakers(modelData)
                                     font.bold: true
                                     wrapMode: Label.WordWrap
-                                }
-
-                            } // col in row
-                        } // row
+                                } // co-speakers names
+                            } // // repeater right column
+                        } // repeater base row
                         HorizontalListDivider{}
-                    } // rep col
+                    } // rep base col
                 } // repeater
 
 
