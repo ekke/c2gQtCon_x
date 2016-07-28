@@ -58,5 +58,6 @@
         <file>qml/pages/SpeakerDetailPage.qml</file>
         <file>qml/pages/SpeakerImageItem.qml</file>
         <file>qml/common/ButtonOneChar.qml</file>
+        <file>qml/pages/SessionDetailPage.qml</file>
     </qresource>
 </RCC>

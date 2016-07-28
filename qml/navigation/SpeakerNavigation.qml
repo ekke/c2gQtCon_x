@@ -38,9 +38,33 @@ Page {
             }
         }
 
+        Loader {
+            id: sessionDetailPageLoader
+            property int sessionId: -1
+            active: false
+            visible: false
+            source: "../pages/SessionDetailPage.qml"
+            onLoaded: {
+                item.sessionId = sessionId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
         function pushSpeakerDetail(speakerId) {
             speakerDetailPageLoader.speakerId = speakerId
             speakerDetailPageLoader.active = true
+        }
+
+        function pushSessionDetail(sessionId) {
+            sessionDetailPageLoader.sessionId = sessionId
+            sessionDetailPageLoader.active = true
+        }
+
+        function backToRootPage() {
+            for (var i=depth-1; i > 0; i--) {
+                popOnePage()
+            }
         }
 
         function popOnePage() {
@@ -49,9 +73,27 @@ Page {
                 speakerDetailPageLoader.active = false
                 return
             }
+            if(page.name == "SessionDetailPage") {
+                sessionDetailPageLoader.active = false
+                return
+            }
         } // popOnePage
 
     } // navPane
+
+    FloatingActionButton {
+        visible: navPane.depth > 2
+        property string imageName: "/list.png"
+        z: 1
+        anchors.margins: 20
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        imageSource: "qrc:/images/"+iconOnPrimaryDarkFolder+imageName
+        backgroundColor: primaryDarkColor
+        onClicked: {
+            navPane.backToRootPage()
+        }
+    } // FAB
 
     function destinationAboutToChange() {
         // nothing

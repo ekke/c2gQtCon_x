@@ -14,9 +14,7 @@ Page {
     focus: true
     property string name: "SpeakerDetailPage"
 
-    // property Customer customer
     property Speaker speaker
-    property SettingsData settingsData
     property int speakerId: -2
     onSpeakerIdChanged: {
         if(speakerId > 0) {
@@ -32,8 +30,9 @@ Page {
     Flickable {
         id: flickable
         property string name: "speakerDetail"
-
-        contentHeight: root.implicitHeight
+        // need some extra space if scrolling to bottom
+        // and nothing covered by the FAB
+        contentHeight: root.implicitHeight + 60
         anchors.fill: parent
 
         Pane {
@@ -77,7 +76,7 @@ Page {
                     visible: speaker.sessionsPropertyList.length
                     leftPadding: 10
                     font.italic: true
-                    text: qsTr("Tap on the left Icon to see the Talk in Detail.\nTap on the Star Icon to add to / remove from your personal schedule.")
+                    text: qsTr("Tap on the Talk data to get the Details.\nTap on the Star Icon to add to / remove from your personal schedule.")
                     wrapMode: Text.WordWrap
                 }
                 HorizontalDivider{
@@ -106,6 +105,9 @@ Page {
                                     text: speakerDetailPage.characterForButton(modelData)
                                     backgroundColor: accentColor
                                     textColor: textOnAccent
+                                    onClicked: {
+                                        navPane.pushSessionDetail(modelData.sessionId)
+                                    }
                                 }
                                 LabelBody {
                                     text: modelData.minutes + qsTr(" Minutes")
@@ -215,8 +217,6 @@ Page {
                         HorizontalListDivider{}
                     } // rep base col
                 } // repeater
-
-
             } // col layout
         } // root
 
@@ -248,7 +248,6 @@ Page {
         }
         return "S"
     }
-    property Session mySession
     function coSpeakers(session) {
         var s = ""
         for (var i = 0; i < session.presenterPropertyList.length; i++) {
@@ -271,4 +270,4 @@ Page {
         console.log(qsTr("Cleanup done from SpeakerDetailPage"))
     }
 
-} // carPage
+} // speakerDetailPage
