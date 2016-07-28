@@ -591,6 +591,40 @@ void DataUtil::prepareSpeakerImages()
     }
 }
 
+/**
+ * Favorites are transient on Sessions
+ * Sessions are read-only
+ * So at startup the propertie will be set
+ */
+void DataUtil::setSessionFavorites()
+{
+    for (int i = 0; i < mDataManager->mAllFavorite.size(); ++i) {
+        Favorite* favorite = (Favorite*) mDataManager->mAllFavorite.at(i);
+        Session* session = mDataManager->findSessionBySessionId(favorite->sessionId());
+        if(session != NULL) {
+            session->setIsFavorite(true);
+        }
+    }
+}
+
+/**
+ * Favorites are transient on Sessions
+ * Sessions are read-only
+ * So while caching data Favorites will be created
+ */
+void DataUtil::saveSessionFavorites()
+{
+    mDataManager->mAllFavorite.clear();
+    for (int i = 0; i < mDataManager->mAllSession.size(); ++i) {
+        Session* session = (Session*) mDataManager->mAllSession.at(i);
+        if(session->isFavorite()) {
+            Favorite* favorite = mDataManager->createFavorite();
+            favorite->setSessionId(session->sessionId());
+            mDataManager->insertFavorite(favorite);
+        }
+    }
+}
+
 void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
 {
     mImageLoader->deleteLater();

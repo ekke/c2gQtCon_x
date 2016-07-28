@@ -162,13 +162,13 @@ Page {
                                         property bool myToggle: false
                                         imageSize: 36
                                         imageName: "stars.png"
-                                        opacity: myToggle? opacityToggleActive : opacityToggleInactive
+                                        opacity: modelData.isFavorite? opacityToggleActive : opacityToggleInactive
                                         anchors.right: parent.right
                                         anchors.top: parent.top
                                         MouseArea {
                                             anchors.fill: parent
                                             onClicked: {
-                                                favoritesIcon.myToggle = !favoritesIcon.myToggle
+                                                modelData.isFavorite = !modelData.isFavorite
                                             }
                                         }
                                     } // favoritesIcon
@@ -248,6 +248,7 @@ Page {
         }
         return "S"
     }
+    property Session mySession
     function coSpeakers(session) {
         var s = ""
         for (var i = 0; i < session.presenterPropertyList.length; i++) {

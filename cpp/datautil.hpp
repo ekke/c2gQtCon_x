@@ -25,6 +25,10 @@ public:
     Q_INVOKABLE
     void prepareSpeakerImages();
 
+    Q_INVOKABLE
+    void setSessionFavorites();
+    void saveSessionFavorites();
+
 signals:
 
 public slots:

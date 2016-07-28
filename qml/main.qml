@@ -276,6 +276,7 @@ ApplicationWindow {
                 console.log("startupDelayedTimer START")
                 rootPane.initialItem.showInfo("Initialize Data ...")
                 dataManager.init()
+                dataUtil.setSessionFavorites()
                 dataManager.resolveReferencesForAllSpeaker()
                 dataManager.resolveReferencesForAllSession()
                 rootPane.initialItem.showInfo("Create Navigation Controls ...")

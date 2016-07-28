@@ -196,6 +196,7 @@ void ApplicationUI::doCaching()
     mCachingInWork = true;
     mCachingDone = false;
 
+    mDataUtil->saveSessionFavorites();
     mDataManager->finish();
 
     mCachingInWork = false;
