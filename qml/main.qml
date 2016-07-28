@@ -94,6 +94,9 @@ ApplicationWindow {
     property real opacityBodyAndButton: primaryTextOpacity
     property real opacityBodySecondary: secondaryTextOpacity
     property real opacityCaption: secondaryTextOpacity
+    // using Icons as Toggle to recognize 'checked'
+    property real opacityToggleInactive: 0.2
+    property real opacityToggleActive: 1.0
     //
     // TODO C++ ENUM
     // Destination
@@ -113,7 +116,7 @@ ApplicationWindow {
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerSubtitle.qml", "name": "Business", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Customer", "icon": "business.png", "source": "../pages/CustomerPage.qml", "showCounter":false, "showMarker":true, "a_p":2, "canGoBack":false},
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Speaker", "icon": "description.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Speaker", "icon": "speaker.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Calendar", "icon": "calendar.png", "source": "../pages/CalendarTestPage.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":false},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Settings", "icon": "settings.png", "source": "../navigation/SettingsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":true},

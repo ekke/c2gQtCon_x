@@ -159,15 +159,16 @@ Page {
                                     } // // time room column
                                     IconActive {
                                         id: favoritesIcon
+                                        property bool myToggle: false
                                         imageSize: 36
                                         imageName: "stars.png"
-                                        anchors.left: bookmarkIcon.right
+                                        opacity: myToggle? opacityToggleActive : opacityToggleInactive
                                         anchors.right: parent.right
                                         anchors.top: parent.top
                                         MouseArea {
                                             anchors.fill: parent
                                             onClicked: {
-                                                favoritesIcon.imageName = "done.png"
+                                                favoritesIcon.myToggle = !favoritesIcon.myToggle
                                             }
                                         }
                                     } // favoritesIcon

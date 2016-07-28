@@ -11,7 +11,7 @@ Button {
     property alias textColor: buttonLabel.color
     property alias backgroundColor: backgroundRectangle.color
     text: "S"
-    font.bold: true
+    // font.bold: true
     font.pixelSize: buttonSize*3/4
     implicitWidth: buttonSize
     implicitHeight: buttonSize
