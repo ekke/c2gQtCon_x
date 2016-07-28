@@ -19,10 +19,6 @@ class Room;
 class SessionTrack;
 // forward declaration (target references to this)
 class ScheduleItem;
-// forward declaration (target references to this)
-class Favorite;
-// forward declaration (target references to this)
-class Bookmark;
 
 
 class Session: public QObject
@@ -59,12 +55,6 @@ class Session: public QObject
 	// scheduleItem lazy pointing to ScheduleItem* (domainKey: sessionId)
 	Q_PROPERTY(int scheduleItem READ scheduleItem WRITE setScheduleItem NOTIFY scheduleItemChanged FINAL)
 	Q_PROPERTY(ScheduleItem* scheduleItemAsDataObject READ scheduleItemAsDataObject WRITE resolveScheduleItemAsDataObject NOTIFY scheduleItemAsDataObjectChanged FINAL)
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	Q_PROPERTY(int favorite READ favorite WRITE setFavorite NOTIFY favoriteChanged FINAL)
-	Q_PROPERTY(Favorite* favoriteAsDataObject READ favoriteAsDataObject WRITE resolveFavoriteAsDataObject NOTIFY favoriteAsDataObjectChanged FINAL)
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	Q_PROPERTY(int bookmark READ bookmark WRITE setBookmark NOTIFY bookmarkChanged FINAL)
-	Q_PROPERTY(Bookmark* bookmarkAsDataObject READ bookmarkAsDataObject WRITE resolveBookmarkAsDataObject NOTIFY bookmarkAsDataObjectChanged FINAL)
 
 	// QQmlListProperty to get easy access from QML
 	Q_PROPERTY(QQmlListProperty<Speaker> presenterPropertyList READ presenterPropertyList NOTIFY presenterPropertyListChanged)
@@ -218,46 +208,6 @@ public:
 	Q_INVOKABLE
 	void markScheduleItemAsInvalid();
 	
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	int favorite() const;
-	void setFavorite(int favorite);
-	Favorite* favoriteAsDataObject() const;
-	
-	Q_INVOKABLE
-	void resolveFavoriteAsDataObject(Favorite* favorite);
-	
-	Q_INVOKABLE
-	void removeFavorite();
-	
-	Q_INVOKABLE
-	bool hasFavorite();
-	
-	Q_INVOKABLE
-	bool isFavoriteResolvedAsDataObject();
-	
-	Q_INVOKABLE
-	void markFavoriteAsInvalid();
-	
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	int bookmark() const;
-	void setBookmark(int bookmark);
-	Bookmark* bookmarkAsDataObject() const;
-	
-	Q_INVOKABLE
-	void resolveBookmarkAsDataObject(Bookmark* bookmark);
-	
-	Q_INVOKABLE
-	void removeBookmark();
-	
-	Q_INVOKABLE
-	bool hasBookmark();
-	
-	Q_INVOKABLE
-	bool isBookmarkResolvedAsDataObject();
-	
-	Q_INVOKABLE
-	void markBookmarkAsInvalid();
-	
 
 	
 	Q_INVOKABLE
@@ -365,12 +315,6 @@ public:
 	// scheduleItem lazy pointing to ScheduleItem* (domainKey: sessionId)
 	void scheduleItemChanged(int scheduleItem);
 	void scheduleItemAsDataObjectChanged(ScheduleItem* scheduleItem);
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	void favoriteChanged(int favorite);
-	void favoriteAsDataObjectChanged(Favorite* favorite);
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	void bookmarkChanged(int bookmark);
-	void bookmarkAsDataObjectChanged(Bookmark* bookmark);
 	void presenterChanged(QList<Speaker*> presenter);
 	void addedToPresenter(Speaker* speaker);
 	void presenterPropertyListChanged();
@@ -413,12 +357,6 @@ private:
 	int mScheduleItem;
 	bool mScheduleItemInvalid;
 	ScheduleItem* mScheduleItemAsDataObject;
-	int mFavorite;
-	bool mFavoriteInvalid;
-	Favorite* mFavoriteAsDataObject;
-	int mBookmark;
-	bool mBookmarkInvalid;
-	Bookmark* mBookmarkAsDataObject;
 	// lazy Array of independent Data Objects: only keys are persisted
 	QStringList mPresenterKeys;
 	bool mPresenterKeysResolved;

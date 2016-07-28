@@ -5,8 +5,7 @@
 #include <qvariant.h>
 
 
-// forward declaration (target references to this)
-class Session;
+#include "Session.hpp"
 
 
 class Favorite: public QObject

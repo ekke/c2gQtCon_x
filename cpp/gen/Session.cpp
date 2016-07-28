@@ -11,10 +11,6 @@
 #include "SessionTrack.hpp"
 // target also references to this
 #include "ScheduleItem.hpp"
-// target also references to this
-#include "Favorite.hpp"
-// target also references to this
-#include "Bookmark.hpp"
 
 // keys of QVariantMap used in this APP
 static const QString sessionIdKey = "sessionId";
@@ -41,8 +37,6 @@ static const QString sessionDayKey = "sessionDay";
 static const QString roomKey = "room";
 static const QString sessionTrackKey = "sessionTrack";
 static const QString scheduleItemKey = "scheduleItem";
-static const QString favoriteKey = "favorite";
-static const QString bookmarkKey = "bookmark";
 
 // keys used from Server API etc
 static const QString sessionIdForeignKey = "sessionId";
@@ -69,8 +63,6 @@ static const QString sessionDayForeignKey = "sessionDay";
 static const QString roomForeignKey = "room";
 static const QString sessionTrackForeignKey = "sessionTrack";
 static const QString scheduleItemForeignKey = "scheduleItem";
-static const QString favoriteForeignKey = "favorite";
-static const QString bookmarkForeignKey = "bookmark";
 
 /*
  * Default Constructor if Session not initialized from QVariantMap
@@ -91,12 +83,6 @@ Session::Session(QObject *parent) :
 	mScheduleItem = -1;
 	mScheduleItemAsDataObject = 0;
 	mScheduleItemInvalid = false;
-	mFavorite = -1;
-	mFavoriteAsDataObject = 0;
-	mFavoriteInvalid = false;
-	mBookmark = -1;
-	mBookmarkAsDataObject = 0;
-	mBookmarkInvalid = false;
 	// Date, Time or Timestamp ? construct null value
 	mStartTime = QTime();
 	mEndTime = QTime();
@@ -120,12 +106,6 @@ bool Session::isAllResolved()
 		return false;
 	}
 	if (hasScheduleItem() && !isScheduleItemResolvedAsDataObject()) {
-		return false;
-	}
-	if (hasFavorite() && !isFavoriteResolvedAsDataObject()) {
-		return false;
-	}
-	if (hasBookmark() && !isBookmarkResolvedAsDataObject()) {
 		return false;
 	}
     if(!arePresenterKeysResolved()) {
@@ -211,20 +191,6 @@ void Session::fillFromMap(const QVariantMap& sessionMap)
 	if (sessionMap.contains(scheduleItemKey)) {
 		mScheduleItem = sessionMap.value(scheduleItemKey).toInt();
 		if (mScheduleItem != -1) {
-			// resolve the corresponding Data Object on demand from DataManager
-		}
-	}
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	if (sessionMap.contains(favoriteKey)) {
-		mFavorite = sessionMap.value(favoriteKey).toInt();
-		if (mFavorite != -1) {
-			// resolve the corresponding Data Object on demand from DataManager
-		}
-	}
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	if (sessionMap.contains(bookmarkKey)) {
-		mBookmark = sessionMap.value(bookmarkKey).toInt();
-		if (mBookmark != -1) {
 			// resolve the corresponding Data Object on demand from DataManager
 		}
 	}
@@ -316,20 +282,6 @@ void Session::fillFromForeignMap(const QVariantMap& sessionMap)
 			// resolve the corresponding Data Object on demand from DataManager
 		}
 	}
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	if (sessionMap.contains(favoriteForeignKey)) {
-		mFavorite = sessionMap.value(favoriteForeignKey).toInt();
-		if (mFavorite != -1) {
-			// resolve the corresponding Data Object on demand from DataManager
-		}
-	}
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	if (sessionMap.contains(bookmarkForeignKey)) {
-		mBookmark = sessionMap.value(bookmarkForeignKey).toInt();
-		if (mBookmark != -1) {
-			// resolve the corresponding Data Object on demand from DataManager
-		}
-	}
 	// mPresenter is (lazy loaded) Array of Speaker*
 	mPresenterKeys = sessionMap.value(presenterForeignKey).toStringList();
 	// mPresenter must be resolved later if there are keys
@@ -412,20 +364,6 @@ void Session::fillFromCacheMap(const QVariantMap& sessionMap)
 			// resolve the corresponding Data Object on demand from DataManager
 		}
 	}
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	if (sessionMap.contains(favoriteKey)) {
-		mFavorite = sessionMap.value(favoriteKey).toInt();
-		if (mFavorite != -1) {
-			// resolve the corresponding Data Object on demand from DataManager
-		}
-	}
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	if (sessionMap.contains(bookmarkKey)) {
-		mBookmark = sessionMap.value(bookmarkKey).toInt();
-		if (mBookmark != -1) {
-			// resolve the corresponding Data Object on demand from DataManager
-		}
-	}
 	// mPresenter is (lazy loaded) Array of Speaker*
 	mPresenterKeys = sessionMap.value(presenterKey).toStringList();
 	// mPresenter must be resolved later if there are keys
@@ -480,14 +418,6 @@ QVariantMap Session::toMap()
 	// scheduleItem lazy pointing to ScheduleItem* (domainKey: sessionId)
 	if (mScheduleItem != -1) {
 		sessionMap.insert(scheduleItemKey, mScheduleItem);
-	}
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	if (mFavorite != -1) {
-		sessionMap.insert(favoriteKey, mFavorite);
-	}
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	if (mBookmark != -1) {
-		sessionMap.insert(bookmarkKey, mBookmark);
 	}
 	// mPresenter points to Speaker*
 	// lazy array: persist only keys
@@ -570,14 +500,6 @@ QVariantMap Session::toForeignMap()
 	if (mScheduleItem != -1) {
 		sessionMap.insert(scheduleItemForeignKey, mScheduleItem);
 	}
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	if (mFavorite != -1) {
-		sessionMap.insert(favoriteForeignKey, mFavorite);
-	}
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	if (mBookmark != -1) {
-		sessionMap.insert(bookmarkForeignKey, mBookmark);
-	}
 	// mPresenter points to Speaker*
 	// lazy array: persist only keys
 	//
@@ -658,14 +580,6 @@ QVariantMap Session::toCacheMap()
 	// scheduleItem lazy pointing to ScheduleItem* (domainKey: sessionId)
 	if (mScheduleItem != -1) {
 		sessionMap.insert(scheduleItemKey, mScheduleItem);
-	}
-	// favorite lazy pointing to Favorite* (domainKey: sessionId)
-	if (mFavorite != -1) {
-		sessionMap.insert(favoriteKey, mFavorite);
-	}
-	// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-	if (mBookmark != -1) {
-		sessionMap.insert(bookmarkKey, mBookmark);
 	}
 	// mPresenter points to Speaker*
 	// lazy array: persist only keys
@@ -990,140 +904,6 @@ void Session::resolveScheduleItemAsDataObject(ScheduleItem* scheduleItem)
 void Session::markScheduleItemAsInvalid()
 {
     mScheduleItemInvalid = true;
-}
-// REF
-// Lazy: favorite
-// Optional: favorite
-// favorite lazy pointing to Favorite* (domainKey: sessionId)
-int Session::favorite() const
-{
-	return mFavorite;
-}
-Favorite* Session::favoriteAsDataObject() const
-{
-	return mFavoriteAsDataObject;
-}
-void Session::setFavorite(int favorite)
-{
-	if (favorite != mFavorite) {
-        // remove old Data Object if one was resolved
-        if (mFavoriteAsDataObject) {
-            // reset pointer, don't delete the independent object !
-            mFavoriteAsDataObject = 0;
-        }
-        // set the new lazy reference
-        mFavorite = favorite;
-        mFavoriteInvalid = false;
-        emit favoriteChanged(favorite);
-        if (favorite != -1) {
-            // resolve the corresponding Data Object on demand from DataManager
-        }
-    }
-}
-void Session::removeFavorite()
-{
-	if (mFavorite != -1) {
-		setFavorite(-1);
-	}
-}
-bool Session::hasFavorite()
-{
-    if (!mFavoriteInvalid && mFavorite != -1) {
-        return true;
-    } else {
-        return false;
-    }
-}
-bool Session::isFavoriteResolvedAsDataObject()
-{
-    if (!mFavoriteInvalid && mFavoriteAsDataObject) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// lazy bound Data Object was resolved. overwrite sessionId if different
-void Session::resolveFavoriteAsDataObject(Favorite* favorite)
-{
-    if (favorite) {
-        if (favorite->sessionId() != mFavorite) {
-            setFavorite(favorite->sessionId());
-        }
-        mFavoriteAsDataObject = favorite;
-        mFavoriteInvalid = false;
-    }
-}
-void Session::markFavoriteAsInvalid()
-{
-    mFavoriteInvalid = true;
-}
-// REF
-// Lazy: bookmark
-// Optional: bookmark
-// bookmark lazy pointing to Bookmark* (domainKey: sessionId)
-int Session::bookmark() const
-{
-	return mBookmark;
-}
-Bookmark* Session::bookmarkAsDataObject() const
-{
-	return mBookmarkAsDataObject;
-}
-void Session::setBookmark(int bookmark)
-{
-	if (bookmark != mBookmark) {
-        // remove old Data Object if one was resolved
-        if (mBookmarkAsDataObject) {
-            // reset pointer, don't delete the independent object !
-            mBookmarkAsDataObject = 0;
-        }
-        // set the new lazy reference
-        mBookmark = bookmark;
-        mBookmarkInvalid = false;
-        emit bookmarkChanged(bookmark);
-        if (bookmark != -1) {
-            // resolve the corresponding Data Object on demand from DataManager
-        }
-    }
-}
-void Session::removeBookmark()
-{
-	if (mBookmark != -1) {
-		setBookmark(-1);
-	}
-}
-bool Session::hasBookmark()
-{
-    if (!mBookmarkInvalid && mBookmark != -1) {
-        return true;
-    } else {
-        return false;
-    }
-}
-bool Session::isBookmarkResolvedAsDataObject()
-{
-    if (!mBookmarkInvalid && mBookmarkAsDataObject) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
-// lazy bound Data Object was resolved. overwrite sessionId if different
-void Session::resolveBookmarkAsDataObject(Bookmark* bookmark)
-{
-    if (bookmark) {
-        if (bookmark->sessionId() != mBookmark) {
-            setBookmark(bookmark->sessionId());
-        }
-        mBookmarkAsDataObject = bookmark;
-        mBookmarkInvalid = false;
-    }
-}
-void Session::markBookmarkAsInvalid()
-{
-    mBookmarkInvalid = true;
 }
 // ATT 
 // Mandatory: sessionId

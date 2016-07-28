@@ -1567,26 +1567,6 @@ void DataManager::resolveSessionReferences(Session* session)
     		session->markScheduleItemAsInvalid();
     	}
     }
-    if (session->hasFavorite() && !session->isFavoriteResolvedAsDataObject()) {
-    	Favorite* favorite;
-   		favorite = findFavoriteBySessionId(session->favorite());
-    	if (favorite) {
-    		session->resolveFavoriteAsDataObject(favorite);
-    	} else {
-    		qDebug() << "markFavoriteAsInvalid: " << session->favorite();
-    		session->markFavoriteAsInvalid();
-    	}
-    }
-    if (session->hasBookmark() && !session->isBookmarkResolvedAsDataObject()) {
-    	Bookmark* bookmark;
-   		bookmark = findBookmarkBySessionId(session->bookmark());
-    	if (bookmark) {
-    		session->resolveBookmarkAsDataObject(bookmark);
-    	} else {
-    		qDebug() << "markBookmarkAsInvalid: " << session->bookmark();
-    		session->markBookmarkAsInvalid();
-    	}
-    }
     if (!session->arePresenterKeysResolved()) {
         session->resolvePresenterKeys(
                 listOfSpeakerForKeys(session->presenterKeys()));

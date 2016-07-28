@@ -1,8 +1,6 @@
 #include "Favorite.hpp"
 #include <QDebug>
 #include <quuid.h>
-// target also references to this
-#include "Session.hpp"
 
 // keys of QVariantMap used in this APP
 static const QString sessionIdKey = "sessionId";
