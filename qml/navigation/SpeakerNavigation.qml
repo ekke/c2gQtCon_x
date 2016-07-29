@@ -51,6 +51,19 @@ Page {
             }
         }
 
+        Loader {
+            id: roomDetailPageLoader
+            property int roomId: -1
+            active: false
+            visible: false
+            source: "../pages/RoomDetailPage.qml"
+            onLoaded: {
+                item.roomId = roomId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
         function pushSpeakerDetail(speakerId) {
             speakerDetailPageLoader.speakerId = speakerId
             speakerDetailPageLoader.active = true
@@ -62,7 +75,8 @@ Page {
         }
 
         function pushRoomDetail(roomId) {
-            // TODO
+            roomDetailPageLoader.roomId = roomId
+            roomDetailPageLoader.active = true
         }
 
         function backToRootPage() {
@@ -79,6 +93,10 @@ Page {
             }
             if(page.name == "SessionDetailPage") {
                 sessionDetailPageLoader.active = false
+                return
+            }
+            if(page.name == "RoomDetailPage") {
+                roomDetailPageLoader.active = false
                 return
             }
         } // popOnePage
