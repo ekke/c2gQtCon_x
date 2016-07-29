@@ -50,7 +50,6 @@ Page {
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
-                    width: dataColumn.implicitWidth
                     spacing: 0
                     LabelSubheading {
                         anchors.left: parent.left
