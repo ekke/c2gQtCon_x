@@ -10,7 +10,7 @@ import "../common"
 import "../navigation"
 
 Page {
-    id: speakerDetailPage
+    id: sessionDetailPage
     focus: true
     property string name: "SessionDetailPage"
 
@@ -41,21 +41,140 @@ Page {
                 Layout.fillWidth: true
                 anchors.right: parent.right
                 anchors.left: parent.left
-                LabelHeadline {
-                    topPadding: 16
-                    bottomPadding: 16
-                    leftPadding: 10
-                    text: session.title
+                RowLayout {
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    Layout.bottomMargin: 12
+                    LabelTitle {
+                        text: session.title
+                        wrapMode: Text.WordWrap
+                    }
+                }
+                HorizontalDivider{}
+                RowLayout {
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    ButtonOneCharUncolored {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: sessionDetailPage.characterForButton()
+                    } // button one char
+                    LabelSubheading {
+                        Layout.leftMargin: 16
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: sessionDetailPage.textForSessionType()
+                        wrapMode: Text.WordWrap
+                    }
+                }
+                RowLayout {
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    IconActive{
+                        imageSize: 24
+                        imageName: "calendar.png"
+                    }
+                    LabelSubheading {
+                        Layout.leftMargin: 16
+                        text: session.sessionDayAsDataObject.conferenceDay.toLocaleDateString()
+                    }
+                }
+                RowLayout {
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    IconActive{
+                        imageSize: 24
+                        imageName: "time.png"
+                    }
+                    LabelSubheading {
+                        Layout.leftMargin: 16
+                        text: session.startTime.toLocaleTimeString("HH:mm") + " - " + session.endTime.toLocaleTimeString("HH:mm")
+                    }
+                }
+                RowLayout {
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    IconActive{
+                        imageSize: 24
+                        imageName: "directions.png"
+                    }
+                    LabelSubheading {
+                        Layout.leftMargin: 16
+                        text: qsTr("Room: ") + session.roomAsDataObject.roomName
+                    }
+                }
+
+                HorizontalDivider{}
+                LabelSubheading {
+                    visible: session.subtitle.length
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    text: session.subtitle
+                    wrapMode: Text.WordWrap
+                }
+                LabelSubheading {
+                    visible: session.description.length
+                    Layout.topMargin: 12
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    text: session.description
                     wrapMode: Text.WordWrap
                 }
 
+                HorizontalDivider{
+                visible: session.subtitle.length || session.description.length
+                }
 
+                LabelSubheading {
+                    visible: session.abstractText.length
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    text: session.abstractText
+                    wrapMode: Text.WordWrap
+                }
+
+                HorizontalDivider{
+                visible: session.abstractText.length
+                }
 
             }
 
         }// root pane
 
     } // flickable
+
+    function characterForButton() {
+        if(session.isTraining) {
+            return "T"
+        }
+        if(session.isLightning) {
+            return "L"
+        }
+        if(session.isKeynote) {
+            return "K"
+        }
+        if(session.isCommunity) {
+            return "C"
+        }
+        return "S"
+    }
+    function textForSessionType() {
+        var s
+        if(session.isTraining) {
+            s = qsTr("Training ")
+        } else
+        if(session.isLightning) {
+            s = qsTr("Lightning Talk")
+        } else
+        if(session.isKeynote) {
+            s = qsTr("Keynote")
+        } else
+        if(session.isCommunity) {
+            s = qsTr("Community")
+        } else {
+            s =qsTr("Session")
+        }
+
+        return s + " (" + session.minutes + qsTr(" Minutes)")
+    }
 
     // called immediately after Loader.loaded
     function init() {
