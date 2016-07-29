@@ -27,8 +27,8 @@ Page {
         property string name: "sessionDetail"
         // need some extra space if scrolling to bottom
         // and nothing covered by the FAB
-        contentHeight: root.implicitHeight + 60
-        contentWidth: root.implicitWidth
+        contentHeight: roomImage.height
+        contentWidth: roomImage.width
         anchors.fill: parent
 
         Pane {
@@ -45,13 +45,11 @@ Page {
                 source: "qrc:/data-assets/conference/floorplan/room_"+room.roomId+".png"
             } // image
 
-
-
-
         } // root
-        ScrollIndicator.vertical: ScrollIndicator { }
-        ScrollIndicator.horizontal: ScrollIndicator { }
+
     } // flickable
+
+
 
     FloatingActionMiniButton {
         visible: roomImage.scale >= 0.4
