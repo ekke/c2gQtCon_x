@@ -64,6 +64,20 @@ Page {
                         text: sessionDetailPage.textForSessionType()
                         wrapMode: Text.WordWrap
                     }
+                    IconActive {
+                        //transform: Translate { y: 8 }
+                        imageSize: 48
+                        imageName: "stars.png"
+                        opacity: session.isFavorite? opacityToggleActive : opacityToggleInactive
+                        anchors.right: parent.right
+                        anchors.top: parent.top
+                        MouseArea {
+                            anchors.fill: parent
+                            onClicked: {
+                                session.isFavorite = !session.isFavorite
+                            }
+                        }
+                    } // favoritesIcon
                 }
                 RowLayout {
                     Layout.leftMargin: 16
@@ -100,6 +114,17 @@ Page {
                         Layout.leftMargin: 16
                         text: qsTr("Room: ") + session.roomAsDataObject.roomName
                     }
+                    FloatingActionMiniButton {
+                        z: 1
+                        transform: Translate{y: -16}
+                        showShadow: true
+                        imageSource: "qrc:/images/"+iconOnAccentFolder+"/directions.png"
+                        backgroundColor: accentColor
+                        anchors.right: parent.right
+                        onClicked: {
+                            navPane.pushRoomDetail(session.roomAsDataObject.roomId)
+                        }
+                    } // favoritesIcon
                 }
 
                 HorizontalDivider{}
