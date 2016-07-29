@@ -75,10 +75,10 @@ Page {
                     visible: speaker.sessionsPropertyList.length
                     leftPadding: 10
                     font.italic: true
-                    text: qsTr("Tap on the Talk data to get the Details.\nTap on the Star Icon to add to / remove from your personal schedule.")
+                    text: qsTr("Tap on the Talk Icon or Menu Button to get the Details.\nTap on the Star Icon to add to / remove from your personal schedule.")
                     wrapMode: Text.WordWrap
                 }
-                HorizontalDivider{
+                HorizontalListDivider{
                     visible: speaker.sessionsPropertyList.length
                 }
                 // S P E A K E R    Repeater
@@ -86,7 +86,9 @@ Page {
                     model: speaker.sessionsPropertyList
 
                     Pane {
-                        padding: 0
+                        topPadding: 4
+                        leftPadding: 0
+                        rightPadding: 0
                         Layout.fillWidth: true
                         ColumnLayout {
                             // base column
@@ -96,6 +98,7 @@ Page {
                                 // base row
                                 Layout.leftMargin: 16
                                 Layout.rightMargin: 6
+                                Layout.bottomMargin: 2
                                 ColumnLayout {
                                     // repeater left column
                                     Layout.maximumWidth: speakerImage.width
@@ -131,6 +134,37 @@ Page {
                                         LabelBody {
                                             text: modelData.sessionDayAsDataObject.conferenceDay.toLocaleDateString()
                                         }
+                                        IconActive {
+                                            //id: menuIcon
+                                            transform: Translate { y: -8 }
+                                            imageSize: 24
+                                            imageName: "more_vert.png"
+                                            anchors.right: parent.right
+                                            // anchors.top: parent.top
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                onClicked: {
+                                                    optionsMenu.open()
+                                                }
+                                            } // mouse area
+                                            Menu {
+                                                id: optionsMenu
+                                                x: parent.width - width
+                                                transformOrigin: Menu.TopRight
+                                                MenuItem {
+                                                    text: qsTr("Session Details")
+                                                    onTriggered: {
+                                                        navPane.pushSessionDetail(modelData.sessionId)
+                                                    }
+                                                }
+                                                MenuItem {
+                                                    text: qsTr("Room Info")
+                                                    onTriggered: {
+                                                        navPane.pushRoomDetail(modelData.roomAsDataObject.roomId)
+                                                    }
+                                                }
+                                            } // end optionsMenu
+                                        } // menuIcon
                                     } // // repeater date row
                                     RowLayout {
                                         // repeater time and room besides favorite button
@@ -159,8 +193,7 @@ Page {
                                             } // repeater room row
                                         } // // time room column
                                         IconActive {
-                                            id: favoritesIcon
-                                            property bool myToggle: false
+                                            transform: Translate { y: 8 }
                                             imageSize: 36
                                             imageName: "stars.png"
                                             opacity: modelData.isFavorite? opacityToggleActive : opacityToggleInactive

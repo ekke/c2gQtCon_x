@@ -61,6 +61,10 @@ Page {
             sessionDetailPageLoader.active = true
         }
 
+        function pushRoomDetail(roomId) {
+            // TODO
+        }
+
         function backToRootPage() {
             for (var i=depth-1; i > 0; i--) {
                 popOnePage()
