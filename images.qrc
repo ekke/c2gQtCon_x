@@ -12,6 +12,10 @@
         <file>images/black/x18/arrow_back@2x.png</file>
         <file>images/black/x18/arrow_back@3x.png</file>
         <file>images/black/x18/arrow_back@4x.png</file>
+        <file>images/black/x18/aspect_ratio.png</file>
+        <file>images/black/x18/aspect_ratio@2x.png</file>
+        <file>images/black/x18/aspect_ratio@3x.png</file>
+        <file>images/black/x18/aspect_ratio@4x.png</file>
         <file>images/black/x18/block.png</file>
         <file>images/black/x18/block@2x.png</file>
         <file>images/black/x18/block@3x.png</file>
@@ -52,6 +56,10 @@
         <file>images/black/x18/create@2x.png</file>
         <file>images/black/x18/create@3x.png</file>
         <file>images/black/x18/create@4x.png</file>
+        <file>images/black/x18/day.png</file>
+        <file>images/black/x18/day@2x.png</file>
+        <file>images/black/x18/day@3x.png</file>
+        <file>images/black/x18/day@4x.png</file>
         <file>images/black/x18/delete_sweep.png</file>
         <file>images/black/x18/delete_sweep@2x.png</file>
         <file>images/black/x18/delete_sweep@3x.png</file>
@@ -80,6 +88,10 @@
         <file>images/black/x18/group@2x.png</file>
         <file>images/black/x18/group@3x.png</file>
         <file>images/black/x18/group@4x.png</file>
+        <file>images/black/x18/help.png</file>
+        <file>images/black/x18/help@2x.png</file>
+        <file>images/black/x18/help@3x.png</file>
+        <file>images/black/x18/help@4x.png</file>
         <file>images/black/x18/history.png</file>
         <file>images/black/x18/history@2x.png</file>
         <file>images/black/x18/history@3x.png</file>
@@ -88,6 +100,10 @@
         <file>images/black/x18/home@2x.png</file>
         <file>images/black/x18/home@3x.png</file>
         <file>images/black/x18/home@4x.png</file>
+        <file>images/black/x18/info.png</file>
+        <file>images/black/x18/info@2x.png</file>
+        <file>images/black/x18/info@3x.png</file>
+        <file>images/black/x18/info@4x.png</file>
         <file>images/black/x18/key.png</file>
         <file>images/black/x18/key@2x.png</file>
         <file>images/black/x18/key@3x.png</file>
@@ -124,6 +140,22 @@
         <file>images/black/x18/remove@2x.png</file>
         <file>images/black/x18/remove@3x.png</file>
         <file>images/black/x18/remove@4x.png</file>
+        <file>images/black/x18/schedule.png</file>
+        <file>images/black/x18/schedule@2x.png</file>
+        <file>images/black/x18/schedule@3x.png</file>
+        <file>images/black/x18/schedule@4x.png</file>
+        <file>images/black/x18/schedule_list.png</file>
+        <file>images/black/x18/schedule_list@2x.png</file>
+        <file>images/black/x18/schedule_list@3x.png</file>
+        <file>images/black/x18/schedule_list@4x.png</file>
+        <file>images/black/x18/schedule_my.png</file>
+        <file>images/black/x18/schedule_my@2x.png</file>
+        <file>images/black/x18/schedule_my@3x.png</file>
+        <file>images/black/x18/schedule_my@4x.png</file>
+        <file>images/black/x18/schedule_sametime.png</file>
+        <file>images/black/x18/schedule_sametime@2x.png</file>
+        <file>images/black/x18/schedule_sametime@3x.png</file>
+        <file>images/black/x18/schedule_sametime@4x.png</file>
         <file>images/black/x18/search.png</file>
         <file>images/black/x18/search@2x.png</file>
         <file>images/black/x18/search@3x.png</file>
@@ -164,6 +196,10 @@
         <file>images/black/x18/time@2x.png</file>
         <file>images/black/x18/time@3x.png</file>
         <file>images/black/x18/time@4x.png</file>
+        <file>images/black/x18/today.png</file>
+        <file>images/black/x18/today@2x.png</file>
+        <file>images/black/x18/today@3x.png</file>
+        <file>images/black/x18/today@4x.png</file>
         <file>images/black/x18/truck.png</file>
         <file>images/black/x18/truck@2x.png</file>
         <file>images/black/x18/truck@3x.png</file>
@@ -176,10 +212,22 @@
         <file>images/black/x18/venue@2x.png</file>
         <file>images/black/x18/venue@3x.png</file>
         <file>images/black/x18/venue@4x.png</file>
+        <file>images/black/x18/week.png</file>
+        <file>images/black/x18/week@2x.png</file>
+        <file>images/black/x18/week@3x.png</file>
+        <file>images/black/x18/week@4x.png</file>
         <file>images/black/x18/work.png</file>
         <file>images/black/x18/work@2x.png</file>
         <file>images/black/x18/work@3x.png</file>
         <file>images/black/x18/work@4x.png</file>
+        <file>images/black/x18/zoom_in.png</file>
+        <file>images/black/x18/zoom_in@2x.png</file>
+        <file>images/black/x18/zoom_in@3x.png</file>
+        <file>images/black/x18/zoom_in@4x.png</file>
+        <file>images/black/x18/zoom_out.png</file>
+        <file>images/black/x18/zoom_out@2x.png</file>
+        <file>images/black/x18/zoom_out@3x.png</file>
+        <file>images/black/x18/zoom_out@4x.png</file>
         <file>images/black/x36/add.png</file>
         <file>images/black/x36/add@2x.png</file>
         <file>images/black/x36/add@3x.png</file>
@@ -192,6 +240,10 @@
         <file>images/black/x36/arrow_back@2x.png</file>
         <file>images/black/x36/arrow_back@3x.png</file>
         <file>images/black/x36/arrow_back@4x.png</file>
+        <file>images/black/x36/aspect_ratio.png</file>
+        <file>images/black/x36/aspect_ratio@2x.png</file>
+        <file>images/black/x36/aspect_ratio@3x.png</file>
+        <file>images/black/x36/aspect_ratio@4x.png</file>
         <file>images/black/x36/block.png</file>
         <file>images/black/x36/block@2x.png</file>
         <file>images/black/x36/block@3x.png</file>
@@ -232,6 +284,10 @@
         <file>images/black/x36/create@2x.png</file>
         <file>images/black/x36/create@3x.png</file>
         <file>images/black/x36/create@4x.png</file>
+        <file>images/black/x36/day.png</file>
+        <file>images/black/x36/day@2x.png</file>
+        <file>images/black/x36/day@3x.png</file>
+        <file>images/black/x36/day@4x.png</file>
         <file>images/black/x36/delete_sweep.png</file>
         <file>images/black/x36/delete_sweep@2x.png</file>
         <file>images/black/x36/delete_sweep@3x.png</file>
@@ -260,6 +316,10 @@
         <file>images/black/x36/group@2x.png</file>
         <file>images/black/x36/group@3x.png</file>
         <file>images/black/x36/group@4x.png</file>
+        <file>images/black/x36/help.png</file>
+        <file>images/black/x36/help@2x.png</file>
+        <file>images/black/x36/help@3x.png</file>
+        <file>images/black/x36/help@4x.png</file>
         <file>images/black/x36/history.png</file>
         <file>images/black/x36/history@2x.png</file>
         <file>images/black/x36/history@3x.png</file>
@@ -268,6 +328,10 @@
         <file>images/black/x36/home@2x.png</file>
         <file>images/black/x36/home@3x.png</file>
         <file>images/black/x36/home@4x.png</file>
+        <file>images/black/x36/info.png</file>
+        <file>images/black/x36/info@2x.png</file>
+        <file>images/black/x36/info@3x.png</file>
+        <file>images/black/x36/info@4x.png</file>
         <file>images/black/x36/key.png</file>
         <file>images/black/x36/key@2x.png</file>
         <file>images/black/x36/key@3x.png</file>
@@ -304,6 +368,22 @@
         <file>images/black/x36/remove@2x.png</file>
         <file>images/black/x36/remove@3x.png</file>
         <file>images/black/x36/remove@4x.png</file>
+        <file>images/black/x36/schedule.png</file>
+        <file>images/black/x36/schedule@2x.png</file>
+        <file>images/black/x36/schedule@3x.png</file>
+        <file>images/black/x36/schedule@4x.png</file>
+        <file>images/black/x36/schedule_list.png</file>
+        <file>images/black/x36/schedule_list@2x.png</file>
+        <file>images/black/x36/schedule_list@3x.png</file>
+        <file>images/black/x36/schedule_list@4x.png</file>
+        <file>images/black/x36/schedule_my.png</file>
+        <file>images/black/x36/schedule_my@2x.png</file>
+        <file>images/black/x36/schedule_my@3x.png</file>
+        <file>images/black/x36/schedule_my@4x.png</file>
+        <file>images/black/x36/schedule_sametime.png</file>
+        <file>images/black/x36/schedule_sametime@2x.png</file>
+        <file>images/black/x36/schedule_sametime@3x.png</file>
+        <file>images/black/x36/schedule_sametime@4x.png</file>
         <file>images/black/x36/search.png</file>
         <file>images/black/x36/search@2x.png</file>
         <file>images/black/x36/search@3x.png</file>
@@ -344,6 +424,10 @@
         <file>images/black/x36/time@2x.png</file>
         <file>images/black/x36/time@3x.png</file>
         <file>images/black/x36/time@4x.png</file>
+        <file>images/black/x36/today.png</file>
+        <file>images/black/x36/today@2x.png</file>
+        <file>images/black/x36/today@3x.png</file>
+        <file>images/black/x36/today@4x.png</file>
         <file>images/black/x36/truck.png</file>
         <file>images/black/x36/truck@2x.png</file>
         <file>images/black/x36/truck@3x.png</file>
@@ -356,10 +440,22 @@
         <file>images/black/x36/venue@2x.png</file>
         <file>images/black/x36/venue@3x.png</file>
         <file>images/black/x36/venue@4x.png</file>
+        <file>images/black/x36/week.png</file>
+        <file>images/black/x36/week@2x.png</file>
+        <file>images/black/x36/week@3x.png</file>
+        <file>images/black/x36/week@4x.png</file>
         <file>images/black/x36/work.png</file>
         <file>images/black/x36/work@2x.png</file>
         <file>images/black/x36/work@3x.png</file>
         <file>images/black/x36/work@4x.png</file>
+        <file>images/black/x36/zoom_in.png</file>
+        <file>images/black/x36/zoom_in@2x.png</file>
+        <file>images/black/x36/zoom_in@3x.png</file>
+        <file>images/black/x36/zoom_in@4x.png</file>
+        <file>images/black/x36/zoom_out.png</file>
+        <file>images/black/x36/zoom_out@2x.png</file>
+        <file>images/black/x36/zoom_out@3x.png</file>
+        <file>images/black/x36/zoom_out@4x.png</file>
         <file>images/black/x48/add.png</file>
         <file>images/black/x48/add@2x.png</file>
         <file>images/black/x48/add@3x.png</file>
@@ -372,6 +468,10 @@
         <file>images/black/x48/arrow_back@2x.png</file>
         <file>images/black/x48/arrow_back@3x.png</file>
         <file>images/black/x48/arrow_back@4x.png</file>
+        <file>images/black/x48/aspect_ratio.png</file>
+        <file>images/black/x48/aspect_ratio@2x.png</file>
+        <file>images/black/x48/aspect_ratio@3x.png</file>
+        <file>images/black/x48/aspect_ratio@4x.png</file>
         <file>images/black/x48/block.png</file>
         <file>images/black/x48/block@2x.png</file>
         <file>images/black/x48/block@3x.png</file>
@@ -412,6 +512,10 @@
         <file>images/black/x48/create@2x.png</file>
         <file>images/black/x48/create@3x.png</file>
         <file>images/black/x48/create@4x.png</file>
+        <file>images/black/x48/day.png</file>
+        <file>images/black/x48/day@2x.png</file>
+        <file>images/black/x48/day@3x.png</file>
+        <file>images/black/x48/day@4x.png</file>
         <file>images/black/x48/delete_sweep.png</file>
         <file>images/black/x48/delete_sweep@2x.png</file>
         <file>images/black/x48/delete_sweep@3x.png</file>
@@ -440,6 +544,10 @@
         <file>images/black/x48/group@2x.png</file>
         <file>images/black/x48/group@3x.png</file>
         <file>images/black/x48/group@4x.png</file>
+        <file>images/black/x48/help.png</file>
+        <file>images/black/x48/help@2x.png</file>
+        <file>images/black/x48/help@3x.png</file>
+        <file>images/black/x48/help@4x.png</file>
         <file>images/black/x48/history.png</file>
         <file>images/black/x48/history@2x.png</file>
         <file>images/black/x48/history@3x.png</file>
@@ -448,6 +556,10 @@
         <file>images/black/x48/home@2x.png</file>
         <file>images/black/x48/home@3x.png</file>
         <file>images/black/x48/home@4x.png</file>
+        <file>images/black/x48/info.png</file>
+        <file>images/black/x48/info@2x.png</file>
+        <file>images/black/x48/info@3x.png</file>
+        <file>images/black/x48/info@4x.png</file>
         <file>images/black/x48/key.png</file>
         <file>images/black/x48/key@2x.png</file>
         <file>images/black/x48/key@3x.png</file>
@@ -484,6 +596,22 @@
         <file>images/black/x48/remove@2x.png</file>
         <file>images/black/x48/remove@3x.png</file>
         <file>images/black/x48/remove@4x.png</file>
+        <file>images/black/x48/schedule.png</file>
+        <file>images/black/x48/schedule@2x.png</file>
+        <file>images/black/x48/schedule@3x.png</file>
+        <file>images/black/x48/schedule@4x.png</file>
+        <file>images/black/x48/schedule_list.png</file>
+        <file>images/black/x48/schedule_list@2x.png</file>
+        <file>images/black/x48/schedule_list@3x.png</file>
+        <file>images/black/x48/schedule_list@4x.png</file>
+        <file>images/black/x48/schedule_my.png</file>
+        <file>images/black/x48/schedule_my@2x.png</file>
+        <file>images/black/x48/schedule_my@3x.png</file>
+        <file>images/black/x48/schedule_my@4x.png</file>
+        <file>images/black/x48/schedule_sametime.png</file>
+        <file>images/black/x48/schedule_sametime@2x.png</file>
+        <file>images/black/x48/schedule_sametime@3x.png</file>
+        <file>images/black/x48/schedule_sametime@4x.png</file>
         <file>images/black/x48/search.png</file>
         <file>images/black/x48/search@2x.png</file>
         <file>images/black/x48/search@3x.png</file>
@@ -524,6 +652,10 @@
         <file>images/black/x48/time@2x.png</file>
         <file>images/black/x48/time@3x.png</file>
         <file>images/black/x48/time@4x.png</file>
+        <file>images/black/x48/today.png</file>
+        <file>images/black/x48/today@2x.png</file>
+        <file>images/black/x48/today@3x.png</file>
+        <file>images/black/x48/today@4x.png</file>
         <file>images/black/x48/truck.png</file>
         <file>images/black/x48/truck@2x.png</file>
         <file>images/black/x48/truck@3x.png</file>
@@ -536,10 +668,22 @@
         <file>images/black/x48/venue@2x.png</file>
         <file>images/black/x48/venue@3x.png</file>
         <file>images/black/x48/venue@4x.png</file>
+        <file>images/black/x48/week.png</file>
+        <file>images/black/x48/week@2x.png</file>
+        <file>images/black/x48/week@3x.png</file>
+        <file>images/black/x48/week@4x.png</file>
         <file>images/black/x48/work.png</file>
         <file>images/black/x48/work@2x.png</file>
         <file>images/black/x48/work@3x.png</file>
         <file>images/black/x48/work@4x.png</file>
+        <file>images/black/x48/zoom_in.png</file>
+        <file>images/black/x48/zoom_in@2x.png</file>
+        <file>images/black/x48/zoom_in@3x.png</file>
+        <file>images/black/x48/zoom_in@4x.png</file>
+        <file>images/black/x48/zoom_out.png</file>
+        <file>images/black/x48/zoom_out@2x.png</file>
+        <file>images/black/x48/zoom_out@3x.png</file>
+        <file>images/black/x48/zoom_out@4x.png</file>
         <file>images/black/add.png</file>
         <file>images/black/add@2x.png</file>
         <file>images/black/add@3x.png</file>
@@ -552,6 +696,10 @@
         <file>images/black/arrow_back@2x.png</file>
         <file>images/black/arrow_back@3x.png</file>
         <file>images/black/arrow_back@4x.png</file>
+        <file>images/black/aspect_ratio.png</file>
+        <file>images/black/aspect_ratio@2x.png</file>
+        <file>images/black/aspect_ratio@3x.png</file>
+        <file>images/black/aspect_ratio@4x.png</file>
         <file>images/black/block.png</file>
         <file>images/black/block@2x.png</file>
         <file>images/black/block@3x.png</file>
@@ -592,6 +740,10 @@
         <file>images/black/create@2x.png</file>
         <file>images/black/create@3x.png</file>
         <file>images/black/create@4x.png</file>
+        <file>images/black/day.png</file>
+        <file>images/black/day@2x.png</file>
+        <file>images/black/day@3x.png</file>
+        <file>images/black/day@4x.png</file>
         <file>images/black/delete_sweep.png</file>
         <file>images/black/delete_sweep@2x.png</file>
         <file>images/black/delete_sweep@3x.png</file>
@@ -620,6 +772,10 @@
         <file>images/black/group@2x.png</file>
         <file>images/black/group@3x.png</file>
         <file>images/black/group@4x.png</file>
+        <file>images/black/help.png</file>
+        <file>images/black/help@2x.png</file>
+        <file>images/black/help@3x.png</file>
+        <file>images/black/help@4x.png</file>
         <file>images/black/history.png</file>
         <file>images/black/history@2x.png</file>
         <file>images/black/history@3x.png</file>
@@ -628,6 +784,10 @@
         <file>images/black/home@2x.png</file>
         <file>images/black/home@3x.png</file>
         <file>images/black/home@4x.png</file>
+        <file>images/black/info.png</file>
+        <file>images/black/info@2x.png</file>
+        <file>images/black/info@3x.png</file>
+        <file>images/black/info@4x.png</file>
         <file>images/black/key.png</file>
         <file>images/black/key@2x.png</file>
         <file>images/black/key@3x.png</file>
@@ -668,6 +828,22 @@
         <file>images/black/remove@2x.png</file>
         <file>images/black/remove@3x.png</file>
         <file>images/black/remove@4x.png</file>
+        <file>images/black/schedule.png</file>
+        <file>images/black/schedule@2x.png</file>
+        <file>images/black/schedule@3x.png</file>
+        <file>images/black/schedule@4x.png</file>
+        <file>images/black/schedule_list.png</file>
+        <file>images/black/schedule_list@2x.png</file>
+        <file>images/black/schedule_list@3x.png</file>
+        <file>images/black/schedule_list@4x.png</file>
+        <file>images/black/schedule_my.png</file>
+        <file>images/black/schedule_my@2x.png</file>
+        <file>images/black/schedule_my@3x.png</file>
+        <file>images/black/schedule_my@4x.png</file>
+        <file>images/black/schedule_sametime.png</file>
+        <file>images/black/schedule_sametime@2x.png</file>
+        <file>images/black/schedule_sametime@3x.png</file>
+        <file>images/black/schedule_sametime@4x.png</file>
         <file>images/black/search.png</file>
         <file>images/black/search@3x.png</file>
         <file>images/black/search@4x.png</file>
@@ -708,6 +884,10 @@
         <file>images/black/time@2x.png</file>
         <file>images/black/time@3x.png</file>
         <file>images/black/time@4x.png</file>
+        <file>images/black/today.png</file>
+        <file>images/black/today@2x.png</file>
+        <file>images/black/today@3x.png</file>
+        <file>images/black/today@4x.png</file>
         <file>images/black/truck.png</file>
         <file>images/black/truck@2x.png</file>
         <file>images/black/truck@3x.png</file>
@@ -720,10 +900,22 @@
         <file>images/black/venue@2x.png</file>
         <file>images/black/venue@3x.png</file>
         <file>images/black/venue@4x.png</file>
+        <file>images/black/week.png</file>
+        <file>images/black/week@2x.png</file>
+        <file>images/black/week@3x.png</file>
+        <file>images/black/week@4x.png</file>
         <file>images/black/work.png</file>
         <file>images/black/work@2x.png</file>
         <file>images/black/work@3x.png</file>
         <file>images/black/work@4x.png</file>
+        <file>images/black/zoom_in.png</file>
+        <file>images/black/zoom_in@2x.png</file>
+        <file>images/black/zoom_in@3x.png</file>
+        <file>images/black/zoom_in@4x.png</file>
+        <file>images/black/zoom_out.png</file>
+        <file>images/black/zoom_out@2x.png</file>
+        <file>images/black/zoom_out@3x.png</file>
+        <file>images/black/zoom_out@4x.png</file>
         <file>images/extra/qt-arrow.png</file>
         <file>images/extra/qt-arrow@2x.png</file>
         <file>images/extra/qt-arrow@3x.png</file>
@@ -744,6 +936,10 @@
         <file>images/white/x18/arrow_back@2x.png</file>
         <file>images/white/x18/arrow_back@3x.png</file>
         <file>images/white/x18/arrow_back@4x.png</file>
+        <file>images/white/x18/aspect_ratio.png</file>
+        <file>images/white/x18/aspect_ratio@2x.png</file>
+        <file>images/white/x18/aspect_ratio@3x.png</file>
+        <file>images/white/x18/aspect_ratio@4x.png</file>
         <file>images/white/x18/block.png</file>
         <file>images/white/x18/block@2x.png</file>
         <file>images/white/x18/block@3x.png</file>
@@ -784,6 +980,10 @@
         <file>images/white/x18/create@2x.png</file>
         <file>images/white/x18/create@3x.png</file>
         <file>images/white/x18/create@4x.png</file>
+        <file>images/white/x18/day.png</file>
+        <file>images/white/x18/day@2x.png</file>
+        <file>images/white/x18/day@3x.png</file>
+        <file>images/white/x18/day@4x.png</file>
         <file>images/white/x18/delete_sweep.png</file>
         <file>images/white/x18/delete_sweep@2x.png</file>
         <file>images/white/x18/delete_sweep@3x.png</file>
@@ -812,6 +1012,10 @@
         <file>images/white/x18/group@2x.png</file>
         <file>images/white/x18/group@3x.png</file>
         <file>images/white/x18/group@4x.png</file>
+        <file>images/white/x18/help.png</file>
+        <file>images/white/x18/help@2x.png</file>
+        <file>images/white/x18/help@3x.png</file>
+        <file>images/white/x18/help@4x.png</file>
         <file>images/white/x18/history.png</file>
         <file>images/white/x18/history@2x.png</file>
         <file>images/white/x18/history@3x.png</file>
@@ -820,6 +1024,10 @@
         <file>images/white/x18/home@2x.png</file>
         <file>images/white/x18/home@3x.png</file>
         <file>images/white/x18/home@4x.png</file>
+        <file>images/white/x18/info.png</file>
+        <file>images/white/x18/info@2x.png</file>
+        <file>images/white/x18/info@3x.png</file>
+        <file>images/white/x18/info@4x.png</file>
         <file>images/white/x18/key.png</file>
         <file>images/white/x18/key@2x.png</file>
         <file>images/white/x18/key@3x.png</file>
@@ -856,6 +1064,22 @@
         <file>images/white/x18/remove@2x.png</file>
         <file>images/white/x18/remove@3x.png</file>
         <file>images/white/x18/remove@4x.png</file>
+        <file>images/white/x18/schedule.png</file>
+        <file>images/white/x18/schedule@2x.png</file>
+        <file>images/white/x18/schedule@3x.png</file>
+        <file>images/white/x18/schedule@4x.png</file>
+        <file>images/white/x18/schedule_list.png</file>
+        <file>images/white/x18/schedule_list@2x.png</file>
+        <file>images/white/x18/schedule_list@3x.png</file>
+        <file>images/white/x18/schedule_list@4x.png</file>
+        <file>images/white/x18/schedule_my.png</file>
+        <file>images/white/x18/schedule_my@2x.png</file>
+        <file>images/white/x18/schedule_my@3x.png</file>
+        <file>images/white/x18/schedule_my@4x.png</file>
+        <file>images/white/x18/schedule_sametime.png</file>
+        <file>images/white/x18/schedule_sametime@2x.png</file>
+        <file>images/white/x18/schedule_sametime@3x.png</file>
+        <file>images/white/x18/schedule_sametime@4x.png</file>
         <file>images/white/x18/search.png</file>
         <file>images/white/x18/search@2x.png</file>
         <file>images/white/x18/search@3x.png</file>
@@ -896,6 +1120,10 @@
         <file>images/white/x18/time@2x.png</file>
         <file>images/white/x18/time@3x.png</file>
         <file>images/white/x18/time@4x.png</file>
+        <file>images/white/x18/today.png</file>
+        <file>images/white/x18/today@2x.png</file>
+        <file>images/white/x18/today@3x.png</file>
+        <file>images/white/x18/today@4x.png</file>
         <file>images/white/x18/truck.png</file>
         <file>images/white/x18/truck@2x.png</file>
         <file>images/white/x18/truck@3x.png</file>
@@ -908,10 +1136,22 @@
         <file>images/white/x18/venue@2x.png</file>
         <file>images/white/x18/venue@3x.png</file>
         <file>images/white/x18/venue@4x.png</file>
+        <file>images/white/x18/week.png</file>
+        <file>images/white/x18/week@2x.png</file>
+        <file>images/white/x18/week@3x.png</file>
+        <file>images/white/x18/week@4x.png</file>
         <file>images/white/x18/work.png</file>
         <file>images/white/x18/work@2x.png</file>
         <file>images/white/x18/work@3x.png</file>
         <file>images/white/x18/work@4x.png</file>
+        <file>images/white/x18/zoom_in.png</file>
+        <file>images/white/x18/zoom_in@2x.png</file>
+        <file>images/white/x18/zoom_in@3x.png</file>
+        <file>images/white/x18/zoom_in@4x.png</file>
+        <file>images/white/x18/zoom_out.png</file>
+        <file>images/white/x18/zoom_out@2x.png</file>
+        <file>images/white/x18/zoom_out@3x.png</file>
+        <file>images/white/x18/zoom_out@4x.png</file>
         <file>images/white/x36/add.png</file>
         <file>images/white/x36/add@2x.png</file>
         <file>images/white/x36/add@3x.png</file>
@@ -924,6 +1164,10 @@
         <file>images/white/x36/arrow_back@2x.png</file>
         <file>images/white/x36/arrow_back@3x.png</file>
         <file>images/white/x36/arrow_back@4x.png</file>
+        <file>images/white/x36/aspect_ratio.png</file>
+        <file>images/white/x36/aspect_ratio@2x.png</file>
+        <file>images/white/x36/aspect_ratio@3x.png</file>
+        <file>images/white/x36/aspect_ratio@4x.png</file>
         <file>images/white/x36/block.png</file>
         <file>images/white/x36/block@2x.png</file>
         <file>images/white/x36/block@3x.png</file>
@@ -964,6 +1208,10 @@
         <file>images/white/x36/create@2x.png</file>
         <file>images/white/x36/create@3x.png</file>
         <file>images/white/x36/create@4x.png</file>
+        <file>images/white/x36/day.png</file>
+        <file>images/white/x36/day@2x.png</file>
+        <file>images/white/x36/day@3x.png</file>
+        <file>images/white/x36/day@4x.png</file>
         <file>images/white/x36/delete_sweep.png</file>
         <file>images/white/x36/delete_sweep@2x.png</file>
         <file>images/white/x36/delete_sweep@3x.png</file>
@@ -992,6 +1240,10 @@
         <file>images/white/x36/group@2x.png</file>
         <file>images/white/x36/group@3x.png</file>
         <file>images/white/x36/group@4x.png</file>
+        <file>images/white/x36/help.png</file>
+        <file>images/white/x36/help@2x.png</file>
+        <file>images/white/x36/help@3x.png</file>
+        <file>images/white/x36/help@4x.png</file>
         <file>images/white/x36/history.png</file>
         <file>images/white/x36/history@2x.png</file>
         <file>images/white/x36/history@3x.png</file>
@@ -1000,6 +1252,10 @@
         <file>images/white/x36/home@2x.png</file>
         <file>images/white/x36/home@3x.png</file>
         <file>images/white/x36/home@4x.png</file>
+        <file>images/white/x36/info.png</file>
+        <file>images/white/x36/info@2x.png</file>
+        <file>images/white/x36/info@3x.png</file>
+        <file>images/white/x36/info@4x.png</file>
         <file>images/white/x36/key.png</file>
         <file>images/white/x36/key@2x.png</file>
         <file>images/white/x36/key@3x.png</file>
@@ -1036,6 +1292,22 @@
         <file>images/white/x36/remove@2x.png</file>
         <file>images/white/x36/remove@3x.png</file>
         <file>images/white/x36/remove@4x.png</file>
+        <file>images/white/x36/schedule.png</file>
+        <file>images/white/x36/schedule@2x.png</file>
+        <file>images/white/x36/schedule@3x.png</file>
+        <file>images/white/x36/schedule@4x.png</file>
+        <file>images/white/x36/schedule_list.png</file>
+        <file>images/white/x36/schedule_list@2x.png</file>
+        <file>images/white/x36/schedule_list@3x.png</file>
+        <file>images/white/x36/schedule_list@4x.png</file>
+        <file>images/white/x36/schedule_my.png</file>
+        <file>images/white/x36/schedule_my@2x.png</file>
+        <file>images/white/x36/schedule_my@3x.png</file>
+        <file>images/white/x36/schedule_my@4x.png</file>
+        <file>images/white/x36/schedule_sametime.png</file>
+        <file>images/white/x36/schedule_sametime@2x.png</file>
+        <file>images/white/x36/schedule_sametime@3x.png</file>
+        <file>images/white/x36/schedule_sametime@4x.png</file>
         <file>images/white/x36/search.png</file>
         <file>images/white/x36/search@2x.png</file>
         <file>images/white/x36/search@3x.png</file>
@@ -1076,6 +1348,10 @@
         <file>images/white/x36/time@2x.png</file>
         <file>images/white/x36/time@3x.png</file>
         <file>images/white/x36/time@4x.png</file>
+        <file>images/white/x36/today.png</file>
+        <file>images/white/x36/today@2x.png</file>
+        <file>images/white/x36/today@3x.png</file>
+        <file>images/white/x36/today@4x.png</file>
         <file>images/white/x36/truck.png</file>
         <file>images/white/x36/truck@2x.png</file>
         <file>images/white/x36/truck@3x.png</file>
@@ -1088,10 +1364,22 @@
         <file>images/white/x36/venue@2x.png</file>
         <file>images/white/x36/venue@3x.png</file>
         <file>images/white/x36/venue@4x.png</file>
+        <file>images/white/x36/week.png</file>
+        <file>images/white/x36/week@2x.png</file>
+        <file>images/white/x36/week@3x.png</file>
+        <file>images/white/x36/week@4x.png</file>
         <file>images/white/x36/work.png</file>
         <file>images/white/x36/work@2x.png</file>
         <file>images/white/x36/work@3x.png</file>
         <file>images/white/x36/work@4x.png</file>
+        <file>images/white/x36/zoom_in.png</file>
+        <file>images/white/x36/zoom_in@2x.png</file>
+        <file>images/white/x36/zoom_in@3x.png</file>
+        <file>images/white/x36/zoom_in@4x.png</file>
+        <file>images/white/x36/zoom_out.png</file>
+        <file>images/white/x36/zoom_out@2x.png</file>
+        <file>images/white/x36/zoom_out@3x.png</file>
+        <file>images/white/x36/zoom_out@4x.png</file>
         <file>images/white/x48/add.png</file>
         <file>images/white/x48/add@2x.png</file>
         <file>images/white/x48/add@3x.png</file>
@@ -1104,6 +1392,10 @@
         <file>images/white/x48/arrow_back@2x.png</file>
         <file>images/white/x48/arrow_back@3x.png</file>
         <file>images/white/x48/arrow_back@4.png</file>
+        <file>images/white/x48/aspect_ratio.png</file>
+        <file>images/white/x48/aspect_ratio@2x.png</file>
+        <file>images/white/x48/aspect_ratio@3x.png</file>
+        <file>images/white/x48/aspect_ratio@4x.png</file>
         <file>images/white/x48/block.png</file>
         <file>images/white/x48/block@2x.png</file>
         <file>images/white/x48/block@3x.png</file>
@@ -1144,6 +1436,10 @@
         <file>images/white/x48/create@2x.png</file>
         <file>images/white/x48/create@3x.png</file>
         <file>images/white/x48/create@4x.png</file>
+        <file>images/white/x48/day.png</file>
+        <file>images/white/x48/day@2x.png</file>
+        <file>images/white/x48/day@3x.png</file>
+        <file>images/white/x48/day@4x.png</file>
         <file>images/white/x48/delete_sweep.png</file>
         <file>images/white/x48/delete_sweep@2x.png</file>
         <file>images/white/x48/delete_sweep@3x.png</file>
@@ -1172,6 +1468,10 @@
         <file>images/white/x48/group@2x.png</file>
         <file>images/white/x48/group@3x.png</file>
         <file>images/white/x48/group@4x.png</file>
+        <file>images/white/x48/help.png</file>
+        <file>images/white/x48/help@2x.png</file>
+        <file>images/white/x48/help@3x.png</file>
+        <file>images/white/x48/help@4x.png</file>
         <file>images/white/x48/history.png</file>
         <file>images/white/x48/history@2x.png</file>
         <file>images/white/x48/history@3x.png</file>
@@ -1180,6 +1480,10 @@
         <file>images/white/x48/home@2x.png</file>
         <file>images/white/x48/home@3x.png</file>
         <file>images/white/x48/home@4x.png</file>
+        <file>images/white/x48/info.png</file>
+        <file>images/white/x48/info@2x.png</file>
+        <file>images/white/x48/info@3x.png</file>
+        <file>images/white/x48/info@4x.png</file>
         <file>images/white/x48/key.png</file>
         <file>images/white/x48/key@2x.png</file>
         <file>images/white/x48/key@3x.png</file>
@@ -1216,6 +1520,22 @@
         <file>images/white/x48/remove@2x.png</file>
         <file>images/white/x48/remove@3x.png</file>
         <file>images/white/x48/remove@4x.png</file>
+        <file>images/white/x48/schedule.png</file>
+        <file>images/white/x48/schedule@2x.png</file>
+        <file>images/white/x48/schedule@3x.png</file>
+        <file>images/white/x48/schedule@4x.png</file>
+        <file>images/white/x48/schedule_list.png</file>
+        <file>images/white/x48/schedule_list@2x.png</file>
+        <file>images/white/x48/schedule_list@3x.png</file>
+        <file>images/white/x48/schedule_list@4x.png</file>
+        <file>images/white/x48/schedule_my.png</file>
+        <file>images/white/x48/schedule_my@2x.png</file>
+        <file>images/white/x48/schedule_my@3x.png</file>
+        <file>images/white/x48/schedule_my@4x.png</file>
+        <file>images/white/x48/schedule_sametime.png</file>
+        <file>images/white/x48/schedule_sametime@2x.png</file>
+        <file>images/white/x48/schedule_sametime@3x.png</file>
+        <file>images/white/x48/schedule_sametime@4x.png</file>
         <file>images/white/x48/search.png</file>
         <file>images/white/x48/search@2x.png</file>
         <file>images/white/x48/search@3x.png</file>
@@ -1256,6 +1576,10 @@
         <file>images/white/x48/time@2x.png</file>
         <file>images/white/x48/time@3x.png</file>
         <file>images/white/x48/time@4x.png</file>
+        <file>images/white/x48/today.png</file>
+        <file>images/white/x48/today@2x.png</file>
+        <file>images/white/x48/today@3x.png</file>
+        <file>images/white/x48/today@4x.png</file>
         <file>images/white/x48/truck.png</file>
         <file>images/white/x48/truck@2x.png</file>
         <file>images/white/x48/truck@3x.png</file>
@@ -1268,10 +1592,22 @@
         <file>images/white/x48/venue@2x.png</file>
         <file>images/white/x48/venue@3x.png</file>
         <file>images/white/x48/venue@4x.png</file>
+        <file>images/white/x48/week.png</file>
+        <file>images/white/x48/week@2x.png</file>
+        <file>images/white/x48/week@3x.png</file>
+        <file>images/white/x48/week@4x.png</file>
         <file>images/white/x48/work.png</file>
         <file>images/white/x48/work@2x.png</file>
         <file>images/white/x48/work@3x.png</file>
         <file>images/white/x48/work@4x.png</file>
+        <file>images/white/x48/zoom_in.png</file>
+        <file>images/white/x48/zoom_in@2x.png</file>
+        <file>images/white/x48/zoom_in@3x.png</file>
+        <file>images/white/x48/zoom_in@4x.png</file>
+        <file>images/white/x48/zoom_out.png</file>
+        <file>images/white/x48/zoom_out@2x.png</file>
+        <file>images/white/x48/zoom_out@3x.png</file>
+        <file>images/white/x48/zoom_out@4x.png</file>
         <file>images/white/add.png</file>
         <file>images/white/add@2x.png</file>
         <file>images/white/add@3x.png</file>
@@ -1284,6 +1620,10 @@
         <file>images/white/arrow_back@2x.png</file>
         <file>images/white/arrow_back@3x.png</file>
         <file>images/white/arrow_back@4x.png</file>
+        <file>images/white/aspect_ratio.png</file>
+        <file>images/white/aspect_ratio@2x.png</file>
+        <file>images/white/aspect_ratio@3x.png</file>
+        <file>images/white/aspect_ratio@4x.png</file>
         <file>images/white/block.png</file>
         <file>images/white/block@2x.png</file>
         <file>images/white/block@3x.png</file>
@@ -1324,6 +1664,10 @@
         <file>images/white/create@2x.png</file>
         <file>images/white/create@3x.png</file>
         <file>images/white/create@4x.png</file>
+        <file>images/white/day.png</file>
+        <file>images/white/day@2x.png</file>
+        <file>images/white/day@3x.png</file>
+        <file>images/white/day@4x.png</file>
         <file>images/white/delete_sweep.png</file>
         <file>images/white/delete_sweep@2x.png</file>
         <file>images/white/delete_sweep@3x.png</file>
@@ -1352,6 +1696,10 @@
         <file>images/white/group@2x.png</file>
         <file>images/white/group@3x.png</file>
         <file>images/white/group@4x.png</file>
+        <file>images/white/help.png</file>
+        <file>images/white/help@2x.png</file>
+        <file>images/white/help@3x.png</file>
+        <file>images/white/help@4x.png</file>
         <file>images/white/history.png</file>
         <file>images/white/history@2x.png</file>
         <file>images/white/history@3x.png</file>
@@ -1360,6 +1708,10 @@
         <file>images/white/home@2x.png</file>
         <file>images/white/home@3x.png</file>
         <file>images/white/home@4x.png</file>
+        <file>images/white/info.png</file>
+        <file>images/white/info@2x.png</file>
+        <file>images/white/info@3x.png</file>
+        <file>images/white/info@4x.png</file>
         <file>images/white/key.png</file>
         <file>images/white/key@2x.png</file>
         <file>images/white/key@3x.png</file>
@@ -1400,6 +1752,22 @@
         <file>images/white/remove@2x.png</file>
         <file>images/white/remove@3x.png</file>
         <file>images/white/remove@4x.png</file>
+        <file>images/white/schedule.png</file>
+        <file>images/white/schedule@2x.png</file>
+        <file>images/white/schedule@3x.png</file>
+        <file>images/white/schedule@4x.png</file>
+        <file>images/white/schedule_list.png</file>
+        <file>images/white/schedule_list@2x.png</file>
+        <file>images/white/schedule_list@3x.png</file>
+        <file>images/white/schedule_list@4x.png</file>
+        <file>images/white/schedule_my.png</file>
+        <file>images/white/schedule_my@2x.png</file>
+        <file>images/white/schedule_my@3x.png</file>
+        <file>images/white/schedule_my@4x.png</file>
+        <file>images/white/schedule_sametime.png</file>
+        <file>images/white/schedule_sametime@3x.png</file>
+        <file>images/white/schedule_sametime@4x.png</file>
+        <file>images/white/schedule_sametime@“x.png</file>
         <file>images/white/search.png</file>
         <file>images/white/search@2x.png</file>
         <file>images/white/search@3x.png</file>
@@ -1440,6 +1808,10 @@
         <file>images/white/time@2x.png</file>
         <file>images/white/time@3x.png</file>
         <file>images/white/time@4x.png</file>
+        <file>images/white/today.png</file>
+        <file>images/white/today@2x.png</file>
+        <file>images/white/today@3x.png</file>
+        <file>images/white/today@4x.png</file>
         <file>images/white/truck.png</file>
         <file>images/white/truck@2x.png</file>
         <file>images/white/truck@3x.png</file>
@@ -1452,10 +1824,22 @@
         <file>images/white/venue@2x.png</file>
         <file>images/white/venue@3x.png</file>
         <file>images/white/venue@4x.png</file>
+        <file>images/white/week.png</file>
+        <file>images/white/week@2x.png</file>
+        <file>images/white/week@3x.png</file>
+        <file>images/white/week@4x.png</file>
         <file>images/white/work.png</file>
         <file>images/white/work@2x.png</file>
         <file>images/white/work@3x.png</file>
         <file>images/white/work@4x.png</file>
+        <file>images/white/zoom_in.png</file>
+        <file>images/white/zoom_in@2x.png</file>
+        <file>images/white/zoom_in@3x.png</file>
+        <file>images/white/zoom_in@4x.png</file>
+        <file>images/white/zoom_out.png</file>
+        <file>images/white/zoom_out@2x.png</file>
+        <file>images/white/zoom_out@3x.png</file>
+        <file>images/white/zoom_out@4x.png</file>
         <file>images/LICENSE</file>
     </qresource>
 </RCC>
