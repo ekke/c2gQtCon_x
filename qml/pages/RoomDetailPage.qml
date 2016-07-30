@@ -24,16 +24,12 @@ Page {
 
     Flickable {
         id: flickable
-        property string name: "sessionDetail"
+        property string name: "roomDetail"
         // need some extra space if scrolling to bottom
         // and nothing covered by the FAB
-        contentHeight: roomImage.height
+        contentHeight: roomImage.height + 60 // some space for buttons
         contentWidth: roomImage.width
         anchors.fill: parent
-
-        Pane {
-            id: root
-            anchors.fill: parent
 
             Image {
                 id: roomImage
@@ -43,13 +39,12 @@ Page {
                 height: sourceSize.height
                 fillMode: Image.PreserveAspectFit
                 source: "qrc:/data-assets/conference/floorplan/room_"+room.roomId+".png"
+                horizontalAlignment: Image.AlignLeft
+                verticalAlignment: Image.AlignTop
             } // image
 
-        } // root
 
     } // flickable
-
-
 
     FloatingActionMiniButton {
         visible: roomImage.scale >= 0.4
@@ -67,9 +62,27 @@ Page {
     } // FAB
     FloatingActionMiniButton {
         visible: roomImage.scale <= 1.0
-        property string imageName: "/add.png"
+        property string imageName: "/aspect_ratio.png"
         z: 1
         anchors.leftMargin: 80
+        anchors.bottomMargin: 20
+        anchors.left: parent.left
+        anchors.bottom: parent.bottom
+        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
+        backgroundColor: accentColor
+        onClicked: {
+            var widthScale = (appWindow.width-20) / roomImage.sourceSize.width
+            var heightScale = (appWindow.height-60) / roomImage.sourceSize.height
+            roomImage.scale = Math.min(widthScale, heightScale)
+            flickable.contentX = 0
+            flickable.contentY = 0
+        }
+    } // FAB
+    FloatingActionMiniButton {
+        visible: roomImage.scale <= 1.0
+        property string imageName: "/add.png"
+        z: 1
+        anchors.leftMargin: 140
         anchors.bottomMargin: 20
         anchors.left: parent.left
         anchors.bottom: parent.bottom
