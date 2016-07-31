@@ -193,29 +193,24 @@ Page {
                             implicitWidth: appWindow.width
                             RowLayout {
                                 spacing: 20
-                                Layout.leftMargin: 16 //+12
+                                Layout.leftMargin: 16
                                 Layout.rightMargin: 6
-                                Layout.topMargin: 6
                                 SpeakerImageItem {
                                     speaker: model.modelData
                                 }
                                 ColumnLayout {
                                     Layout.fillWidth: true
+                                    // without setting a maximum width, word wrap not working
+                                    Layout.maximumWidth: appWindow.width-120
                                     spacing: 0
                                     LabelSubheading {
-                                        anchors.left: parent.left
-                                        anchors.right: parent.right
                                         rightPadding: 12
                                         text: model.modelData.name.length? model.modelData.name : qsTr("Unnamed Speaker")
                                         font.bold: true
                                         wrapMode: Label.WordWrap
                                     } // label
-                                    // TODO Bugreport wrapmode not working
                                     LabelBody {
-                                        anchors.left: parent.left
-                                        anchors.right: parent.right
-                                        rightPadding: 12
-                                        text: sessionDetailPage.sessionInfo(model.modelData) // speakerRow.ListView.view
+                                        text: sessionDetailPage.sessionInfo(model.modelData)
                                         wrapMode: Label.WordWrap
                                         maximumLineCount: 3
                                         elide: Label.ElideRight
@@ -275,11 +270,11 @@ Page {
     }
     function sessionInfo(speaker) {
         var s = ""
-        for (var i = 0; i < speaker.sessionsAsQVariantList().length; i++) {
+        for (var i = 0; i < speaker.sessionsPropertyList.length; i++) {
             if(i > 0) {
                 s += "\n"
             }
-            s += speaker.sessionsAsQVariantList()[i].title
+            s += speaker.sessionsPropertyList[i].title
         }
         return s
     }

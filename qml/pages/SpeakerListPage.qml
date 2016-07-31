@@ -49,19 +49,17 @@ Page {
                 }
                 ColumnLayout {
                     Layout.fillWidth: true
+                    // without setting a maximum width, word wrap not working
+                    Layout.maximumWidth: appWindow.width-120
                     spacing: 0
                     LabelSubheading {
-                        anchors.left: parent.left
-                        anchors.right: parent.right
                         rightPadding: 12
                         text: model.modelData.name.length? model.modelData.name : qsTr("Unnamed Speaker")
                         font.bold: true
                         wrapMode: Label.WordWrap
                     } // label
-                    // TODO Bugreport wrapmode not working
+
                     LabelBody {
-                        anchors.left: parent.left
-                        anchors.right: parent.right
                         rightPadding: 12
                         text: speakerRow.ListView.view.sessionInfo(model.modelData)
                         wrapMode: Label.WordWrap
@@ -107,11 +105,11 @@ Page {
 
         function sessionInfo(speaker) {
             var s = ""
-            for (var i = 0; i < speaker.sessionsAsQVariantList().length; i++) {
+            for (var i = 0; i < speaker.sessionsPropertyList.length; i++) {
                 if(i > 0) {
                     s += "\n"
                 }
-                s += speaker.sessionsAsQVariantList()[i].title
+                s += speaker.sessionsPropertyList[i].title
             }
             return s
         }
