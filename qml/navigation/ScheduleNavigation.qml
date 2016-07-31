@@ -15,21 +15,143 @@ Page {
     // index to get access to Loader (Destination)
     property int myIndex: index
 
+    // because of https://bugreports.qt.io/browse/QTBUG-54260
+    // lastCurrentIndex will remember currentIndex, so we can reset before Page becomes currentItem on StackView
+    property int lastCurrentIndex: 0
+    property int currentIndex: initialItem.currentIndex
+
     StackView {
         id: navPane
         anchors.fill: parent
         property string name: "ScheduleNavPane"
         focus: true
 
-        initialItem: Label{
+        initialItem: DaySwiper{
             id: initialItem
-            text: "Schedule"
-            function init() {}
-            function cleanup() {}
         }
 
+        Loader {
+            id: speakerDetailPageLoader
+            property int speakerId: -1
+            active: false
+            visible: false
+            source: "../pages/SpeakerDetailPage.qml"
+            onLoaded: {
+                item.speakerId = speakerId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
+        Loader {
+            id: sessionDetailPageLoader
+            property int sessionId: -1
+            active: false
+            visible: false
+            source: "../pages/SessionDetailPage.qml"
+            onLoaded: {
+                item.sessionId = sessionId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
+        Loader {
+            id: roomDetailPageLoader
+            property int roomId: -1
+            active: false
+            visible: false
+            source: "../pages/RoomDetailPage.qml"
+            onLoaded: {
+                item.roomId = roomId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
+        // only one Speaker Detail in stack allowed to avoid endless growing stacks
+        function pushSpeakerDetail(speakerId) {
+            if(speakerDetailPageLoader.active) {
+                speakerDetailPageLoader.item.speakerId = speakerId
+                var pageStackIndex = findPage(speakerDetailPageLoader.item.name)
+                if(pageStackIndex > 0) {
+                    backToPage(pageStackIndex)
+                }
+            } else {
+                speakerDetailPageLoader.speakerId = speakerId
+                speakerDetailPageLoader.active = true
+            }
+        }
+
+        function pushSessionDetail(sessionId) {
+            sessionDetailPageLoader.sessionId = sessionId
+            sessionDetailPageLoader.active = true
+        }
+
+        function pushRoomDetail(roomId) {
+            roomDetailPageLoader.roomId = roomId
+            roomDetailPageLoader.active = true
+        }
+
+        function findPage(pageName) {
+            var targetPage = find(function(item) {
+                return item.name == pageName;
+            })
+            if(targetPage) {
+                return targetPage.StackView.index
+            } else {
+                console.log("Page not found in StackView: "+pageName)
+                return -1
+            }
+        }
+        function backToPage(targetStackIndex) {
+            for (var i=depth-1; i > targetStackIndex; i--) {
+                popOnePage()
+            }
+        }
+
+        function backToRootPage() {
+            for (var i=depth-1; i > 0; i--) {
+                popOnePage()
+            }
+        }
+
+        function popOnePage() {
+            var page = pop()
+            if(page.name == "SpeakerDetailPage") {
+                speakerDetailPageLoader.active = false
+                return
+            }
+            if(page.name == "SessionDetailPage") {
+                sessionDetailPageLoader.active = false
+                return
+            }
+            if(page.name == "RoomDetailPage") {
+                roomDetailPageLoader.active = false
+                return
+            }
+        } // popOnePage
 
     } // navPane
+
+    FloatingActionButton {
+        visible: navPane.depth > 2
+        property string imageName: "/list.png"
+        z: 1
+        anchors.margins: 20
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        imageSource: "qrc:/images/"+iconOnPrimaryDarkFolder+imageName
+        backgroundColor: primaryDarkColor
+        onClicked: {
+            navPane.backToRootPage()
+        }
+    } // FAB
+
+    // sets the index of SwipeView/TabBar back to last remembered one
+    function setCurrentIndex() {
+        initialItem.currentIndex = navPage.lastCurrentIndex
+    }
 
     function destinationAboutToChange() {
         // nothing

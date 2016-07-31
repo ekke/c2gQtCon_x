@@ -65,5 +65,7 @@
         <file>qml/navigation/TrackNavigation.qml</file>
         <file>qml/navigation/VenueNavigation.qml</file>
         <file>qml/pages/HelpPage.qml</file>
+        <file>qml/pages/DaySwiper.qml</file>
+        <file>qml/pages/DayPage.qml</file>
     </qresource>
 </RCC>

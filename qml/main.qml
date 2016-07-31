@@ -336,11 +336,22 @@ ApplicationWindow {
             }
             // because of https://bugreports.qt.io/browse/QTBUG-54260
             // remember currentIndex before being replaced
-            // see example app swiped-nav_pages_x
+            console.log("replace destination for name: "+rootPane.currentItem.name)
+            if(rootPane.currentItem.name == "ScheduleNavPage") {
+                rootPane.currentItem.lastCurrentIndex = rootPane.currentItem.currentIndex
+                console.log("dayNavPage remember "+rootPane.currentItem.currentIndex)
+            }
+            // reset currentIndex to the last one
+            if(theItemLoader.item.name == "ScheduleNavPage") {
+                //theItemLoader.item.currentIndex = theItemLoader.item.lastCurrentIndex
+                // the SwipeView is one level deeper, so we delegate this to the next StackView
+                theItemLoader.item.setCurrentIndex()
+            }
 
             // here you can call work to be done if user changes destination
             // should also be called if app will be paused or exit
-            if(rootPane.currentItem.name == "OrderNavPage") {
+            if(rootPane.currentItem.name == "ScheduleNavPage") {
+                // TODO do this for all stackViews on top of root StackView
                 rootPane.currentItem.destinationAboutToChange()
             }
 
