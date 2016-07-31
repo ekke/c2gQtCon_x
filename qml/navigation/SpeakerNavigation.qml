@@ -64,9 +64,18 @@ Page {
             }
         }
 
+        // only one Speaker Detail in stack allowed to avoid endless growing stacks
         function pushSpeakerDetail(speakerId) {
-            speakerDetailPageLoader.speakerId = speakerId
-            speakerDetailPageLoader.active = true
+            if(speakerDetailPageLoader.active) {
+                speakerDetailPageLoader.item.speakerId = speakerId
+                var pageStackIndex = findPage(speakerDetailPageLoader.item.name)
+                if(pageStackIndex > 0) {
+                    backToPage(pageStackIndex)
+                }
+            } else {
+                speakerDetailPageLoader.speakerId = speakerId
+                speakerDetailPageLoader.active = true
+            }
         }
 
         function pushSessionDetail(sessionId) {
@@ -77,6 +86,23 @@ Page {
         function pushRoomDetail(roomId) {
             roomDetailPageLoader.roomId = roomId
             roomDetailPageLoader.active = true
+        }
+
+        function findPage(pageName) {
+            var targetPage = find(function(item) {
+                return item.name == pageName;
+            })
+            if(targetPage) {
+                return targetPage.StackView.index
+            } else {
+                console.log("Page not found in StackView: "+pageName)
+                return -1
+            }
+        }
+        function backToPage(targetStackIndex) {
+            for (var i=depth-1; i > targetStackIndex; i--) {
+                popOnePage()
+            }
         }
 
         function backToRootPage() {

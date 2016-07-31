@@ -36,12 +36,11 @@ Page {
     Component {
         id: speakerRowComponent
         ColumnLayout {
-            id: dataColumn
+            id: speakerRow
             // without this divider not over total width
             implicitWidth: appWindow.width
             RowLayout {
                 spacing: 20
-                Layout.fillWidth: true
                 Layout.leftMargin: 16+12
                 Layout.rightMargin: 6
                 Layout.topMargin: 6
@@ -64,7 +63,7 @@ Page {
                         anchors.left: parent.left
                         anchors.right: parent.right
                         rightPadding: 12
-                        text: dataColumn.ListView.view.sessionInfo(model.modelData)
+                        text: speakerRow.ListView.view.sessionInfo(model.modelData)
                         wrapMode: Label.WordWrap
                         maximumLineCount: 3
                         elide: Label.ElideRight
@@ -78,7 +77,7 @@ Page {
                 } // mouse
             } // end Row Layout
             HorizontalListDivider{}
-        } // end Col Layout
+        } // end Col Layout speaker row
     } // speakerRowComponent
 
     // LIST VIEW

@@ -160,10 +160,84 @@ Page {
                 visible: session.abstractText.length
                 }
 
+                LabelHeadline {
+                    visible: session.presenterPropertyList.length
+                    leftPadding: 10
+                    text: qsTr("Speaker")
+                    color: primaryColor
+                }
+                LabelBodySecondary {
+                    visible: session.presenterPropertyList.length
+                    leftPadding: 10
+                    font.italic: true
+                    text: qsTr("Tap on the Speaker Image to get the Details.")
+                    wrapMode: Text.WordWrap
+                }
+                HorizontalListDivider{
+                    visible: session.presenterPropertyList.length
+                }
+
+                // S P E A K E R    Repeater
+                Repeater {
+                    model: session.presenterPropertyList
+
+                    Pane {
+                        topPadding: 4
+                        leftPadding: 0
+                        rightPadding: 0
+                        Layout.fillWidth: true
+
+                        ColumnLayout {
+                            id: speakerRow
+                            // without this divider not over total width
+                            implicitWidth: appWindow.width
+                            RowLayout {
+                                spacing: 20
+                                Layout.leftMargin: 16 //+12
+                                Layout.rightMargin: 6
+                                Layout.topMargin: 6
+                                SpeakerImageItem {
+                                    speaker: model.modelData
+                                }
+                                ColumnLayout {
+                                    Layout.fillWidth: true
+                                    spacing: 0
+                                    LabelSubheading {
+                                        anchors.left: parent.left
+                                        anchors.right: parent.right
+                                        rightPadding: 12
+                                        text: model.modelData.name.length? model.modelData.name : qsTr("Unnamed Speaker")
+                                        font.bold: true
+                                        wrapMode: Label.WordWrap
+                                    } // label
+                                    // TODO Bugreport wrapmode not working
+                                    LabelBody {
+                                        anchors.left: parent.left
+                                        anchors.right: parent.right
+                                        rightPadding: 12
+                                        text: sessionDetailPage.sessionInfo(model.modelData) // speakerRow.ListView.view
+                                        wrapMode: Label.WordWrap
+                                        maximumLineCount: 3
+                                        elide: Label.ElideRight
+                                    }
+                                }
+                                MouseArea {
+                                    anchors.fill: parent
+                                    onClicked: {
+                                        navPane.pushSpeakerDetail(model.modelData.speakerId)
+                                    }
+                                } // mouse
+                            } // end Row Layout
+                            HorizontalListDivider{}
+                        } // end Col Layout speaker row
+
+                    }// presenter Pane
+                } // speaker repeater
+
             }
 
         }// root pane
-
+        ScrollIndicator.vertical: ScrollIndicator { }
     } // flickable
 
     function characterForButton() {
@@ -197,8 +271,17 @@ Page {
         } else {
             s =qsTr("Session")
         }
-
         return s + " (" + session.minutes + qsTr(" Minutes)")
+    }
+    function sessionInfo(speaker) {
+        var s = ""
+        for (var i = 0; i < speaker.sessionsAsQVariantList().length; i++) {
+            if(i > 0) {
+                s += "\n"
+            }
+            s += speaker.sessionsAsQVariantList()[i].title
+        }
+        return s
     }
 
     // called immediately after Loader.loaded

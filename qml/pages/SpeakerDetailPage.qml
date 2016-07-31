@@ -81,7 +81,7 @@ Page {
                 HorizontalListDivider{
                     visible: speaker.sessionsPropertyList.length
                 }
-                // S P E A K E R    Repeater
+                // S E S S I O N    Repeater
                 Repeater {
                     model: speaker.sessionsPropertyList
 
@@ -90,8 +90,10 @@ Page {
                         leftPadding: 0
                         rightPadding: 0
                         Layout.fillWidth: true
+
                         ColumnLayout {
-                            // base column
+                            id: sessionRow
+                            Layout.fillWidth: true
                             anchors.left: parent.left
                             anchors.right: parent.right
                             RowLayout {
@@ -246,9 +248,9 @@ Page {
                                 } // // repeater right column
                             } // repeater base row
                             HorizontalListDivider{}
-                        } // rep base col
-                    } // speaker pane
-                } // repeater
+                        } // repeater sessionRow
+                    } // session pane
+                } // session repeater
             } // col layout
         } // root
 
