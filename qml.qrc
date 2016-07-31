@@ -61,5 +61,9 @@
         <file>qml/pages/SessionDetailPage.qml</file>
         <file>qml/common/ButtonOneCharUncolored.qml</file>
         <file>qml/pages/RoomDetailPage.qml</file>
+        <file>qml/navigation/ScheduleNavigation.qml</file>
+        <file>qml/navigation/TrackNavigation.qml</file>
+        <file>qml/navigation/VenueNavigation.qml</file>
+        <file>qml/pages/HelpPage.qml</file>
     </qresource>
 </RCC>

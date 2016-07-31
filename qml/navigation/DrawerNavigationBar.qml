@@ -45,7 +45,7 @@ Drawer {
                         leftPadding: 16
                         rightPadding: 16
                         LabelBody {
-                            text: "ekke's Business APPs\nQtQuickControls2"
+                            text: "ekke's Conference2Go APPs\nQtCon 2015 Berlin"
                             wrapMode: Text.WordWrap
                             font.weight: Font.Medium
                             color: textOnPrimary
@@ -66,7 +66,29 @@ Drawer {
                     x: 16
                     y: 12
                     IconColored {
-                        imageName: "work.png"
+                        imageName: "venue.png"
+                        imageSize: 36
+                        color: textOnPrimary
+                    }
+                }
+                Item {
+                    width: 64
+                    height: 64
+                    x: 16+64
+                    y: 12
+                    IconColored {
+                        imageName: "schedule.png"
+                        imageSize: 36
+                        color: textOnPrimary
+                    }
+                }
+                Item {
+                    width: 64
+                    height: 64
+                    x: 16+64+64
+                    y: 12
+                    IconColored {
+                        imageName: "speaker.png"
                         imageSize: 36
                         color: textOnPrimary
                     }

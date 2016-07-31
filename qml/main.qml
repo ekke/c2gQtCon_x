@@ -112,14 +112,15 @@ ApplicationWindow {
     // WHILE_CURRENT: About, Settings
     // StackView: Home --> QtPage, Settings --> primary / Accent
     property var navigationModel: [
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon 2015", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
-        {"type": "../navigation/DrawerSubtitle.qml", "name": "Business", "icon": "", "source": "", "a_p":1, "canGoBack":false},
-        // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Customer", "icon": "business.png", "source": "../pages/CustomerPage.qml", "showCounter":false, "showMarker":true, "a_p":2, "canGoBack":false},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Schedule", "icon": "schedule.png", "source": "../navigation/ScheduleNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Speaker", "icon": "speaker.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
-        // {"type": "../navigation/DrawerNavigationButton.qml", "name": "Calendar", "icon": "calendar.png", "source": "../pages/CalendarTestPage.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":false},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Tracks", "icon": "tag.png", "source": "../navigation/TrackNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Venue", "icon": "venue.png", "source": "../navigation/VenueNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Settings", "icon": "settings.png", "source": "../navigation/SettingsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Help", "icon": "help.png", "source": "../pages/HelpPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false},
         {"type": "../navigation/DrawerNavigationTextButton.qml", "name": "About this App", "icon": "", "source": "../pages/AboutPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false}
     ]
     property var developerModel: {
@@ -130,12 +131,13 @@ ApplicationWindow {
     property var navigationTitles: [
         qsTr("QtCon 2015 Berlin"),
         "",
-        "",
-        // qsTr("Biz Data Customer"),
         qsTr("QtCon 2015 Berlin"),
-        // qsTr("Biz Data Calendar"),
+        qsTr("QtCon 2015 Berlin"),
+        qsTr("QtCon 2015 Berlin"),
+        qsTr("QtCon 2015 Venue"),
         "",
         qsTr("QtCon 2015 Settings"),
+        qsTr("QtCon 2015 Help"),
         qsTr("QtCon 2015 About"),
         qsTr("QtCon 2015 D E V E L O P E R Tools")
     ]
@@ -145,11 +147,12 @@ ApplicationWindow {
     property var navigationData: [
         {"counter":0, "marker":""},
         {},
-        {},
-        // {"counter":0, "marker":"transparent"},
         {"counter":0, "marker":""},
-        // {"counter":0, "marker":""},
+        {"counter":0, "marker":""},
+        {"counter":0, "marker":""},
+        {"counter":0, "marker":""},
         {},
+        {"counter":0, "marker":""},
         {"counter":0, "marker":""},
         {"counter":0, "marker":""},
         {"counter":0, "marker":""}
@@ -158,7 +161,7 @@ ApplicationWindow {
     // plus max 4 from drawer: home, customer, orders, settings
     // favoritesModel maps to index from navigationModel
     property var favoritesModel: [
-        0, 3, 5
+        0, 2, 3, 4
     ]
     property int firstActiveDestination: 0
     property int navigationIndex: firstActiveDestination
