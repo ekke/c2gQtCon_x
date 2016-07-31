@@ -128,16 +128,16 @@ ApplicationWindow {
     property bool initDone: false
 
     property var navigationTitles: [
-        qsTr("Biz Data Homepage"),
+        qsTr("QtCon 2015 Berlin"),
         "",
         "",
         // qsTr("Biz Data Customer"),
-        qsTr("Speaker"),
+        qsTr("QtCon 2015 Berlin"),
         // qsTr("Biz Data Calendar"),
         "",
-        qsTr("Biz Data Settings"),
-        qsTr("Biz Data About"),
-        qsTr("Biz Data D E V E L O P E R Tools")
+        qsTr("QtCon 2015 Settings"),
+        qsTr("QtCon 2015 About"),
+        qsTr("QtCon 2015 D E V E L O P E R Tools")
     ]
     property string currentTitle: navigationTitles[navigationIndex]
     // Counter: orders
