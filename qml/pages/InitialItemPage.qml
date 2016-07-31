@@ -14,7 +14,7 @@ Pane {
         topPadding: 12
         wrapMode: Label.WordWrap
         horizontalAlignment: Qt.AlignHCenter
-        text: "Welcome to ekkes APP demonstrating Navigation by Drawer and Favorites-at-Bottom"
+        text: "Welcome to\nekkes Conference12Go APP\nfor\nQtCon 2015"
     }
     BusyIndicator {
         id: busyIndicator
@@ -34,6 +34,22 @@ Pane {
         horizontalAlignment: Qt.AlignHCenter
         topPadding: 12
         color: primaryColor
+    }
+    Item {
+        id: imageItem
+        anchors.top: infoLabel.bottom
+        property int size: Math.min(600, rootPane.width * 0.8)
+        width: size
+        height: size
+        Image {
+            x: 24
+            width: imageItem.size
+            height: imageItem.size
+            horizontalAlignment: Qt.AlignHCenter
+            verticalAlignment: Qt.AlignVCenter
+            fillMode: Image.PreserveAspectFit
+            source: "qrc:/images/extra/qt-logo.png"
+        }
     }
 
     // emitting a Signal could be another option
