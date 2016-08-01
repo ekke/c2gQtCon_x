@@ -18,25 +18,35 @@ Page {
     // SECTION HEADER
     Component {
         id: sectionHeading
-        ColumnLayout {
+        Pane {
+            topPadding: 0
+            bottomPadding: 12
+            leftPadding: 0
+            rightPadding: 0
             width: parent.width
-            RowLayout {
-                Layout.topMargin: 6
-                spacing: 20
-                IconColored {
-                    Layout.leftMargin: 16
-                    imageSize: 36
-                    imageName: "time.png"
-                }
-                LabelTitle {
-                    text: section.substr(section.length - 5) // TODO .toLocaleTimeString("HH:mm")
-                    anchors.verticalCenter: parent.verticalCenter
-                    color: primaryColor
-                    font.bold: true
-                }
-            } // row layout
-            HorizontalListDivider{}
-        } // col layout
+            background: Rectangle{color: Material.listHighlightColor}
+            ColumnLayout {
+                y: -6
+                width: parent.width
+                height: 48
+                RowLayout {
+                    Layout.topMargin: 6
+                    spacing: 10
+                    IconColored {
+                        Layout.leftMargin: 16 +36 + 20
+                        // imageSize: 36
+                        imageName: "time.png"
+                    }
+                    LabelTitle {
+                        text: section.substr(section.length - 5) // TODO .toLocaleTimeString("HH:mm")
+                        anchors.verticalCenter: parent.verticalCenter
+                        color: primaryColor
+                        font.bold: true
+                    }
+                } // section row
+                //HorizontalListDivider{}
+            } // section col
+        } // section Pane
     }
 
 
