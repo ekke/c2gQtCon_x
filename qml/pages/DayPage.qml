@@ -40,71 +40,7 @@ Page {
     }
 
 
-    // LIST ROW DELEGTE
-    Component {
-        id: sessionRowComponent
-        ColumnLayout {
-            id: sessionRow
-            // without this divider not over total width
-            implicitWidth: appWindow.width
-            RowLayout {
-                spacing: 20
-                Layout.leftMargin: 16+12
-                Layout.rightMargin: 6
-                Layout.topMargin: 6
-                ColumnLayout {
-                    CharCircle {
-                        size: 24
-                        text: sessionRow.ListView.view.characterForButton(model.modelData)
-                    }
-                } // left column
-                ColumnLayout {
-                    Layout.fillWidth: true
-                    // without setting a maximum width, word wrap not working
-                    Layout.maximumWidth: appWindow.width-150
-                    Layout.minimumWidth: appWindow.width-150
-                    spacing: 0
-                    LabelSubheading {
-                        rightPadding: 12
-                        text: model.modelData.title
-                        font.bold: true
-                        wrapMode: Label.WordWrap
-                        maximumLineCount: 2
-                        elide: Label.ElideRight
-                    } // label
 
-                    LabelBody {
-                        visible: model.modelData.subtitle.length
-                        rightPadding: 12
-                        text: model.modelData.subtitle
-                        wrapMode: Label.WordWrap
-                        maximumLineCount: 2
-                        elide: Label.ElideRight
-                    }
-                } // middle column
-                ListRowButton {
-                    onClicked: {
-                        navPane.pushSessionDetail(model.modelData.sessionId)
-                    }
-                }
-                ColumnLayout {
-                    Layout.rightMargin: 8
-                    IconActive {
-                        transform: Translate { x: -36 }
-                        imageSize: 48
-                        imageName: "stars.png"
-                        opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
-                        ListRowButton {
-                            onClicked: {
-                                model.modelData.isFavorite = !model.modelData.isFavorite
-                            }
-                        }
-                    } // favoritesIcon
-                } // right column
-            } // end Row Layout
-            HorizontalListDivider{}
-        } // end Col Layout speaker row
-    } // sessionRowComponent
 
     // LIST VIEW
     ListView {
@@ -119,7 +55,95 @@ Page {
         // QList<Session*>
         //model: dataManager.sessionPropertyList
 
-        delegate: sessionRowComponent
+        delegate:
+
+            Loader {
+            id: sessionLoader
+            // define Components inside Loader to enable direct access to ListView functions and modelData
+            sourceComponent: hasScheduleItem()? scheduleRowComponent : sessionRowComponent
+
+            // LIST ROW DELEGATES
+            Component {
+                id: scheduleRowComponent
+
+                ColumnLayout {
+                    Label {
+                        text: model.modelData.title
+                    }
+                    Label {
+                        visible: model.modelData.scheduleItemAsDataObject.isBreak
+                        text: "BREAK"
+                    }
+                }
+
+            } // scheduleRowComponent
+
+            Component {
+                id: sessionRowComponent
+                ColumnLayout {
+                    id: sessionRow
+                    // without this divider not over total width
+                    implicitWidth: appWindow.width
+                    RowLayout {
+                        spacing: 20
+                        Layout.leftMargin: 16+12
+                        Layout.rightMargin: 6
+                        Layout.topMargin: 6
+                        ColumnLayout {
+                            CharCircle {
+                                size: 24
+                                text: listView.characterForButton(model.modelData)
+                            }
+                        } // left column
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            // without setting a maximum width, word wrap not working
+                            Layout.maximumWidth: appWindow.width-150
+                            Layout.minimumWidth: appWindow.width-150
+                            spacing: 0
+                            LabelSubheading {
+                                rightPadding: 12
+                                text: model.modelData.title
+                                font.bold: true
+                                wrapMode: Label.WordWrap
+                                maximumLineCount: 2
+                                elide: Label.ElideRight
+                            } // label
+
+                            LabelBody {
+                                visible: model.modelData.subtitle.length
+                                rightPadding: 12
+                                text: model.modelData.subtitle
+                                wrapMode: Label.WordWrap
+                                maximumLineCount: 2
+                                elide: Label.ElideRight
+                            }
+                        } // middle column
+                        ListRowButton {
+                            onClicked: {
+                                navPane.pushSessionDetail(model.modelData.sessionId)
+                            }
+                        }
+                        ColumnLayout {
+                            Layout.rightMargin: 8
+                            IconActive {
+                                transform: Translate { x: -36 }
+                                imageSize: 48
+                                imageName: "stars.png"
+                                opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
+                                ListRowButton {
+                                    onClicked: {
+                                        model.modelData.isFavorite = !model.modelData.isFavorite
+                                    }
+                                }
+                            } // favoritesIcon
+                        } // right column
+                    } // end Row Layout
+                    HorizontalListDivider{}
+                } // end Col Layout speaker row
+            } // sessionRowComponent
+
+        }
 
         section.property: "sortKey"
         section.criteria: ViewSection.FullString
