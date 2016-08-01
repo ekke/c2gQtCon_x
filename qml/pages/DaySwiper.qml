@@ -21,10 +21,10 @@ Page {
     property alias currentIndex: navSwipePane.currentIndex
 
     property bool tabBarIsFixed: true
-    property var tabButtonModel: [{"name": "Thursday"},
-        {"name": "Friday"},
-        {"name": "Saturday"},
-        {"name": "Sunday"}
+    property var tabButtonModel: [{"name": qsTr("Thursday")},
+        {"name": qsTr("Friday")},
+        {"name": qsTr("Saturday")},
+        {"name": qsTr("Sunday")}
     ]
 
     header: isLandscape? null : tabBar

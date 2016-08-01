@@ -120,10 +120,6 @@ Page {
         //model: dataManager.sessionPropertyList
 
         delegate: sessionRowComponent
-        // header: headerComponent
-        // in Landscape header scrolls away
-        // in protrait header always visible
-        // headerPositioning: isLandscape? ListView.PullBackHeader : ListView.OverlayHeader
 
         section.property: "sortKey"
         section.criteria: ViewSection.FullString
