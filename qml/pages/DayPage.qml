@@ -20,18 +20,25 @@ Page {
         id: sectionHeading
         ColumnLayout {
             width: parent.width
-            LabelTitle {
-                topPadding: 6
-                bottomPadding: 6
-                leftPadding: 16
-                text: section
-                anchors.verticalCenter: parent.verticalCenter
-                color: primaryColor
-                font.bold: true
-            }
+            RowLayout {
+                Layout.topMargin: 6
+                spacing: 20
+                IconColored {
+                    Layout.leftMargin: 16
+                    imageSize: 36
+                    imageName: "time.png"
+                }
+                LabelTitle {
+                    text: section.substr(section.length - 5) // TODO .toLocaleTimeString("HH:mm")
+                    anchors.verticalCenter: parent.verticalCenter
+                    color: primaryColor
+                    font.bold: true
+                }
+            } // row layout
             HorizontalListDivider{}
         } // col layout
     }
+
 
     // LIST ROW DELEGTE
     Component {
@@ -45,13 +52,17 @@ Page {
                 Layout.leftMargin: 16+12
                 Layout.rightMargin: 6
                 Layout.topMargin: 6
-//                SpeakerImageItem {
-//                    speaker: model.modelData
-//                }
+                ColumnLayout {
+                    CharCircle {
+                        size: 24
+                        text: sessionRow.ListView.view.characterForButton(model.modelData)
+                    }
+                } // left column
                 ColumnLayout {
                     Layout.fillWidth: true
                     // without setting a maximum width, word wrap not working
-                    Layout.maximumWidth: appWindow.width-120
+                    Layout.maximumWidth: appWindow.width-150
+                    Layout.minimumWidth: appWindow.width-150
                     spacing: 0
                     LabelSubheading {
                         rightPadding: 12
@@ -63,19 +74,33 @@ Page {
                     } // label
 
                     LabelBody {
+                        visible: model.modelData.subtitle.length
                         rightPadding: 12
-                        text: model.modelData.title // sessionRow.ListView.view.sessionInfo(model.modelData)
+                        text: model.modelData.subtitle
                         wrapMode: Label.WordWrap
                         maximumLineCount: 2
                         elide: Label.ElideRight
                     }
-                }
-                MouseArea {
-                    anchors.fill: parent
+                } // middle column
+                ListRowButton {
                     onClicked: {
                         navPane.pushSessionDetail(model.modelData.sessionId)
                     }
-                } // mouse
+                }
+                ColumnLayout {
+                    Layout.rightMargin: 8
+                    IconActive {
+                        transform: Translate { x: -36 }
+                        imageSize: 48
+                        imageName: "stars.png"
+                        opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
+                        ListRowButton {
+                            onClicked: {
+                                model.modelData.isFavorite = !model.modelData.isFavorite
+                            }
+                        }
+                    } // favoritesIcon
+                } // right column
             } // end Row Layout
             HorizontalListDivider{}
         } // end Col Layout speaker row
@@ -106,16 +131,21 @@ Page {
 
         ScrollIndicator.vertical: ScrollIndicator { }
 
-//        function sessionInfo(speaker) {
-//            var s = ""
-//            for (var i = 0; i < speaker.sessionsPropertyList.length; i++) {
-//                if(i > 0) {
-//                    s += "\n"
-//                }
-//                s += speaker.sessionsPropertyList[i].title
-//            }
-//            return s
-//        }
+        function characterForButton(session) {
+            if(session.isTraining) {
+                return "T"
+            }
+            if(session.isLightning) {
+                return "L"
+            }
+            if(session.isKeynote) {
+                return "K"
+            }
+            if(session.isCommunity) {
+                return "C"
+            }
+            return "S"
+        }
     } // end listView
 
     Component.onDestruction: {

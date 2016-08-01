@@ -67,5 +67,7 @@
         <file>qml/pages/HelpPage.qml</file>
         <file>qml/pages/DaySwiper.qml</file>
         <file>qml/pages/DayPage.qml</file>
+        <file>qml/common/CharCircle.qml</file>
+        <file>qml/common/ListRowButton.qml</file>
     </qresource>
 </RCC>

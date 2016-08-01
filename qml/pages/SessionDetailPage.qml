@@ -170,7 +170,7 @@ Page {
                     visible: session.presenterPropertyList.length
                     leftPadding: 10
                     font.italic: true
-                    text: qsTr("Tap on the Speaker Image to get the Details.")
+                    text: qsTr("Tap on the Speaker Data to get the Details.")
                     wrapMode: Text.WordWrap
                 }
                 HorizontalListDivider{

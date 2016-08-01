@@ -84,8 +84,16 @@ Page {
         }
 
         function pushSessionDetail(sessionId) {
-            sessionDetailPageLoader.sessionId = sessionId
-            sessionDetailPageLoader.active = true
+            if(sessionDetailPageLoader.active) {
+                sessionDetailPageLoader.item.sessionId = sessionId
+                var pageStackIndex = findPage(sessionDetailPageLoader.item.name)
+                if(pageStackIndex > 0) {
+                    backToPage(pageStackIndex)
+                }
+            } else {
+                sessionDetailPageLoader.sessionId = sessionId
+                sessionDetailPageLoader.active = true
+            }
         }
 
         function pushRoomDetail(roomId) {

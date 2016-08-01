@@ -72,11 +72,7 @@ Page {
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
-            var widthScale = (appWindow.width-20) / roomImage.sourceSize.width
-            var heightScale = (appWindow.height-60) / roomImage.sourceSize.height
-            roomImage.scale = Math.min(widthScale, heightScale)
-            flickable.contentX = 0
-            flickable.contentY = 0
+            fitIntoWindow()
         }
     } // FAB
     FloatingActionMiniButton {
@@ -94,8 +90,17 @@ Page {
         }
     } // FAB
 
+    function fitIntoWindow() {
+        var widthScale = (appWindow.width-20) / roomImage.sourceSize.width
+        var heightScale = (appWindow.height-60) / roomImage.sourceSize.height
+        roomImage.scale = Math.min(widthScale, heightScale)
+        flickable.contentX = 0
+        flickable.contentY = 0
+    }
+
     // called immediately after Loader.loaded
     function init() {
+        fitIntoWindow()
         console.log(qsTr("Init done from RoomDetailPage"))
     }
     // called from Component.destruction
