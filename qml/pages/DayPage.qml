@@ -15,6 +15,7 @@ Page {
     bottomPadding: 6
     topPadding: 6
 
+
     // SECTION HEADER
     Component {
         id: sectionHeading
@@ -32,13 +33,14 @@ Page {
                 RowLayout {
                     Layout.topMargin: 6
                     spacing: 10
-                    IconColored {
+                    // TODO BUG IconColored sometimes washed out in list
+                    IconActive {
                         Layout.leftMargin: 16 +36 + 20
                         // imageSize: 36
                         imageName: "time.png"
                     }
                     LabelTitle {
-                        text: section.substr(section.length - 5) // TODO .toLocaleTimeString("HH:mm")
+                        text: navSwipePage.tabButtonModel[index].name + ", " + section.substr(section.length - 5) // TODO .toLocaleTimeString("HH:mm")
                         anchors.verticalCenter: parent.verticalCenter
                         color: primaryColor
                         font.bold: true
@@ -91,7 +93,7 @@ Page {
                                 imageSize: 36
                                 imageName: listView.scheduleItemImage(model.modelData)
                                 // opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
-                            } // favoritesIcon
+                            } // scheduleItemImage
                         } // left column
                         ColumnLayout {
                             Layout.fillWidth: true
@@ -190,7 +192,6 @@ Page {
                                     elide: Label.ElideRight
                                 }
                             }
-
                         } // middle column
                         ListRowButton {
                             onClicked: {

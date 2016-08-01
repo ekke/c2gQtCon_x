@@ -65,15 +65,24 @@ Page {
                     }
                 } // row
                 HorizontalDivider {}
-                LabelHeadline {
+                RowLayout {
                     visible: speaker.sessionsPropertyList.length
-                    leftPadding: 10
-                    text: qsTr("Talks")
-                    color: primaryColor
+                    Layout.leftMargin: 16
+                    IconActive {
+                        anchors.verticalCenter: parent.verticalCenter
+                        //transform: Translate { x: -36 }
+                        imageSize: 36
+                        imageName: "schedule.png"
+                    } // scheduleItemImage
+                    LabelHeadline {
+                        leftPadding: 10
+                        text: qsTr("Talks")
+                        color: primaryColor
+                    }
                 }
                 LabelBodySecondary {
                     visible: speaker.sessionsPropertyList.length
-                    leftPadding: 10
+                    leftPadding: 16
                     font.italic: true
                     text: qsTr("Tap on the Talk Icon or Menu Button to get the Details.\nTap on the Star Icon to add to / remove from your personal schedule.")
                     wrapMode: Text.WordWrap
@@ -91,6 +100,8 @@ Page {
                         rightPadding: 0
                         Layout.fillWidth: true
 
+                        // dirty hack with some Buttons to get click events
+                        // without loosing click from Menu or Favorites
                         ColumnLayout {
                             id: sessionRow
                             Layout.fillWidth: true
@@ -107,18 +118,18 @@ Page {
                                     Layout.minimumWidth: speakerImage.width
                                     Layout.rightMargin: 6
                                     anchors.top: parent.top
-                                    ButtonOneChar {
+                                    CharCircle {
                                         Layout.leftMargin: 14
-                                        Layout.rightMargin: 14
+                                        size: 36
                                         text: speakerDetailPage.characterForButton(modelData)
-                                        backgroundColor: accentColor
-                                        textColor: textOnAccent
-                                        onClicked: {
-                                            navPane.pushSessionDetail(modelData.sessionId)
-                                        }
                                     }
                                     LabelBody {
                                         text: modelData.minutes + qsTr(" Minutes")
+                                    }
+                                    ListRowButton {
+                                        onClicked: {
+                                            navPane.pushSessionDetail(modelData.sessionId)
+                                        }
                                     }
                                 } // repeater left column
 
@@ -222,15 +233,26 @@ Page {
                                             text: modelData.sessionTrackAsDataObject.name != "*****" ? modelData.sessionTrackAsDataObject.name : ""
                                         }
                                     } // repeater track row
+
                                     LabelSubheading {
                                         text: modelData.title
                                         font.bold: true
                                         wrapMode: Label.WordWrap
+                                        ListRowButton {
+                                            onClicked: {
+                                                navPane.pushSessionDetail(modelData.sessionId)
+                                            }
+                                        }
                                     } // title
                                     LabelBody {
                                         visible: modelData.subtitle.length
                                         text: modelData.subtitle
                                         wrapMode: Label.WordWrap
+                                        ListRowButton {
+                                            onClicked: {
+                                                navPane.pushSessionDetail(modelData.sessionId)
+                                            }
+                                        }
                                     } // subtitle
                                     LabelSubheading {
                                         visible: modelData.presenterPropertyList.length > 1
@@ -238,13 +260,24 @@ Page {
                                         color: primaryColor
                                         font.bold: true
                                         wrapMode: Label.WordWrap
+                                        ListRowButton {
+                                            onClicked: {
+                                                navPane.pushSessionDetail(modelData.sessionId)
+                                            }
+                                        }
                                     } // co-speakers header
                                     LabelBody {
                                         visible: modelData.presenterPropertyList.length > 1
                                         text: speakerDetailPage.coSpeakers(modelData)
                                         font.bold: true
                                         wrapMode: Label.WordWrap
+                                        ListRowButton {
+                                            onClicked: {
+                                                navPane.pushSessionDetail(modelData.sessionId)
+                                            }
+                                        }
                                     } // co-speakers names
+
                                 } // // repeater right column
                             } // repeater base row
                             HorizontalListDivider{}

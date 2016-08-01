@@ -15,6 +15,7 @@ Page {
     property string name: "SessionDetailPage"
 
     property Session session
+    property bool isScheduleItem: false
     property int sessionId: -2
     onSessionIdChanged: {
         if(sessionId > 0) {
@@ -22,6 +23,7 @@ Page {
             // already resolved for the list
             // dataManager.resolveOrderReferences(order)
             // customer = order.customerAsDataObject
+            isScheduleItem = session.hasScheduleItem()
         }
     }
 
@@ -55,9 +57,18 @@ Page {
                     Layout.leftMargin: 16
                     Layout.rightMargin: 16
                     ButtonOneCharUncolored {
+                        visible: !isScheduleItem
                         anchors.verticalCenter: parent.verticalCenter
                         text: sessionDetailPage.characterForButton()
                     } // button one char
+                    IconActive {
+                        visible: isScheduleItem
+                        anchors.verticalCenter: parent.verticalCenter
+                        //transform: Translate { x: -36 }
+                        imageSize: 24
+                        imageName: scheduleItemImage()
+                    } // scheduleItemImage
+
                     LabelSubheading {
                         Layout.leftMargin: 16
                         anchors.verticalCenter: parent.verticalCenter
@@ -65,6 +76,7 @@ Page {
                         wrapMode: Text.WordWrap
                     }
                     IconActive {
+                        visible: !isScheduleItem
                         //transform: Translate { y: 8 }
                         imageSize: 48
                         imageName: "stars.png"
@@ -145,7 +157,7 @@ Page {
                 }
 
                 HorizontalDivider{
-                visible: session.subtitle.length || session.description.length
+                    visible: session.subtitle.length || session.description.length
                 }
 
                 LabelSubheading {
@@ -157,18 +169,26 @@ Page {
                 }
 
                 HorizontalDivider{
-                visible: session.abstractText.length
+                    visible: session.abstractText.length
                 }
-
-                LabelHeadline {
+                RowLayout {
                     visible: session.presenterPropertyList.length
-                    leftPadding: 10
-                    text: qsTr("Speaker")
-                    color: primaryColor
+                    Layout.leftMargin: 16
+                    IconActive {
+                        anchors.verticalCenter: parent.verticalCenter
+                        //transform: Translate { x: -36 }
+                        imageSize: 36
+                        imageName: "speaker.png"
+                    } // scheduleItemImage
+                    LabelHeadline {
+                        leftPadding: 10
+                        text: qsTr("Speaker")
+                        color: primaryColor
+                    }
                 }
                 LabelBodySecondary {
                     visible: session.presenterPropertyList.length
-                    leftPadding: 10
+                    leftPadding: 16
                     font.italic: true
                     text: qsTr("Tap on the Speaker Data to get the Details.")
                     wrapMode: Text.WordWrap
@@ -235,6 +255,21 @@ Page {
         ScrollIndicator.vertical: ScrollIndicator { }
     } // flickable
 
+    function scheduleItemImage() {
+        if(!isScheduleItem) {
+            return ""
+        }
+        if(session.scheduleItemAsDataObject.isRegistration) {
+            return "key.png"
+        }
+        if(session.scheduleItemAsDataObject.isLunch) {
+            return "lunch.png"
+        }
+        if(session.scheduleItemAsDataObject.isEvent) {
+            return "party_event.png"
+        }
+        return "break.png"
+    }
     function characterForButton() {
         if(session.isTraining) {
             return "T"
@@ -251,20 +286,34 @@ Page {
         return "S"
     }
     function textForSessionType() {
-        var s
-        if(session.isTraining) {
-            s = qsTr("Training ")
-        } else
-        if(session.isLightning) {
-            s = qsTr("Lightning Talk")
-        } else
-        if(session.isKeynote) {
-            s = qsTr("Keynote")
-        } else
-        if(session.isCommunity) {
-            s = qsTr("Community")
+        var s = ""
+        if (isScheduleItem) {
+            if(session.scheduleItemAsDataObject.isRegistration) {
+                s = qsTr("Registration")
+            } else
+                if(session.scheduleItemAsDataObject.isEvent) {
+                    s = qsTr("Event")
+                } else
+                    if(session.scheduleItemAsDataObject.isLunch) {
+                        s = qsTr("Lunch")
+                    } else {
+                        s = qsTr("Break")
+                    }
         } else {
-            s =qsTr("Session")
+            if(session.isTraining) {
+                s = qsTr("Training ")
+            } else
+                if(session.isLightning) {
+                    s = qsTr("Lightning Talk")
+                } else
+                    if(session.isKeynote) {
+                        s = qsTr("Keynote")
+                    } else
+                        if(session.isCommunity) {
+                            s = qsTr("Community")
+                        } else {
+                            s =qsTr("Session")
+                        }
         }
         return s + " (" + session.minutes + qsTr(" Minutes)")
     }

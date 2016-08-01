@@ -57,6 +57,7 @@ Page {
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
+        showShadow: true
         onClicked: {
             roomImage.scale = roomImage.scale - 0.2
         }
@@ -71,6 +72,7 @@ Page {
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
+        showShadow: true
         onClicked: {
             fitIntoWindow()
         }
@@ -85,6 +87,7 @@ Page {
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
+        showShadow: true
         onClicked: {
             roomImage.scale = roomImage.scale + 0.2
         }

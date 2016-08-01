@@ -144,8 +144,8 @@ Page {
         anchors.margins: 20
         anchors.right: parent.right
         anchors.bottom: parent.bottom
-        imageSource: "qrc:/images/"+iconOnPrimaryDarkFolder+imageName
-        backgroundColor: primaryDarkColor
+        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
+        backgroundColor: accentColor
         onClicked: {
             navPane.backToRootPage()
         }
