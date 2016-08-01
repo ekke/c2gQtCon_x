@@ -77,14 +77,40 @@ Page {
                 id: scheduleRowComponent
 
                 ColumnLayout {
-                    Label {
-                        text: model.modelData.title
+                    id: scheduleRow
+                    // without this divider not over total width
+                    implicitWidth: appWindow.width
+                    RowLayout {
+                        spacing: 20
+                        Layout.leftMargin: 20
+                        Layout.rightMargin: 6
+                        Layout.topMargin: 6
+                        ColumnLayout {
+                            IconActive {
+                                //transform: Translate { x: -36 }
+                                imageSize: 36
+                                imageName: listView.scheduleItemImage(model.modelData)
+                                // opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
+                            } // favoritesIcon
+                        } // left column
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            // without setting a maximum width, word wrap not working
+                            Layout.maximumWidth: appWindow.width-150
+                            Layout.minimumWidth: appWindow.width-150
+                            spacing: 0
+                            LabelSubheading {
+                                rightPadding: 12
+                                text: model.modelData.title
+                                font.bold: true
+                                wrapMode: Label.WordWrap
+                                maximumLineCount: 2
+                                elide: Label.ElideRight
+                            } // label
+                        } // middle column
                     }
-                    Label {
-                        visible: model.modelData.scheduleItemAsDataObject.isBreak
-                        text: "BREAK"
-                    }
-                }
+
+                } // scheduleRow
 
             } // scheduleRowComponent
 
@@ -160,6 +186,18 @@ Page {
         section.delegate: sectionHeading
 
         ScrollIndicator.vertical: ScrollIndicator { }
+        function scheduleItemImage(session) {
+            if(session.scheduleItemAsDataObject.isRegistration) {
+                return "key.png"
+            }
+            if(session.scheduleItemAsDataObject.isLunch) {
+                return "lunch.png"
+            }
+            if(session.scheduleItemAsDataObject.isEvent) {
+                return "party_event.png"
+            }
+            return "break.png"
+        }
 
         function characterForButton(session) {
             if(session.isTraining) {

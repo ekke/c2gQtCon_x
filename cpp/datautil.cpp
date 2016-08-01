@@ -413,20 +413,16 @@ void DataUtil::prepareSessions()
                 // setting some boolean here makes it easier to distinguish in UI
                 if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
                     ScheduleItem* scheduleItem = mDataManager->createScheduleItem();
-                    if(session->title().contains("Evening event")) {
+                    if(session->title().contains("Evening event") || session->title().contains("SHOW EUROPE")) {
                         scheduleItem->setIsEvent(true);
                     } else {
-                        if(trackName == "Break") {
-                            scheduleItem->setIsBreak(true);
+                        if(session->title().contains("Registration")) {
+                            scheduleItem->setIsRegistration(true);
                         } else {
-                            if(session->title().contains("Registration")) {
-                                scheduleItem->setIsRegistration(true);
+                            if(session->title().contains("Lunch")) {
+                                scheduleItem->setIsLunch(true);
                             } else {
-                                if(session->title().contains("Lunch")) {
-                                    scheduleItem->setIsLunch(true);
-                                } else {
-                                    scheduleItem->setIsEvent(true);
-                                }
+                                scheduleItem->setIsBreak(true);
                             }
                         }
                     }
@@ -435,7 +431,7 @@ void DataUtil::prepareSessions()
                     scheduleItem->setSession(session->sessionId());
                     mDataManager->insertScheduleItem(scheduleItem);
                 } else {
-                    if(session->title().contains("Lightning")) {
+                    if(session->title().contains("Lightning") || session->sessionType().contains("Lightning Talk")) {
                         session->setIsLightning(true);
                     } else {
                         if(session->title().contains("Keynote")) {
