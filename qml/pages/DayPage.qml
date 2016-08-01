@@ -12,8 +12,8 @@ Page {
     focus: true
     property string name: "dayListPage"
     property Day conferenceDay
-    bottomPadding: 24
-    topPadding: 16
+    bottomPadding: 6
+    topPadding: 6
 
     // SECTION HEADER
     Component {
@@ -61,7 +61,7 @@ Page {
         currentIndex: -1
         anchors.fill: parent
         // setting the margin to be able to scroll the list above the FAB to use the Switch on last row
-        // bottomMargin: 40
+        bottomMargin: 40
         // QList<Session*>
         //model: dataManager.sessionPropertyList
 
@@ -99,17 +99,27 @@ Page {
                             Layout.maximumWidth: appWindow.width-150
                             Layout.minimumWidth: appWindow.width-150
                             spacing: 0
-                            LabelSubheading {
+                            LabelTitle {
                                 rightPadding: 12
                                 text: model.modelData.title
-                                font.bold: true
+                                //font.bold: true
                                 wrapMode: Label.WordWrap
                                 maximumLineCount: 2
                                 elide: Label.ElideRight
                             } // label
+                            LabelSubheading {
+                                rightPadding: 12
+                                bottomPadding: 6
+                                font.italic: true
+                                text: model.modelData.startTime.toLocaleTimeString("HH:mm") + " - " + model.modelData.endTime.toLocaleTimeString("HH:mm")
+                            }
                         } // middle column
+                        ListRowButton {
+                            onClicked: {
+                                navPane.pushSessionDetail(model.modelData.sessionId)
+                            }
+                        }
                     }
-
                 } // scheduleRow
 
             } // scheduleRowComponent
@@ -145,7 +155,6 @@ Page {
                                 maximumLineCount: 2
                                 elide: Label.ElideRight
                             } // label
-
                             LabelBody {
                                 visible: model.modelData.subtitle.length
                                 rightPadding: 12
@@ -154,6 +163,34 @@ Page {
                                 maximumLineCount: 2
                                 elide: Label.ElideRight
                             }
+                            RowLayout {
+                                LabelBody {
+                                    Layout.fillWidth: false
+                                    text: model.modelData.startTime.toLocaleTimeString("HH:mm") + " - " + model.modelData.endTime.toLocaleTimeString("HH:mm") + ","
+                                }
+                                IconActive{
+                                    imageSize: 18
+                                    imageName: "directions.png"
+                                }
+                                LabelBody {
+                                    Layout.fillWidth: false
+                                    text: qsTr("Room ") + model.modelData.roomAsDataObject.roomName
+                                }
+                            }
+                            RowLayout {
+                                visible: speakerNamesLabel.text.length
+                                IconActive{
+                                    imageSize: 18
+                                    imageName: "speaker.png"
+                                }
+                                LabelBody {
+                                    id: speakerNamesLabel
+                                    font.italic: true
+                                    text: listView.speakerNames(model.modelData)
+                                    elide: Label.ElideRight
+                                }
+                            }
+
                         } // middle column
                         ListRowButton {
                             onClicked: {
@@ -186,6 +223,21 @@ Page {
         section.delegate: sectionHeading
 
         ScrollIndicator.vertical: ScrollIndicator { }
+        function speakerNames(session) {
+            var s = ""
+
+            for (var i = 0; i < session.presenterPropertyList.length; i++) {
+                var pName = session.presenterPropertyList[i].name
+                if(pName.length) {
+                    if(s.length) {
+                        s += ", "
+                    }
+                    s += pName
+                }
+            } // for
+            return s
+        }
+
         function scheduleItemImage(session) {
             if(session.scheduleItemAsDataObject.isRegistration) {
                 return "key.png"
