@@ -591,6 +591,8 @@ void DataUtil::prepareSpeakerImages()
     }
 }
 
+//  U T I L I T Y S  to manage Conference data
+
 /**
  * Favorites are transient on Sessions
  * Sessions are read-only
@@ -624,6 +626,22 @@ void DataUtil::saveSessionFavorites()
         }
     }
 }
+
+/**
+ * list of sessions for a Day are lazy
+ * (only IDs stored in an Array)
+ * for the Conference we always need all to create the schedule
+ * so at startup or update this wil be called
+ */
+void DataUtil::resolveSessionsForSchedule() {
+    for (int i = 0; i < mDataManager->mAllDay.size(); ++i) {
+        Day* day = (Day*) mDataManager->mAllDay.at(i);
+        day->resolveSessionsKeys(mDataManager->listOfSessionForKeys(day->sessionsKeys()));
+    }
+}
+
+
+//   DOWNLOAD   S P E A K E R I M A G E S
 
 void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
 {

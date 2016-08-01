@@ -29,6 +29,9 @@ public:
     void setSessionFavorites();
     void saveSessionFavorites();
 
+    Q_INVOKABLE
+    void resolveSessionsForSchedule();
+
 signals:
 
 public slots:

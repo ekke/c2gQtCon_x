@@ -4,95 +4,136 @@ import QtQuick.Layouts 1.3
 import QtQuick.Controls 2.0
 import QtQuick.Controls.Material 2.0
 import QtGraphicalEffects 1.0
-
+import org.ekkescorner.data 1.0
 import "../common"
 
-Flickable {
-    id: flickable
-    // index to get access to Loader (Destination)
-    property int myIndex: index
-    contentHeight: root.implicitHeight
-    // StackView manages this, so please no anchors here
-    // anchors.fill: parent
-    property string name: "DayPage"
-    property int weekday
+Page {
+    id: dayListPage
+    focus: true
+    property string name: "dayListPage"
+    property Day conferenceDay
+    bottomPadding: 24
+    topPadding: 16
 
-    Pane {
-        id: root
-        anchors.fill: parent
+    // SECTION HEADER
+    Component {
+        id: sectionHeading
         ColumnLayout {
-            anchors.right: parent.right
-            anchors.left: parent.left
-            LabelHeadline {
-                leftPadding: 10
-                text: qsTr("Day ")+weekday
+            width: parent.width
+            LabelTitle {
+                topPadding: 6
+                bottomPadding: 6
+                leftPadding: 16
+                text: section
+                anchors.verticalCenter: parent.verticalCenter
+                color: primaryColor
+                font.bold: true
             }
-            HorizontalDivider {}
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Example APP demonstrating Qt Quick Controls 2\n\n")                }
-            }
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("This Example APP is part of a Blog Series and developed by ekke (@ekkescorner)\n\n")
-                    color: primaryColor
-                }
-            }
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("blog ekkes-corner: http://ekkes-corner.org\nblog mobile app dev:http://appbus.org\nblog series Qt for Mobile:http://j.mp/qt-x\n")
-                }
-            }
-            RowLayout {
-                LabelBodySecondary {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Activation Policy: ")
-                }
-                LabelBody {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("WHILE SELECTED")
-                }
-            }
-            HorizontalDivider {}
-            Button {
-                text: "test"
-                onClicked: {
-                    navPane.pushSessionDetail(438)
-                }
-            }
+            HorizontalListDivider{}
         } // col layout
-    } // root
-    ScrollIndicator.vertical: ScrollIndicator { }
+    }
 
-    // emitting a Signal could be another option
+    // LIST ROW DELEGTE
+    Component {
+        id: sessionRowComponent
+        ColumnLayout {
+            id: sessionRow
+            // without this divider not over total width
+            implicitWidth: appWindow.width
+            RowLayout {
+                spacing: 20
+                Layout.leftMargin: 16+12
+                Layout.rightMargin: 6
+                Layout.topMargin: 6
+//                SpeakerImageItem {
+//                    speaker: model.modelData
+//                }
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    // without setting a maximum width, word wrap not working
+                    Layout.maximumWidth: appWindow.width-120
+                    spacing: 0
+                    LabelSubheading {
+                        rightPadding: 12
+                        text: model.modelData.title
+                        font.bold: true
+                        wrapMode: Label.WordWrap
+                        maximumLineCount: 2
+                        elide: Label.ElideRight
+                    } // label
+
+                    LabelBody {
+                        rightPadding: 12
+                        text: model.modelData.title // sessionRow.ListView.view.sessionInfo(model.modelData)
+                        wrapMode: Label.WordWrap
+                        maximumLineCount: 2
+                        elide: Label.ElideRight
+                    }
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        navPane.pushSessionDetail(model.modelData.sessionId)
+                    }
+                } // mouse
+            } // end Row Layout
+            HorizontalListDivider{}
+        } // end Col Layout speaker row
+    } // sessionRowComponent
+
+    // LIST VIEW
+    ListView {
+        id: listView
+        focus: true
+        clip: true
+        // highlight: Rectangle {color: Material.listHighlightColor }
+        currentIndex: -1
+        anchors.fill: parent
+        // setting the margin to be able to scroll the list above the FAB to use the Switch on last row
+        // bottomMargin: 40
+        // QList<Session*>
+        //model: dataManager.sessionPropertyList
+
+        delegate: sessionRowComponent
+        // header: headerComponent
+        // in Landscape header scrolls away
+        // in protrait header always visible
+        // headerPositioning: isLandscape? ListView.PullBackHeader : ListView.OverlayHeader
+
+        section.property: "sortKey"
+        section.criteria: ViewSection.FullString
+        section.delegate: sectionHeading
+
+        ScrollIndicator.vertical: ScrollIndicator { }
+
+//        function sessionInfo(speaker) {
+//            var s = ""
+//            for (var i = 0; i < speaker.sessionsPropertyList.length; i++) {
+//                if(i > 0) {
+//                    s += "\n"
+//                }
+//                s += speaker.sessionsPropertyList[i].title
+//            }
+//            return s
+//        }
+    } // end listView
+
     Component.onDestruction: {
         cleanup()
     }
 
     // called immediately after Loader.loaded
+
     function init() {
-        console.log(qsTr("Init done from DayPage"))
+        console.log(qsTr("Init done from dayListPage"))
+        console.log("Day# "+dataManager.dayPropertyList.length)
+        conferenceDay = dataManager.dayPropertyList[index]
+        console.log(conferenceDay.conferenceDay)
+        console.log("Sessions:"+conferenceDay.sessionsPropertyList.length)
+        listView.model = conferenceDay.sessionsPropertyList
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from DayPage"))
+        console.log(qsTr("Cleanup done from dayListPage"))
     }
-} // flickable
+} // end primaryPage

@@ -96,7 +96,6 @@ Page {
                 active: true
                 source: "DayPage.qml"
                 onLoaded: {
-                    item.weekday = index+4
                     item.init()
                 }
             }
