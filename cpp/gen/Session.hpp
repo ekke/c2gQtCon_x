@@ -33,6 +33,8 @@ class Session: public QObject
 	Q_PROPERTY(bool isKeynote READ isKeynote WRITE setIsKeynote NOTIFY isKeynoteChanged FINAL)
 	Q_PROPERTY(bool isSession READ isSession WRITE setIsSession NOTIFY isSessionChanged FINAL)
 	Q_PROPERTY(bool isCommunity READ isCommunity WRITE setIsCommunity NOTIFY isCommunityChanged FINAL)
+	Q_PROPERTY(bool isUnconference READ isUnconference WRITE setIsUnconference NOTIFY isUnconferenceChanged FINAL)
+	Q_PROPERTY(bool isMeeting READ isMeeting WRITE setIsMeeting NOTIFY isMeetingChanged FINAL)
 	Q_PROPERTY(QString title READ title WRITE setTitle NOTIFY titleChanged FINAL)
 	Q_PROPERTY(QString subtitle READ subtitle WRITE setSubtitle NOTIFY subtitleChanged FINAL)
 	Q_PROPERTY(QString description READ description WRITE setDescription NOTIFY descriptionChanged FINAL)
@@ -96,6 +98,10 @@ public:
 	void setIsSession(bool isSession);
 	bool isCommunity() const;
 	void setIsCommunity(bool isCommunity);
+	bool isUnconference() const;
+	void setIsUnconference(bool isUnconference);
+	bool isMeeting() const;
+	void setIsMeeting(bool isMeeting);
 	QString title() const;
 	void setTitle(QString title);
 	QString subtitle() const;
@@ -293,6 +299,8 @@ public:
 	void isKeynoteChanged(bool isKeynote);
 	void isSessionChanged(bool isSession);
 	void isCommunityChanged(bool isCommunity);
+	void isUnconferenceChanged(bool isUnconference);
+	void isMeetingChanged(bool isMeeting);
 	void titleChanged(QString title);
 	void subtitleChanged(QString subtitle);
 	void descriptionChanged(QString description);
@@ -335,6 +343,8 @@ private:
 	bool mIsKeynote;
 	bool mIsSession;
 	bool mIsCommunity;
+	bool mIsUnconference;
+	bool mIsMeeting;
 	QString mTitle;
 	QString mSubtitle;
 	QString mDescription;

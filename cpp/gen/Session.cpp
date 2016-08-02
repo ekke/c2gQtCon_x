@@ -21,6 +21,8 @@ static const QString isLightningKey = "isLightning";
 static const QString isKeynoteKey = "isKeynote";
 static const QString isSessionKey = "isSession";
 static const QString isCommunityKey = "isCommunity";
+static const QString isUnconferenceKey = "isUnconference";
+static const QString isMeetingKey = "isMeeting";
 static const QString titleKey = "title";
 static const QString subtitleKey = "subtitle";
 static const QString descriptionKey = "description";
@@ -47,6 +49,8 @@ static const QString isLightningForeignKey = "isLightning";
 static const QString isKeynoteForeignKey = "isKeynote";
 static const QString isSessionForeignKey = "isSession";
 static const QString isCommunityForeignKey = "isCommunity";
+static const QString isUnconferenceForeignKey = "isUnconference";
+static const QString isMeetingForeignKey = "isMeeting";
 static const QString titleForeignKey = "title";
 static const QString subtitleForeignKey = "subtitle";
 static const QString descriptionForeignKey = "description";
@@ -68,7 +72,7 @@ static const QString scheduleItemForeignKey = "scheduleItem";
  * Default Constructor if Session not initialized from QVariantMap
  */
 Session::Session(QObject *parent) :
-        QObject(parent), mSessionId(-1), mIsDeprecated(false), mSortKey(""), mIsTraining(false), mIsLightning(false), mIsKeynote(false), mIsSession(false), mIsCommunity(false), mTitle(""), mSubtitle(""), mDescription(""), mSessionType(""), mMinutes(0), mAbstractText(""), mIsFavorite(false), mIsBookmarked(false)
+        QObject(parent), mSessionId(-1), mIsDeprecated(false), mSortKey(""), mIsTraining(false), mIsLightning(false), mIsKeynote(false), mIsSession(false), mIsCommunity(false), mIsUnconference(false), mIsMeeting(false), mTitle(""), mSubtitle(""), mDescription(""), mSessionType(""), mMinutes(0), mAbstractText(""), mIsFavorite(false), mIsBookmarked(false)
 {
 	// lazy references:
 	mSessionDay = -1;
@@ -134,6 +138,8 @@ void Session::fillFromMap(const QVariantMap& sessionMap)
 	mIsKeynote = sessionMap.value(isKeynoteKey).toBool();
 	mIsSession = sessionMap.value(isSessionKey).toBool();
 	mIsCommunity = sessionMap.value(isCommunityKey).toBool();
+	mIsUnconference = sessionMap.value(isUnconferenceKey).toBool();
+	mIsMeeting = sessionMap.value(isMeetingKey).toBool();
 	mTitle = sessionMap.value(titleKey).toString();
 	mSubtitle = sessionMap.value(subtitleKey).toString();
 	mDescription = sessionMap.value(descriptionKey).toString();
@@ -222,6 +228,8 @@ void Session::fillFromForeignMap(const QVariantMap& sessionMap)
 	mIsKeynote = sessionMap.value(isKeynoteForeignKey).toBool();
 	mIsSession = sessionMap.value(isSessionForeignKey).toBool();
 	mIsCommunity = sessionMap.value(isCommunityForeignKey).toBool();
+	mIsUnconference = sessionMap.value(isUnconferenceForeignKey).toBool();
+	mIsMeeting = sessionMap.value(isMeetingForeignKey).toBool();
 	mTitle = sessionMap.value(titleForeignKey).toString();
 	mSubtitle = sessionMap.value(subtitleForeignKey).toString();
 	mDescription = sessionMap.value(descriptionForeignKey).toString();
@@ -310,6 +318,8 @@ void Session::fillFromCacheMap(const QVariantMap& sessionMap)
 	mIsKeynote = sessionMap.value(isKeynoteKey).toBool();
 	mIsSession = sessionMap.value(isSessionKey).toBool();
 	mIsCommunity = sessionMap.value(isCommunityKey).toBool();
+	mIsUnconference = sessionMap.value(isUnconferenceKey).toBool();
+	mIsMeeting = sessionMap.value(isMeetingKey).toBool();
 	mTitle = sessionMap.value(titleKey).toString();
 	mSubtitle = sessionMap.value(subtitleKey).toString();
 	mDescription = sessionMap.value(descriptionKey).toString();
@@ -459,6 +469,8 @@ QVariantMap Session::toMap()
 	sessionMap.insert(isKeynoteKey, mIsKeynote);
 	sessionMap.insert(isSessionKey, mIsSession);
 	sessionMap.insert(isCommunityKey, mIsCommunity);
+	sessionMap.insert(isUnconferenceKey, mIsUnconference);
+	sessionMap.insert(isMeetingKey, mIsMeeting);
 	sessionMap.insert(titleKey, mTitle);
 	sessionMap.insert(subtitleKey, mSubtitle);
 	sessionMap.insert(descriptionKey, mDescription);
@@ -540,6 +552,8 @@ QVariantMap Session::toForeignMap()
 	sessionMap.insert(isKeynoteForeignKey, mIsKeynote);
 	sessionMap.insert(isSessionForeignKey, mIsSession);
 	sessionMap.insert(isCommunityForeignKey, mIsCommunity);
+	sessionMap.insert(isUnconferenceForeignKey, mIsUnconference);
+	sessionMap.insert(isMeetingForeignKey, mIsMeeting);
 	sessionMap.insert(titleForeignKey, mTitle);
 	sessionMap.insert(subtitleForeignKey, mSubtitle);
 	sessionMap.insert(descriptionForeignKey, mDescription);
@@ -621,6 +635,8 @@ QVariantMap Session::toCacheMap()
 	sessionMap.insert(isKeynoteKey, mIsKeynote);
 	sessionMap.insert(isSessionKey, mIsSession);
 	sessionMap.insert(isCommunityKey, mIsCommunity);
+	sessionMap.insert(isUnconferenceKey, mIsUnconference);
+	sessionMap.insert(isMeetingKey, mIsMeeting);
 	sessionMap.insert(titleKey, mTitle);
 	sessionMap.insert(subtitleKey, mSubtitle);
 	sessionMap.insert(descriptionKey, mDescription);
@@ -1016,6 +1032,34 @@ void Session::setIsCommunity(bool isCommunity)
 	if (isCommunity != mIsCommunity) {
 		mIsCommunity = isCommunity;
 		emit isCommunityChanged(isCommunity);
+	}
+}
+// ATT 
+// Optional: isUnconference
+bool Session::isUnconference() const
+{
+	return mIsUnconference;
+}
+
+void Session::setIsUnconference(bool isUnconference)
+{
+	if (isUnconference != mIsUnconference) {
+		mIsUnconference = isUnconference;
+		emit isUnconferenceChanged(isUnconference);
+	}
+}
+// ATT 
+// Optional: isMeeting
+bool Session::isMeeting() const
+{
+	return mIsMeeting;
+}
+
+void Session::setIsMeeting(bool isMeeting)
+{
+	if (isMeeting != mIsMeeting) {
+		mIsMeeting = isMeeting;
+		emit isMeetingChanged(isMeeting);
 	}
 }
 // ATT 

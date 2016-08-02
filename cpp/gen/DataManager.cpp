@@ -21,6 +21,7 @@ static const QString cacheSession = "cacheSession.json";
 static const QString cacheScheduleItem = "cacheScheduleItem.json";
 static const QString cacheFavorite = "cacheFavorite.json";
 static const QString cacheBookmark = "cacheBookmark.json";
+static const QString cacheSessionLists = "cacheSessionLists.json";
 static const QString cacheSessionLink = "cacheSessionLink.json";
 static const QString cacheSpeaker = "cacheSpeaker.json";
 static const QString cacheSpeakerImage = "cacheSpeakerImage.json";
@@ -95,6 +96,7 @@ DataManager::DataManager(QObject *parent) :
     // ScheduleItem
     // Favorite
     // Bookmark
+    // SessionLists
     // SessionLink
     // Speaker
     // SpeakerImage
@@ -115,6 +117,7 @@ DataManager::DataManager(QObject *parent) :
 	qmlRegisterType<ScheduleItem>("org.ekkescorner.data", 1, 0, "ScheduleItem");
 	qmlRegisterType<Favorite>("org.ekkescorner.data", 1, 0, "Favorite");
 	qmlRegisterType<Bookmark>("org.ekkescorner.data", 1, 0, "Bookmark");
+	qmlRegisterType<SessionLists>("org.ekkescorner.data", 1, 0, "SessionLists");
 	qmlRegisterType<SessionLink>("org.ekkescorner.data", 1, 0, "SessionLink");
 	qmlRegisterType<Speaker>("org.ekkescorner.data", 1, 0, "Speaker");
 	qmlRegisterType<SpeakerImage>("org.ekkescorner.data", 1, 0, "SpeakerImage");
@@ -202,15 +205,16 @@ void DataManager::init()
     initScheduleItemFromCache();
     initFavoriteFromCache();
     initBookmarkFromCache();
+    // SessionLists is transient - not automatically read from cache
     initSessionLinkFromCache();
     initSpeakerFromCache();
     initSpeakerImageFromCache();
     initSessionTrackFromCache();
     initDayFromCache();
-    initSessionAPIFromCache();
-    initPersonsAPIFromCache();
-    initSessionLinkAPIFromCache();
-    initSpeakerAPIFromCache();
+    // SessionAPI is transient - not automatically read from cache
+    // PersonsAPI is transient - not automatically read from cache
+    // SessionLinkAPI is transient - not automatically read from cache
+    // SpeakerAPI is transient - not automatically read from cache
 }
 
 
@@ -226,6 +230,7 @@ void DataManager::finish()
     // ScheduleItem is read-only - not saved to cache
     saveFavoriteToCache();
     saveBookmarkToCache();
+    // SessionLists is read-only - not saved to cache
     // SessionLink is read-only - not saved to cache
     // Speaker is read-only - not saved to cache
     // SpeakerImage is read-only - not saved to cache
@@ -2753,6 +2758,294 @@ Bookmark* DataManager::findBookmarkBySessionId(const int& sessionId){
     qDebug() << "no Bookmark found for sessionId " << sessionId;
     return 0;
 }
+
+/*
+ * reads Maps of SessionLists in from JSON cache
+ * creates List of SessionLists*  from QVariantList
+ * List declared as list of QObject* - only way to use in GroupDataModel
+ */
+void DataManager::initSessionListsFromCache()
+{
+	qDebug() << "start initSessionListsFromCache";
+    mAllSessionLists.clear();
+    QVariantList cacheList;
+    cacheList = readFromCache(cacheSessionLists);
+    qDebug() << "read SessionLists from cache #" << cacheList.size();
+    for (int i = 0; i < cacheList.size(); ++i) {
+        QVariantMap cacheMap;
+        cacheMap = cacheList.at(i).toMap();
+        SessionLists* sessionLists = new SessionLists();
+        // Important: DataManager must be parent of all root DTOs
+        sessionLists->setParent(this);
+        sessionLists->fillFromCacheMap(cacheMap);
+        mAllSessionLists.append(sessionLists);
+    }
+    qDebug() << "created SessionLists* #" << mAllSessionLists.size();
+}
+
+
+/*
+ * save List of SessionLists* to JSON cache
+ * convert list of SessionLists* to QVariantList
+ * toCacheMap stores all properties without transient values
+ * SessionLists is read-only Cache - so it's not saved automatically at exit
+ */
+void DataManager::saveSessionListsToCache()
+{
+    QVariantList cacheList;
+    qDebug() << "now caching SessionLists* #" << mAllSessionLists.size();
+    for (int i = 0; i < mAllSessionLists.size(); ++i) {
+        SessionLists* sessionLists;
+        sessionLists = (SessionLists*)mAllSessionLists.at(i);
+        QVariantMap cacheMap;
+        cacheMap = sessionLists->toCacheMap();
+        cacheList.append(cacheMap);
+    }
+    qDebug() << "SessionLists* converted to JSON cache #" << cacheList.size();
+    writeToCache(cacheSessionLists, cacheList);
+}
+
+
+
+/**
+* converts a list of keys in to a list of DataObjects
+* per ex. used to resolve lazy arrays
+*/
+QList<SessionLists*> DataManager::listOfSessionListsForKeys(
+        QStringList keyList)
+{
+    QList<SessionLists*> listOfData;
+    keyList.removeDuplicates();
+    if (keyList.isEmpty()) {
+        return listOfData;
+    }
+    for (int i = 0; i < mAllSessionLists.size(); ++i) {
+        SessionLists* sessionLists;
+        sessionLists = (SessionLists*) mAllSessionLists.at(i);
+        if (keyList.contains(sessionLists->uuid())) {
+            listOfData.append(sessionLists);
+            keyList.removeOne(sessionLists->uuid());
+            if(keyList.isEmpty()){
+                break;
+            }
+        }
+    }
+    if (keyList.isEmpty()) {
+        return listOfData;
+    }
+    qWarning() << "not all keys found for SessionLists: " << keyList.join(", ");
+    return listOfData;
+}
+
+QVariantList DataManager::sessionListsAsQVariantList()
+{
+    QVariantList sessionListsList;
+    for (int i = 0; i < mAllSessionLists.size(); ++i) {
+        sessionListsList.append(((SessionLists*) (mAllSessionLists.at(i)))->toMap());
+    }
+    return sessionListsList;
+}
+
+QList<QObject*> DataManager::allSessionLists()
+{
+    return mAllSessionLists;
+}
+
+QQmlListProperty<SessionLists> DataManager::sessionListsPropertyList()
+{
+    return QQmlListProperty<SessionLists>(this, 0,
+            &DataManager::appendToSessionListsProperty, &DataManager::sessionListsPropertyCount,
+            &DataManager::atSessionListsProperty, &DataManager::clearSessionListsProperty);
+}
+
+// implementation for QQmlListProperty to use
+// QML functions for List of SessionLists*
+void DataManager::appendToSessionListsProperty(
+        QQmlListProperty<SessionLists> *sessionListsList,
+        SessionLists* sessionLists)
+{
+    DataManager *dataManagerObject = qobject_cast<DataManager *>(sessionListsList->object);
+    if (dataManagerObject) {
+        sessionLists->setParent(dataManagerObject);
+        dataManagerObject->mAllSessionLists.append(sessionLists);
+        emit dataManagerObject->addedToAllSessionLists(sessionLists);
+    } else {
+        qWarning() << "cannot append SessionLists* to mAllSessionLists "
+                << "Object is not of type DataManager*";
+    }
+}
+int DataManager::sessionListsPropertyCount(
+        QQmlListProperty<SessionLists> *sessionListsList)
+{
+    DataManager *dataManager = qobject_cast<DataManager *>(sessionListsList->object);
+    if (dataManager) {
+        return dataManager->mAllSessionLists.size();
+    } else {
+        qWarning() << "cannot get size mAllSessionLists " << "Object is not of type DataManager*";
+    }
+    return 0;
+}
+SessionLists* DataManager::atSessionListsProperty(
+        QQmlListProperty<SessionLists> *sessionListsList, int pos)
+{
+    DataManager *dataManager = qobject_cast<DataManager *>(sessionListsList->object);
+    if (dataManager) {
+        if (dataManager->mAllSessionLists.size() > pos) {
+            return (SessionLists*) dataManager->mAllSessionLists.at(pos);
+        }
+        qWarning() << "cannot get SessionLists* at pos " << pos << " size is "
+                << dataManager->mAllSessionLists.size();
+    } else {
+        qWarning() << "cannot get SessionLists* at pos " << pos
+                << "Object is not of type DataManager*";
+    }
+    return 0;
+}
+void DataManager::clearSessionListsProperty(
+        QQmlListProperty<SessionLists> *sessionListsList)
+{
+    DataManager *dataManager = qobject_cast<DataManager *>(sessionListsList->object);
+    if (dataManager) {
+        for (int i = 0; i < dataManager->mAllSessionLists.size(); ++i) {
+            SessionLists* sessionLists;
+            sessionLists = (SessionLists*) dataManager->mAllSessionLists.at(i);
+			emit dataManager->deletedFromAllSessionListsByUuid(sessionLists->uuid());
+			emit dataManager->deletedFromAllSessionLists(sessionLists);
+            sessionLists->deleteLater();
+            sessionLists = 0;
+        }
+        dataManager->mAllSessionLists.clear();
+    } else {
+        qWarning() << "cannot clear mAllSessionLists " << "Object is not of type DataManager*";
+    }
+}
+
+/**
+ * deletes all SessionLists
+ * and clears the list
+ */
+void DataManager::deleteSessionLists()
+{
+    for (int i = 0; i < mAllSessionLists.size(); ++i) {
+        SessionLists* sessionLists;
+        sessionLists = (SessionLists*) mAllSessionLists.at(i);
+        emit deletedFromAllSessionListsByUuid(sessionLists->uuid());
+		emit deletedFromAllSessionLists(sessionLists);
+		emit sessionListsPropertyListChanged();
+        sessionLists->deleteLater();
+        sessionLists = 0;
+     }
+     mAllSessionLists.clear();
+}
+
+/**
+ * creates a new SessionLists
+ * parent is DataManager
+ * if data is successfully entered you must insertSessionLists
+ * if edit was canceled you must undoCreateSessionLists to free up memory
+ */
+SessionLists* DataManager::createSessionLists()
+{
+    SessionLists* sessionLists;
+    sessionLists = new SessionLists();
+    sessionLists->setParent(this);
+    sessionLists->prepareNew();
+    return sessionLists;
+}
+
+/**
+ * deletes SessionLists
+ * if createSessionLists was canceled from UI
+ * to delete a previous successfully inserted SessionLists
+ * use deleteSessionLists
+ */
+void DataManager::undoCreateSessionLists(SessionLists* sessionLists)
+{
+    if (sessionLists) {
+        qDebug() << "undoCreateSessionLists " << sessionLists->uuid();
+        sessionLists->deleteLater();
+        sessionLists = 0;
+    }
+}
+
+void DataManager::insertSessionLists(SessionLists* sessionLists)
+{
+    // Important: DataManager must be parent of all root DTOs
+    sessionLists->setParent(this);
+    mAllSessionLists.append(sessionLists);
+    emit addedToAllSessionLists(sessionLists);
+    emit sessionListsPropertyListChanged();
+}
+
+void DataManager::insertSessionListsFromMap(const QVariantMap& sessionListsMap,
+        const bool& useForeignProperties)
+{
+    SessionLists* sessionLists = new SessionLists();
+    sessionLists->setParent(this);
+    if (useForeignProperties) {
+        sessionLists->fillFromForeignMap(sessionListsMap);
+    } else {
+        sessionLists->fillFromMap(sessionListsMap);
+    }
+    mAllSessionLists.append(sessionLists);
+    emit addedToAllSessionLists(sessionLists);
+    sessionListsPropertyListChanged();
+}
+
+bool DataManager::deleteSessionLists(SessionLists* sessionLists)
+{
+    bool ok = false;
+    ok = mAllSessionLists.removeOne(sessionLists);
+    if (!ok) {
+        return ok;
+    }
+    emit deletedFromAllSessionListsByUuid(sessionLists->uuid());
+    emit deletedFromAllSessionLists(sessionLists);
+    emit sessionListsPropertyListChanged();
+    sessionLists->deleteLater();
+    sessionLists = 0;
+    return ok;
+}
+
+bool DataManager::deleteSessionListsByUuid(const QString& uuid)
+{
+    if (uuid.isNull() || uuid.isEmpty()) {
+        qDebug() << "cannot delete SessionLists from empty uuid";
+        return false;
+    }
+    for (int i = 0; i < mAllSessionLists.size(); ++i) {
+        SessionLists* sessionLists;
+        sessionLists = (SessionLists*) mAllSessionLists.at(i);
+        if (sessionLists->uuid() == uuid) {
+            mAllSessionLists.removeAt(i);
+            emit deletedFromAllSessionListsByUuid(uuid);
+            emit deletedFromAllSessionLists(sessionLists);
+            emit sessionListsPropertyListChanged();
+            sessionLists->deleteLater();
+            sessionLists = 0;
+            return true;
+        }
+    }
+    return false;
+}
+
+
+SessionLists* DataManager::findSessionListsByUuid(const QString& uuid){
+    if (uuid.isNull() || uuid.isEmpty()) {
+        qDebug() << "cannot find SessionLists from empty uuid";
+        return 0;
+    }
+    for (int i = 0; i < mAllSessionLists.size(); ++i) {
+        SessionLists* sessionLists;
+        sessionLists = (SessionLists*)mAllSessionLists.at(i);
+        if(sessionLists->uuid() == uuid){
+            return sessionLists;
+        }
+    }
+    qDebug() << "no SessionLists found for uuid " << uuid;
+    return 0;
+}
+
 
 /*
  * reads Maps of SessionLink in from JSON cache

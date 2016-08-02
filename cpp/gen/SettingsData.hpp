@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <qvariant.h>
+#include <QDateTime>
 
 
 
@@ -18,10 +19,16 @@ class SettingsData: public QObject
 	Q_PROPERTY(int primaryColor READ primaryColor WRITE setPrimaryColor NOTIFY primaryColorChanged FINAL)
 	Q_PROPERTY(int accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged FINAL)
 	Q_PROPERTY(bool darkTheme READ darkTheme WRITE setDarkTheme NOTIFY darkThemeChanged FINAL)
+	Q_PROPERTY(bool useMarkerColors READ useMarkerColors WRITE setUseMarkerColors NOTIFY useMarkerColorsChanged FINAL)
+	Q_PROPERTY(bool defaultMarkerColors READ defaultMarkerColors WRITE setDefaultMarkerColors NOTIFY defaultMarkerColorsChanged FINAL)
+	Q_PROPERTY(QString markerColors READ markerColors WRITE setMarkerColors NOTIFY markerColorsChanged FINAL)
 	Q_PROPERTY(bool hasPublicCache READ hasPublicCache WRITE setHasPublicCache NOTIFY hasPublicCacheChanged FINAL)
 	Q_PROPERTY(bool useCompactJsonFormat READ useCompactJsonFormat WRITE setUseCompactJsonFormat NOTIFY useCompactJsonFormatChanged FINAL)
 	Q_PROPERTY(int lastUsedNumber READ lastUsedNumber WRITE setLastUsedNumber NOTIFY lastUsedNumberChanged FINAL)
 	Q_PROPERTY(QString publicRoot4Dev READ publicRoot4Dev WRITE setPublicRoot4Dev NOTIFY publicRoot4DevChanged FINAL)
+	Q_PROPERTY(bool autoUpdate READ autoUpdate WRITE setAutoUpdate NOTIFY autoUpdateChanged FINAL)
+	Q_PROPERTY(int autoUpdateEveryHours READ autoUpdateEveryHours WRITE setAutoUpdateEveryHours NOTIFY autoUpdateEveryHoursChanged FINAL)
+	Q_PROPERTY(QDateTime lastUpdateStamp READ lastUpdateStamp WRITE setLastUpdateStamp NOTIFY lastUpdateStampChanged FINAL)
 
 
 public:
@@ -55,6 +62,12 @@ public:
 	void setAccentColor(int accentColor);
 	bool darkTheme() const;
 	void setDarkTheme(bool darkTheme);
+	bool useMarkerColors() const;
+	void setUseMarkerColors(bool useMarkerColors);
+	bool defaultMarkerColors() const;
+	void setDefaultMarkerColors(bool defaultMarkerColors);
+	QString markerColors() const;
+	void setMarkerColors(QString markerColors);
 	bool hasPublicCache() const;
 	void setHasPublicCache(bool hasPublicCache);
 	bool useCompactJsonFormat() const;
@@ -63,6 +76,15 @@ public:
 	void setLastUsedNumber(int lastUsedNumber);
 	QString publicRoot4Dev() const;
 	void setPublicRoot4Dev(QString publicRoot4Dev);
+	bool autoUpdate() const;
+	void setAutoUpdate(bool autoUpdate);
+	int autoUpdateEveryHours() const;
+	void setAutoUpdateEveryHours(int autoUpdateEveryHours);
+	QDateTime lastUpdateStamp() const;
+
+	Q_INVOKABLE
+	bool hasLastUpdateStamp();
+	void setLastUpdateStamp(QDateTime lastUpdateStamp);
 
 
 
@@ -77,10 +99,16 @@ public:
 	void primaryColorChanged(int primaryColor);
 	void accentColorChanged(int accentColor);
 	void darkThemeChanged(bool darkTheme);
+	void useMarkerColorsChanged(bool useMarkerColors);
+	void defaultMarkerColorsChanged(bool defaultMarkerColors);
+	void markerColorsChanged(QString markerColors);
 	void hasPublicCacheChanged(bool hasPublicCache);
 	void useCompactJsonFormatChanged(bool useCompactJsonFormat);
 	void lastUsedNumberChanged(int lastUsedNumber);
 	void publicRoot4DevChanged(QString publicRoot4Dev);
+	void autoUpdateChanged(bool autoUpdate);
+	void autoUpdateEveryHoursChanged(int autoUpdateEveryHours);
+	void lastUpdateStampChanged(QDateTime lastUpdateStamp);
 	
 
 private:
@@ -92,10 +120,16 @@ private:
 	int mPrimaryColor;
 	int mAccentColor;
 	bool mDarkTheme;
+	bool mUseMarkerColors;
+	bool mDefaultMarkerColors;
+	QString mMarkerColors;
 	bool mHasPublicCache;
 	bool mUseCompactJsonFormat;
 	int mLastUsedNumber;
 	QString mPublicRoot4Dev;
+	bool mAutoUpdate;
+	int mAutoUpdateEveryHours;
+	QDateTime mLastUpdateStamp;
 
 	Q_DISABLE_COPY (SettingsData)
 };

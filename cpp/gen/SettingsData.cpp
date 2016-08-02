@@ -10,10 +10,16 @@ static const QString isProductionEnvironmentKey = "isProductionEnvironment";
 static const QString primaryColorKey = "primaryColor";
 static const QString accentColorKey = "accentColor";
 static const QString darkThemeKey = "darkTheme";
+static const QString useMarkerColorsKey = "useMarkerColors";
+static const QString defaultMarkerColorsKey = "defaultMarkerColors";
+static const QString markerColorsKey = "markerColors";
 static const QString hasPublicCacheKey = "hasPublicCache";
 static const QString useCompactJsonFormatKey = "useCompactJsonFormat";
 static const QString lastUsedNumberKey = "lastUsedNumber";
 static const QString publicRoot4DevKey = "publicRoot4Dev";
+static const QString autoUpdateKey = "autoUpdate";
+static const QString autoUpdateEveryHoursKey = "autoUpdateEveryHours";
+static const QString lastUpdateStampKey = "lastUpdateStamp";
 
 // keys used from Server API etc
 static const QString idForeignKey = "id";
@@ -23,17 +29,25 @@ static const QString isProductionEnvironmentForeignKey = "isProductionEnvironmen
 static const QString primaryColorForeignKey = "primaryColor";
 static const QString accentColorForeignKey = "accentColor";
 static const QString darkThemeForeignKey = "darkTheme";
+static const QString useMarkerColorsForeignKey = "useMarkerColors";
+static const QString defaultMarkerColorsForeignKey = "defaultMarkerColors";
+static const QString markerColorsForeignKey = "markerColors";
 static const QString hasPublicCacheForeignKey = "hasPublicCache";
 static const QString useCompactJsonFormatForeignKey = "useCompactJsonFormat";
 static const QString lastUsedNumberForeignKey = "lastUsedNumber";
 static const QString publicRoot4DevForeignKey = "publicRoot4Dev";
+static const QString autoUpdateForeignKey = "autoUpdate";
+static const QString autoUpdateEveryHoursForeignKey = "autoUpdateEveryHours";
+static const QString lastUpdateStampForeignKey = "lastUpdateStamp";
 
 /*
  * Default Constructor if SettingsData not initialized from QVariantMap
  */
 SettingsData::SettingsData(QObject *parent) :
-        QObject(parent), mId(-1), mVersion(0), mApiVersion(""), mIsProductionEnvironment(false), mPrimaryColor(0), mAccentColor(0), mDarkTheme(false), mHasPublicCache(false), mUseCompactJsonFormat(false), mLastUsedNumber(0), mPublicRoot4Dev("")
+        QObject(parent), mId(-1), mVersion(0), mApiVersion(""), mIsProductionEnvironment(false), mPrimaryColor(0), mAccentColor(0), mDarkTheme(false), mUseMarkerColors(false), mDefaultMarkerColors(false), mMarkerColors(""), mHasPublicCache(false), mUseCompactJsonFormat(false), mLastUsedNumber(0), mPublicRoot4Dev(""), mAutoUpdate(false), mAutoUpdateEveryHours(0)
 {
+	// Date, Time or Timestamp ? construct null value
+	mLastUpdateStamp = QDateTime();
 }
 
 /*
@@ -52,10 +66,24 @@ void SettingsData::fillFromMap(const QVariantMap& settingsDataMap)
 	mPrimaryColor = settingsDataMap.value(primaryColorKey).toInt();
 	mAccentColor = settingsDataMap.value(accentColorKey).toInt();
 	mDarkTheme = settingsDataMap.value(darkThemeKey).toBool();
+	mUseMarkerColors = settingsDataMap.value(useMarkerColorsKey).toBool();
+	mDefaultMarkerColors = settingsDataMap.value(defaultMarkerColorsKey).toBool();
+	mMarkerColors = settingsDataMap.value(markerColorsKey).toString();
 	mHasPublicCache = settingsDataMap.value(hasPublicCacheKey).toBool();
 	mUseCompactJsonFormat = settingsDataMap.value(useCompactJsonFormatKey).toBool();
 	mLastUsedNumber = settingsDataMap.value(lastUsedNumberKey).toInt();
 	mPublicRoot4Dev = settingsDataMap.value(publicRoot4DevKey).toString();
+	mAutoUpdate = settingsDataMap.value(autoUpdateKey).toBool();
+	mAutoUpdateEveryHours = settingsDataMap.value(autoUpdateEveryHoursKey).toInt();
+	if (settingsDataMap.contains(lastUpdateStampKey)) {
+		// always getting the Date as a String (from server or JSON)
+		QString lastUpdateStampAsString = settingsDataMap.value(lastUpdateStampKey).toString();
+		mLastUpdateStamp = QDateTime::fromString(lastUpdateStampAsString, Qt::ISODate);
+		if (!mLastUpdateStamp.isValid()) {
+			mLastUpdateStamp = QDateTime();
+			qDebug() << "mLastUpdateStamp is not valid for String: " << lastUpdateStampAsString;
+		}
+	}
 }
 /*
  * initialize OrderData from QVariantMap
@@ -73,10 +101,24 @@ void SettingsData::fillFromForeignMap(const QVariantMap& settingsDataMap)
 	mPrimaryColor = settingsDataMap.value(primaryColorForeignKey).toInt();
 	mAccentColor = settingsDataMap.value(accentColorForeignKey).toInt();
 	mDarkTheme = settingsDataMap.value(darkThemeForeignKey).toBool();
+	mUseMarkerColors = settingsDataMap.value(useMarkerColorsForeignKey).toBool();
+	mDefaultMarkerColors = settingsDataMap.value(defaultMarkerColorsForeignKey).toBool();
+	mMarkerColors = settingsDataMap.value(markerColorsForeignKey).toString();
 	mHasPublicCache = settingsDataMap.value(hasPublicCacheForeignKey).toBool();
 	mUseCompactJsonFormat = settingsDataMap.value(useCompactJsonFormatForeignKey).toBool();
 	mLastUsedNumber = settingsDataMap.value(lastUsedNumberForeignKey).toInt();
 	mPublicRoot4Dev = settingsDataMap.value(publicRoot4DevForeignKey).toString();
+	mAutoUpdate = settingsDataMap.value(autoUpdateForeignKey).toBool();
+	mAutoUpdateEveryHours = settingsDataMap.value(autoUpdateEveryHoursForeignKey).toInt();
+	if (settingsDataMap.contains(lastUpdateStampForeignKey)) {
+		// always getting the Date as a String (from server or JSON)
+		QString lastUpdateStampAsString = settingsDataMap.value(lastUpdateStampForeignKey).toString();
+		mLastUpdateStamp = QDateTime::fromString(lastUpdateStampAsString, Qt::ISODate);
+		if (!mLastUpdateStamp.isValid()) {
+			mLastUpdateStamp = QDateTime();
+			qDebug() << "mLastUpdateStamp is not valid for String: " << lastUpdateStampAsString;
+		}
+	}
 }
 /*
  * initialize OrderData from QVariantMap
@@ -94,10 +136,24 @@ void SettingsData::fillFromCacheMap(const QVariantMap& settingsDataMap)
 	mPrimaryColor = settingsDataMap.value(primaryColorKey).toInt();
 	mAccentColor = settingsDataMap.value(accentColorKey).toInt();
 	mDarkTheme = settingsDataMap.value(darkThemeKey).toBool();
+	mUseMarkerColors = settingsDataMap.value(useMarkerColorsKey).toBool();
+	mDefaultMarkerColors = settingsDataMap.value(defaultMarkerColorsKey).toBool();
+	mMarkerColors = settingsDataMap.value(markerColorsKey).toString();
 	mHasPublicCache = settingsDataMap.value(hasPublicCacheKey).toBool();
 	mUseCompactJsonFormat = settingsDataMap.value(useCompactJsonFormatKey).toBool();
 	mLastUsedNumber = settingsDataMap.value(lastUsedNumberKey).toInt();
 	mPublicRoot4Dev = settingsDataMap.value(publicRoot4DevKey).toString();
+	mAutoUpdate = settingsDataMap.value(autoUpdateKey).toBool();
+	mAutoUpdateEveryHours = settingsDataMap.value(autoUpdateEveryHoursKey).toInt();
+	if (settingsDataMap.contains(lastUpdateStampKey)) {
+		// always getting the Date as a String (from server or JSON)
+		QString lastUpdateStampAsString = settingsDataMap.value(lastUpdateStampKey).toString();
+		mLastUpdateStamp = QDateTime::fromString(lastUpdateStampAsString, Qt::ISODate);
+		if (!mLastUpdateStamp.isValid()) {
+			mLastUpdateStamp = QDateTime();
+			qDebug() << "mLastUpdateStamp is not valid for String: " << lastUpdateStampAsString;
+		}
+	}
 }
 
 void SettingsData::prepareNew()
@@ -130,10 +186,18 @@ QVariantMap SettingsData::toMap()
 	settingsDataMap.insert(primaryColorKey, mPrimaryColor);
 	settingsDataMap.insert(accentColorKey, mAccentColor);
 	settingsDataMap.insert(darkThemeKey, mDarkTheme);
+	settingsDataMap.insert(useMarkerColorsKey, mUseMarkerColors);
+	settingsDataMap.insert(defaultMarkerColorsKey, mDefaultMarkerColors);
+	settingsDataMap.insert(markerColorsKey, mMarkerColors);
 	settingsDataMap.insert(hasPublicCacheKey, mHasPublicCache);
 	settingsDataMap.insert(useCompactJsonFormatKey, mUseCompactJsonFormat);
 	settingsDataMap.insert(lastUsedNumberKey, mLastUsedNumber);
 	settingsDataMap.insert(publicRoot4DevKey, mPublicRoot4Dev);
+	settingsDataMap.insert(autoUpdateKey, mAutoUpdate);
+	settingsDataMap.insert(autoUpdateEveryHoursKey, mAutoUpdateEveryHours);
+	if (hasLastUpdateStamp()) {
+		settingsDataMap.insert(lastUpdateStampKey, mLastUpdateStamp.toString(Qt::ISODate));
+	}
 	return settingsDataMap;
 }
 
@@ -152,10 +216,18 @@ QVariantMap SettingsData::toForeignMap()
 	settingsDataMap.insert(primaryColorForeignKey, mPrimaryColor);
 	settingsDataMap.insert(accentColorForeignKey, mAccentColor);
 	settingsDataMap.insert(darkThemeForeignKey, mDarkTheme);
+	settingsDataMap.insert(useMarkerColorsForeignKey, mUseMarkerColors);
+	settingsDataMap.insert(defaultMarkerColorsForeignKey, mDefaultMarkerColors);
+	settingsDataMap.insert(markerColorsForeignKey, mMarkerColors);
 	settingsDataMap.insert(hasPublicCacheForeignKey, mHasPublicCache);
 	settingsDataMap.insert(useCompactJsonFormatForeignKey, mUseCompactJsonFormat);
 	settingsDataMap.insert(lastUsedNumberForeignKey, mLastUsedNumber);
 	settingsDataMap.insert(publicRoot4DevForeignKey, mPublicRoot4Dev);
+	settingsDataMap.insert(autoUpdateForeignKey, mAutoUpdate);
+	settingsDataMap.insert(autoUpdateEveryHoursForeignKey, mAutoUpdateEveryHours);
+	if (hasLastUpdateStamp()) {
+		settingsDataMap.insert(lastUpdateStampForeignKey, mLastUpdateStamp.toString(Qt::ISODate));
+	}
 	return settingsDataMap;
 }
 
@@ -271,6 +343,48 @@ void SettingsData::setDarkTheme(bool darkTheme)
 	}
 }
 // ATT 
+// Optional: useMarkerColors
+bool SettingsData::useMarkerColors() const
+{
+	return mUseMarkerColors;
+}
+
+void SettingsData::setUseMarkerColors(bool useMarkerColors)
+{
+	if (useMarkerColors != mUseMarkerColors) {
+		mUseMarkerColors = useMarkerColors;
+		emit useMarkerColorsChanged(useMarkerColors);
+	}
+}
+// ATT 
+// Optional: defaultMarkerColors
+bool SettingsData::defaultMarkerColors() const
+{
+	return mDefaultMarkerColors;
+}
+
+void SettingsData::setDefaultMarkerColors(bool defaultMarkerColors)
+{
+	if (defaultMarkerColors != mDefaultMarkerColors) {
+		mDefaultMarkerColors = defaultMarkerColors;
+		emit defaultMarkerColorsChanged(defaultMarkerColors);
+	}
+}
+// ATT 
+// Optional: markerColors
+QString SettingsData::markerColors() const
+{
+	return mMarkerColors;
+}
+
+void SettingsData::setMarkerColors(QString markerColors)
+{
+	if (markerColors != mMarkerColors) {
+		mMarkerColors = markerColors;
+		emit markerColorsChanged(markerColors);
+	}
+}
+// ATT 
 // Optional: hasPublicCache
 bool SettingsData::hasPublicCache() const
 {
@@ -325,6 +439,52 @@ void SettingsData::setPublicRoot4Dev(QString publicRoot4Dev)
 		mPublicRoot4Dev = publicRoot4Dev;
 		emit publicRoot4DevChanged(publicRoot4Dev);
 	}
+}
+// ATT 
+// Optional: autoUpdate
+bool SettingsData::autoUpdate() const
+{
+	return mAutoUpdate;
+}
+
+void SettingsData::setAutoUpdate(bool autoUpdate)
+{
+	if (autoUpdate != mAutoUpdate) {
+		mAutoUpdate = autoUpdate;
+		emit autoUpdateChanged(autoUpdate);
+	}
+}
+// ATT 
+// Optional: autoUpdateEveryHours
+int SettingsData::autoUpdateEveryHours() const
+{
+	return mAutoUpdateEveryHours;
+}
+
+void SettingsData::setAutoUpdateEveryHours(int autoUpdateEveryHours)
+{
+	if (autoUpdateEveryHours != mAutoUpdateEveryHours) {
+		mAutoUpdateEveryHours = autoUpdateEveryHours;
+		emit autoUpdateEveryHoursChanged(autoUpdateEveryHours);
+	}
+}
+// ATT 
+// Optional: lastUpdateStamp
+QDateTime SettingsData::lastUpdateStamp() const
+{
+	return mLastUpdateStamp;
+}
+
+void SettingsData::setLastUpdateStamp(QDateTime lastUpdateStamp)
+{
+	if (lastUpdateStamp != mLastUpdateStamp) {
+		mLastUpdateStamp = lastUpdateStamp;
+		emit lastUpdateStampChanged(lastUpdateStamp);
+	}
+}
+bool SettingsData::hasLastUpdateStamp()
+{
+	return !mLastUpdateStamp.isNull() && mLastUpdateStamp.isValid();
 }
 
 

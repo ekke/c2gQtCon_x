@@ -14,6 +14,7 @@
 #include "ScheduleItem.hpp"
 #include "Favorite.hpp"
 #include "Bookmark.hpp"
+#include "SessionLists.hpp"
 #include "SessionLink.hpp"
 #include "Speaker.hpp"
 #include "SpeakerImage.hpp"
@@ -37,6 +38,7 @@ Q_PROPERTY(QQmlListProperty<Session> sessionPropertyList READ sessionPropertyLis
 Q_PROPERTY(QQmlListProperty<ScheduleItem> scheduleItemPropertyList READ scheduleItemPropertyList NOTIFY scheduleItemPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Favorite> favoritePropertyList READ favoritePropertyList NOTIFY favoritePropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Bookmark> bookmarkPropertyList READ bookmarkPropertyList NOTIFY bookmarkPropertyListChanged)
+Q_PROPERTY(QQmlListProperty<SessionLists> sessionListsPropertyList READ sessionListsPropertyList NOTIFY sessionListsPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<SessionLink> sessionLinkPropertyList READ sessionLinkPropertyList NOTIFY sessionLinkPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<Speaker> speakerPropertyList READ speakerPropertyList NOTIFY speakerPropertyListChanged)
 Q_PROPERTY(QQmlListProperty<SpeakerImage> speakerImagePropertyList READ speakerImagePropertyList NOTIFY speakerImagePropertyListChanged)
@@ -421,6 +423,44 @@ public:
 	
 	
 	Q_INVOKABLE
+	QList<SessionLists*> listOfSessionListsForKeys(QStringList keyList);
+
+	Q_INVOKABLE
+	QVariantList sessionListsAsQVariantList();
+
+	Q_INVOKABLE
+	QList<QObject*> allSessionLists();
+
+	Q_INVOKABLE
+	void deleteSessionLists();
+
+	// access from QML to list of all SessionLists
+	QQmlListProperty<SessionLists> sessionListsPropertyList();
+
+	Q_INVOKABLE
+	SessionLists* createSessionLists();
+
+	Q_INVOKABLE
+	void undoCreateSessionLists(SessionLists* sessionLists);
+
+	Q_INVOKABLE
+	void insertSessionLists(SessionLists* sessionLists);
+
+	Q_INVOKABLE
+	void insertSessionListsFromMap(const QVariantMap& sessionListsMap, const bool& useForeignProperties);
+
+	Q_INVOKABLE
+	bool deleteSessionLists(SessionLists* sessionLists);
+	
+
+	Q_INVOKABLE
+	bool deleteSessionListsByUuid(const QString& uuid);
+
+	Q_INVOKABLE
+	SessionLists* findSessionListsByUuid(const QString& uuid);
+	
+	
+	Q_INVOKABLE
 	QList<SessionLink*> listOfSessionLinkForKeys(QStringList keyList);
 
 	Q_INVOKABLE
@@ -783,6 +823,7 @@ public:
     void initScheduleItemFromCache();
     void initFavoriteFromCache();
     void initBookmarkFromCache();
+    void initSessionListsFromCache();
     void initSessionLinkFromCache();
     void initSpeakerFromCache();
     void initSpeakerImageFromCache();
@@ -832,6 +873,10 @@ Q_SIGNALS:
 	void deletedFromAllBookmarkBySessionId(int sessionId);
 	void deletedFromAllBookmark(Bookmark* bookmark);
 	void bookmarkPropertyListChanged();
+	void addedToAllSessionLists(SessionLists* sessionLists);
+	void deletedFromAllSessionListsByUuid(QString uuid);
+	void deletedFromAllSessionLists(SessionLists* sessionLists);
+	void sessionListsPropertyListChanged();
 	void addedToAllSessionLink(SessionLink* sessionLink);
 	void deletedFromAllSessionLinkByUuid(QString uuid);
 	void deletedFromAllSessionLink(SessionLink* sessionLink);
@@ -989,6 +1034,19 @@ private:
     static void clearBookmarkProperty(
     	QQmlListProperty<Bookmark> *bookmarkList);
     	
+    QList<QObject*> mAllSessionLists;
+    // implementation for QQmlListProperty to use
+    // QML functions for List of All SessionLists*
+    static void appendToSessionListsProperty(
+    	QQmlListProperty<SessionLists> *sessionListsList,
+    	SessionLists* sessionLists);
+    static int sessionListsPropertyCount(
+    	QQmlListProperty<SessionLists> *sessionListsList);
+    static SessionLists* atSessionListsProperty(
+    	QQmlListProperty<SessionLists> *sessionListsList, int pos);
+    static void clearSessionListsProperty(
+    	QQmlListProperty<SessionLists> *sessionListsList);
+    	
     QList<QObject*> mAllSessionLink;
     // implementation for QQmlListProperty to use
     // QML functions for List of All SessionLink*
@@ -1115,6 +1173,7 @@ private:
     void saveScheduleItemToCache();
     void saveFavoriteToCache();
     void saveBookmarkToCache();
+    void saveSessionListsToCache();
     void saveSessionLinkToCache();
     void saveSpeakerToCache();
     void saveSpeakerImageToCache();
