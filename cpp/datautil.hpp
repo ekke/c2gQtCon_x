@@ -32,6 +32,12 @@ public:
     Q_INVOKABLE
     void resolveSessionsForSchedule();
 
+    Q_INVOKABLE
+    SessionLists* mySchedule();
+
+    Q_INVOKABLE
+    QString localWeekdayAndTime(QString sessionSortkey);
+
 signals:
 
 public slots:
@@ -42,6 +48,8 @@ private:
     DataManager* mDataManager;
 
     ImageLoader* mImageLoader;
+
+    SessionLists* mSessionLists;
 
     void prepareHighDpiImages(SpeakerImage *speakerImage, int width, int height);
 

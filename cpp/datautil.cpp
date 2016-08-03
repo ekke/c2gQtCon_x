@@ -8,6 +8,9 @@
 #include <QImage>
 
 const QString YYYY_MM_DD = "yyyy-MM-dd";
+const QString HH_MM = "HH:mm";
+const QString YYYY_MM_DD_HH_MM = "yyyy-MM-ddHH:mm";
+const QString DAYNAME_HH_MM = "dddd, HH:mm";
 
 DataUtil::DataUtil(QObject *parent) : QObject(parent)
 {
@@ -17,6 +20,8 @@ DataUtil::DataUtil(QObject *parent) : QObject(parent)
 void DataUtil::init(DataManager* dataManager)
 {
     mDataManager = dataManager;
+    // used for temp dynamic lists as QQmlPropertyLists
+    mSessionLists = mDataManager->createSessionLists();
 }
 
 // P R E   C O N F E R E N C E   S T U F F
@@ -458,7 +463,7 @@ void DataUtil::prepareSessions()
                     }
                 }
                 // SORT
-                session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm"));
+                session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString(HH_MM));
                 sessionSortMap.insert(session->sortKey(), session);
             } // end for session of a room
         } // room keys
@@ -642,6 +647,25 @@ void DataUtil::resolveSessionsForSchedule() {
         Day* day = (Day*) mDataManager->mAllDay.at(i);
         day->resolveSessionsKeys(mDataManager->listOfSessionForKeys(day->sessionsKeys()));
     }
+}
+
+SessionLists *DataUtil::mySchedule()
+{
+    mSessionLists->clearScheduledSessions();
+    for (int i = 0; i < mDataManager->allSession().size(); ++i) {
+        Session* session = (Session*) mDataManager->allSession().at(i);
+        if(!session->isDeprecated() && session->isFavorite()) {
+            mSessionLists->addToScheduledSessions(session);
+        }
+    }
+    qDebug() << "MY SCHEDLUE #:" << mSessionLists->scheduledSessionsCount();
+    return mSessionLists;
+}
+
+// Sortkey: day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm")
+QString DataUtil::localWeekdayAndTime(QString sessionSortkey)
+{
+    return QDateTime::fromString(sessionSortkey, YYYY_MM_DD_HH_MM).toString(DAYNAME_HH_MM);
 }
 
 
