@@ -129,4 +129,6 @@ qtPrepareTool(LRELEASE, lrelease)
  }
 
 DISTFILES += \
-    gen-model/README.md
+    gen-model/README.md \
+    gen-model/*.pdf \
+    gen-model/*.txt
