@@ -431,7 +431,7 @@ void DataUtil::prepareSessions()
                     scheduleItem->setSession(session->sessionId());
                     mDataManager->insertScheduleItem(scheduleItem);
                 } else {
-                    if(session->title().contains("Lightning") || session->sessionType().contains("Lightning Talk")) {
+                    if(session->title().contains("Lightning") || session->sessionType().contains("lightning_talk")) {
                         session->setIsLightning(true);
                     } else {
                         if(session->title().contains("Keynote")) {
@@ -443,7 +443,15 @@ void DataUtil::prepareSessions()
                                 if(dayDate == "2016-09-01" && session->title().contains("Training")) {
                                     session->setIsTraining(true);
                                 } else {
-                                    session->setIsSession(true);
+                                    if(session->sessionType() == "meeting") {
+                                        session->setIsMeeting(true);
+                                    } else {
+                                        if(session->title().contains("Unconference")) {
+                                            session->setIsUnconference(true);
+                                        } else {
+                                            session->setIsSession(true);
+                                        }
+                                    }
                                 }
                             }
                         }

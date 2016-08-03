@@ -265,6 +265,12 @@ Page {
             if(session.isCommunity) {
                 return "C"
             }
+            if(session.isMeeting) {
+                return "M"
+            }
+            if(session.isUnconference) {
+                return "U"
+            }
             return "S"
         }
     } // end listView

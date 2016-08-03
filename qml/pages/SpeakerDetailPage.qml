@@ -206,8 +206,8 @@ Page {
                                             } // repeater room row
                                         } // // time room column
                                         IconActive {
-                                            transform: Translate { y: 8 }
-                                            imageSize: 36
+                                            transform: Translate { x: 6; y: 2 }
+                                            imageSize: 48
                                             imageName: "stars.png"
                                             opacity: modelData.isFavorite? opacityToggleActive : opacityToggleInactive
                                             anchors.right: parent.right
@@ -306,6 +306,12 @@ Page {
         }
         if(session.isCommunity) {
             return "C"
+        }
+        if(session.isMeeting) {
+            return "M"
+        }
+        if(session.isUnconference) {
+            return "U"
         }
         return "S"
     }
