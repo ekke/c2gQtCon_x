@@ -146,13 +146,29 @@ Page {
         visible: navPane.depth > 2
         property string imageName: "/list.png"
         z: 1
-        anchors.margins: 20
+        anchors.rightMargin: 58
+        anchors.bottomMargin: 6
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
             navPane.backToRootPage()
+        }
+    } // FAB
+    FloatingActionButton {
+        visible: navPane.depth == 1
+        property string imageName: "/schedule_my.png"
+        z: 1
+        anchors.rightMargin: 58
+        anchors.bottomMargin: 6
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
+        backgroundColor: accentColor
+        onClicked: {
+            //navPane.backToRootPage()
+            dataUtil.mySchedule()
         }
     } // FAB
 
