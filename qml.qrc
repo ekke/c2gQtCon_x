@@ -70,5 +70,6 @@
         <file>qml/common/CharCircle.qml</file>
         <file>qml/common/ListRowButton.qml</file>
         <file>qml/pages/SessionListView.qml</file>
+        <file>qml/pages/MySchedulePage.qml</file>
     </qresource>
 </RCC>

@@ -15,10 +15,10 @@ Page {
     // index to get access to Loader (Destination)
     property int myIndex: index
 
+    property alias showMySchedule: myScheduleLoader.active
     // because of https://bugreports.qt.io/browse/QTBUG-54260
     // lastCurrentIndex will remember currentIndex, so we can reset before Page becomes currentItem on StackView
     property int lastCurrentIndex: 0
-    property int currentIndex: initialItem.currentIndex
 
     StackView {
         id: navPane
@@ -26,9 +26,56 @@ Page {
         property string name: "ScheduleNavPane"
         focus: true
 
-        initialItem: DaySwiper{
-            id: initialItem
+        // STACK VIEW TRANSITIONS
+        replaceEnter: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 0
+                to:1
+                duration: 300
+            }
         }
+        replaceExit: Transition {
+            PropertyAnimation {
+                property: "opacity"
+                from: 1
+                to:0
+                duration: 300
+            }
+        }
+        // end STACKVIEW TRANSITIONS
+
+
+        // STACK VIEW INITIAL ITEM (Schedule for all days)
+        // immediately activated and pushed on stack as initialItem
+        Loader {
+            id: initialItemLoader
+            source: "../pages/DaySwiper.qml"
+            active: true
+            visible: false
+            onLoaded: {
+                navPane.replace(item)
+                //navPane.initialItem = item
+                item.init()
+                item.currentIndex = navPage.lastCurrentIndex
+                myScheduleLoader.active = false
+            }
+        }
+        // end STACK VIEW INITIAL ITEM
+        // LAZY LOADER FOR MY SCHEDULE
+        Loader {
+            id: myScheduleLoader
+            source: "../pages/MySchedulePage.qml"
+            active: false
+            visible: false
+            onLoaded: {
+                navPane.replace(item)
+                item.init()
+                navPage.lastCurrentIndex = initialItemLoader.item.currentIndex
+                initialItemLoader.active = false
+            }
+        } // myScheduleLoader
+
 
         Loader {
             id: speakerDetailPageLoader
@@ -167,14 +214,20 @@ Page {
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
-            //navPane.backToRootPage()
-            dataUtil.mySchedule()
+            if(myScheduleLoader.active) {
+                initialItemLoader.active = true
+            } else {
+                myScheduleLoader.active = true
+            }
         }
     } // FAB
 
     // sets the index of SwipeView/TabBar back to last remembered one
     function setCurrentIndex() {
-        initialItem.currentIndex = navPage.lastCurrentIndex
+        initialItemLoader.item.currentIndex = navPage.lastCurrentIndex
+    }
+    function getCurrentIndex() {
+        return initialItemLoader.item.currentIndex
     }
 
     function destinationAboutToChange() {
@@ -196,7 +249,7 @@ Page {
 
     function init() {
         console.log("INIT ScheduleNavPane")
-        initialItem.init()
+        // initialItem.init() will be done from Loader
     }
     function cleanup() {
         console.log("CLEANUP ScheduleNavPane")
