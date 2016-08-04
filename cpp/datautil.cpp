@@ -89,6 +89,20 @@ void DataUtil::prepareConference() {
     mDataManager->saveFloorToCache();
     mDataManager->saveRoomToCache();
     mDataManager->saveSessionToCache();
+    // sort Tracks
+    QMultiMap<QString, SessionTrack*> sessionTrackSortMap;
+    for (int i = 0; i < mDataManager->allSessionTrack().size(); ++i) {
+        SessionTrack* sessionTrack = (SessionTrack*) mDataManager->allSessionTrack().at(i);
+        sessionTrackSortMap.insert(sessionTrack->name(), sessionTrack);
+    }
+    mDataManager->mAllSessionTrack.clear();
+    QMapIterator<QString, SessionTrack*> sessionTrackIterator(sessionTrackSortMap);
+    while (sessionTrackIterator.hasNext()) {
+        sessionTrackIterator.next();
+        SessionTrack* sessionTrack = sessionTrackIterator.value();
+        mDataManager->insertSessionTrack(sessionTrack);
+    }
+
     mDataManager->saveSessionTrackToCache();
     mDataManager->saveScheduleItemToCache();
     mDataManager->saveSessionLinkToCache();

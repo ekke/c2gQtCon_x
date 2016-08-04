@@ -229,7 +229,7 @@ Page {
                                         visible: trackLabel.text.length
                                         IconActive{
                                             imageSize: 18
-                                            imageName: "description.png"
+                                            imageName: "tag.png"
                                         }
                                         LabelBody {
                                             id: trackLabel

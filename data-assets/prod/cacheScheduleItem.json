@@ -8,9 +8,9 @@
         "sessionId": 564
     },
     {
-        "isBreak": true,
+        "isBreak": false,
         "isEvent": false,
-        "isLunch": false,
+        "isLunch": true,
         "isRegistration": false,
         "session": 577,
         "sessionId": 577
@@ -48,17 +48,17 @@
         "sessionId": 561
     },
     {
-        "isBreak": true,
+        "isBreak": false,
         "isEvent": false,
         "isLunch": false,
-        "isRegistration": false,
+        "isRegistration": true,
         "session": 562,
         "sessionId": 562
     },
     {
-        "isBreak": true,
+        "isBreak": false,
         "isEvent": false,
-        "isLunch": false,
+        "isLunch": true,
         "isRegistration": false,
         "session": 558,
         "sessionId": 558
@@ -72,9 +72,9 @@
         "sessionId": 565
     },
     {
-        "isBreak": true,
+        "isBreak": false,
         "isEvent": false,
-        "isLunch": false,
+        "isLunch": true,
         "isRegistration": false,
         "session": 567,
         "sessionId": 567
@@ -88,9 +88,9 @@
         "sessionId": 568
     },
     {
-        "isBreak": true,
+        "isBreak": false,
         "isEvent": false,
-        "isLunch": false,
+        "isLunch": true,
         "isRegistration": false,
         "session": 569,
         "sessionId": 569

@@ -95,6 +95,20 @@ Page {
                     } // favoritesIcon
                 }
                 RowLayout {
+                    visible: trackLabel.text.length > 0
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    IconActive{
+                        imageSize: 24
+                        imageName: "tag.png"
+                    }
+                    LabelSubheading {
+                        id: trackLabel
+                        Layout.leftMargin: 16
+                        text: sessionDetailPage.textForSessionTrack()
+                    }
+                }
+                RowLayout {
                     Layout.leftMargin: 16
                     Layout.rightMargin: 16
                     IconActive{
@@ -294,6 +308,23 @@ Page {
         }
         return "S"
     }
+    function textForSessionTrack() {
+        if(session.hasScheduleItem()) {
+            return ""
+        }
+        var s = session.sessionTrackAsDataObject.name
+        if(s == "Community") {
+            return ""
+        }
+        if(s == "*****") {
+            return ""
+        }
+        if(s == "Unconference") {
+            return ""
+        }
+        return s
+    }
+
     function textForSessionType() {
         var s = ""
         if (isScheduleItem) {
@@ -321,7 +352,15 @@ Page {
                         if(session.isCommunity) {
                             s = qsTr("Community")
                         } else {
-                            s =qsTr("Session")
+                            if(session.isUnconference) {
+                                s = qsTr("Unconference")
+                            } else {
+                                if(session.isMeeting) {
+                                    s =qsTr("Meeting")
+                                } else {
+                                    s =qsTr("Session")
+                                }
+                            }
                         }
         }
         return s + " (" + session.minutes + qsTr(" Minutes)")

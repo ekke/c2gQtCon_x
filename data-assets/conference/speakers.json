@@ -14,13 +14,6 @@
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
-    "id": 699,
-    "first_name": "Andrew",
-    "last_name": "Knight",
-    "abstract": "Andrew Knight is an active Qt contributor/Approver, former \"Troll\", and former platform maintainer of the Qt for Windows Runtime port. He currently focuses on Qt-based mobile and embedded solutions at Intopalo.",
-    "avatar": "http://conf.qtcon.org/person_original.png"
-  },
-  {
     "id": 712,
     "first_name": "Arno",
     "last_name": "Schoedl",
@@ -130,6 +123,13 @@
     "first_name": "Andreas",
     "last_name": "Cord-Landwehr",
     "abstract": "Andreas is a KDE developer for about 5 years. His contributions mostly go into KDE Edu, where he maintains Rocs and Artikulate. Since last year he provides a development environment Docker Image for Android cross-compiling and made several KF5 libraries ready for use on Android.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 1164,
+    "first_name": "Daniel",
+    "last_name": "Pocock",
+    "abstract": "Professional software engineer and consultant.\r\n\r\nDaniel Pocock has developed enterprise grade solutions for some of the giants of the financial services industry, including secure connectivity for UBS (using Apache Camel), the first customer-facing WebRTC contact solution on Wall Street at Interactive Brokers, enterprise-wide real-time monitoring for Barclays Capital (based on Ganglia) and a wide range of real-time financial trade capture and risk management solutions for Thomson Reuters. Despite the highly proprietary nature of these enterprises, Pocock has remained a champion of efficient, cost effective open source solutions to meet demanding business requirements.\r\n",
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
@@ -441,6 +441,13 @@
     "avatar": "http://conf.qtcon.org//system/avatars/7/original/avatar.jpg?1360062556"
   },
   {
+    "id": 699,
+    "first_name": "Andrew",
+    "last_name": "Knight",
+    "abstract": "Andrew Knight is an active Qt contributor/Approver, former \"Troll\", and former platform maintainer of the Qt for Windows Runtime port. He currently focuses on Qt-based mobile and embedded solutions at Intopalo.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
     "id": 16,
     "first_name": "Aleix",
     "last_name": "Pol Gonzalez",
@@ -597,7 +604,7 @@
   {
     "id": 675,
     "first_name": "Kai",
-    "last_name": "Koehne",
+    "last_name": "Köhne",
     "abstract": "Kai is a Senior Manager R&D at The Qt Company. He's currently heading the WebEngine and BuildSystems team in the Berlin office of The Qt Company.",
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
