@@ -150,7 +150,7 @@ ApplicationWindow {
         "",
         qsTr("QtCon 2016 Berlin"),
         qsTr("QtCon 2016 Berlin"),
-        qsTr("QtCon 2016 Berlin"),
+        qsTr("QtCon 2016 Tracks"),
         qsTr("QtCon 2016 Venue"),
         "",
         qsTr("QtCon 2016 Settings"),
@@ -312,7 +312,7 @@ ApplicationWindow {
                 // show the Navigation Bars (Drawer and Favorites)
                 initDone = true
                 // now NavigationBars available, we can update counters:
-                rootPane.updateOrderCounter()
+                // rootPane.updateOrderCounter()
                 // show first destination (should always be IMMEDIATELY)
                 rootPane.activateDestination(firstActiveDestination)
                 console.log("startupDelayedTimer DONE")

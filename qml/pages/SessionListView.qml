@@ -174,7 +174,7 @@ ListView {
             } // end Col Layout speaker row
         } // sessionRowComponent
 
-    }
+    } // sessionLoader
 
     section.property: "sortKey"
     section.criteria: ViewSection.FullString

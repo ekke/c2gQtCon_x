@@ -71,5 +71,7 @@
         <file>qml/common/ListRowButton.qml</file>
         <file>qml/pages/SessionListView.qml</file>
         <file>qml/pages/MySchedulePage.qml</file>
+        <file>qml/pages/TrackListPage.qml</file>
+        <file>qml/pages/TrackSessionListPage.qml</file>
     </qresource>
 </RCC>

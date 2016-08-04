@@ -654,12 +654,25 @@ void DataUtil::saveSessionFavorites()
  * list of sessions for a Day are lazy
  * (only IDs stored in an Array)
  * for the Conference we always need all to create the schedule
- * so at startup or update this wil be called
+ * so at startup or update this will be called
  */
 void DataUtil::resolveSessionsForSchedule() {
     for (int i = 0; i < mDataManager->mAllDay.size(); ++i) {
         Day* day = (Day*) mDataManager->mAllDay.at(i);
         day->resolveSessionsKeys(mDataManager->listOfSessionForKeys(day->sessionsKeys()));
+    }
+}
+
+/**
+ * list of sessions for a Track are lazy
+ * (only IDs stored in an Array)
+ * this will be called as soon as Tracks are first time displayed
+ */
+void DataUtil::resolveSessionsForTracks()
+{
+    for (int i = 0; i < mDataManager->mAllSessionTrack.size(); ++i) {
+        SessionTrack* sessionTrack = (SessionTrack*) mDataManager->mAllSessionTrack.at(i);
+        sessionTrack->resolveSessionsKeys(mDataManager->listOfSessionForKeys(sessionTrack->sessionsKeys()));
     }
 }
 
