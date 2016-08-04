@@ -651,6 +651,12 @@ void DataUtil::resolveSessionsForSchedule() {
 
 SessionLists *DataUtil::mySchedule()
 {
+    refreshMySchedule();
+    return mSessionLists;
+}
+
+SessionLists *DataUtil::refreshMySchedule()
+{
     mSessionLists->clearScheduledSessions();
     for (int i = 0; i < mDataManager->allSession().size(); ++i) {
         Session* session = (Session*) mDataManager->allSession().at(i);
@@ -659,7 +665,6 @@ SessionLists *DataUtil::mySchedule()
         }
     }
     qDebug() << "MY SCHEDLUE #:" << mSessionLists->scheduledSessionsCount();
-    return mSessionLists;
 }
 
 // Sortkey: day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm")

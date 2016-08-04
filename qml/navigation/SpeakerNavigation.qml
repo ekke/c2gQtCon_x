@@ -138,7 +138,7 @@ Page {
     } // navPane
 
     FloatingActionButton {
-        visible: navPane.depth > 2
+        visible: navPane.depth > 1
         property string imageName: "/list.png"
         z: 1
         anchors.rightMargin: 58

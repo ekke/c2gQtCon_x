@@ -24,6 +24,7 @@ ApplicationWindow {
     visible: true
     //
     property bool isLandscape: width > height
+    property bool myScheduleActive: false
 
     // primary and accent properties:
     property variant primaryPalette: myApp.defaultPrimaryPalette()

@@ -15,7 +15,6 @@ Page {
     // index to get access to Loader (Destination)
     property int myIndex: index
 
-    property alias showMySchedule: myScheduleLoader.active
     // because of https://bugreports.qt.io/browse/QTBUG-54260
     // lastCurrentIndex will remember currentIndex, so we can reset before Page becomes currentItem on StackView
     property int lastCurrentIndex: 0
@@ -58,6 +57,7 @@ Page {
                 //navPane.initialItem = item
                 item.init()
                 item.currentIndex = navPage.lastCurrentIndex
+                appWindow.myScheduleActive = false
                 myScheduleLoader.active = false
             }
         }
@@ -72,6 +72,7 @@ Page {
                 navPane.replace(item)
                 item.init()
                 navPage.lastCurrentIndex = initialItemLoader.item.currentIndex
+                appWindow.myScheduleActive = true
                 initialItemLoader.active = false
             }
         } // myScheduleLoader
@@ -190,7 +191,7 @@ Page {
     } // navPane
 
     FloatingActionButton {
-        visible: navPane.depth > 2
+        visible: navPane.depth > 1
         property string imageName: "/list.png"
         z: 1
         anchors.rightMargin: 58
@@ -205,7 +206,7 @@ Page {
     } // FAB
     FloatingActionButton {
         visible: navPane.depth == 1
-        property string imageName: "/schedule_my.png"
+        property string imageName: appWindow.myScheduleActive? "/schedule.png" : "/schedule_my.png"
         z: 1
         anchors.rightMargin: 58
         anchors.bottomMargin: 6

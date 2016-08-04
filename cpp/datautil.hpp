@@ -36,6 +36,9 @@ public:
     SessionLists* mySchedule();
 
     Q_INVOKABLE
+    SessionLists* refreshMySchedule();
+
+    Q_INVOKABLE
     QString localWeekdayAndTime(QString sessionSortkey);
 
 signals:
