@@ -216,6 +216,9 @@ Page {
                                                 anchors.fill: parent
                                                 onClicked: {
                                                     modelData.isFavorite = !modelData.isFavorite
+                                                    if(appWindow.myScheduleActive) {
+                                                        dataUtil.refreshMySchedule()
+                                                    }
                                                 }
                                             }
                                         } // favoritesIcon

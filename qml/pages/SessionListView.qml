@@ -18,6 +18,8 @@ ListView {
     bottomMargin: 40
     // QList<Session*>
     //model: dataManager.sessionPropertyList
+    // or
+    // sessionLists.scheduledSessionsPropertyList
 
     delegate:
 
@@ -160,6 +162,9 @@ ListView {
                             ListRowButton {
                                 onClicked: {
                                     model.modelData.isFavorite = !model.modelData.isFavorite
+                                    if(appWindow.myScheduleActive) {
+                                        dataUtil.refreshMySchedule()
+                                    }
                                 }
                             }
                         } // favoritesIcon

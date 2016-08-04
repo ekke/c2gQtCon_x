@@ -87,6 +87,9 @@ Page {
                             anchors.fill: parent
                             onClicked: {
                                 session.isFavorite = !session.isFavorite
+                                if(appWindow.myScheduleActive) {
+                                    dataUtil.refreshMySchedule()
+                                }
                             }
                         }
                     } // favoritesIcon

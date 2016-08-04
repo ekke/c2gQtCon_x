@@ -59,14 +59,23 @@ Page {
         cleanup()
     }
 
-    // called immediately after Loader.loaded
-
-    function init() {
-        console.log(qsTr("Init done from myScheduleListPage"))
+    function myScheduleRefreshed() {
         sessionLists = dataUtil.mySchedule()
-
-        console.log(" MySchedule Sessions:"+sessionLists.scheduledSessionsPropertyList.length)
         listView.model = sessionLists.scheduledSessionsPropertyList
+    }
+    Connections {
+        target: dataUtil
+        onMyScheduleRefreshed: myScheduleRefreshed()
+    }
+
+    // called immediately after Loader.loaded
+    function init() {
+        console.log(qsTr("Init from myScheduleListPage"))
+
+        // send signal to refresh the list model
+        dataUtil.refreshMySchedule()
+        console.log(" MySchedule Sessions:"+sessionLists.scheduledSessionsPropertyList.length)
+
     }
     // called from Component.destruction
     function cleanup() {

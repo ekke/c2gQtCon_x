@@ -651,7 +651,6 @@ void DataUtil::resolveSessionsForSchedule() {
 
 SessionLists *DataUtil::mySchedule()
 {
-    refreshMySchedule();
     return mSessionLists;
 }
 
@@ -665,6 +664,7 @@ SessionLists *DataUtil::refreshMySchedule()
         }
     }
     qDebug() << "MY SCHEDLUE #:" << mSessionLists->scheduledSessionsCount();
+    emit myScheduleRefreshed();
 }
 
 // Sortkey: day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm")

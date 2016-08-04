@@ -42,6 +42,7 @@ public:
     QString localWeekdayAndTime(QString sessionSortkey);
 
 signals:
+    void myScheduleRefreshed();
 
 public slots:
     void onSpeakerImageLoaded(QObject* dataObject, int width, int height);
