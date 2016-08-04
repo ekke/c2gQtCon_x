@@ -42,6 +42,7 @@ Page {
                 horizontalAlignment: Image.AlignLeft
                 verticalAlignment: Image.AlignTop
                 transformOrigin: Item.TopLeft
+                transform: Translate { y: 6; x:6 }
             } // image
 
 

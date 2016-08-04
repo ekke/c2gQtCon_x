@@ -92,7 +92,9 @@ Page {
                 }
                 // S E S S I O N    Repeater
                 Repeater {
+                    id: sessionRepeater
                     model: speaker.sessionsPropertyList
+                    property int sessionRepeaterIndex: index
 
                     Pane {
                         topPadding: 4
@@ -257,29 +259,26 @@ Page {
                                             }
                                         }
                                     } // subtitle
-                                    LabelSubheading {
+                                    RowLayout {
+                                        id: presenterRow
                                         visible: modelData.presenterPropertyList.length > 1
-                                        text: qsTr("Co - Speaker:")
-                                        color: primaryColor
-                                        font.bold: true
-                                        wrapMode: Label.WordWrap
-                                        ListRowButton {
-                                            onClicked: {
-                                                navPane.pushSessionDetail(modelData.sessionId)
-                                            }
+                                        property var presenter: modelData.presenterPropertyList
+                                        // speakers row
+                                        IconActive{
+                                            Layout.alignment: Qt.AlignTop
+                                            imageSize: 18
+                                            imageName: "speaker.png"
                                         }
-                                    } // co-speakers header
-                                    LabelBody {
-                                        visible: modelData.presenterPropertyList.length > 1
-                                        text: speakerDetailPage.coSpeakers(modelData)
-                                        font.bold: true
-                                        wrapMode: Label.WordWrap
-                                        ListRowButton {
-                                            onClicked: {
-                                                navPane.pushSessionDetail(modelData.sessionId)
-                                            }
-                                        }
-                                    } // co-speakers names
+                                        ColumnLayout {
+                                            Repeater {
+                                                id: presenterRepeater
+                                                model: presenterRow.presenter
+                                                LabelBody {
+                                                    text: modelData.name
+                                                }
+                                            } // presenterRepeater
+                                        } // presenter Column
+                                    } // repeater track row
 
                                 } // // repeater right column
                             } // repeater base row
@@ -317,18 +316,6 @@ Page {
             return "U"
         }
         return "S"
-    }
-    function coSpeakers(session) {
-        var s = ""
-        for (var i = 0; i < session.presenterPropertyList.length; i++) {
-            if(session.presenterPropertyList[i].speakerId != speakerDetailPage.speakerId) {
-                if(s.length) {
-                    s += "\n"
-                }
-                s += session.presenterPropertyList[i].name
-            }
-        }
-        return s
     }
 
     // called immediately after Loader.loaded
