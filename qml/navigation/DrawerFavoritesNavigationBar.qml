@@ -32,10 +32,17 @@ Pane {
         DrawerFavoritesMenuButton {
         }
         Repeater {
+            id: favoritesButtonRepeater
             model: favoritesModel
             DrawerFavoritesNavigationButton {
                 id: myButton
             }
         } // repeater
     } // RowLayout
+    function replaceIcon(position, theIconName) {
+        favoritesButtonRepeater.itemAt(position).theIcon = theIconName
+    }
+    function replaceText(position, theText) {
+        favoritesButtonRepeater.itemAt(position).theText = theText
+    }
 } // bottomNavigationBar

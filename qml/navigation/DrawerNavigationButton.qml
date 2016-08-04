@@ -12,6 +12,8 @@ ToolButton {
     property string myIconFolder: iconFolder
     property int counter: navigationData[index].counter
     property color marker: navigationData[index].marker
+    property string theIcon: modelData.icon
+    property string theText: modelData.name
     Layout.fillWidth: true
     Layout.alignment: Qt.AlignHCenter
     focusPolicy: Qt.NoFocus
@@ -42,7 +44,7 @@ ToolButton {
                 height: 24
                 horizontalAlignment: Image.AlignLeft
                 anchors.verticalCenter: parent.verticalCenter
-                source: "qrc:/images/"+myIconFolder+"/"+modelData.icon
+                source: "qrc:/images/"+myIconFolder+"/"+theIcon
                 opacity: isActive? myBar.activeOpacity : myBar.inactiveOpacity
             }
             ColorOverlay {
@@ -54,8 +56,9 @@ ToolButton {
             }
         } // image and coloroverlay
         Label {
+            id: buttonLabel
             anchors.verticalCenter: parent.verticalCenter
-            text: modelData.name
+            text: theText
             opacity: 0.87 // isActive? 1.0 : 0.7
             color: isActive? primaryColor : dividerColor // flatButtonTextColor
             font.pixelSize: 14

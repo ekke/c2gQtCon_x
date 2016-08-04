@@ -113,4 +113,11 @@ Drawer {
 
     } // Flickable
 
+    function replaceIcon(position, theIconName) {
+        navigationButtonRepeater.itemAt(position).item.theIcon = theIconName
+    }
+    function replaceText(position, theText) {
+        navigationButtonRepeater.itemAt(position).item.theText = theText
+    }
+
 } // drawer

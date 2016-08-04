@@ -25,6 +25,21 @@ ApplicationWindow {
     //
     property bool isLandscape: width > height
     property bool myScheduleActive: false
+    onMyScheduleActiveChanged: {
+        if(myScheduleActive) {
+            //navigationModel[2].icon = "schedule_my.png"
+            drawerLoader.item.replaceIcon(2,"schedule_my.png")
+            drawerLoader.item.replaceText(2,qsTr("My Schedule"))
+            favoritesLoader.item.replaceIcon(1,"schedule_my.png")
+            favoritesLoader.item.replaceText(1,qsTr("My Schedule"))
+        } else {
+            //navigationModel[2].icon = "schedule.png"
+            drawerLoader.item.replaceIcon(2,"schedule.png")
+            drawerLoader.item.replaceText(2,qsTr("Schedule"))
+            favoritesLoader.item.replaceIcon(1,"schedule.png")
+            favoritesLoader.item.replaceText(1,qsTr("Schedule"))
+        }
+    }
 
     // primary and accent properties:
     property variant primaryPalette: myApp.defaultPrimaryPalette()
@@ -112,6 +127,7 @@ ApplicationWindow {
     // LAZY: customer, orders
     // WHILE_CURRENT: About, Settings
     // StackView: Home --> QtPage, Settings --> primary / Accent
+    // if reordering: myScheduleActive expects schedule at position 2
     property var navigationModel: [
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon 2016", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
@@ -161,6 +177,7 @@ ApplicationWindow {
     // Menu Button
     // plus max 4 from drawer: home, customer, orders, settings
     // favoritesModel maps to index from navigationModel
+    // if reordering: myScheduleActive expects schedule at position 1
     property var favoritesModel: [
         0, 2, 3, 4
     ]
@@ -377,33 +394,33 @@ ApplicationWindow {
         // example HowTo set a counter
         // first time called from startupDelayedTimer
         function updateOrderCounter() {
-//            var counter = dataManager.orderPropertyList.length
-//            navigationData[4].counter = counter
-//            navigationBar.navigationButtons.itemAt(4).item.counter = counter
+            //            var counter = dataManager.orderPropertyList.length
+            //            navigationData[4].counter = counter
+            //            navigationBar.navigationButtons.itemAt(4).item.counter = counter
         }
         // update counter if Orders deleted or added
         // connect C++ SIGNAL to QML SLOT
-//        Connections {
-//                target: dataManager
-//                onOrderPropertyListChanged: rootPane.updateOrderCounter()
-//            }
+        //        Connections {
+        //                target: dataManager
+        //                onOrderPropertyListChanged: rootPane.updateOrderCounter()
+        //            }
 
         // example HowTo set a marker
         function updateCustomerMarker(abc) {
-//            switch(abc) {
-//                case 0:
-//                    navigationData[3].marker = "green"
-//                    break;
-//                case 1:
-//                    navigationData[3].marker = "grey"
-//                    break;
-//                case 2:
-//                    navigationData[3].marker = "red"
-//                    break;
-//                default:
-//                    navigationData[3].marker = "transparent"
-//            }
-//            navigationBar.navigationButtons.itemAt(3).item.marker = navigationData[3].marker
+            //            switch(abc) {
+            //                case 0:
+            //                    navigationData[3].marker = "green"
+            //                    break;
+            //                case 1:
+            //                    navigationData[3].marker = "grey"
+            //                    break;
+            //                case 2:
+            //                    navigationData[3].marker = "red"
+            //                    break;
+            //                default:
+            //                    navigationData[3].marker = "transparent"
+            //            }
+            //            navigationBar.navigationButtons.itemAt(3).item.marker = navigationData[3].marker
         }
         // end STACKVIEW FUNCTIONS
 

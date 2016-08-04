@@ -9,6 +9,8 @@ import "../common"
 ToolButton {
     id: myButton
     property bool isActive: modelData == navigationIndex
+    property string theIcon: navigationModel[modelData].icon
+    property string theText: navigationModel[modelData].name
     Layout.alignment: Qt.AlignHCenter
     focusPolicy: Qt.NoFocus
     implicitHeight: 56
@@ -28,7 +30,7 @@ ToolButton {
                 height: 24
                 verticalAlignment: Image.AlignTop
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: "qrc:/images/"+iconFolder+"/"+ navigationModel[modelData].icon
+                source: "qrc:/images/"+iconFolder+"/"+ theIcon
                 opacity: isActive? myBar.activeOpacity : myBar.inactiveOpacity
             }
             ColorOverlay {
@@ -41,7 +43,7 @@ ToolButton {
         } // image and coloroverlay
         Label {
             anchors.horizontalCenter: parent.horizontalCenter
-            text: navigationModel[modelData].name
+            text: theText
             opacity: isActive? 1.0 : 0.7
             color: isActive? primaryColor : flatButtonTextColor
             font.pixelSize: fontSizeActiveNavigationButton
