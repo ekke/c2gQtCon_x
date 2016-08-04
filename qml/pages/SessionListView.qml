@@ -52,8 +52,8 @@ ListView {
                     ColumnLayout {
                         Layout.fillWidth: true
                         // without setting a maximum width, word wrap not working
-                        Layout.maximumWidth: appWindow.width-150
-                        Layout.minimumWidth: appWindow.width-150
+                        Layout.maximumWidth: appWindow.width-132
+                        Layout.minimumWidth: appWindow.width-132
                         spacing: 0
                         LabelTitle {
                             rightPadding: 12
@@ -100,8 +100,8 @@ ListView {
                     ColumnLayout {
                         Layout.fillWidth: true
                         // without setting a maximum width, word wrap not working
-                        Layout.maximumWidth: appWindow.width-150
-                        Layout.minimumWidth: appWindow.width-150
+                        Layout.maximumWidth: appWindow.width-132
+                        Layout.minimumWidth: appWindow.width-132
                         spacing: 0
                         LabelSubheading {
                             rightPadding: 12
@@ -153,10 +153,10 @@ ListView {
                         }
                     }
                     ColumnLayout {
-                        Layout.rightMargin: 8
+                        Layout.rightMargin: 16
                         IconActive {
-                            transform: Translate { x: -36 }
-                            imageSize: 48
+                            transform: Translate { x: -46 }
+                            imageSize: 36
                             imageName: "stars.png"
                             opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
                             ListRowButton {
