@@ -340,7 +340,7 @@ ApplicationWindow {
             // remember currentIndex before being replaced
             console.log("replace destination for name: "+rootPane.currentItem.name)
             if(rootPane.currentItem.name == "ScheduleNavPage") {
-                if(!rootPane.currentItem.showMySchedule) {
+                if(!appWindow.myScheduleActive) {
                     rootPane.currentItem.lastCurrentIndex = rootPane.currentItem.getCurrentIndex()
                     console.log("dayNavPage remember "+rootPane.currentItem.getCurrentIndex())
                 }
@@ -349,7 +349,7 @@ ApplicationWindow {
             if(theItemLoader.item.name == "ScheduleNavPage") {
                 //theItemLoader.item.currentIndex = theItemLoader.item.lastCurrentIndex
                 // the SwipeView is one level deeper, so we delegate this to the next StackView
-                if(!theItemLoader.item.showMySchedule) {
+                if(!appWindow.myScheduleActive) {
                     theItemLoader.item.setCurrentIndex()
                 }
             }
