@@ -12,8 +12,8 @@ Flickable {
     id: flickable
     // index to get access to Loader (Destination)
     property int myIndex: index
-    contentHeight: appWindow.height + 100
-    contentWidth: appWindow.width + 100
+    contentHeight: appWindow.height
+    contentWidth: appWindow.width
     // StackView manages this, so please no anchors here
     // anchors.fill: parent
     property string name: "VenuePage"
