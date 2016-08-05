@@ -57,8 +57,8 @@ Page {
                             Layout.topMargin: 12
                             Layout.bottomMargin: 12
                             // without setting a maximum width, word wrap not working
-                            Layout.maximumWidth: appWindow.width-60
-                            Layout.minimumWidth: appWindow.width-60
+                            Layout.maximumWidth: appWindow.width-60-64
+                            Layout.minimumWidth: appWindow.width-60-64
 
                             LabelHeadline {
                                 text: qsTr("Room ") + model.modelData.roomName
@@ -75,9 +75,33 @@ Page {
                         }
                         ListRowButton {
                             onClicked: {
-                                navPane.pushRoomDetail(model.modelData.roomId)
+                                //navPane.pushRoomDetail(model.modelData.roomId)
                             }
                         }
+                        ColumnLayout {
+                            Layout.maximumWidth: 64
+                            Layout.minimumWidth: 64
+                            Item {
+                                width: 64
+                                height: 64
+                                Image {
+                                    id: roomImage
+                                    width: 64
+                                    height: 64
+                                    fillMode: Image.PreserveAspectFit
+                                    source: "qrc:/data-assets/conference/floorplan/room_"+model.modelData.roomId+".png"
+                                    horizontalAlignment: Image.AlignLeft
+                                    verticalAlignment: Image.AlignTop
+                                    transform: Translate {x: -16 }
+                                } // image
+                                ListRowButton {
+                                    onClicked: {
+                                        navPane.pushRoomDetail(model.modelData.roomId)
+                                    }
+                                }
+                            } // item
+                        } // col room image
+
                     }
 
                     HorizontalListDivider{}

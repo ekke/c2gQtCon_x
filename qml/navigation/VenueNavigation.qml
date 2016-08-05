@@ -137,8 +137,8 @@ Page {
         }
     } // FAB
     FloatingActionButton {
-        visible: navPane.depth > 2
-        property string imageName: "/list.png"
+        visible: navPane.depth == 3
+        property string imageName: "/directions.png"
         z: 1
         anchors.rightMargin: 58
         anchors.bottomMargin: 6
@@ -148,6 +148,20 @@ Page {
         backgroundColor: accentColor
         onClicked: {
             navPane.backToPage(1)
+        }
+    } // FAB
+    FloatingActionButton {
+        visible: navPane.depth > 3
+        property string imageName: "/list.png"
+        z: 1
+        anchors.rightMargin: 58
+        anchors.bottomMargin: 6
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
+        backgroundColor: accentColor
+        onClicked: {
+            navPane.backToPage(2)
         }
     } // FAB
 
