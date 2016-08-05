@@ -92,7 +92,7 @@ void ImageLoader::onReplyFinished()
                         message = "redirected to "+reply->header(QNetworkRequest::LocationHeader).toString();
 
                     } else {
-                        message = "Wrong HTTP Status: " + httpStatusCode;
+                        message = "Wrong HTTP Status: " + QString::number(httpStatusCode);
                     }
                     emit loadingFailed(reply->request().originatingObject(), message);
                 }
