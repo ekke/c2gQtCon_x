@@ -14,7 +14,7 @@ Pane {
         topPadding: 12
         wrapMode: Label.WordWrap
         horizontalAlignment: Qt.AlignHCenter
-        text: "Welcome to\nekkes Conference12Go APP\nfor\nQtCon 2015"
+        text: qsTr("Welcome to\nekkes Conference2Go APP\nfor\nQtCon 2016")
     }
     BusyIndicator {
         id: busyIndicator
@@ -38,17 +38,13 @@ Pane {
     Item {
         id: imageItem
         anchors.top: infoLabel.bottom
-        property int size: Math.min(600, rootPane.width * 0.8)
+        property int size: Math.min(400, (rootPane.width-60))
         width: size
-        height: size
         Image {
             x: 24
             width: imageItem.size
-            height: imageItem.size
-            horizontalAlignment: Qt.AlignHCenter
-            verticalAlignment: Qt.AlignVCenter
             fillMode: Image.PreserveAspectFit
-            source: "qrc:/images/extra/qt-logo.png"
+            source: "qrc:/images/extra/qt-con-logo.png"
         }
     }
 
