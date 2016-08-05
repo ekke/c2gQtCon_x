@@ -82,7 +82,12 @@ Page {
     function init() {
         console.log(qsTr("Init from trackSessionListPage"))
         sessionTrack = dataManager.findSessionTrackByTrackId(trackId)
-        headerLabel.text = sessionTrack.name
+        // model.modelData.name != "*****" model.modelData.name : qsTr("* no Track assigned *")
+        if(sessionTrack.name != "*****") {
+            headerLabel.text = sessionTrack.name
+        } else {
+            headerLabel.text = qsTr("* no Track assigned *")
+        }
         listView.model = sessionTrack.sessionsPropertyList
         console.log(" Track "+sessionTrack.name+" Sessions:"+sessionTrack.sessionsPropertyList.length)
 

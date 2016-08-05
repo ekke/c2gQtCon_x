@@ -55,7 +55,7 @@ Page {
                             Layout.minimumWidth: appWindow.width-60
 
                             LabelHeadline {
-                                text: model.modelData.name
+                                text: model.modelData.name != "*****" ? model.modelData.name : qsTr("* no Track assigned *")
                                 color: primaryColor
                                 wrapMode: Label.WordWrap
                             } // label
