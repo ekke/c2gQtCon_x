@@ -1841,5 +1841,13 @@
         <file>images/white/zoom_out@3x.png</file>
         <file>images/white/zoom_out@4x.png</file>
         <file>images/LICENSE</file>
+        <file>images/extra/qt-con-logo-white.png</file>
+        <file>images/extra/qt-con-logo.png</file>
+        <file>images/extra/qt-con-logo-white@2x.png</file>
+        <file>images/extra/qt-con-logo@2x.png</file>
+        <file>images/extra/qt-con-logo-white@3x.png</file>
+        <file>images/extra/qt-con-logo@3x.png</file>
+        <file>images/extra/qt-con-logo-white@4x.png</file>
+        <file>images/extra/qt-con-logo@4x.png</file>
     </qresource>
 </RCC>
