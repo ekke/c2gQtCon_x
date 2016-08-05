@@ -75,7 +75,7 @@ Page {
                         }
                         ListRowButton {
                             onClicked: {
-                                //navPane.pushRoomDetail(model.modelData.roomId)
+                                navPane.pushRoomSessions(model.modelData.roomId)
                             }
                         }
                         ColumnLayout {

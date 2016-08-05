@@ -48,9 +48,79 @@ Page {
             }
         }
 
+        Loader {
+            id: roomSessionListPageLoader
+            property int roomId: -1
+            active: false
+            visible: false
+            source: "../pages/RoomSessionListPage.qml"
+            onLoaded: {
+                item.roomId = roomId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
+        Loader {
+            id: speakerDetailPageLoader
+            property int speakerId: -1
+            active: false
+            visible: false
+            source: "../pages/SpeakerDetailPage.qml"
+            onLoaded: {
+                item.speakerId = speakerId
+                navPane.push(item)
+                item.init()
+            }
+        }
+
+        Loader {
+            id: sessionDetailPageLoader
+            property int sessionId: -1
+            active: false
+            visible: false
+            source: "../pages/SessionDetailPage.qml"
+            onLoaded: {
+                item.sessionId = sessionId
+                navPane.push(item)
+                item.init()
+            }
+        }
 
         function pushRoomListPage() {
             roomListPageLoader.active = true
+        }
+
+        function pushRoomSessions(roomId) {
+            roomSessionListPageLoader.roomId = roomId
+            roomSessionListPageLoader.active = true
+        }
+
+        // only one Speaker Detail in stack allowed to avoid endless growing stacks
+        function pushSpeakerDetail(speakerId) {
+            if(speakerDetailPageLoader.active) {
+                speakerDetailPageLoader.item.speakerId = speakerId
+                var pageStackIndex = findPage(speakerDetailPageLoader.item.name)
+                if(pageStackIndex > 0) {
+                    backToPage(pageStackIndex)
+                }
+            } else {
+                speakerDetailPageLoader.speakerId = speakerId
+                speakerDetailPageLoader.active = true
+            }
+        }
+
+        function pushSessionDetail(sessionId) {
+            if(sessionDetailPageLoader.active) {
+                sessionDetailPageLoader.item.sessionId = sessionId
+                var pageStackIndex = findPage(sessionDetailPageLoader.item.name)
+                if(pageStackIndex > 0) {
+                    backToPage(pageStackIndex)
+                }
+            } else {
+                sessionDetailPageLoader.sessionId = sessionId
+                sessionDetailPageLoader.active = true
+            }
         }
 
         function pushRoomDetail(roomId) {
@@ -87,18 +157,18 @@ Page {
                 roomListPageLoader.active = false
                 return
             }
-//            if(page.name == "trackSessionListPage") {
-//                trackSessionListPageLoader.active = false
-//                return
-//            }
-//            if(page.name == "SpeakerDetailPage") {
-//                speakerDetailPageLoader.active = false
-//                return
-//            }
-//            if(page.name == "SessionDetailPage") {
-//                sessionDetailPageLoader.active = false
-//                return
-//            }
+            if(page.name == "roomSessionListPage") {
+                roomSessionListPageLoader.active = false
+                return
+            }
+            if(page.name == "SpeakerDetailPage") {
+                speakerDetailPageLoader.active = false
+                return
+            }
+            if(page.name == "SessionDetailPage") {
+                sessionDetailPageLoader.active = false
+                return
+            }
             if(page.name == "RoomDetailPage") {
                 roomDetailPageLoader.active = false
                 return
