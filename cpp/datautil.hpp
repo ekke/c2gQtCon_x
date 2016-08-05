@@ -39,7 +39,7 @@ public:
     SessionLists* mySchedule();
 
     Q_INVOKABLE
-    SessionLists* refreshMySchedule();
+    void refreshMySchedule();
 
     Q_INVOKABLE
     QString localWeekdayAndTime(QString sessionSortkey);

@@ -390,7 +390,7 @@ void DataUtil::prepareSessions()
                 session->fillFromMap(sessionAPI->toMap());
                 QStringList duration;
                 duration = sessionAPI->duration().split(":");
-                int minutes;
+                int minutes = 0;
                 if(duration.length() == 2) {
                     minutes = duration.last().toInt();
                     minutes += duration.first().toInt()*60;
@@ -681,7 +681,7 @@ SessionLists *DataUtil::mySchedule()
     return mSessionLists;
 }
 
-SessionLists *DataUtil::refreshMySchedule()
+void DataUtil::refreshMySchedule()
 {
     mSessionLists->clearScheduledSessions();
     for (int i = 0; i < mDataManager->allSession().size(); ++i) {
