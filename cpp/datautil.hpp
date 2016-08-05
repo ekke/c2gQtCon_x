@@ -36,6 +36,9 @@ public:
     void resolveSessionsForTracks();
 
     Q_INVOKABLE
+    void resolveSessionsForRooms();
+
+    Q_INVOKABLE
     SessionLists* mySchedule();
 
     Q_INVOKABLE

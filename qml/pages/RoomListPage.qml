@@ -8,9 +8,9 @@ import org.ekkescorner.data 1.0
 import "../common"
 
 Page {
-    id: trackListPage
+    id: roomListPage
     focus: true
-    property string name: "trackListPage"
+    property string name: "RoomListPage"
     bottomPadding: 24
     topPadding: 16
 
@@ -24,20 +24,26 @@ Page {
         anchors.fill: parent
         // setting the margin to be able to scroll the list above the FAB to use the Switch on last row
         // bottomMargin: 40
-        // QList<SessionTrack*>
-        //model: dataManager.sessionTrackPropertyList
+        // QList<Room*>
+        //model: dataManager.roomPropertyList
 
         // important: use Loader to avoid errors because of https://bugreports.qt.io/browse/QTBUG-49224
         delegate: Loader {
-            id: sessionTrackLoader
+            id: roomLoader
             // define Components inside Loader to enable direct access to ListView functions and modelData
-            sourceComponent: trackRowComponent
+            sourceComponent: sessionsPropertyList.length? roomRowComponent :emptyRoomComponent
+
+            Component {
+                id: emptyRoomComponent
+                Item {}
+            }
 
             // LIST ROW DELEGTE
             Component {
-                id: trackRowComponent
+                id: roomRowComponent
                 ColumnLayout {
-                    id: trackRow
+                    id: roomRow
+                    visible: model.modelData.sessionsPropertyList.length
                     // without this divider not over total width
                     implicitWidth: appWindow.width
                     spacing: 0
@@ -55,7 +61,7 @@ Page {
                             Layout.minimumWidth: appWindow.width-60
 
                             LabelHeadline {
-                                text: model.modelData.name != "*****" ? model.modelData.name : qsTr("* no Track assigned *")
+                                text: qsTr("Room ") + model.modelData.roomName
                                 color: primaryColor
                                 wrapMode: Label.WordWrap
                             } // label
@@ -69,16 +75,16 @@ Page {
                         }
                         ListRowButton {
                             onClicked: {
-                                navPane.pushTrackSessions(model.modelData.trackId)
+                                navPane.pushRoomDetail(model.modelData.roomId)
                             }
                         }
                     }
 
                     HorizontalListDivider{}
                 } // end Col Layout speaker row
-            } // trackRowComponent
+            } // roomRowComponent
 
-        } // sessionTrackLoader
+        } // roomLoader
 
         ScrollIndicator.vertical: ScrollIndicator { }
 
@@ -90,13 +96,13 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from trackListPage"))
-        console.log("Tracks # "+dataManager.sessionTrackPropertyList.length)
-        dataUtil.resolveSessionsForTracks()
-        listView.model = dataManager.sessionTrackPropertyList
+        console.log(qsTr("Init done from RoomListPage"))
+        console.log("Tracks # "+dataManager.roomPropertyList.length)
+        dataUtil.resolveSessionsForRooms()
+        listView.model = dataManager.roomPropertyList
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from trackListPage"))
+        console.log(qsTr("Cleanup done from RoomListPage"))
     }
-} // end tracklistPage
+} // end RoomListPage

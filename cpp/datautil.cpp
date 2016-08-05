@@ -676,6 +676,14 @@ void DataUtil::resolveSessionsForTracks()
     }
 }
 
+void DataUtil::resolveSessionsForRooms()
+{
+    for (int i = 0; i < mDataManager->mAllRoom.size(); ++i) {
+        Room* room = (Room*) mDataManager->mAllRoom.at(i);
+        room->resolveSessionsKeys(mDataManager->listOfSessionForKeys(room->sessionsKeys()));
+    }
+}
+
 SessionLists *DataUtil::mySchedule()
 {
     return mSessionLists;
