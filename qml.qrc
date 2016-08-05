@@ -73,5 +73,8 @@
         <file>qml/pages/MySchedulePage.qml</file>
         <file>qml/pages/TrackListPage.qml</file>
         <file>qml/pages/TrackSessionListPage.qml</file>
+        <file>qml/pages/VenuePage.qml</file>
+        <file>qml/pages/RoomListPage.qml</file>
+        <file>qml/pages/RoomSessionListPage.qml</file>
     </qresource>
 </RCC>

@@ -21,11 +21,8 @@ Page {
         property string name: "VenueNavPane"
         focus: true
 
-        initialItem: Label{
+        initialItem: VenuePage{
             id: initialItem
-            text: "Venue"
-            function init() {}
-            function cleanup() {}
         }
 
 
