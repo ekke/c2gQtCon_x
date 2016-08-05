@@ -53,7 +53,7 @@ Page {
         property string imageName: "/remove.png"
         z: 1
         anchors.leftMargin: 20
-        anchors.bottomMargin: 20
+        anchors.bottomMargin: 10
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
@@ -68,7 +68,7 @@ Page {
         property string imageName: "/aspect_ratio.png"
         z: 1
         anchors.leftMargin: 80
-        anchors.bottomMargin: 20
+        anchors.bottomMargin: 10
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
@@ -83,7 +83,7 @@ Page {
         property string imageName: "/add.png"
         z: 1
         anchors.leftMargin: 140
-        anchors.bottomMargin: 20
+        anchors.bottomMargin: 10
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
