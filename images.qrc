@@ -76,6 +76,10 @@
         <file>images/black/x18/done@2x.png</file>
         <file>images/black/x18/done@3x.png</file>
         <file>images/black/x18/done@4x.png</file>
+        <file>images/black/x18/download.png</file>
+        <file>images/black/x18/download@2x.png</file>
+        <file>images/black/x18/download@3x.png</file>
+        <file>images/black/x18/download@4x.png</file>
         <file>images/black/x18/error.png</file>
         <file>images/black/x18/error@2x.png</file>
         <file>images/black/x18/error@3x.png</file>
@@ -84,6 +88,10 @@
         <file>images/black/x18/flight@2x.png</file>
         <file>images/black/x18/flight@3x.png</file>
         <file>images/black/x18/flight@4x.png</file>
+        <file>images/black/x18/goto.png</file>
+        <file>images/black/x18/goto@2x.png</file>
+        <file>images/black/x18/goto@3x.png</file>
+        <file>images/black/x18/goto@4x.png</file>
         <file>images/black/x18/group.png</file>
         <file>images/black/x18/group@2x.png</file>
         <file>images/black/x18/group@3x.png</file>
@@ -136,6 +144,10 @@
         <file>images/black/x18/person@2x.png</file>
         <file>images/black/x18/person@3x.png</file>
         <file>images/black/x18/person@4x.png</file>
+        <file>images/black/x18/refresh.png</file>
+        <file>images/black/x18/refresh@2x.png</file>
+        <file>images/black/x18/refresh@3x.png</file>
+        <file>images/black/x18/refresh@4x.png</file>
         <file>images/black/x18/remove.png</file>
         <file>images/black/x18/remove@2x.png</file>
         <file>images/black/x18/remove@3x.png</file>
@@ -304,6 +316,10 @@
         <file>images/black/x36/done@2x.png</file>
         <file>images/black/x36/done@3x.png</file>
         <file>images/black/x36/done@4x.png</file>
+        <file>images/black/x36/download.png</file>
+        <file>images/black/x36/download@2x.png</file>
+        <file>images/black/x36/download@3x.png</file>
+        <file>images/black/x36/download@4x.png</file>
         <file>images/black/x36/error.png</file>
         <file>images/black/x36/error@2x.png</file>
         <file>images/black/x36/error@3x.png</file>
@@ -312,6 +328,10 @@
         <file>images/black/x36/flight@2x.png</file>
         <file>images/black/x36/flight@3x.png</file>
         <file>images/black/x36/flight@4x.png</file>
+        <file>images/black/x36/goto.png</file>
+        <file>images/black/x36/goto@2x.png</file>
+        <file>images/black/x36/goto@3x.png</file>
+        <file>images/black/x36/goto@4x.png</file>
         <file>images/black/x36/group.png</file>
         <file>images/black/x36/group@2x.png</file>
         <file>images/black/x36/group@3x.png</file>
@@ -364,6 +384,10 @@
         <file>images/black/x36/person@2x.png</file>
         <file>images/black/x36/person@3x.png</file>
         <file>images/black/x36/person@4x.png</file>
+        <file>images/black/x36/refresh.png</file>
+        <file>images/black/x36/refresh@2x.png</file>
+        <file>images/black/x36/refresh@3x.png</file>
+        <file>images/black/x36/refresh@4x.png</file>
         <file>images/black/x36/remove.png</file>
         <file>images/black/x36/remove@2x.png</file>
         <file>images/black/x36/remove@3x.png</file>
@@ -532,6 +556,10 @@
         <file>images/black/x48/done@2x.png</file>
         <file>images/black/x48/done@3x.png</file>
         <file>images/black/x48/done@4x.png</file>
+        <file>images/black/x48/download.png</file>
+        <file>images/black/x48/download@2x.png</file>
+        <file>images/black/x48/download@3x.png</file>
+        <file>images/black/x48/download@4x.png</file>
         <file>images/black/x48/error.png</file>
         <file>images/black/x48/error@2x.png</file>
         <file>images/black/x48/error@3x.png</file>
@@ -540,6 +568,10 @@
         <file>images/black/x48/flight@2x.png</file>
         <file>images/black/x48/flight@3x.png</file>
         <file>images/black/x48/flight@4x.png</file>
+        <file>images/black/x48/goto.png</file>
+        <file>images/black/x48/goto@2x.png</file>
+        <file>images/black/x48/goto@3x.png</file>
+        <file>images/black/x48/goto@4x.png</file>
         <file>images/black/x48/group.png</file>
         <file>images/black/x48/group@2x.png</file>
         <file>images/black/x48/group@3x.png</file>
@@ -592,6 +624,10 @@
         <file>images/black/x48/person@2x.png</file>
         <file>images/black/x48/person@3x.png</file>
         <file>images/black/x48/person@4x.png</file>
+        <file>images/black/x48/refresh.png</file>
+        <file>images/black/x48/refresh@2x.png</file>
+        <file>images/black/x48/refresh@3x.png</file>
+        <file>images/black/x48/refresh@4x.png</file>
         <file>images/black/x48/remove.png</file>
         <file>images/black/x48/remove@2x.png</file>
         <file>images/black/x48/remove@3x.png</file>
@@ -760,6 +796,10 @@
         <file>images/black/done@2x.png</file>
         <file>images/black/done@3x.png</file>
         <file>images/black/done@4x.png</file>
+        <file>images/black/download.png</file>
+        <file>images/black/download@2x.png</file>
+        <file>images/black/download@3x.png</file>
+        <file>images/black/download@4x.png</file>
         <file>images/black/error.png</file>
         <file>images/black/error@2x.png</file>
         <file>images/black/error@3x.png</file>
@@ -768,6 +808,10 @@
         <file>images/black/flight@2x.png</file>
         <file>images/black/flight@3x.png</file>
         <file>images/black/flight@4x.png</file>
+        <file>images/black/goto.png</file>
+        <file>images/black/goto@2x.png</file>
+        <file>images/black/goto@3x.png</file>
+        <file>images/black/goto@4x.png</file>
         <file>images/black/group.png</file>
         <file>images/black/group@2x.png</file>
         <file>images/black/group@3x.png</file>
@@ -824,6 +868,10 @@
         <file>images/black/person@2x.png</file>
         <file>images/black/person@3x.png</file>
         <file>images/black/person@4x.png</file>
+        <file>images/black/refresh.png</file>
+        <file>images/black/refresh@2x.png</file>
+        <file>images/black/refresh@3x.png</file>
+        <file>images/black/refresh@4x.png</file>
         <file>images/black/remove.png</file>
         <file>images/black/remove@2x.png</file>
         <file>images/black/remove@3x.png</file>
@@ -916,14 +964,38 @@
         <file>images/black/zoom_out@2x.png</file>
         <file>images/black/zoom_out@3x.png</file>
         <file>images/black/zoom_out@4x.png</file>
+        <file>images/extra/bb-builder-native.png</file>
+        <file>images/extra/bb-builder-native@2x.png</file>
+        <file>images/extra/bb-builder-native@3x.png</file>
+        <file>images/extra/bb-builder-native@4x.png</file>
+        <file>images/extra/bb-elite.png</file>
+        <file>images/extra/bb-elite@2x.png</file>
+        <file>images/extra/bb-elite@3x.png</file>
+        <file>images/extra/bb-elite@4x.png</file>
+        <file>images/extra/ekke-thumbnail.png</file>
+        <file>images/extra/ekke-thumbnail@2x.png</file>
+        <file>images/extra/ekke-thumbnail@3x.png</file>
+        <file>images/extra/ekke-thumbnail@4x.png</file>
         <file>images/extra/qt-arrow.png</file>
         <file>images/extra/qt-arrow@2x.png</file>
         <file>images/extra/qt-arrow@3x.png</file>
         <file>images/extra/qt-arrow@4x.png</file>
+        <file>images/extra/qt-con-logo-white.png</file>
+        <file>images/extra/qt-con-logo-white@2x.png</file>
+        <file>images/extra/qt-con-logo-white@3x.png</file>
+        <file>images/extra/qt-con-logo-white@4x.png</file>
+        <file>images/extra/qt-con-logo.png</file>
+        <file>images/extra/qt-con-logo@2x.png</file>
+        <file>images/extra/qt-con-logo@3x.png</file>
+        <file>images/extra/qt-con-logo@4x.png</file>
         <file>images/extra/qt-logo.png</file>
         <file>images/extra/qt-logo@2x.png</file>
         <file>images/extra/qt-logo@3x.png</file>
         <file>images/extra/qt-logo@4x.png</file>
+        <file>images/extra/qtcon-app.png</file>
+        <file>images/extra/qtcon-app@2x.png</file>
+        <file>images/extra/qtcon-app@3x.png</file>
+        <file>images/extra/qtcon-app@4x.png</file>
         <file>images/white/x18/add.png</file>
         <file>images/white/x18/add@2x.png</file>
         <file>images/white/x18/add@3x.png</file>
@@ -1000,6 +1072,10 @@
         <file>images/white/x18/done@2x.png</file>
         <file>images/white/x18/done@3x.png</file>
         <file>images/white/x18/done@4x.png</file>
+        <file>images/white/x18/download.png</file>
+        <file>images/white/x18/download@2x.png</file>
+        <file>images/white/x18/download@3x.png</file>
+        <file>images/white/x18/download@4x.png</file>
         <file>images/white/x18/error.png</file>
         <file>images/white/x18/error@2x.png</file>
         <file>images/white/x18/error@3x.png</file>
@@ -1008,6 +1084,10 @@
         <file>images/white/x18/flight@2x.png</file>
         <file>images/white/x18/flight@3x.png</file>
         <file>images/white/x18/flight@4x.png</file>
+        <file>images/white/x18/goto.png</file>
+        <file>images/white/x18/goto@2x.png</file>
+        <file>images/white/x18/goto@3x.png</file>
+        <file>images/white/x18/goto@4x.png</file>
         <file>images/white/x18/group.png</file>
         <file>images/white/x18/group@2x.png</file>
         <file>images/white/x18/group@3x.png</file>
@@ -1060,6 +1140,10 @@
         <file>images/white/x18/person@2x.png</file>
         <file>images/white/x18/person@3x.png</file>
         <file>images/white/x18/person@4x.png</file>
+        <file>images/white/x18/refresh.png</file>
+        <file>images/white/x18/refresh@2x.png</file>
+        <file>images/white/x18/refresh@3x.png</file>
+        <file>images/white/x18/refresh@4x.png</file>
         <file>images/white/x18/remove.png</file>
         <file>images/white/x18/remove@2x.png</file>
         <file>images/white/x18/remove@3x.png</file>
@@ -1228,6 +1312,10 @@
         <file>images/white/x36/done@2x.png</file>
         <file>images/white/x36/done@3x.png</file>
         <file>images/white/x36/done@4x.png</file>
+        <file>images/white/x36/download.png</file>
+        <file>images/white/x36/download@2x.png</file>
+        <file>images/white/x36/download@3x.png</file>
+        <file>images/white/x36/download@4x.png</file>
         <file>images/white/x36/error.png</file>
         <file>images/white/x36/error@2x.png</file>
         <file>images/white/x36/error@3x.png</file>
@@ -1236,6 +1324,10 @@
         <file>images/white/x36/flight@2x.png</file>
         <file>images/white/x36/flight@3x.png</file>
         <file>images/white/x36/flight@4x.png</file>
+        <file>images/white/x36/goto.png</file>
+        <file>images/white/x36/goto@2x.png</file>
+        <file>images/white/x36/goto@3x.png</file>
+        <file>images/white/x36/goto@4x.png</file>
         <file>images/white/x36/group.png</file>
         <file>images/white/x36/group@2x.png</file>
         <file>images/white/x36/group@3x.png</file>
@@ -1288,6 +1380,10 @@
         <file>images/white/x36/person@2x.png</file>
         <file>images/white/x36/person@3x.png</file>
         <file>images/white/x36/person@4x.png</file>
+        <file>images/white/x36/refresh.png</file>
+        <file>images/white/x36/refresh@2x.png</file>
+        <file>images/white/x36/refresh@3x.png</file>
+        <file>images/white/x36/refresh@4x.png</file>
         <file>images/white/x36/remove.png</file>
         <file>images/white/x36/remove@2x.png</file>
         <file>images/white/x36/remove@3x.png</file>
@@ -1456,6 +1552,10 @@
         <file>images/white/x48/done@2x.png</file>
         <file>images/white/x48/done@3x.png</file>
         <file>images/white/x48/done@4x.png</file>
+        <file>images/white/x48/download.png</file>
+        <file>images/white/x48/download@2x.png</file>
+        <file>images/white/x48/download@3x.png</file>
+        <file>images/white/x48/download@4x.png</file>
         <file>images/white/x48/error.png</file>
         <file>images/white/x48/error@2x.png</file>
         <file>images/white/x48/error@3x.png</file>
@@ -1464,6 +1564,10 @@
         <file>images/white/x48/flight@2x.png</file>
         <file>images/white/x48/flight@3x.png</file>
         <file>images/white/x48/flight@4x.png</file>
+        <file>images/white/x48/goto.png</file>
+        <file>images/white/x48/goto@2x.png</file>
+        <file>images/white/x48/goto@3x.png</file>
+        <file>images/white/x48/goto@4x.png</file>
         <file>images/white/x48/group.png</file>
         <file>images/white/x48/group@2x.png</file>
         <file>images/white/x48/group@3x.png</file>
@@ -1516,6 +1620,10 @@
         <file>images/white/x48/person@2x.png</file>
         <file>images/white/x48/person@3x.png</file>
         <file>images/white/x48/person@4.png</file>
+        <file>images/white/x48/refresh.png</file>
+        <file>images/white/x48/refresh@2x.png</file>
+        <file>images/white/x48/refresh@3x.png</file>
+        <file>images/white/x48/refresh@4x.png</file>
         <file>images/white/x48/remove.png</file>
         <file>images/white/x48/remove@2x.png</file>
         <file>images/white/x48/remove@3x.png</file>
@@ -1684,6 +1792,10 @@
         <file>images/white/done@2x.png</file>
         <file>images/white/done@3x.png</file>
         <file>images/white/done@4x.png</file>
+        <file>images/white/download.png</file>
+        <file>images/white/download@2x.png</file>
+        <file>images/white/download@3x.png</file>
+        <file>images/white/download@4x.png</file>
         <file>images/white/error.png</file>
         <file>images/white/error@2x.png</file>
         <file>images/white/error@3x.png</file>
@@ -1692,6 +1804,10 @@
         <file>images/white/flight@2x.png</file>
         <file>images/white/flight@3x.png</file>
         <file>images/white/flight@4x.png</file>
+        <file>images/white/goto.png</file>
+        <file>images/white/goto@2x.png</file>
+        <file>images/white/goto@3x.png</file>
+        <file>images/white/goto@4x.png</file>
         <file>images/white/group.png</file>
         <file>images/white/group@2x.png</file>
         <file>images/white/group@3x.png</file>
@@ -1748,6 +1864,10 @@
         <file>images/white/person@2x.png</file>
         <file>images/white/person@3x.png</file>
         <file>images/white/person@4x.png</file>
+        <file>images/white/refresh.png</file>
+        <file>images/white/refresh@2x.png</file>
+        <file>images/white/refresh@3x.png</file>
+        <file>images/white/refresh@4x.png</file>
         <file>images/white/remove.png</file>
         <file>images/white/remove@2x.png</file>
         <file>images/white/remove@3x.png</file>
@@ -1841,29 +1961,5 @@
         <file>images/white/zoom_out@3x.png</file>
         <file>images/white/zoom_out@4x.png</file>
         <file>images/LICENSE</file>
-        <file>images/extra/qt-con-logo-white.png</file>
-        <file>images/extra/qt-con-logo.png</file>
-        <file>images/extra/qt-con-logo-white@2x.png</file>
-        <file>images/extra/qt-con-logo@2x.png</file>
-        <file>images/extra/qt-con-logo-white@3x.png</file>
-        <file>images/extra/qt-con-logo@3x.png</file>
-        <file>images/extra/qt-con-logo-white@4x.png</file>
-        <file>images/extra/qt-con-logo@4x.png</file>
-        <file>images/extra/bb-builder-native.png</file>
-        <file>images/extra/bb-builder-native@2x.png</file>
-        <file>images/extra/bb-builder-native@3x.png</file>
-        <file>images/extra/bb-builder-native@4x.png</file>
-        <file>images/extra/bb-elite.png</file>
-        <file>images/extra/bb-elite@2x.png</file>
-        <file>images/extra/bb-elite@3x.png</file>
-        <file>images/extra/bb-elite@4x.png</file>
-        <file>images/extra/ekke-thumbnail.png</file>
-        <file>images/extra/ekke-thumbnail@2x.png</file>
-        <file>images/extra/ekke-thumbnail@3x.png</file>
-        <file>images/extra/ekke-thumbnail@4x.png</file>
-        <file>images/extra/qtcon-app.png</file>
-        <file>images/extra/qtcon-app@2x.png</file>
-        <file>images/extra/qtcon-app@3x.png</file>
-        <file>images/extra/qtcon-app@4x.png</file>
     </qresource>
 </RCC>
