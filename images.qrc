@@ -1849,5 +1849,17 @@
         <file>images/extra/qt-con-logo@3x.png</file>
         <file>images/extra/qt-con-logo-white@4x.png</file>
         <file>images/extra/qt-con-logo@4x.png</file>
+        <file>images/extra/bb-builder-native.png</file>
+        <file>images/extra/bb-builder-native@2x.png</file>
+        <file>images/extra/bb-builder-native@3x.png</file>
+        <file>images/extra/bb-builder-native@4x.png</file>
+        <file>images/extra/bb-elite.png</file>
+        <file>images/extra/bb-elite@2x.png</file>
+        <file>images/extra/bb-elite@3x.png</file>
+        <file>images/extra/bb-elite@4x.png</file>
+        <file>images/extra/ekke-thumbnail.png</file>
+        <file>images/extra/ekke-thumbnail@2x.png</file>
+        <file>images/extra/ekke-thumbnail@3x.png</file>
+        <file>images/extra/ekke-thumbnail@4x.png</file>
     </qresource>
 </RCC>

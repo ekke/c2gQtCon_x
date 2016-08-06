@@ -24,50 +24,122 @@ Flickable {
             anchors.left: parent.left
             LabelHeadline {
                 leftPadding: 10
-                text: qsTr("About this APP")
+                text: qsTr("About Conference2Go\nQtCon 2016, Berlin\n(Qt 5.7 for Android and iOS)")
             }
             HorizontalDivider {}
             RowLayout {
+                Image {
+                    source: "qrc:/images/extra/ekke-thumbnail.png"
+                }
                 LabelSubheading {
-                    topPadding: 6
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Example APP demonstrating Qt Quick Controls 2\n\n")                }
+                    text: qsTr("Conference2Go QtCon 2016 is developed by ekke (@ekkescorner)")
+                    color: accentColor
+                }
             }
             RowLayout {
                 LabelSubheading {
-                    topPadding: 6
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("This Example APP is part of a Blog Series and developed by ekke (@ekkescorner)\n\n")
+                    text: qsTr("This is my very first APP for Android and iOS. Last years I developed for BlackBerry 10 / Cascades.")
+                }
+            }
+            RowLayout {
+                LabelSubheading {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("This is also my first APP I developed using Qt.\nThis APP is developed with Qt 5.7 and brandnew QtQuickControls2.")
+                }
+            }
+            RowLayout {
+                LabelSubheading {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("All work is done in my spare time and complete sourcecode is available at Github:\nhttps://github.com/ekke/c2gQtCon_x")
+                }
+            }
+//
+            RowLayout {
+                LabelSubheading {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("My blog series about Qt for x-platform Business Apps:\nhttp://j.mp/qt-x")
+                }
+            }
+            RowLayout {
+                LabelSubheading {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Please report bugs, feature requests or discuss the APP in the Comments:\nhttp://bit.ly/qtCon2016App")
+                }
+            }
+            HorizontalDivider {}
+            RowLayout {
+                LabelTitle {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Need a Business APP for BlackBerry10, Android, iOS ?")
                     color: primaryColor
                 }
             }
             RowLayout {
                 LabelSubheading {
-                    topPadding: 6
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("blog ekkes-corner: http://ekkes-corner.org\nblog mobile app dev:http://appbus.org\nblog series Qt for Mobile:http://j.mp/qt-x\n")
+                    text: qsTr("ekke is doing international development for Enterprise and SMB (Small and Medium Business). Most APPs are 'hidden' because they're running as inhouse APP at customer site.\nThis Conference App will give you some impressions what kind of APPs you can expect. Need an APP ? ask ekke")
                 }
             }
             RowLayout {
                 LabelBodySecondary {
-                    topPadding: 6
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Activation Policy: ")
+                    text: qsTr("Thanks for great Design of APP Icons and (iOS)-Splashscreen by 'Diana de Sousa, qt.io'")
                 }
-                LabelBody {
-                    topPadding: 6
+            }
+            RowLayout {
+                LabelBodySecondary {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("WHILE SELECTED")
+                    text: qsTr("Thanks doing many changes at Server Site Schedule and Speaker API: 'Kenny Coyle'")
+                }
+            }
+            RowLayout {
+                LabelBodySecondary {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Thanks J-P Nurmi, Mitch Curtis and others @qt.io for help, bug-fixing and inspirations.")
+                }
+            }
+            HorizontalDivider {}
+            RowLayout {
+                LabelBodySecondary {
+                    leftPadding: 10
+                    rightPadding: 10
+                    font.italic: true
+                    wrapMode: Text.WordWrap
+                    text: qsTr("ekke is BlackBerry Elite Developer, Enterprise Platinum Partner and certified Builder for Native.")
+                }
+            }
+            RowLayout {
+                Image {
+                    source: "qrc:/images/extra/bb-elite.png"
+                }
+            }
+            RowLayout {
+                Image {
+                    source: "qrc:/images/extra/bb-builder-native.png"
                 }
             }
             HorizontalDivider {}
