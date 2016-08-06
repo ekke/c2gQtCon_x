@@ -60,6 +60,15 @@ Drawer {
                     // space between content - see google material guide
                     height: 8
                 }
+//                Item {
+//                    width: 60
+//                    height: 60
+//                    x: 16
+//                    y: 12
+//                    Image {
+//                        source: "qrc:/images/extra/qtcon-app.png"
+//                    }
+//                }
                 Item {
                     width: 64
                     height: 64

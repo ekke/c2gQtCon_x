@@ -81,7 +81,7 @@ Flickable {
         text: qsTr("API Version ") + dataManager.settingsData().apiVersion
     }
     FloatingActionButton {
-        property string imageName: "/upload.png"
+        property string imageName: "/refresh.png"
         z: 1
         anchors.rightMargin: 58
         anchors.bottomMargin:isLandscape? 64 : isDarkTheme? 116 : 110

@@ -684,6 +684,16 @@ void DataUtil::resolveSessionsForRooms()
     }
 }
 
+QString DataUtil::scheduleTabName(int tabBarIndex)
+{
+    if(mDataManager->mAllDay.size()<(tabBarIndex +1)) {
+        return "??";
+    }
+    Day* day = (Day*) mDataManager->mAllDay.at(tabBarIndex);
+    //return day->conferenceDay().toString("ddd (dd)");
+    return QDate::shortDayName(day->conferenceDay().dayOfWeek());
+}
+
 SessionLists *DataUtil::mySchedule()
 {
     return mSessionLists;

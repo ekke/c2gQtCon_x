@@ -15,6 +15,24 @@ Page {
     bottomPadding: 6
     topPadding: 6
 
+    header:
+        ColumnLayout {
+        Layout.fillWidth: true
+        LabelHeadline {
+            topPadding: 10
+            leftPadding: 24
+            rightPadding: 12
+            id: headerLabel
+            color: primaryColor
+            elide: Label.ElideRight
+            text: qsTr("My Personal Schedule")
+        }
+        // workaround for BUG: if elide then bottompadding lost
+        Item {
+            height: 2
+        }
+    }
+
 
     // SECTION HEADER DELEGATE
     Component {

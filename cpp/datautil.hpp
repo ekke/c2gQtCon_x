@@ -39,6 +39,9 @@ public:
     void resolveSessionsForRooms();
 
     Q_INVOKABLE
+    QString scheduleTabName(int tabBarIndex);
+
+    Q_INVOKABLE
     SessionLists* mySchedule();
 
     Q_INVOKABLE
