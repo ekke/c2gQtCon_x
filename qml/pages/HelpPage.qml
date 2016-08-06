@@ -22,9 +22,17 @@ Flickable {
         ColumnLayout {
             anchors.right: parent.right
             anchors.left: parent.left
-            LabelHeadline {
-                leftPadding: 10
-                text: qsTr("Help")
+            RowLayout {
+                Image {
+                    source: "qrc:/images/extra/qtcon-app.png"
+                }
+                LabelHeadline {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Conference2Go\nQtCon 2016, Berlin\n(Qt 5.7 - Android + iOS)")
+                    color: primaryColor
+                }
             }
             HorizontalDivider {}
             RowLayout {
@@ -33,43 +41,9 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Example APP demonstrating Qt Quick Controls 2\n\n")                }
+                    text: qsTr("TBD")                }
             }
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("This Example APP is part of a Blog Series and developed by ekke (@ekkescorner)\n\n")
-                    color: primaryColor
-                }
-            }
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("blog ekkes-corner: http://ekkes-corner.org\nblog mobile app dev:http://appbus.org\nblog series Qt for Mobile:http://j.mp/qt-x\n")
-                }
-            }
-            RowLayout {
-                LabelBodySecondary {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Activation Policy: ")
-                }
-                LabelBody {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("WHILE SELECTED")
-                }
-            }
+
             HorizontalDivider {}
         } // col layout
     } // root

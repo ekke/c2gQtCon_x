@@ -1861,5 +1861,9 @@
         <file>images/extra/ekke-thumbnail@2x.png</file>
         <file>images/extra/ekke-thumbnail@3x.png</file>
         <file>images/extra/ekke-thumbnail@4x.png</file>
+        <file>images/extra/qtcon-app.png</file>
+        <file>images/extra/qtcon-app@2x.png</file>
+        <file>images/extra/qtcon-app@3x.png</file>
+        <file>images/extra/qtcon-app@4x.png</file>
     </qresource>
 </RCC>

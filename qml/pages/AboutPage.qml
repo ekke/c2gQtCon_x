@@ -22,9 +22,17 @@ Flickable {
         ColumnLayout {
             anchors.right: parent.right
             anchors.left: parent.left
-            LabelHeadline {
-                leftPadding: 10
-                text: qsTr("About Conference2Go\nQtCon 2016, Berlin\n(Qt 5.7 for Android and iOS)")
+            RowLayout {
+                Image {
+                    source: "qrc:/images/extra/qtcon-app.png"
+                }
+                LabelHeadline {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Conference2Go\nQtCon 2016, Berlin\n(Qt 5.7 - Android + iOS)")
+                    color: primaryColor
+                }
             }
             HorizontalDivider {}
             RowLayout {
@@ -35,7 +43,7 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Conference2Go QtCon 2016 is developed by ekke (@ekkescorner)")
+                    text: qsTr("Conference2Go QtCon 2016\ndeveloped by ekke (@ekkescorner)")
                     color: accentColor
                 }
             }
@@ -103,6 +111,14 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
+                    text: qsTr("Thanks to 'Tero Kojo, qt.io' managing all around the Conference App.")
+                }
+            }
+            RowLayout {
+                LabelBodySecondary {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
                     text: qsTr("Thanks for great Design of APP Icons and (iOS)-Splashscreen by 'Diana de Sousa, qt.io'")
                 }
             }
@@ -111,7 +127,7 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Thanks doing many changes at Server Site Schedule and Speaker API: 'Kenny Coyle'")
+                    text: qsTr("Thanks supporting my requests at Server Site (JSON, API): 'Kenny Coyle'")
                 }
             }
             RowLayout {

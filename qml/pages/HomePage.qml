@@ -65,7 +65,7 @@ Flickable {
                     leftPadding: 16
                     rightPadding: 16
                     wrapMode: Text.WordWrap
-                    text: qsTr("This APP is developed with\nQt Quick Controls, Material Style")
+                    text: qsTr("Developed with Qt 5.7\nQt Quick Controls 2\n(Material Style)")
                     color: primaryColor
                 }
             }

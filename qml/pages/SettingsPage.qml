@@ -24,40 +24,16 @@ Flickable {
             id: theContent
             anchors.right: parent.right
             anchors.left: parent.left
-            LabelHeadline {
-                leftPadding: 10
-                text: qsTr("Settings Biz Data")
-            }
-            IconInactive {
-                imageName: modelData.icon
-                imageSize: 48
-            }
-            HorizontalDivider {}
             RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Settings is initialItem of StackView.\nSettings is marked as Favorite, so can be opened from Bottom Navigation (in Portrait Mode)")
+                Image {
+                    source: "qrc:/images/extra/qtcon-app.png"
                 }
-            }
-            RowLayout {
-                LabelBodySecondary {
-                    Layout.preferredWidth: 1
-                    topPadding: 6
+                LabelHeadline {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Activation Policy: ")
-                }
-                LabelBody {
-                    Layout.preferredWidth: 1
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("WHILE SELECTED")
+                    text: qsTr("Conference2Go\nQtCon 2016, Berlin\n(Qt 5.7 - Android + iOS)")
+                    color: primaryColor
                 }
             }
             HorizontalDivider {}
@@ -128,24 +104,24 @@ Flickable {
                 }
             } // row accent
             HorizontalDivider {}
-            RowLayout {
-                LabelBodySecondary {
-                    Layout.preferredWidth: 1
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Last Number:")
-                }
-                LabelBody {
-                    Layout.preferredWidth: 1
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: dataManager.settingsData().lastUsedNumber
-                }
-            }
+//            RowLayout {
+//                LabelBodySecondary {
+//                    Layout.preferredWidth: 1
+//                    topPadding: 6
+//                    leftPadding: 10
+//                    rightPadding: 10
+//                    wrapMode: Text.WordWrap
+//                    text: qsTr("Last Number:")
+//                }
+//                LabelBody {
+//                    Layout.preferredWidth: 1
+//                    topPadding: 6
+//                    leftPadding: 10
+//                    rightPadding: 10
+//                    wrapMode: Text.WordWrap
+//                    text: dataManager.settingsData().lastUsedNumber
+//                }
+//            }
             RowLayout {
                 LabelBodySecondary {
                     Layout.preferredWidth: 1
