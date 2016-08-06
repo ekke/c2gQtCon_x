@@ -23,7 +23,7 @@ Page {
             leftPadding: 24
             rightPadding: 12
             id: headerLabel
-            color: primaryColor
+            color: accentColor
             elide: Label.ElideRight
             text: qsTr("My Personal Schedule")
         }

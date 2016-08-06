@@ -42,12 +42,7 @@ Page {
                 Layout.fillWidth: true
                 anchors.right: parent.right
                 anchors.left: parent.left
-                LabelHeadline {
-                    topPadding: 16
-                    bottomPadding: 16
-                    leftPadding: 10
-                    text: speaker.name.length? speaker.name : qsTr("Unnamed Speaker")
-                }
+
                 RowLayout {
                     Layout.leftMargin: 16
                     Layout.rightMargin: 6
@@ -56,13 +51,22 @@ Page {
                         id: speakerImage
                         anchors.top: parent.top
                     }
-                    LabelSubheading {
-                        leftPadding: 10+6
-                        rightPadding: 10
-                        wrapMode: Text.WordWrap
-                        text: speaker.bio
-                        //Layout.preferredWidth: 2
+                    ColumnLayout {
+                        LabelHeadline {
+                            leftPadding: 10+6
+                            text: speaker.name.length? speaker.name : qsTr("Unnamed Speaker")
+                            color: accentColor
+                        }
+
+                        LabelSubheading {
+                            leftPadding: 10+6
+                            rightPadding: 10
+                            wrapMode: Text.WordWrap
+                            text: speaker.bio
+                        }
                     }
+
+
                 } // row
                 HorizontalDivider {}
                 RowLayout {
