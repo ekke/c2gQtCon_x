@@ -162,6 +162,11 @@ ListView {
                             ListRowButton {
                                 onClicked: {
                                     model.modelData.isFavorite = !model.modelData.isFavorite
+                                    if(model.modelData.isFavorite) {
+                                        appWindow.showToast(qsTr("Added to Personal Schedule"))
+                                    } else {
+                                        appWindow.showToast(qsTr("Removed from Personal Schedule"))
+                                    }
                                     if(appWindow.myScheduleActive) {
                                         dataUtil.refreshMySchedule()
                                     }

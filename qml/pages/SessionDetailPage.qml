@@ -87,6 +87,11 @@ Page {
                             anchors.fill: parent
                             onClicked: {
                                 session.isFavorite = !session.isFavorite
+                                if(session.isFavorite) {
+                                    appWindow.showToast(qsTr("Added to Personal Schedule"))
+                                } else {
+                                    appWindow.showToast(qsTr("Removed from Personal Schedule"))
+                                }
                                 if(appWindow.myScheduleActive) {
                                     dataUtil.refreshMySchedule()
                                 }
