@@ -12,14 +12,14 @@ TabBar {
     currentIndex: 0
     onCurrentIndexChanged: {
         console.log("Tab Bar current index changed: "+ currentIndex)
-        navPane.currentIndex = currentIndex
+        navSwipePane.currentIndex = currentIndex // navPane
     }
     Repeater {
-        model: tabButtonModel
+        model: dataManager.dayPropertyList.length
         TabButton {
             focusPolicy: Qt.NoFocus
-            text: modelData.name
-            width: tabBarIsFixed? myTabBar.width / tabButtonModel.length  : Math.max(112, myTabBar.width / tabButtonModel.length)
+            text: dataUtil.scheduleTabName(index)
+            width: tabBarIsFixed? myTabBar.width / model.length  : Math.max(112, myTabBar.width / model.length)
         }
     } // repeater
 

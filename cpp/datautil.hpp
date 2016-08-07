@@ -48,6 +48,9 @@ public:
     void refreshMySchedule();
 
     Q_INVOKABLE
+    int findFirstSessionItem(int conferenceDayIndex, QString pickedTime);
+
+    Q_INVOKABLE
     QString localWeekdayAndTime(QString sessionSortkey);
 
 signals:

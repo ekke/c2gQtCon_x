@@ -128,6 +128,7 @@ ApplicationWindow {
     // WHILE_CURRENT: About, Settings
     // StackView: Home --> QtPage, Settings --> primary / Accent
     // if reordering: myScheduleActive expects schedule at position 2
+    // DrawerTitleBar expects schedule at position 2
     property var navigationModel: [
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},

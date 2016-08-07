@@ -712,6 +712,23 @@ void DataUtil::refreshMySchedule()
     emit myScheduleRefreshed();
 }
 
+int DataUtil::findFirstSessionItem(int conferenceDayIndex, QString pickedTime)
+{
+    if(conferenceDayIndex < 0 || conferenceDayIndex > (mDataManager->mAllDay.size()-1)) {
+        qDebug() << "Day Index wrong: conferenceDayIndex";
+        return -1;
+    }
+    Day* day = (Day*) mDataManager->mAllDay.at(conferenceDayIndex);
+    for (int i = 0; i < day->sessions().size(); ++i) {
+        Session* session = day->sessions().at(i);
+        QString theTime = session->sortKey().right(5);
+        if(theTime >= pickedTime) {
+            return i;
+        }
+    }
+    return day->sessions().size();
+}
+
 // Sortkey: day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm")
 QString DataUtil::localWeekdayAndTime(QString sessionSortkey)
 {

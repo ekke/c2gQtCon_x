@@ -55,6 +55,22 @@ Page {
         id: listView
     }
 
+    function goToItemIndex(theIndex) {
+        if(theIndex == -1) {
+            appWindow.showToast(qsTr("No Session found"))
+            return
+        }
+        if(theIndex > 0) {
+            if(theIndex == listView.model.length) {
+                appWindow.showToast(qsTr("Too late for a Session"))
+            }
+
+            theIndex = theIndex-1
+        }
+
+        listView.positionViewAtIndex(theIndex, ListView.Beginning)
+    }
+
     Component.onDestruction: {
         cleanup()
     }

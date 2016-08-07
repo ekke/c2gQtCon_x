@@ -20,6 +20,10 @@ Page {
 
     property alias currentIndex: navSwipePane.currentIndex
 
+    function goToIndex(theItemIndex) {
+        dayPagerepeater.itemAt(currentIndex).item.goToItemIndex(theItemIndex)
+    }
+
     property bool tabBarIsFixed: true
 
     header: isLandscape? null : tabBar
@@ -28,7 +32,7 @@ Page {
         id: tabBar
         visible: !isLandscape
         active: !isLandscape
-        source: "../tabs/TextTabBar.qml"
+        source: "../tabs/ScheduleTabBar.qml"
         onLoaded: {
             console.log("Tab Bar LOADED")
             if(item) {
@@ -43,7 +47,7 @@ Page {
         anchors.left: parent.left
         anchors.right: parent.right
         active: isLandscape
-        source: "../tabs/TextTabBar.qml"
+        source: "../tabs/ScheduleTabBar.qml"
         onLoaded: {
             console.log("Floating Tab Bar LOADED")
             if(item) {
@@ -84,6 +88,7 @@ Page {
 
         // only 4 Pages - all preloaded
         Repeater {
+            id: dayPagerepeater
             model: 4
 
             Loader {

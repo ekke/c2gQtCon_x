@@ -76,5 +76,6 @@
         <file>qml/pages/VenuePage.qml</file>
         <file>qml/pages/RoomListPage.qml</file>
         <file>qml/pages/RoomSessionListPage.qml</file>
+        <file>qml/tabs/ScheduleTabBar.qml</file>
     </qresource>
 </RCC>

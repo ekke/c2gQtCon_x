@@ -26,7 +26,7 @@ ToolBar {
             onClicked: {
                 appWindow.openNavigationBar()
             }
-        }
+        } // menubutton
         ToolButton {
             id: backButton
             focusPolicy: Qt.NoFocus
@@ -38,7 +38,7 @@ ToolBar {
             onClicked: {
                 destinations.itemAt(navigationIndex).item.goBack()
             }
-        }
+        } // backButton
 
         LabelTitle {
             id: titleLabel
@@ -51,9 +51,23 @@ ToolBar {
             color: textOnPrimary
         }
         ToolButton {
+            id: scheduleGoToButton
+            visible: navigationIndex == 2 && destinations.itemAt(2).item.depth == 1
             focusPolicy: Qt.NoFocus
+            Image {
+                anchors.centerIn: parent
+                source: "qrc:/images/"+iconOnPrimaryFolder+"/goto.png"
+            }
+            onClicked: {
+                destinations.itemAt(2).item.pickTime()
+            }
+        } // scheduleGoToButton
+        // fake button to avoid flicker and repositioning of titleLabel
+        ToolButton {
+            visible: !scheduleGoToButton.visible
             enabled: false
-        }
+            focusPolicy: Qt.NoFocus
+        } // fake button
     } // end RowLayout
 } // end ToolBar
 

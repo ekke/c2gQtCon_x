@@ -7,6 +7,7 @@ import QtGraphicalEffects 1.0
 
 import "../pages"
 import "../common"
+import "../popups"
 
 Page {
     id: navPage
@@ -222,6 +223,41 @@ Page {
             }
         }
     } // FAB
+
+    // TIMEPICKER LAZY LOADED AT FIRST USE
+    Loader {
+        id: timePickerLoader
+        active: false
+        visible: false
+        source: "../popups/TimePicker.qml"
+        onLoaded: {
+            item.modal = true
+            item.titleText = qsTr("GoTo Talks @")
+            item.open()
+            item.setDisplay("10:00", true, true)
+        }
+    }
+    // getting SIGNAL from TimePicker closed via Connections
+    function timePickerClosed() {
+        if(timePickerLoader.item.isOK) {
+            // initialItemLoader.item == DaySwiper
+            initialItemLoader.item.goToIndex(dataUtil.findFirstSessionItem(getCurrentIndex(),timePickerLoader.item.hrsDisplay+":"+timePickerLoader.item.minutesDisplay))
+        } else {
+            appWindow.showToast(qsTr("No Time selected"))
+        }
+    }
+    Connections {
+        target: timePickerLoader.item
+        onClosed: timePickerClosed()
+    }
+    // executed from GoTo Button at TitleBar
+    function pickTime() {
+        if(timePickerLoader.active) {
+            timePickerLoader.item.open()
+        } else {
+            timePickerLoader.active = true
+        }
+    }
 
     // sets the index of SwipeView/TabBar back to last remembered one
     function setCurrentIndex() {
