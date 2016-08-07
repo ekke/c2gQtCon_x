@@ -78,5 +78,6 @@
         <file>qml/pages/RoomSessionListPage.qml</file>
         <file>qml/tabs/ScheduleTabBar.qml</file>
         <file>qml/popups/LetterPicker.qml</file>
+        <file>qml/pages/HelpRow.qml</file>
     </qresource>
 </RCC>

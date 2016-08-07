@@ -35,14 +35,29 @@ Flickable {
                 }
             }
             HorizontalDivider {}
-            RowLayout {
-                LabelSubheading {
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("TBD")                }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Misc")
+                color: accentColor
             }
+            HelpRow {
+                iconName: "menu.png"
+                helpText: qsTr("Menu Button: Opens the Drawer. Drawer can also be opened from Gesture: swiping from left site.")
+            }
+            HelpRow {
+                iconName: "more_vert.png"
+                helpText: qsTr("Options Button: Opens a Menu")
+            }
+            HelpRow {
+                iconName: "arrow_back.png"
+                helpText: qsTr("Back Button: Top/Left from TitleBar goes one Page back. On Android you can also use OS - specific Back Button below the Page.")
+            }
+            HelpRow {
+                iconName: "list.png"
+                helpText: qsTr("Speed Navigation: Back to the List below in the stack without the need to move fingers to Top/Right Back Button.")
+            }
+
+
 
             HorizontalDivider {}
         } // col layout
