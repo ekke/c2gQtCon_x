@@ -12,6 +12,7 @@ Flickable {
     id: homePage
     contentHeight: appWindow.height
     contentWidth: appWindow.width
+    property Conference conference
     // StackView manages this, so please no anchors here
     // anchors.fill: parent
     property string name: "HomePage"
@@ -69,6 +70,17 @@ Flickable {
                     color: primaryColor
                 }
             }
+            RowLayout {
+                LabelHeadline {
+                    Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
+                    topPadding: 36
+                    leftPadding: 16
+                    rightPadding: 16
+                    wrapMode: Text.WordWrap
+                    text: conference.hashTag
+                    color: accentColor
+                }
+            }
         } // col layout
     } // root
     ScrollIndicator.vertical: ScrollIndicator { }
@@ -115,6 +127,7 @@ Flickable {
     // called immediately after Loader.loaded
     function init() {
         fitIntoWindow()
+        conference = dataManager.conferencePropertyList[0]
         console.log(qsTr("Init done from Home Page"))
     }
     // called from Component.destruction
