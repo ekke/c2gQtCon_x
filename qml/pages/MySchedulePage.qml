@@ -80,6 +80,9 @@ Page {
     function myScheduleRefreshed() {
         sessionLists = dataUtil.mySchedule()
         listView.model = sessionLists.scheduledSessionsPropertyList
+        if(sessionLists.scheduledSessionsPropertyList.length == 0) {
+            appWindow.showToast(qsTr("Your Personal Schedule is empty."))
+        }
     }
     Connections {
         target: dataUtil
