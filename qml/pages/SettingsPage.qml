@@ -129,10 +129,48 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
+                    text: qsTr("Default Theme:")
+                }
+                LabelBody {
+                    Layout.preferredWidth: 2
+                    topPadding: 6
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Light Theme\nPrimary Color: Indigo\nAccent Color: Deep Orange")
+                }
+            }
+            RowLayout {
+                LabelBodySecondary {
+                    Layout.preferredWidth: 1
+                    topPadding: 6
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Hint:")
+                }
+                LabelBody {
+                    Layout.preferredWidth: 2
+                    topPadding: 6
+                    bottomPadding: 6
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Switching to aDark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.")
+                }
+            }
+            HorizontalDivider {}
+            RowLayout {
+                LabelBodySecondary {
+                    Layout.preferredWidth: 1
+                    topPadding: 6
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
                     text: qsTr("Version:")
                 }
                 LabelBody {
-                    Layout.preferredWidth: 1
+                    Layout.preferredWidth: 2
                     topPadding: 6
                     leftPadding: 10
                     rightPadding: 10

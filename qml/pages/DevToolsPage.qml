@@ -173,7 +173,7 @@ Flickable {
                     anchors.verticalCenter: parent.verticalCenter
                     leftPadding: 10
                     rightPadding: 10
-                    wrapMode: Text.WordWrap
+                    wrapMode: Text.WrapAnywhere
                     text: qsTr("Conference data stored at:\n/storage/emulated/0/data/ekkescorner/c2gQtCon_x/data/conference/")
                     Layout.preferredWidth: 1
                     font.italic: true
