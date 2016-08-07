@@ -52,19 +52,19 @@ ToolBar {
         }
         ToolButton {
             id: scheduleGoToButton
-            visible: !myScheduleActive && navigationIndex == 2 && destinations.itemAt(2).item.depth == 1
+            visible: !myScheduleActive && navigationIndex == scheduleNavigationIndex && destinations.itemAt(scheduleNavigationIndex).item.depth == 1
             focusPolicy: Qt.NoFocus
             Image {
                 anchors.centerIn: parent
                 source: "qrc:/images/"+iconOnPrimaryFolder+"/goto.png"
             }
             onClicked: {
-                destinations.itemAt(2).item.pickTime()
+                destinations.itemAt(scheduleNavigationIndex).item.pickTime()
             }
         } // scheduleGoToButton
         ToolButton {
             id: speakerGoToButton
-            visible: navigationIndex == 3 && destinations.itemAt(3).item.depth == 1
+            visible: navigationIndex == speakerNavigationIndex && destinations.itemAt(speakerNavigationIndex).item.depth == 1
             focusPolicy: Qt.NoFocus
             Image {
                 anchors.centerIn: parent
@@ -74,9 +74,50 @@ ToolBar {
                 destinations.itemAt(3).item.pickLetter()
             }
         } // scheduleGoToButton
+        ToolButton {
+            id: homeOptionsButton
+            visible: navigationIndex == homeNavigationIndex
+            focusPolicy: Qt.NoFocus
+            Image {
+                anchors.centerIn: parent
+                source: "qrc:/images/"+iconOnPrimaryFolder+"/more_vert.png"
+            }
+            onClicked: {
+                homeOptionsMenu.open()
+            }
+            Menu {
+                id: homeOptionsMenu
+                x: parent.width - width
+                transformOrigin: Menu.TopRight
+                MenuItem {
+                    text: qsTr("Help")
+                    onTriggered: {
+                        navigationIndex = helpNavigationIndex
+                    }
+                }
+                MenuItem {
+                    text: qsTr("Settings")
+                    onTriggered: {
+                        navigationIndex = settingsNavigationIndex
+                    }
+                }
+                MenuItem {
+                    text: qsTr("About")
+                    onTriggered: {
+                        navigationIndex = aboutNavigationIndex
+                    }
+                }
+                onAboutToHide: {
+                    appWindow.resetFocus()
+                }
+            } // end optionsMenu
+
+        } // end homeOptionsButton
+
+        // F A K E
         // fake button to avoid flicker and repositioning of titleLabel
         ToolButton {
-            visible: !scheduleGoToButton.visible && !speakerGoToButton.visible
+            visible: !scheduleGoToButton.visible && !speakerGoToButton.visible && !homeOptionsButton.visible
             enabled: false
             focusPolicy: Qt.NoFocus
         } // fake button

@@ -28,16 +28,16 @@ ApplicationWindow {
     onMyScheduleActiveChanged: {
         if(myScheduleActive) {
             //navigationModel[2].icon = "schedule_my.png"
-            drawerLoader.item.replaceIcon(2,"schedule_my.png")
-            drawerLoader.item.replaceText(2,qsTr("My Schedule"))
-            favoritesLoader.item.replaceIcon(1,"schedule_my.png")
-            favoritesLoader.item.replaceText(1,qsTr("My Schedule"))
+            drawerLoader.item.replaceIcon(scheduleNavigationIndex,"schedule_my.png")
+            drawerLoader.item.replaceText(scheduleNavigationIndex,qsTr("My Schedule"))
+            favoritesLoader.item.replaceIcon(scheduleFavoritesIndex,"schedule_my.png")
+            favoritesLoader.item.replaceText(scheduleFavoritesIndex,qsTr("My Schedule"))
         } else {
             //navigationModel[2].icon = "schedule.png"
-            drawerLoader.item.replaceIcon(2,"schedule.png")
-            drawerLoader.item.replaceText(2,qsTr("Schedule"))
-            favoritesLoader.item.replaceIcon(1,"schedule.png")
-            favoritesLoader.item.replaceText(1,qsTr("Schedule"))
+            drawerLoader.item.replaceIcon(scheduleNavigationIndex,"schedule.png")
+            drawerLoader.item.replaceText(scheduleNavigationIndex,qsTr("Schedule"))
+            favoritesLoader.item.replaceIcon(scheduleFavoritesIndex,"schedule.png")
+            favoritesLoader.item.replaceText(scheduleFavoritesIndex,qsTr("Schedule"))
         }
     }
 
@@ -127,8 +127,15 @@ ApplicationWindow {
     // LAZY: customer, orders
     // WHILE_CURRENT: About, Settings
     // StackView: Home --> QtPage, Settings --> primary / Accent
-    // if reordering: myScheduleActive expects schedule at position 2
-    // DrawerTitleBar expects schedule at position 2 and speaker at position 3
+    // if reordering adjust properties
+    property int homeNavigationIndex: 0
+    property int scheduleNavigationIndex: 2
+    property int speakerNavigationIndex: 3
+    property int tracksNavigationIndex: 4
+    property int venueNavigationIndex: 5
+    property int settingsNavigationIndex: 7
+    property int helpNavigationIndex: 8
+    property int aboutNavigationIndex: 9
     property var navigationModel: [
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
@@ -178,9 +185,13 @@ ApplicationWindow {
     // Menu Button
     // plus max 4 from drawer: home, customer, orders, settings
     // favoritesModel maps to index from navigationModel
-    // if reordering: myScheduleActive expects schedule at position 1
+    // if reordering adjust properties
+    property int homeFavoritesIndex: 0
+    property int scheduleFavoritesIndex: 1
+    property int speakerFavoritesIndex: 2
+    property int tracksFavoritesIndex: 3
     property var favoritesModel: [
-        0, 2, 3, 4
+        homeNavigationIndex, scheduleNavigationIndex, speakerNavigationIndex, tracksNavigationIndex
     ]
     property int firstActiveDestination: 0
     property int navigationIndex: firstActiveDestination
