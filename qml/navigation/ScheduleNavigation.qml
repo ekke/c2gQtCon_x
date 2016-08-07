@@ -254,6 +254,7 @@ Page {
     function pickTime() {
         if(timePickerLoader.active) {
             timePickerLoader.item.open()
+            timePickerLoader.item.onHoursButtonClicked()
         } else {
             timePickerLoader.active = true
         }
