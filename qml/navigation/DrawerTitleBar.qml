@@ -52,7 +52,7 @@ ToolBar {
         }
         ToolButton {
             id: scheduleGoToButton
-            visible: navigationIndex == 2 && destinations.itemAt(2).item.depth == 1
+            visible: !myScheduleActive && navigationIndex == 2 && destinations.itemAt(2).item.depth == 1
             focusPolicy: Qt.NoFocus
             Image {
                 anchors.centerIn: parent
@@ -62,9 +62,21 @@ ToolBar {
                 destinations.itemAt(2).item.pickTime()
             }
         } // scheduleGoToButton
+        ToolButton {
+            id: speakerGoToButton
+            visible: navigationIndex == 3 && destinations.itemAt(3).item.depth == 1
+            focusPolicy: Qt.NoFocus
+            Image {
+                anchors.centerIn: parent
+                source: "qrc:/images/"+iconOnPrimaryFolder+"/goto.png"
+            }
+            onClicked: {
+                destinations.itemAt(3).item.pickLetter()
+            }
+        } // scheduleGoToButton
         // fake button to avoid flicker and repositioning of titleLabel
         ToolButton {
-            visible: !scheduleGoToButton.visible
+            visible: !scheduleGoToButton.visible && !speakerGoToButton.visible
             enabled: false
             focusPolicy: Qt.NoFocus
         } // fake button

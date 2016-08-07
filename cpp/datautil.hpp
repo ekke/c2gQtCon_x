@@ -51,6 +51,9 @@ public:
     int findFirstSessionItem(int conferenceDayIndex, QString pickedTime);
 
     Q_INVOKABLE
+    int findFirstSpeakerItem(QString letter);
+
+    Q_INVOKABLE
     QString localWeekdayAndTime(QString sessionSortkey);
 
 signals:

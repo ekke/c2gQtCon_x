@@ -115,6 +115,17 @@ Page {
         }
     } // end listView
 
+    function goToItemIndex(theIndex) {
+        if(theIndex == -1) {
+            return
+        }
+        if(theIndex > 0) {
+            theIndex = theIndex-1
+        }
+
+        listView.positionViewAtIndex(theIndex, ListView.Beginning)
+    }
+
     Component.onDestruction: {
         cleanup()
     }

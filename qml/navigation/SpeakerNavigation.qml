@@ -152,6 +152,38 @@ Page {
         }
     } // FAB
 
+    // LETTER PICKER LAZY LOADED AT FIRST USE
+    Loader {
+        id: letterPickerLoader
+        active: false
+        visible: false
+        source: "../popups/LetterPicker.qml"
+        onLoaded: {
+            item.modal = true
+            item.titleText = qsTr("GoTo")
+            item.open()
+        }
+    }
+    // getting SIGNAL from LetterPicker closed via Connections
+    function letterPickerClosed() {
+        if(letterPickerLoader.item.isOK) {
+            initialItem.goToItemIndex(dataUtil.findFirstSpeakerItem(letterPickerLoader.item.selectedLetter))
+        }
+    }
+    Connections {
+        target: letterPickerLoader.item
+        onClosed: letterPickerClosed()
+    }
+    // executed from GoTo Button at TitleBar
+    function pickLetter() {
+        if(letterPickerLoader.active) {
+            letterPickerLoader.item.open()
+        } else {
+            letterPickerLoader.active = true
+        }
+    }
+    // end LETTER PICKER
+
     function destinationAboutToChange() {
         // nothing
     }

@@ -729,6 +729,17 @@ int DataUtil::findFirstSessionItem(int conferenceDayIndex, QString pickedTime)
     return day->sessions().size();
 }
 
+int DataUtil::findFirstSpeakerItem(QString letter)
+{
+    for (int i = 0; i < mDataManager->mAllSpeaker.size(); ++i) {
+        Speaker* speaker = (Speaker*) mDataManager->mAllSpeaker.at(i);
+        if(speaker->sortGroup() >= letter) {
+            return i;
+        }
+    }
+    return mDataManager->mAllSpeaker.size();
+}
+
 // Sortkey: day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm")
 QString DataUtil::localWeekdayAndTime(QString sessionSortkey)
 {

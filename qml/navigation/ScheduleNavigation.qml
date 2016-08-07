@@ -259,6 +259,7 @@ Page {
             timePickerLoader.active = true
         }
     }
+    // end TIMEPICKER
 
     // sets the index of SwipeView/TabBar back to last remembered one
     function setCurrentIndex() {
