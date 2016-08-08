@@ -19,13 +19,13 @@ Pane {
     BusyIndicator {
         id: busyIndicator
         topPadding: 24
-        readonly property int size: Math.min(rootPane.availableWidth, rootPane.availableHeight) / 5
-        width: size
-        height: size
+        property int size: Math.min(rootPane.width, rootPane.height) / 5
+        implicitHeight: size
+        implicitWidth: size
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.top: initLabel.bottom
     }
-    LabelSubheading {
+    LabelTitle {
         id: infoLabel
         anchors.top: busyIndicator.bottom
         anchors.left: parent.left
@@ -56,6 +56,13 @@ Pane {
     function init() {
         console.log(qsTr("Init done from InitialItemPage"))
     }
+    function update() {
+        console.log(qsTr("InitialItemPage running from UPDATE"))
+        imageItem.visible = false
+        initLabel.text = qsTr("Conference2Go APP\nfor\nQtCon 2016")
+        infoLabel.text = qsTr("Conference Schedule will be updated...")
+    }
+
     function showInfo(info) {
         console.log("INFO: "+info)
         infoLabel.text = info

@@ -193,7 +193,7 @@ ApplicationWindow {
     property var favoritesModel: [
         homeNavigationIndex, scheduleNavigationIndex, speakerNavigationIndex, tracksNavigationIndex
     ]
-    property int firstActiveDestination: 0
+    property int firstActiveDestination: homeNavigationIndex
     property int navigationIndex: firstActiveDestination
     onNavigationIndexChanged: {
         rootPane.activateDestination(navigationIndex)
@@ -278,18 +278,60 @@ ApplicationWindow {
         // immediately activated and pushed on stack as initialItem
         Loader {
             id: initialPlaceholder
+            property bool isUpdate: false
             source: "pages/InitialItemPage.qml"
             active: true
             visible: false
             onLoaded: {
                 // Show BUSY INDICATOR
-                rootPane.initialItem = item
-                item.init()
-                // Now something is VISIBLE - do the other time-consuming stuff
-                startupDelayedTimer.start()
+                if(isUpdate) {
+                    rootPane.replace(item)
+                    item.update()
+                    // now doing the UPDATE stuff
+                    updateTimer.start()
+                } else {
+                    rootPane.initialItem = item
+                    item.init()
+                    // Now something is VISIBLE - do the other time-consuming stuff
+                    startupDelayedTimer.start()
+                }
             }
         }
         // end STACK VIEW INITIAL ITEM
+
+        // U P D A T E
+        Timer {
+            id: fakeUpdateEndTimer
+            interval: 5000
+            repeat: false
+            onTriggered: {
+                startupDelayedTimer.start()
+            }
+        } // fakeUpdateEndTimer
+        Timer {
+            id: updateTimer
+            interval: 300
+            repeat: false
+            onTriggered: {
+                // save favorites and bookmarks
+                // TODO
+                // cleanup all running stuff
+                destinations.model = []
+            }
+        } // updateTimer
+        function startUpdate() {
+            myScheduleActive = false
+            // remove drawer and bottom navigation
+            initDone = false
+            // replace root item
+            initialPlaceholder.isUpdate = true
+            initialPlaceholder.active = true
+            // Start UPDATE
+            // TODO update - all data should be read at the end
+            // fakeUpdateEndTimer
+            fakeUpdateEndTimer.start()
+        }
+        // END   U P D A T E
 
         // DELAYED STARTUP TIMER
         // do the hevy stuff while initialItem is visible
@@ -300,15 +342,17 @@ ApplicationWindow {
             repeat: false
             onTriggered: {
                 console.log("startupDelayedTimer START")
-                rootPane.initialItem.showInfo("Initialize Data ...")
-                dataManager.init()
+                initialPlaceholder.item.showInfo("Initialize Data ...")
+                if(!initialPlaceholder.isUpdate) {
+                    dataManager.init()
+                }
                 dataUtil.setSessionFavorites()
                 dataManager.resolveReferencesForAllSpeaker()
                 dataManager.resolveReferencesForAllSession()
                 dataUtil.resolveSessionsForSchedule()
-                rootPane.initialItem.showInfo("Create Navigation Controls ...")
+                initialPlaceholder.item.showInfo("Create Navigation Controls ...")
                 // add navigation model for DEBUG BUILD ?
-                if(myApp.isDebugBuild()) {
+                if(myApp.isDebugBuild() && !initialPlaceholder.isUpdate) {
                     console.log("DEBUG BUILD added as destination")
                     navigationModel.push(developerModel)
                 }
