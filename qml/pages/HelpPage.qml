@@ -42,11 +42,11 @@ Flickable {
             }
             HelpRow {
                 iconName: "menu.png"
-                helpText: qsTr("Menu Button: Opens the Drawer. Drawer can also be opened from Gesture: swiping from left site.")
+                helpText: qsTr("Menu Button: Opens the Drawer. Drawer can also be opened with Gestures: swiping from left site.")
             }
             HelpRow {
                 iconName: "more_vert.png"
-                helpText: qsTr("Options Button: Opens a Menu")
+                helpText: qsTr("Options Button: Opens a Menu with some options.")
             }
             HelpRow {
                 iconName: "arrow_back.png"
@@ -54,12 +54,108 @@ Flickable {
             }
             HelpRow {
                 iconName: "list.png"
-                helpText: qsTr("Speed Navigation: Back to the List below in the stack without the need to move fingers to Top/Right Back Button.")
+                helpText: qsTr("Speed Navigation: Back to the List below in the stack without the need to move fingers to Top/Left Back Button.")
             }
-
-
-
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("QtCon")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "home.png"
+                helpText: qsTr("Homepage - the first Page. From here you can start Updates.")
+            }
+            HelpRow {
+                iconName: "refresh.png"
+                helpText: qsTr("QtCon Conference APP already contains the Conference Data, so you can start without waiting for Downloads. To get Schedule- and Speaker Updates tap on the Refresh Button.")
+            }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Schedule")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "schedule.png"
+                helpText: qsTr("Complete Conference Schedule separated by Days and sorted by Starttime. Switch between Conference Days by Swiping left/right or tapping on a Tab from Tab Bar.")
+            }
+            HelpRow {
+                iconName: "schedule_my.png"
+                helpText: qsTr("Button to see your Personal Conference Schedule. Mark Sessions for your Personal Schedule by checking the Favorites Button.")
+            }
+            HelpRow {
+                iconName: "goto.png"
+                helpText: qsTr("There are many Sessions listed for a Day - to make it easier to jump to a specific Timeslot tap on this Button and select the Time.")
+            }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Speaker")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "speaker.png"
+                helpText: qsTr("List of all Speakers sorted by Last Name.")
+            }
+            HelpRow {
+                iconName: "goto.png"
+                helpText: qsTr("To find a specific Speaker tap on this Button and select the Letter.")
+            }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Tracks")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "tag.png"
+                helpText: qsTr("List of all Conference Tracks. Tap on a row to see all Sessions of selected Track.")
+            }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Venue")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "venue.png"
+                helpText: qsTr("Informations and Address of the Venue. From here you can also see a List of all Rooms.")
+            }
+            HelpRow {
+                iconName: "directions.png"
+                helpText: qsTr("List of all Rooms. Tap on a Row to see all Sessions running in this Room. Tap on the Thumbnail to see the Floorplan of the selected Room.")
+            }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Settings")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "settings.png"
+                helpText: qsTr("Customize QtCon Conference APP. You can change the Theme (light or dark) and also Primary or Accent Color. Colors can be selected from Material Style Colors.")
+            }
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Talks")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "stars.png"
+                helpText: qsTr("The Favorites Button. Tap on it to mark a Session and to add this to your Personal Schedule. Button is a Toggle - tap again to remove from your Personal Schedule.")
+            }
+            HelpRow {
+                iconName: "directions.png"
+                helpText: qsTr("See the Floorplan of the Room where the Session runs.")
+            }
+            HelpRow {
+                iconName: "calendar.png"
+                helpText: qsTr("Conference Date.")
+            }
+            HelpRow {
+                iconName: "time.png"
+                helpText: qsTr("Session Time from - to.")
+            }
             HorizontalDivider {}
+            LabelSubheading {
+                text: qsTr("Need more Infos ?\nFollow @ekkescorner at Twitter\nfollow ekkes blogs:\nhttp://appbus.org and http://ekkes-corner.org")
+                font.italic: true
+            }
         } // col layout
     } // root
     ScrollIndicator.vertical: ScrollIndicator { }
