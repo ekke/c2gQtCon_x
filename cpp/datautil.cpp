@@ -26,6 +26,37 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
     mSessionLists = mDataManager->createSessionLists();
 }
 
+// creates missing dirs if preparing conference (pre-conf-stuff)
+// or checking for schedule updates
+bool DataUtil::checkDirs()
+{
+    // data/conference
+    QString directory = mDataManager->mDataPath + "conference/";
+    QDir myDir;
+    bool exists;
+    exists = myDir.exists(directory);
+    if (!exists) {
+        bool ok = myDir.mkpath(directory);
+        if(!ok) {
+            qWarning() << "Couldn't create conference dir " << directory;
+            return false;
+        }
+        qDebug() << "created directory conference " << directory;
+    }
+    // data/conference/speakerImages
+    directory.append("speakerImages/");
+    exists = myDir.exists(directory);
+    if (!exists) {
+        bool ok = myDir.mkpath(directory);
+        if(!ok) {
+            qWarning() << "Couldn't create speakerImages dir " << directory;
+            return false;
+        }
+        qDebug() << "created directory speakerImages " << directory;
+    }
+    return true;
+}
+
 // P R E   C O N F E R E N C E   S T U F F
 /**
  * Prepare will be done before submitting the App to AppStore
@@ -48,30 +79,10 @@ void DataUtil::prepareConference() {
     }
     qDebug() << "PREPARE CONFERENCE ";
     // check dirs for pre-conference stuff
-    // these directories never used for normal app-runtime
-    // data/conference
-    QString directory = mDataManager->mDataPath + "conference/";
-    QDir myDir;
-    bool exists;
-    exists = myDir.exists(directory);
-    if (!exists) {
-        bool ok = myDir.mkpath(directory);
-        if(!ok) {
-            qWarning() << "Couldn't create conference dir " << directory;
-            return;
-        }
-        qDebug() << "created directory conference " << directory;
-    }
-    // data/conference/speakerImages
-    directory.append("speakerImages/");
-    exists = myDir.exists(directory);
-    if (!exists) {
-        bool ok = myDir.mkpath(directory);
-        if(!ok) {
-            qWarning() << "Couldn't create speakerImages dir " << directory;
-            return;
-        }
-        qDebug() << "created directory speakerImages " << directory;
+    bool dirsOk = checkDirs();
+    if(!dirsOk) {
+        qWarning() << "cannot create directories";
+        return;
     }
     // create some data for this specific conference
     prepareEventData();
@@ -614,6 +625,16 @@ void DataUtil::prepareSpeakerImages()
         }
         mImageLoader->loadSpeaker(speakerImage);
     }
+}
+
+void DataUtil::checkForUpdateSchedule()
+{
+    bool dirOk = checkDirs();
+    if(!dirOk) {
+        qWarning() << "Cannot create Directories";
+        return;
+    }
+    mDataServer->requestSchedule();
 }
 
 //  U T I L I T Y S  to manage Conference data

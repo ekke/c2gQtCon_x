@@ -103,7 +103,8 @@ Flickable {
         backgroundColor: accentColor
         onClicked: {
             // dialog and start
-            rootPane.startUpdate()
+            dataUtil.checkForUpdateSchedule()
+            // rootPane.startUpdate()
         }
     } // FAB
 

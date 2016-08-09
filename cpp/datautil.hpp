@@ -16,15 +16,12 @@ public:
 
     Q_INVOKABLE
     void prepareConference();
-
-    Q_INVOKABLE
     void prepareSessions();
-
-    Q_INVOKABLE
     void prepareSpeaker();
+    void prepareSpeakerImages();
 
     Q_INVOKABLE
-    void prepareSpeakerImages();
+    void checkForUpdateSchedule();
 
     Q_INVOKABLE
     void setSessionFavorites();
@@ -78,6 +75,8 @@ private:
     void prepareHighDpiImages(SpeakerImage *speakerImage, int width, int height);
 
     void prepareEventData();
+
+    bool checkDirs();
 };
 
 #endif // DATAUTIL_H
