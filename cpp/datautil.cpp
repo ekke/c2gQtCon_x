@@ -24,6 +24,18 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
     mDataServer->setConferenceDataPath(mDataManager->mDataPath + "conference/");
     // used for temp dynamic lists as QQmlPropertyLists
     mSessionLists = mDataManager->createSessionLists();
+
+    // connections
+    bool res = connect(mDataServer, SIGNAL(serverSuccess()), this,
+                       SLOT(onServerSuccess()));
+    if (!res) {
+        Q_ASSERT(res);
+    }
+    res = connect(mDataServer, SIGNAL(serverFailed(QString)), this,
+                  SLOT(onServerFailed(QString)));
+    if (!res) {
+        Q_ASSERT(res);
+    }
 }
 
 // creates missing dirs if preparing conference (pre-conf-stuff)
@@ -819,6 +831,16 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
     // N OW cache speaker images
     mDataManager->saveSpeakerImageToCache();
     qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
+}
+
+void DataUtil::onServerSuccess()
+{
+    qDebug() << "S U C C E S S";
+}
+
+void DataUtil::onServerFailed(QString message)
+{
+    qDebug() << "FAILED: " << message;
 }
 
 void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {

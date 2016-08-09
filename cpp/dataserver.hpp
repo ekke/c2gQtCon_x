@@ -25,6 +25,8 @@ public:
     void requestSchedule();
 
 signals:
+    void serverSuccess();
+    void serverFailed(QString message);
 
 public slots:
 

@@ -40,9 +40,11 @@ void DataServer::requestSchedule()
     if(networkAccessManager->networkAccessible() != QNetworkAccessManager::Accessible) {
         if(networkAccessManager->networkAccessible() == QNetworkAccessManager::NotAccessible) {
             qDebug() << "requestSchedule NO ACCESS TO NETWORK";
+            emit serverFailed(tr("No Network Access"));
             return;
         }
         qDebug() << "requestSchedule NO ACCESS: The network accessibility cannot be determined.";
+        emit serverFailed(tr("No Network Access"));
         return;
     }
 
@@ -72,9 +74,11 @@ void DataServer::requestSpeaker()
     if(networkAccessManager->networkAccessible() != QNetworkAccessManager::Accessible) {
         if(networkAccessManager->networkAccessible() == QNetworkAccessManager::NotAccessible) {
             qDebug() << "requestSpeaker NO ACCESS TO NETWORK";
+            emit serverFailed(tr("No Network Access"));
             return;
         }
         qDebug() << "requestSpeaker NO ACCESS: The network accessibility cannot be determined.";
+        emit serverFailed(tr("No Network Access"));
         return;
     }
 
@@ -101,23 +105,27 @@ void DataServer::onFinishedSchedule()
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     if(!reply) {
         qWarning() << "Schedule REPLY is NULL";
+        emit serverFailed(tr("No Network Reply"));
         return;
     }
     const int available = reply->bytesAvailable();
     if(available == 0) {
         qWarning() << "Schedule: No Bytes received";
+        emit serverFailed(tr("No Schedule Data received"));
         return;
     }
     int httpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     qDebug() << "schedule HTTP STATUS: " << httpStatusCode << " Bytes: " << available;
     if(httpStatusCode != 200) {
         qDebug() << "Schedule Status Code not 200";
+        emit serverFailed(tr("No sucess getting Schedule from Server. Got HTTP Status ")+QString::number(httpStatusCode));
         return;
     }
     QString scheduleFilePath = mConferenceDataPath+"schedule.json";
     QFile saveFile(scheduleFilePath);
     if (!saveFile.open(QIODevice::WriteOnly)) {
         qWarning() << "Couldn't open file to write " << scheduleFilePath;
+        emit serverFailed(tr("Schedule Data cannot be written"));
         return;
     }
     qint64 bytesWritten = saveFile.write(reply->readAll());
@@ -132,28 +140,33 @@ void DataServer::onFinishedSpeaker()
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     if(!reply) {
         qWarning() << "Speaker REPLY is NULL";
+        emit serverFailed(tr("No Network Reply"));
         return;
     }
     const int available = reply->bytesAvailable();
     if(available == 0) {
         qWarning() << "Speaker No Bytes received";
+        emit serverFailed(tr("No Schedule Data received"));
         return;
     }
     int httpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     qDebug() << "Speaker HTTP STATUS: " << httpStatusCode << " Bytes: " << available;
     if(httpStatusCode != 200) {
         qDebug() << "Speaker Status Code not 200";
+        emit serverFailed(tr("No sucess getting Speaker from Server. Got HTTP Status ")+QString::number(httpStatusCode));
         return;
     }
     QString speakerFilePath = mConferenceDataPath+"speaker.json";
     QFile saveFile(speakerFilePath);
     if (!saveFile.open(QIODevice::WriteOnly)) {
         qWarning() << "Couldn't open file to write " << speakerFilePath;
+        emit serverFailed(tr("Speaker Data cannot be written"));
         return;
     }
     qint64 bytesWritten = saveFile.write(reply->readAll());
     saveFile.close();
     qDebug() << "Data Bytes written: " << bytesWritten << " to: " << speakerFilePath;
+    emit serverSuccess();
 }
 
 

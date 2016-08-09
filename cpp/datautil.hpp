@@ -63,6 +63,10 @@ signals:
 public slots:
     void onSpeakerImageLoaded(QObject* dataObject, int width, int height);
 
+private slots:
+    void onServerSuccess();
+    void onServerFailed(QString message);
+
 private:
 
     DataManager* mDataManager;
