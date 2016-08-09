@@ -60,6 +60,10 @@ public:
 signals:
     void myScheduleRefreshed();
 
+    void updateAvailable();
+    void noUpdateRequired();
+    void checkForUpdateFailed(QString message);
+
 public slots:
     void onSpeakerImageLoaded(QObject* dataObject, int width, int height);
 

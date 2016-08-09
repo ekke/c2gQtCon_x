@@ -108,6 +108,28 @@ Flickable {
         }
     } // FAB
 
+    function updateAvailable(api) {
+        console.log("QML updateAvailable " + api)
+    }
+    function noUpdateRequired() {
+        console.log("QML noUpdateRequired")
+    }
+    function checkFailed(message) {
+        console.log("QML checkFailed "+message)
+    }
+    Connections {
+        target: dataUtil
+        onUpdateAvailable: updateAvailable()
+    }
+    Connections {
+        target: dataUtil
+        onNoUpdateRequired: noUpdateRequired()
+    }
+    Connections {
+        target: dataUtil
+        onCheckForUpdateFailed: checkFailed(message)
+    }
+
     // emitting a Signal could be another option
     Component.onDestruction: {
         cleanup()

@@ -796,7 +796,7 @@ QString DataUtil::apiInfo()
 
 
 //   DOWNLOAD   S P E A K E R I M A G E S
-
+// SLOT
 void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
 {
     mImageLoader->deleteLater();
@@ -831,16 +831,6 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
     // N OW cache speaker images
     mDataManager->saveSpeakerImageToCache();
     qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
-}
-
-void DataUtil::onServerSuccess()
-{
-    qDebug() << "S U C C E S S";
-}
-
-void DataUtil::onServerFailed(QString message)
-{
-    qDebug() << "FAILED: " << message;
 }
 
 void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {
@@ -936,3 +926,17 @@ void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int h
         }
     }
 }
+
+// S L O T S
+void DataUtil::onServerSuccess()
+{
+    qDebug() << "S U C C E S S";
+    emit noUpdateRequired();
+}
+
+void DataUtil::onServerFailed(QString message)
+{
+    qDebug() << "FAILED: " << message;
+    emit checkForUpdateFailed(message);
+}
+
