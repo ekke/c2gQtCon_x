@@ -184,7 +184,7 @@ void DataUtil::prepareEventData() {
     }
     conference->setLastSessionTrackId(lastNr);
 
-    conference->setConferenceName("QtCON");
+    conference->setConferenceName("QtCon");
     conference->setConferenceCity("Berlin");
     QString venueAddress;
     venueAddress = "BCC Berlin Congress Center";
@@ -200,7 +200,7 @@ void DataUtil::prepareEventData() {
     conference->setTimeZoneName("Europe/Amsterdam");
     conference->setTimeZoneOffsetSeconds(1 * 60 * 60); // +01:00 GMT
     conference->setConferenceFrom(QDate::fromString("2016-09-01", YYYY_MM_DD));
-    conference->setConferenceTo(QDate::fromString("2015-09-04", YYYY_MM_DD));
+    conference->setConferenceTo(QDate::fromString("2016-09-04", YYYY_MM_DD));
     conference->setHashTag("#QtCon16");
     conference->setHomePage("http://qtcon.org/");
     QString coordinate;
