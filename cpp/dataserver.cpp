@@ -20,3 +20,9 @@ void DataServer::init(DataManager *dataManager)
     mDataManager = dataManager;
     qDebug() << "Data Server INIT done";
 }
+
+void DataServer::setConferenceDataPath(const QString &conferenceDataPath)
+{
+    mConferenceDataPath = conferenceDataPath;
+    qDebug() << "Conference Data path: " << mConferenceDataPath;
+}

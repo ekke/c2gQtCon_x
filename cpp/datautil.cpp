@@ -21,6 +21,7 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
 {
     mDataManager = dataManager;
     mDataServer = dataServer;
+    mDataServer->setConferenceDataPath(mDataManager->mDataPath + "conference/");
     // used for temp dynamic lists as QQmlPropertyLists
     mSessionLists = mDataManager->createSessionLists();
 }

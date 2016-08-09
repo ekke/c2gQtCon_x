@@ -14,6 +14,7 @@ public:
     virtual ~DataServer();
 
     void init(DataManager* dataManager);
+    void setConferenceDataPath(const QString& conferenceDataPath);
 
 signals:
 
@@ -22,6 +23,8 @@ public slots:
 private:
 
     DataManager* mDataManager;
+
+    QString mConferenceDataPath;
 
 };
 
