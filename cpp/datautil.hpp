@@ -24,6 +24,9 @@ public:
     void checkForUpdateSchedule();
 
     Q_INVOKABLE
+    void startUpdate();
+
+    Q_INVOKABLE
     void setSessionFavorites();
     void saveSessionFavorites();
 
@@ -63,6 +66,9 @@ signals:
     void updateAvailable(QString apiVersion);
     void noUpdateRequired();
     void checkForUpdateFailed(QString message);
+
+    void updateDone();
+    void updateFailed(QString message);
 
 public slots:
     void onSpeakerImageLoaded(QObject* dataObject, int width, int height);

@@ -658,6 +658,18 @@ void DataUtil::checkForUpdateSchedule()
     mDataServer->requestSchedule();
 }
 
+void DataUtil::startUpdate()
+{
+    // save favorites and bookmarks
+    saveSessionFavorites();
+    //
+    emit updateDone();
+
+    // FAILED ??
+    // mDataManager->init();
+    // emit updateFailed(tr("Update failed.\nReloading current Data"));
+}
+
 //  U T I L I T Y S  to manage Conference data
 
 /**

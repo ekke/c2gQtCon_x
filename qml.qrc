@@ -79,5 +79,6 @@
         <file>qml/tabs/ScheduleTabBar.qml</file>
         <file>qml/popups/LetterPicker.qml</file>
         <file>qml/pages/HelpRow.qml</file>
+        <file>qml/popups/PopupUpdate.qml</file>
     </qresource>
 </RCC>

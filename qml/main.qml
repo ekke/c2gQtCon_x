@@ -301,22 +301,14 @@ ApplicationWindow {
 
         // U P D A T E
         Timer {
-            id: fakeUpdateEndTimer
-            interval: 5000
-            repeat: false
-            onTriggered: {
-                startupDelayedTimer.start()
-            }
-        } // fakeUpdateEndTimer
-        Timer {
             id: updateTimer
             interval: 300
             repeat: false
             onTriggered: {
-                // save favorites and bookmarks
-                // TODO
-                // cleanup all running stuff
+                // cleanup all running stuff in QML
                 destinations.model = []
+                // start update schedule (C++)
+                dataUtil.startUpdate()
             }
         } // updateTimer
         function startUpdate() {
@@ -325,11 +317,37 @@ ApplicationWindow {
             initDone = false
             // replace root item
             initialPlaceholder.isUpdate = true
+            // updateTimer started from initialPlaceholder
             initialPlaceholder.active = true
-            // Start UPDATE
-            // TODO update - all data should be read at the end
-            // fakeUpdateEndTimer
-            fakeUpdateEndTimer.start()
+        }
+        PopupUpdate {
+            id: updatePopup
+            modal: true
+            closePolicy: Popup.NoAutoClose
+            onClosed: {
+                // read all data
+                startupDelayedTimer.start()
+            }
+        } // updatePopup
+        function updateFailed(message) {
+            // info and reload prev stuff
+            updatePopup.text = message
+            updatePopup.buttonsVisible = true
+            updatePopup.isUpdate = false
+            updatePopup.open()
+        }
+        function updateDone() {
+            // read all data
+            startupDelayedTimer.start()
+        }
+
+        Connections {
+            target: dataUtil
+            onUpdateDone: rootPane.updateDone()
+        }
+        Connections {
+            target: dataUtil
+            onUpdateFailed: rootPane.updateFailed(message)
         }
         // END   U P D A T E
 
