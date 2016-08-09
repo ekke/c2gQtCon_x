@@ -31,6 +31,7 @@ public slots:
 private slots:
     // REST
     void onFinishedSchedule();
+    void onFinishedSpeaker();
 
 private:
 
@@ -39,6 +40,7 @@ private:
 
     // REST
     QNetworkAccessManager* mNetworkAccessManager;
+    void requestSpeaker();
 
 };
 

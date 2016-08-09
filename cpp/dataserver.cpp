@@ -32,7 +32,7 @@ void DataServer::requestSchedule()
 {
     QString uri;
     uri = "https://conf.qtcon.org/en/qtcon/public/schedule.json";
-    qDebug() << "R E S T uri:" << uri;
+    qDebug() << "requestSchedule uri:" << uri;
 
     QNetworkRequest request(uri);
 
@@ -48,23 +48,42 @@ void DataServer::requestSchedule()
 
 }
 
-// SLOT
+void DataServer::requestSpeaker()
+{
+    QString uri;
+    uri = "https://conf.qtcon.org/en/qtcon/public/speakers.json";
+    qDebug() << "requestSpeaker uri:" << uri;
+
+    QNetworkRequest request(uri);
+
+    // to avoid ssl errors:
+    QSslConfiguration conf = request.sslConfiguration();
+    conf.setPeerVerifyMode(QSslSocket::VerifyNone);
+    request.setSslConfiguration(conf);
+
+    QNetworkReply* reply = mNetworkAccessManager->get(request);
+    bool connectResult = connect(reply, SIGNAL(finished()), this, SLOT(onFinishedSpeaker()));
+    Q_ASSERT(connectResult);
+    Q_UNUSED(connectResult);
+}
+
+// SLOTS
 void DataServer::onFinishedSchedule()
 {
     QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
     if(!reply) {
-        qWarning() << "REPLY is NULL";
+        qWarning() << "Schedule REPLY is NULL";
         return;
     }
     const int available = reply->bytesAvailable();
     if(available == 0) {
-        qWarning() << "No Bytes received";
+        qWarning() << "Schedule: No Bytes received";
         return;
     }
     int httpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-    qDebug() << "HTTP STATUS: " << httpStatusCode << " Bytes: " << available;
+    qDebug() << "schedule HTTP STATUS: " << httpStatusCode << " Bytes: " << available;
     if(httpStatusCode != 200) {
-        qDebug() << "Status Code not 200";
+        qDebug() << "Schedule Status Code not 200";
         return;
     }
     QString scheduleFilePath = mConferenceDataPath+"schedule.json";
@@ -75,5 +94,38 @@ void DataServer::onFinishedSchedule()
     }
     qint64 bytesWritten = saveFile.write(reply->readAll());
     saveFile.close();
-    qDebug() << "Data Bytes written: " << bytesWritten << " to: " << scheduleFilePath;
+    qDebug() << "Schedule Data Bytes written: " << bytesWritten << " to: " << scheduleFilePath;
+    // now getting the speaker data
+    requestSpeaker();
 }
+
+void DataServer::onFinishedSpeaker()
+{
+    QNetworkReply* reply = qobject_cast<QNetworkReply*>(sender());
+    if(!reply) {
+        qWarning() << "Speaker REPLY is NULL";
+        return;
+    }
+    const int available = reply->bytesAvailable();
+    if(available == 0) {
+        qWarning() << "Speaker No Bytes received";
+        return;
+    }
+    int httpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+    qDebug() << "Speaker HTTP STATUS: " << httpStatusCode << " Bytes: " << available;
+    if(httpStatusCode != 200) {
+        qDebug() << "Speaker Status Code not 200";
+        return;
+    }
+    QString speakerFilePath = mConferenceDataPath+"speaker.json";
+    QFile saveFile(speakerFilePath);
+    if (!saveFile.open(QIODevice::WriteOnly)) {
+        qWarning() << "Couldn't open file to write " << speakerFilePath;
+        return;
+    }
+    qint64 bytesWritten = saveFile.write(reply->readAll());
+    saveFile.close();
+    qDebug() << "Data Bytes written: " << bytesWritten << " to: " << speakerFilePath;
+}
+
+
