@@ -19,7 +19,7 @@ void DataServer::init(DataManager *dataManager)
 {
     mDataManager = dataManager;
 
-    // workaround bug iOS - cannot reuse QNetworkAccessManager
+    // workaround bug iOS - cannot reuse QNetworkAccessManager QTBUG-49751
     // otherwise accessibility not detected if switch off and on again
     // mNetworkAccessManager = new QNetworkAccessManager(this);
 
@@ -34,7 +34,7 @@ void DataServer::setConferenceDataPath(const QString &conferenceDataPath)
 
 void DataServer::requestSchedule()
 {
-    // workaround bug iOS - cannot reuse QNetworkAccessManager
+    // workaround bug iOS - cannot reuse QNetworkAccessManager QTBUG-49751
     // otherwise accessibility not detected if switch off and on again
     QNetworkAccessManager* networkAccessManager = new QNetworkAccessManager(this);
     if(networkAccessManager->networkAccessible() != QNetworkAccessManager::Accessible) {
@@ -68,7 +68,7 @@ void DataServer::requestSchedule()
 
 void DataServer::requestSpeaker()
 {
-    // workaround bug iOS - cannot reuse QNetworkAccessManager
+    // workaround bug iOS - cannot reuse QNetworkAccessManager QTBUG-49751
     // otherwise accessibility not detected if switch off and on again
     QNetworkAccessManager* networkAccessManager = new QNetworkAccessManager(this);
     if(networkAccessManager->networkAccessible() != QNetworkAccessManager::Accessible) {
