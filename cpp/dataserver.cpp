@@ -18,7 +18,11 @@ DataServer::~DataServer()
 void DataServer::init(DataManager *dataManager)
 {
     mDataManager = dataManager;
-    mNetworkAccessManager = new QNetworkAccessManager(this);
+
+    // workaround bug iOS - cannot reuse QNetworkAccessManager
+    // otherwise accessibility not detected if switch off and on again
+    // mNetworkAccessManager = new QNetworkAccessManager(this);
+
     qDebug() << "Data Server INIT done";
 }
 
@@ -30,6 +34,18 @@ void DataServer::setConferenceDataPath(const QString &conferenceDataPath)
 
 void DataServer::requestSchedule()
 {
+    // workaround bug iOS - cannot reuse QNetworkAccessManager
+    // otherwise accessibility not detected if switch off and on again
+    QNetworkAccessManager* networkAccessManager = new QNetworkAccessManager(this);
+    if(networkAccessManager->networkAccessible() != QNetworkAccessManager::Accessible) {
+        if(networkAccessManager->networkAccessible() == QNetworkAccessManager::NotAccessible) {
+            qDebug() << "requestSchedule NO ACCESS TO NETWORK";
+            return;
+        }
+        qDebug() << "requestSchedule NO ACCESS: The network accessibility cannot be determined.";
+        return;
+    }
+
     QString uri;
     uri = "https://conf.qtcon.org/en/qtcon/public/schedule.json";
     qDebug() << "requestSchedule uri:" << uri;
@@ -41,7 +57,7 @@ void DataServer::requestSchedule()
     conf.setPeerVerifyMode(QSslSocket::VerifyNone);
     request.setSslConfiguration(conf);
 
-    QNetworkReply* reply = mNetworkAccessManager->get(request);
+    QNetworkReply* reply = networkAccessManager->get(request);
     bool connectResult = connect(reply, SIGNAL(finished()), this, SLOT(onFinishedSchedule()));
     Q_ASSERT(connectResult);
     Q_UNUSED(connectResult);
@@ -50,6 +66,18 @@ void DataServer::requestSchedule()
 
 void DataServer::requestSpeaker()
 {
+    // workaround bug iOS - cannot reuse QNetworkAccessManager
+    // otherwise accessibility not detected if switch off and on again
+    QNetworkAccessManager* networkAccessManager = new QNetworkAccessManager(this);
+    if(networkAccessManager->networkAccessible() != QNetworkAccessManager::Accessible) {
+        if(networkAccessManager->networkAccessible() == QNetworkAccessManager::NotAccessible) {
+            qDebug() << "requestSpeaker NO ACCESS TO NETWORK";
+            return;
+        }
+        qDebug() << "requestSpeaker NO ACCESS: The network accessibility cannot be determined.";
+        return;
+    }
+
     QString uri;
     uri = "https://conf.qtcon.org/en/qtcon/public/speakers.json";
     qDebug() << "requestSpeaker uri:" << uri;
@@ -61,7 +89,7 @@ void DataServer::requestSpeaker()
     conf.setPeerVerifyMode(QSslSocket::VerifyNone);
     request.setSslConfiguration(conf);
 
-    QNetworkReply* reply = mNetworkAccessManager->get(request);
+    QNetworkReply* reply = networkAccessManager->get(request);
     bool connectResult = connect(reply, SIGNAL(finished()), this, SLOT(onFinishedSpeaker()));
     Q_ASSERT(connectResult);
     Q_UNUSED(connectResult);
