@@ -29,7 +29,8 @@ HEADERS += \
     cpp/imageloader.hpp \
     cpp/gen/SessionLink.hpp \
     cpp/gen/SessionLinkAPI.hpp \
-    cpp/gen/SessionLists.hpp
+    cpp/gen/SessionLists.hpp \
+    cpp/dataserver.hpp
 
 SOURCES += cpp/main.cpp \
     cpp/applicationui.cpp \
@@ -54,7 +55,8 @@ SOURCES += cpp/main.cpp \
     cpp/imageloader.cpp \
     cpp/gen/SessionLink.cpp \
     cpp/gen/SessionLinkAPI.cpp \
-    cpp/gen/SessionLists.cpp
+    cpp/gen/SessionLists.cpp \
+    cpp/dataserver.cpp
 
 lupdate_only {
     SOURCES +=  qml/main.qml \

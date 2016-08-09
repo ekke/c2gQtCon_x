@@ -8,6 +8,7 @@
 
 #include "gen/SettingsData.hpp"
 #include "gen/DataManager.hpp"
+#include "dataserver.hpp"
 #include "DataUtil.hpp"
 
 class ApplicationUI : public QObject
@@ -49,6 +50,7 @@ public slots:
 private:
      DataManager* mDataManager;
      DataUtil* mDataUtil;
+     DataServer* mDataServer;
 
      SettingsData* mSettingsData;
 

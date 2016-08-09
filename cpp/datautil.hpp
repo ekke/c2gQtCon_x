@@ -4,6 +4,7 @@
 #include <QObject>
 #include "gen/DataManager.hpp"
 #include "imageloader.hpp"
+#include "dataserver.hpp"
 
 class DataUtil : public QObject
 {
@@ -11,7 +12,7 @@ class DataUtil : public QObject
 public:
     explicit DataUtil(QObject *parent = 0);
 
-    void init(DataManager *dataManager);
+    void init(DataManager *dataManager, DataServer* dataServer);
 
     Q_INVOKABLE
     void prepareConference();
@@ -68,6 +69,7 @@ public slots:
 private:
 
     DataManager* mDataManager;
+    DataServer* mDataServer;
 
     ImageLoader* mImageLoader;
 

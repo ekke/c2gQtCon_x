@@ -17,9 +17,10 @@ DataUtil::DataUtil(QObject *parent) : QObject(parent)
 
 }
 
-void DataUtil::init(DataManager* dataManager)
+void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
 {
     mDataManager = dataManager;
+    mDataServer = dataServer;
     // used for temp dynamic lists as QQmlPropertyLists
     mSessionLists = mDataManager->createSessionLists();
 }
