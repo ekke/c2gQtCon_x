@@ -250,32 +250,36 @@ void DataUtil::prepareEventData() {
     //
 }
 
+QVariantMap DataUtil::readScheduleFile(const QString schedulePath) {
+    QVariantMap map;
+    QFile readFile(schedulePath);
+    if(!readFile.exists()) {
+        qWarning() << "Schedule Path not found " << schedulePath;
+        return map;
+    }
+    if (!readFile.open(QIODevice::ReadOnly)) {
+        qWarning() << "Couldn't open file: " << schedulePath;
+        return map;
+    }
+    QJsonDocument jda = QJsonDocument::fromJson(readFile.readAll());
+
+    readFile.close();
+    if(!jda.isObject()) {
+        qWarning() << "Couldn't create JSON from file: " << schedulePath;
+        return map;
+    }
+    qDebug() << "QJsonDocument for schedule with Object :)";
+    map = jda.toVariant().toMap();
+    return map;
+}
+
 void DataUtil::prepareSessions()
 {
     const QString schedulePath = mDataManager->mDataAssetsPath + "conference/schedule.json";
     qDebug() << "PREPARE SESSIONS ";
-    QMultiMap<QString, Session*> sessionSortMap;
-    Conference* conference;
-    conference = (Conference*) mDataManager->allConference().first();
-
-    QFile readFile(schedulePath);
-    if(!readFile.exists()) {
-        qWarning() << "Schedule Path not found " << schedulePath;
-        return;
-    }
-    if (!readFile.open(QIODevice::ReadOnly)) {
-        qWarning() << "Couldn't open file: " << schedulePath;
-        return;
-    }
-    QJsonDocument jda = QJsonDocument::fromJson(readFile.readAll());
-    readFile.close();
-    if(!jda.isObject()) {
-        qWarning() << "Couldn't create JSON from file: " << schedulePath;
-        return;
-    }
-    qDebug() << "QJsonDocument for schedule with Object :)";
     QVariantMap map;
-    map = jda.toVariant().toMap();
+    map = readScheduleFile(schedulePath);
+
     if(map.isEmpty()) {
         qWarning() << "Schedule is no Map";
         return;
@@ -291,13 +295,18 @@ void DataUtil::prepareSessions()
         qWarning() << "No 'conference' found";
         return;
     }
+
+
     qDebug() << "TITLE: " << map.value("title").toString();
+    Conference* conference;
+    conference = (Conference*) mDataManager->allConference().first();
     QVariantList dayList;
     dayList = map.value("days").toList();
     if(dayList.isEmpty()) {
         qWarning() << "No 'days' found";
         return;
     }
+    QMultiMap<QString, Session*> sessionSortMap;
     qDebug() << "DAYS: " << dayList.size();
     for (int i = 0; i < dayList.size(); ++i) {
         QVariantMap dayMap;
@@ -931,6 +940,65 @@ void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int h
 void DataUtil::onServerSuccess()
 {
     qDebug() << "S U C C E S S";
+
+    const QString schedulePath = mDataManager->mDataPath + "conference/schedule.json";
+    qDebug() << "CHECK FOR UPDATE SESSIONS ";
+    QVariantMap map;
+    map = readScheduleFile(schedulePath);
+
+    if(map.isEmpty()) {
+        qWarning() << "Schedule is no Map";
+        emit checkForUpdateFailed(tr("Error: Received Map is empty."));
+        return;
+    }
+    map = map.value("schedule").toMap();
+    if(map.isEmpty()) {
+        qWarning() << "No 'schedule' found";
+        emit checkForUpdateFailed(tr("Error: Received Map missed 'schedule'."));
+        return;
+    }
+    QString apiVersion;
+    apiVersion = map.value("version").toString();
+    qDebug() << "VERSION: " + apiVersion;
+
+    if(apiVersion.length() == 0) {
+        emit checkForUpdateFailed(tr("Error: Received Map missed 'version'."));
+        return;
+    }
+    QStringList versionList;
+    versionList = apiVersion.split(".");
+    if(versionList.size() != 2) {
+        emit checkForUpdateFailed(tr("Error: 'Version' wrong: ")+apiVersion);
+        return;
+    }
+    if(mDataManager->mSettingsData->apiVersion().length() == 0) {
+        emit updateAvailable(apiVersion);
+        return;
+    }
+    QStringList oldVersionList;
+    oldVersionList = mDataManager->mSettingsData->apiVersion().split(".");
+    if(oldVersionList.size() != 2) {
+        emit updateAvailable(apiVersion);
+        return;
+    }
+    int oldValue = oldVersionList.at(0).toInt();
+    int newValue = versionList.at(0).toInt();
+    if(oldValue > newValue) {
+        emit noUpdateRequired();
+        return;
+    }
+    oldValue = oldVersionList.at(0).toInt();
+    newValue = versionList.at(0).toInt();
+    if(oldValue < newValue) {
+        emit updateAvailable(apiVersion);
+        return;
+    }
+    oldValue = oldVersionList.at(1).toInt();
+    newValue = versionList.at(1).toInt();
+    if(oldValue <  newValue) {
+        emit updateAvailable(apiVersion);
+        return;
+    }
     emit noUpdateRequired();
 }
 

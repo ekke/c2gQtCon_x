@@ -60,7 +60,7 @@ public:
 signals:
     void myScheduleRefreshed();
 
-    void updateAvailable();
+    void updateAvailable(QString apiVersion);
     void noUpdateRequired();
     void checkForUpdateFailed(QString message);
 
@@ -85,6 +85,7 @@ private:
     void prepareEventData();
 
     bool checkDirs();
+    QVariantMap readScheduleFile(const QString schedulePath);
 };
 
 #endif // DATAUTIL_H
