@@ -746,6 +746,19 @@ QString DataUtil::localWeekdayAndTime(QString sessionSortkey)
     return QDateTime::fromString(sessionSortkey, YYYY_MM_DD_HH_MM).toString(DAYNAME_HH_MM);
 }
 
+QString DataUtil::apiInfo()
+{
+    QString apiInfo = tr("API Version ");
+    apiInfo.append(mDataManager->settingsData()->apiVersion());
+    apiInfo.append(("\n")).append(tr("Last Update "));
+    if(mDataManager->mSettingsData->hasLastUpdate()) {
+        apiInfo.append(mDataManager->mSettingsData->lastUpdate().toString(Qt::SystemLocaleShortDate));
+    } else {
+        apiInfo.append("n/a");
+    }
+    return apiInfo;
+}
+
 
 //   DOWNLOAD   S P E A K E R I M A G E S
 

@@ -15,6 +15,7 @@ class SettingsData: public QObject
 	Q_PROPERTY(int id READ id WRITE setId NOTIFY idChanged FINAL)
 	Q_PROPERTY(int version READ version WRITE setVersion NOTIFY versionChanged FINAL)
 	Q_PROPERTY(QString apiVersion READ apiVersion WRITE setApiVersion NOTIFY apiVersionChanged FINAL)
+	Q_PROPERTY(QDateTime lastUpdate READ lastUpdate WRITE setLastUpdate NOTIFY lastUpdateChanged FINAL)
 	Q_PROPERTY(bool isProductionEnvironment READ isProductionEnvironment WRITE setIsProductionEnvironment NOTIFY isProductionEnvironmentChanged FINAL)
 	Q_PROPERTY(int primaryColor READ primaryColor WRITE setPrimaryColor NOTIFY primaryColorChanged FINAL)
 	Q_PROPERTY(int accentColor READ accentColor WRITE setAccentColor NOTIFY accentColorChanged FINAL)
@@ -54,6 +55,11 @@ public:
 	void setVersion(int version);
 	QString apiVersion() const;
 	void setApiVersion(QString apiVersion);
+	QDateTime lastUpdate() const;
+
+	Q_INVOKABLE
+	bool hasLastUpdate();
+	void setLastUpdate(QDateTime lastUpdate);
 	bool isProductionEnvironment() const;
 	void setIsProductionEnvironment(bool isProductionEnvironment);
 	int primaryColor() const;
@@ -95,6 +101,7 @@ public:
 	void idChanged(int id);
 	void versionChanged(int version);
 	void apiVersionChanged(QString apiVersion);
+	void lastUpdateChanged(QDateTime lastUpdate);
 	void isProductionEnvironmentChanged(bool isProductionEnvironment);
 	void primaryColorChanged(int primaryColor);
 	void accentColorChanged(int accentColor);
@@ -116,6 +123,7 @@ private:
 	int mId;
 	int mVersion;
 	QString mApiVersion;
+	QDateTime mLastUpdate;
 	bool mIsProductionEnvironment;
 	int mPrimaryColor;
 	int mAccentColor;

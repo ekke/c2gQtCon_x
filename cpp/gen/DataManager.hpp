@@ -53,6 +53,7 @@ public:
     DataManager(QObject *parent = 0);
 	
 	friend class DataUtil;
+	friend class DataServer;
 	
     virtual ~DataManager();
     Q_INVOKABLE

@@ -6,6 +6,7 @@
 static const QString idKey = "id";
 static const QString versionKey = "version";
 static const QString apiVersionKey = "apiVersion";
+static const QString lastUpdateKey = "lastUpdate";
 static const QString isProductionEnvironmentKey = "isProductionEnvironment";
 static const QString primaryColorKey = "primaryColor";
 static const QString accentColorKey = "accentColor";
@@ -25,6 +26,7 @@ static const QString lastUpdateStampKey = "lastUpdateStamp";
 static const QString idForeignKey = "id";
 static const QString versionForeignKey = "version";
 static const QString apiVersionForeignKey = "apiVersion";
+static const QString lastUpdateForeignKey = "lastUpdate";
 static const QString isProductionEnvironmentForeignKey = "isProductionEnvironment";
 static const QString primaryColorForeignKey = "primaryColor";
 static const QString accentColorForeignKey = "accentColor";
@@ -47,6 +49,7 @@ SettingsData::SettingsData(QObject *parent) :
         QObject(parent), mId(-1), mVersion(0), mApiVersion(""), mIsProductionEnvironment(false), mPrimaryColor(0), mAccentColor(0), mDarkTheme(false), mUseMarkerColors(false), mDefaultMarkerColors(false), mMarkerColors(""), mHasPublicCache(false), mUseCompactJsonFormat(false), mLastUsedNumber(0), mPublicRoot4Dev(""), mAutoUpdate(false), mAutoUpdateEveryHours(0)
 {
 	// Date, Time or Timestamp ? construct null value
+	mLastUpdate = QDateTime();
 	mLastUpdateStamp = QDateTime();
 }
 
@@ -62,6 +65,15 @@ void SettingsData::fillFromMap(const QVariantMap& settingsDataMap)
 	mId = settingsDataMap.value(idKey).toInt();
 	mVersion = settingsDataMap.value(versionKey).toInt();
 	mApiVersion = settingsDataMap.value(apiVersionKey).toString();
+	if (settingsDataMap.contains(lastUpdateKey)) {
+		// always getting the Date as a String (from server or JSON)
+		QString lastUpdateAsString = settingsDataMap.value(lastUpdateKey).toString();
+		mLastUpdate = QDateTime::fromString(lastUpdateAsString, Qt::ISODate);
+		if (!mLastUpdate.isValid()) {
+			mLastUpdate = QDateTime();
+			qDebug() << "mLastUpdate is not valid for String: " << lastUpdateAsString;
+		}
+	}
 	mIsProductionEnvironment = settingsDataMap.value(isProductionEnvironmentKey).toBool();
 	mPrimaryColor = settingsDataMap.value(primaryColorKey).toInt();
 	mAccentColor = settingsDataMap.value(accentColorKey).toInt();
@@ -97,6 +109,15 @@ void SettingsData::fillFromForeignMap(const QVariantMap& settingsDataMap)
 	mId = settingsDataMap.value(idForeignKey).toInt();
 	mVersion = settingsDataMap.value(versionForeignKey).toInt();
 	mApiVersion = settingsDataMap.value(apiVersionForeignKey).toString();
+	if (settingsDataMap.contains(lastUpdateForeignKey)) {
+		// always getting the Date as a String (from server or JSON)
+		QString lastUpdateAsString = settingsDataMap.value(lastUpdateForeignKey).toString();
+		mLastUpdate = QDateTime::fromString(lastUpdateAsString, Qt::ISODate);
+		if (!mLastUpdate.isValid()) {
+			mLastUpdate = QDateTime();
+			qDebug() << "mLastUpdate is not valid for String: " << lastUpdateAsString;
+		}
+	}
 	mIsProductionEnvironment = settingsDataMap.value(isProductionEnvironmentForeignKey).toBool();
 	mPrimaryColor = settingsDataMap.value(primaryColorForeignKey).toInt();
 	mAccentColor = settingsDataMap.value(accentColorForeignKey).toInt();
@@ -132,6 +153,15 @@ void SettingsData::fillFromCacheMap(const QVariantMap& settingsDataMap)
 	mId = settingsDataMap.value(idKey).toInt();
 	mVersion = settingsDataMap.value(versionKey).toInt();
 	mApiVersion = settingsDataMap.value(apiVersionKey).toString();
+	if (settingsDataMap.contains(lastUpdateKey)) {
+		// always getting the Date as a String (from server or JSON)
+		QString lastUpdateAsString = settingsDataMap.value(lastUpdateKey).toString();
+		mLastUpdate = QDateTime::fromString(lastUpdateAsString, Qt::ISODate);
+		if (!mLastUpdate.isValid()) {
+			mLastUpdate = QDateTime();
+			qDebug() << "mLastUpdate is not valid for String: " << lastUpdateAsString;
+		}
+	}
 	mIsProductionEnvironment = settingsDataMap.value(isProductionEnvironmentKey).toBool();
 	mPrimaryColor = settingsDataMap.value(primaryColorKey).toInt();
 	mAccentColor = settingsDataMap.value(accentColorKey).toInt();
@@ -182,6 +212,9 @@ QVariantMap SettingsData::toMap()
 	settingsDataMap.insert(idKey, mId);
 	settingsDataMap.insert(versionKey, mVersion);
 	settingsDataMap.insert(apiVersionKey, mApiVersion);
+	if (hasLastUpdate()) {
+		settingsDataMap.insert(lastUpdateKey, mLastUpdate.toString(Qt::ISODate));
+	}
 	settingsDataMap.insert(isProductionEnvironmentKey, mIsProductionEnvironment);
 	settingsDataMap.insert(primaryColorKey, mPrimaryColor);
 	settingsDataMap.insert(accentColorKey, mAccentColor);
@@ -212,6 +245,9 @@ QVariantMap SettingsData::toForeignMap()
 	settingsDataMap.insert(idForeignKey, mId);
 	settingsDataMap.insert(versionForeignKey, mVersion);
 	settingsDataMap.insert(apiVersionForeignKey, mApiVersion);
+	if (hasLastUpdate()) {
+		settingsDataMap.insert(lastUpdateForeignKey, mLastUpdate.toString(Qt::ISODate));
+	}
 	settingsDataMap.insert(isProductionEnvironmentForeignKey, mIsProductionEnvironment);
 	settingsDataMap.insert(primaryColorForeignKey, mPrimaryColor);
 	settingsDataMap.insert(accentColorForeignKey, mAccentColor);
@@ -285,6 +321,24 @@ void SettingsData::setApiVersion(QString apiVersion)
 		mApiVersion = apiVersion;
 		emit apiVersionChanged(apiVersion);
 	}
+}
+// ATT 
+// Optional: lastUpdate
+QDateTime SettingsData::lastUpdate() const
+{
+	return mLastUpdate;
+}
+
+void SettingsData::setLastUpdate(QDateTime lastUpdate)
+{
+	if (lastUpdate != mLastUpdate) {
+		mLastUpdate = lastUpdate;
+		emit lastUpdateChanged(lastUpdate);
+	}
+}
+bool SettingsData::hasLastUpdate()
+{
+	return !mLastUpdate.isNull() && mLastUpdate.isValid();
 }
 // ATT 
 // Optional: isProductionEnvironment

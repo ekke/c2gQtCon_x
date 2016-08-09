@@ -90,7 +90,7 @@ Flickable {
         anchors.bottomMargin: isLandscape? 64 : 116
         anchors.left: parent.left
         anchors.bottom: parent.bottom
-        text: qsTr("API Version ") + dataManager.settingsData().apiVersion
+        text: dataUtil.apiInfo()
     }
     FloatingActionButton {
         property string imageName: "/refresh.png"

@@ -56,6 +56,9 @@ public:
     Q_INVOKABLE
     QString localWeekdayAndTime(QString sessionSortkey);
 
+    Q_INVOKABLE
+    QString apiInfo();
+
 signals:
     void myScheduleRefreshed();
 

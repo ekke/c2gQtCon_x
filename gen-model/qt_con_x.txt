@@ -4,11 +4,12 @@ package org.ekkescorner.dsl.qtsummit.cascades {
 	import org.lunifera.dsl.ext.cpp.qt.lib.types.annotation.*;
 
 	@TargetOS("Qt")
-	@FriendsClass("DataUtil")
+	@FriendsClass("DataUtil,DataServer")
 	dto SettingsData {
 		domainKey int id;
 		var int version;
 		var QString apiVersion;
+		var Timestamp lastUpdate;
 		var bool isProductionEnvironment;
 		var int primaryColor;
 		var int accentColor;
