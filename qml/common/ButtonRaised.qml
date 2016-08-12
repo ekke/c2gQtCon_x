@@ -25,7 +25,7 @@ Button {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         elide: Text.ElideRight
-        font.capitalization: Font.AllUppercase
+        font.capitalization: Qt.platform.os == "ios" ? Font.Capitalize : Font.AllUppercase
     }
     background:
         Rectangle {
