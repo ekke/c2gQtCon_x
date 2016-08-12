@@ -95,8 +95,10 @@ private:
     bool checkDirs();
 
     // UPDATE
-    QVariantMap readScheduleFile(const QString schedulePath);
     QString mNewApi;
+    QMultiMap<QString, Speaker*> mMultiSpeaker;
+    QMultiMap<bool, SpeakerImage*> mMultiSpeakerImages;
+    QVariantMap readScheduleFile(const QString schedulePath);
     QVariantList readSpeakerFile(const QString speakerPath);
     void calcSpeakerName(Speaker *speaker, SpeakerAPI *speakerAPI);
 };

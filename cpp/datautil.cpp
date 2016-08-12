@@ -691,12 +691,12 @@ void DataUtil::startUpdate()
     dataList = readSpeakerFile(speakersPath);
     if(dataList.size() == 0) {
         qWarning() << "Speaker List empty";
-        // mDataManager->init();
         emit updateFailed(tr("Update failed. No Speaker received.\nReloading current Data"));
         return;
     }
-    QMultiMap<QString, Speaker*> mmSpeaker;
-    QMultiMap<int, SpeakerImage*> mmSpeakerImages;
+
+    mMultiSpeaker.clear();
+    mMultiSpeakerImages.clear();
     for (int i = 0; i < dataList.size(); ++i) {
         SpeakerAPI* speakerAPI = mDataManager->createSpeakerAPI();
         speakerAPI->fillFromForeignMap(dataList.at(i).toMap());
@@ -731,12 +731,10 @@ void DataUtil::startUpdate()
                 if(speaker->hasSpeakerImage()) {
                     if(speaker->speakerImageAsDataObject()->originImageUrl() != avatar) {
                         qDebug() << "IMAGE Changed";
-                        qDebug() << "OLD:" << speaker->speakerImageAsDataObject()->originImageUrl();
-                        qDebug() << "NEW:" << avatar;
                         SpeakerImage* speakerImage = speaker->speakerImageAsDataObject();
                         speakerImage->setOriginImageUrl(avatar);
                         speakerImage->setSuffix(sl.last());
-                        mmSpeakerImages.insert(speakerImage->speakerId(), speakerImage);
+                        mMultiSpeakerImages.insert(false, speakerImage);
                     }
                 } else {
                     qDebug() << "IMAGE NEW";
@@ -745,21 +743,19 @@ void DataUtil::startUpdate()
                     speakerImage->setOriginImageUrl(avatar);
                     speakerImage->setSuffix(sl.last());
                     speakerImage->setInAssets(false);
-                    mDataManager->insertSpeakerImage(speakerImage);
                     speaker->resolveSpeakerImageAsDataObject(speakerImage);
-                    mmSpeakerImages.insert(speakerImage->speakerId(), speakerImage);
+                    mMultiSpeakerImages.insert(false, speakerImage);
                 }
             } // end if valid Avatar URL
         } // end check avatar if URL && not default
         // using MultiMap to get Speakers sorted
-        mmSpeaker.insert(speaker->sortKey(), speaker);
+        mMultiSpeaker.insert(speaker->sortKey(), speaker);
     } // for speaker from server
     //
-    qDebug() << "SPEAKERS: " << mDataManager->mAllSpeaker.size() << " --> " << mmSpeaker.size() << " IMG: " << mmSpeakerImages.size();
+    qDebug() << "SPEAKERS: " << mDataManager->mAllSpeaker.size() << " --> " << mMultiSpeaker.size() << " IMG: " << mMultiSpeakerImages.size();
     //emit updateDone();
 
     // FAILED ??
-    // mDataManager->init();
     // emit updateFailed(tr("Update failed.\nReloading current Data"));
 }
 
