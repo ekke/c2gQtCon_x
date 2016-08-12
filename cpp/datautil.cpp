@@ -677,14 +677,13 @@ void DataUtil::checkForUpdateSchedule()
 
 void DataUtil::startUpdate()
 {
-    QString progressInfotext;
-    progressInfotext = tr("Save Favorites");
-    emit progressInfo(progressInfotext);
+    mProgressInfotext = tr("Save Favorites");
+    emit progressInfo(mProgressInfotext);
     // save F A V O R I T E S and bookmarks
     saveSessionFavorites();
     // S P E A K E R
-    progressInfotext = tr("Sync Speaker");
-    emit progressInfo(progressInfotext);
+    mProgressInfotext = tr("Sync Speaker");
+    emit progressInfo(mProgressInfotext);
     const QString speakersPath = mDataManager->mDataPath + "conference/speaker.json";
     qDebug() << "PREPARE SPEAKER ";
     QVariantList dataList;
@@ -705,14 +704,14 @@ void DataUtil::startUpdate()
         if(!speaker) {
             // NEW speaker
             qDebug() << "NEW SPEAKER";
-            progressInfotext.append("+");
+            mProgressInfotext.append("+");
             speaker = mDataManager->createSpeaker();
             speaker->setSpeakerId(speakerAPI->id());
         } else {
             // update Speaker
-            progressInfotext.append(".");
+            mProgressInfotext.append(".");
         }
-        emit progressInfo(progressInfotext);
+        emit progressInfo(mProgressInfotext);
         calcSpeakerName(speaker, speakerAPI);
         speaker->setBio(speakerAPI->bio());
         if(speakerAPI->avatar().length() > 0 && speakerAPI->avatar() != DEFAULT_SPEAKER_IMAGE_URL) {
@@ -753,10 +752,32 @@ void DataUtil::startUpdate()
     } // for speaker from server
     //
     qDebug() << "SPEAKERS: " << mDataManager->mAllSpeaker.size() << " --> " << mMultiSpeaker.size() << " IMG: " << mMultiSpeakerImages.size();
-    //emit updateDone();
+    updateSpeakerImages();
+}
 
-    // FAILED ??
-    // emit updateFailed(tr("Update failed.\nReloading current Data"));
+void DataUtil::updateSpeakerImages() {
+    if(mMultiSpeakerImages.size() > 0) {
+        mProgressInfotext.append("\n").append(tr("Sync Speaker Images"));
+        emit progressInfo(mProgressInfotext);
+        QList<SpeakerImage*> waitingForDownload = mMultiSpeakerImages.values(false);
+        if(waitingForDownload.size() > 0) {
+            mProgressInfotext.append(".");
+            emit progressInfo(mProgressInfotext);
+            // DO IT
+            //SpeakerImage* speakerImage = waitingForDownload.first();
+            return;
+        } // waiting for download
+    } // new images map
+    // all done
+    updateSessions();
+}
+
+void DataUtil::updateSessions() {
+    mProgressInfotext.append("\n").append(tr("Sync Sessions"));
+    emit progressInfo(mProgressInfotext);
+
+
+    //emit updateDone();
 }
 
 //  U T I L I T Y S  to manage Conference data

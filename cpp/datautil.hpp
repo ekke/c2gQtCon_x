@@ -96,11 +96,14 @@ private:
 
     // UPDATE
     QString mNewApi;
+    QString mProgressInfotext;
     QMultiMap<QString, Speaker*> mMultiSpeaker;
     QMultiMap<bool, SpeakerImage*> mMultiSpeakerImages;
     QVariantMap readScheduleFile(const QString schedulePath);
     QVariantList readSpeakerFile(const QString speakerPath);
     void calcSpeakerName(Speaker *speaker, SpeakerAPI *speakerAPI);
+    void updateSpeakerImages();
+    void updateSessions();
 };
 
 #endif // DATAUTIL_H
