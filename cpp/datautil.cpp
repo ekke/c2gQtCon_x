@@ -968,7 +968,12 @@ void DataUtil::updateSessions() {
     } // end for list of days from server
 
     qDebug() << "SESSIONS: " << mDataManager->mAllSession.size() << " --> " << mMultiSession.size();
-    //emit updateDone();
+    // todo download speaker images loop
+    // speaker, images, sessions, days, rooms, tracks --> cache
+    // delete orphans
+    mProgressInfotext.append("\n").append(tr("Schedule and Speaker successfully synchronized :)"));
+    emit progressInfo(mProgressInfotext);
+    emit updateDone();
 }
 
 //  U T I L I T Y S  to manage Conference data

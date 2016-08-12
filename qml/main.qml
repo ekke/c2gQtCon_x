@@ -337,9 +337,18 @@ ApplicationWindow {
             updatePopup.isUpdate = false
             updatePopup.open()
         }
+        Timer {
+            id: updateDoneTimer
+            interval: 2500
+            repeat: false
+            onTriggered: {
+                // read all data
+                startupDelayedTimer.start()
+            }
+        } // updateTimer
         function updateDone() {
             // read all data
-            startupDelayedTimer.start()
+            updateDoneTimer.start()
         }
         function showUpdateProgress(progressInfo) {
             initialPlaceholder.item.showProgress(progressInfo)
