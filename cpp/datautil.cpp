@@ -300,8 +300,10 @@ Day* DataUtil::findDayForServerDate(const QString& dayDate) {
         }
     }
     if(found) {
+        qDebug() << "Day found";
         return day;
     }
+    qDebug() << "Day not found";
     return 0;
 }
 
@@ -382,6 +384,7 @@ void DataUtil::setTrackAndType(SessionAPI* sessionAPI, Session* session, Confere
         mDataManager->insertSessionTrack(sessionTrack);
     }
     session->setSessionTrack(sessionTrack->trackId());
+    session->resolveSessionTrackAsDataObject(sessionTrack);
     // SCHEDULE or what else
     // setting some boolean here makes it easier to distinguish in UI
     if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
@@ -392,6 +395,7 @@ void DataUtil::setTrackAndType(SessionAPI* sessionAPI, Session* session, Confere
             scheduleItem = mDataManager->createScheduleItem();
             scheduleItem->setSessionId(session->sessionId());
             session->setScheduleItem(scheduleItem->sessionId());
+            session->resolveScheduleItemAsDataObject(scheduleItem);
             scheduleItem->setSession(session->sessionId());
             mDataManager->insertScheduleItem(scheduleItem);
         }
@@ -935,9 +939,13 @@ void DataUtil::updateSessions() {
                 Session* session = mDataManager->findSessionBySessionId(sessionAPI->sessionId());
                 if(!session) {
                     // NEW
+                    qDebug() << "NEW Session " << QString::number(sessionAPI->sessionId());
                     mProgressInfotext.append("+");
+                    session = mDataManager->createSession();
+                    session->setSessionId(sessionAPI->sessionId());
                 } else {
                     // Update
+                    qDebug() << "Update Session " << QString::number(sessionAPI->sessionId());
                     mProgressInfotext.append(".");
                 }
                 emit progressInfo(mProgressInfotext);
@@ -946,8 +954,10 @@ void DataUtil::updateSessions() {
                 // refs
                 // DAY
                 session->setSessionDay(day->id());
+                session->resolveSessionDayAsDataObject(day);
                 // ROOM
                 session->setRoom(room->roomId());
+                session->resolveRoomAsDataObject(room);
                 // TRACK TYPE SCHEDULE isUpdate=true
                 setTrackAndType(sessionAPI, session, conference, true);
                 // SORT
@@ -957,7 +967,7 @@ void DataUtil::updateSessions() {
         } // end for rooms of a day
     } // end for list of days from server
 
-
+    qDebug() << "SESSIONS: " << mDataManager->mAllSession.size() << " --> " << mMultiSession.size();
     //emit updateDone();
 }
 
