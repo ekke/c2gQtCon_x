@@ -11,6 +11,7 @@ const QString YYYY_MM_DD = "yyyy-MM-dd";
 const QString HH_MM = "HH:mm";
 const QString YYYY_MM_DD_HH_MM = "yyyy-MM-ddHH:mm";
 const QString DAYNAME_HH_MM = "dddd, HH:mm";
+const QString DEFAULT_SPEAKER_IMAGE_URL = "http://conf.qtcon.org/person_original.png";
 
 DataUtil::DataUtil(QObject *parent) : QObject(parent)
 {
@@ -552,51 +553,66 @@ void DataUtil::prepareSessions()
     } // while all sessions
 }
 
+QVariantList DataUtil::readSpeakerFile(const QString speakerPath) {
+    QVariantList dataList;
+    QFile readFile(speakerPath);
+    if(!readFile.exists()) {
+        qWarning() << "Speaker Path not found " << speakerPath;
+        return dataList;
+    }
+    if (!readFile.open(QIODevice::ReadOnly)) {
+        qWarning() << "Couldn't open file: " << speakerPath;
+        return dataList;
+    }
+    QJsonDocument jda = QJsonDocument::fromJson(readFile.readAll());
+
+    readFile.close();
+    if(!jda.isArray()) {
+        qWarning() << "Couldn't create JSON from file: " << speakerPath;
+        return dataList;
+    }
+    qDebug() << "QJsonDocument for speaker with Array :)";
+    dataList = jda.toVariant().toList();
+    return dataList;
+}
+
+void DataUtil::calcSpeakerName(Speaker* speaker, SpeakerAPI* speakerAPI) {
+    speaker->setName(speakerAPI->firstName());
+    if(speaker->name().length() > 0) {
+        speaker->setName(speaker->name()+" ");
+    }
+    speaker->setName(speaker->name()+speakerAPI->lastName());
+    if(speaker->name().length() > 0) {
+        speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
+        speaker->setSortGroup(speaker->sortKey().left(1));
+    } else {
+        speaker->setSortKey("*");
+        speaker->setSortGroup("*");
+    }
+}
+
 void DataUtil::prepareSpeaker()
 {
     const QString speakersPath = mDataManager->mDataAssetsPath + "conference/speakers.json";
     qDebug() << "PREPARE SPEAKER ";
     QVariantList dataList;
-
-    QFile readFile(speakersPath);
-    if(!readFile.exists()) {
-        qWarning() << "Speakers Path not found " << speakersPath;
+    dataList = readSpeakerFile(speakersPath);
+    if(dataList.size() == 0) {
+        qWarning() << "Speaker List empty";
         return;
     }
-    if (!readFile.open(QIODevice::ReadOnly)) {
-        qWarning() << "Couldn't open file: " << speakersPath;
-        return;
-    }
-    QJsonDocument jda = QJsonDocument::fromJson(readFile.readAll());
-    readFile.close();
-    if(!jda.isArray()) {
-        qWarning() << "Couldn't create JSON from file: " << speakersPath;
-        return;
-    }
-    qDebug() << "QJsonDocument for speakers with Array :)";
     QMultiMap<QString, Speaker*> mm;
-    dataList = jda.toVariant().toList();
-    const QString DEFAULT_IMAGE = "http://conf.qtcon.org/person_original.png";
     for (int i = 0; i < dataList.size(); ++i) {
         SpeakerAPI* speakerAPI = mDataManager->createSpeakerAPI();
         speakerAPI->fillFromForeignMap(dataList.at(i).toMap());
 
         Speaker* speaker = mDataManager->createSpeaker();
         speaker->setSpeakerId(speakerAPI->id());
+
+        calcSpeakerName(speaker, speakerAPI);
         speaker->setBio(speakerAPI->bio());
-        speaker->setName(speakerAPI->firstName());
-        if(speaker->name().length() > 0) {
-            speaker->setName(speaker->name()+" ");
-        }
-        speaker->setName(speaker->name()+speakerAPI->lastName());
-        if(speaker->name().length() > 0) {
-            speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
-            speaker->setSortGroup(speaker->sortKey().left(1));
-        } else {
-            speaker->setSortKey("*");
-            speaker->setSortGroup("*");
-        }
-        if(speakerAPI->avatar().length() > 0 && speakerAPI->avatar() != DEFAULT_IMAGE) {
+
+        if(speakerAPI->avatar().length() > 0 && speakerAPI->avatar() != DEFAULT_SPEAKER_IMAGE_URL) {
             QString avatar = speakerAPI->avatar();
             QStringList sl = avatar.split("?");
             if(sl.size() > 1) {
@@ -607,9 +623,10 @@ void DataUtil::prepareSpeaker()
             if(sl.size() < 2) {
                 qWarning() << "AVATAR wrong "+speakerAPI->avatar();
             } else {
+                avatar = avatar.replace("http://","https://");
                 SpeakerImage* speakerImage = mDataManager->createSpeakerImage();
                 speakerImage->setSpeakerId(speaker->speakerId());
-                speakerImage->setOriginImageUrl(avatar.replace("http://","https://"));
+                speakerImage->setOriginImageUrl(avatar);
                 speakerImage->setSuffix(sl.last());
                 mDataManager->insertSpeakerImage(speakerImage);
                 speaker->resolveSpeakerImageAsDataObject(speakerImage);
@@ -660,10 +677,86 @@ void DataUtil::checkForUpdateSchedule()
 
 void DataUtil::startUpdate()
 {
-    // save favorites and bookmarks
+    QString progressInfotext;
+    progressInfotext = tr("Save Favorites");
+    emit progressInfo(progressInfotext);
+    // save F A V O R I T E S and bookmarks
     saveSessionFavorites();
+    // S P E A K E R
+    progressInfotext = tr("Sync Speaker");
+    emit progressInfo(progressInfotext);
+    const QString speakersPath = mDataManager->mDataPath + "conference/speaker.json";
+    qDebug() << "PREPARE SPEAKER ";
+    QVariantList dataList;
+    dataList = readSpeakerFile(speakersPath);
+    if(dataList.size() == 0) {
+        qWarning() << "Speaker List empty";
+        // mDataManager->init();
+        emit updateFailed(tr("Update failed. No Speaker received.\nReloading current Data"));
+        return;
+    }
+    QMultiMap<QString, Speaker*> mmSpeaker;
+    QMultiMap<int, SpeakerImage*> mmSpeakerImages;
+    for (int i = 0; i < dataList.size(); ++i) {
+        SpeakerAPI* speakerAPI = mDataManager->createSpeakerAPI();
+        speakerAPI->fillFromForeignMap(dataList.at(i).toMap());
+
+        Speaker* speaker = mDataManager->findSpeakerBySpeakerId(speakerAPI->id());
+        if(!speaker) {
+            // NEW speaker
+            qDebug() << "NEW SPEAKER";
+            progressInfotext.append("+");
+            speaker = mDataManager->createSpeaker();
+            speaker->setSpeakerId(speakerAPI->id());
+        } else {
+            // update Speaker
+            progressInfotext.append(".");
+        }
+        emit progressInfo(progressInfotext);
+        calcSpeakerName(speaker, speakerAPI);
+        speaker->setBio(speakerAPI->bio());
+        if(speakerAPI->avatar().length() > 0 && speakerAPI->avatar() != DEFAULT_SPEAKER_IMAGE_URL) {
+            QString avatar = speakerAPI->avatar();
+            QStringList sl = avatar.split("?");
+            if(sl.size() > 1) {
+                sl.removeLast();
+                avatar = sl.join("?");
+            }
+            sl = avatar.split(".");
+            if(sl.size() < 2) {
+                qWarning() << "AVATAR wrong "+speakerAPI->avatar();
+            } else {
+                // check if modified
+                avatar = avatar.replace("http://","https://");
+                if(speaker->hasSpeakerImage()) {
+                    if(speaker->speakerImageAsDataObject()->originImageUrl() != avatar) {
+                        qDebug() << "IMAGE Changed";
+                        qDebug() << "OLD:" << speaker->speakerImageAsDataObject()->originImageUrl();
+                        qDebug() << "NEW:" << avatar;
+                        SpeakerImage* speakerImage = speaker->speakerImageAsDataObject();
+                        speakerImage->setOriginImageUrl(avatar);
+                        speakerImage->setSuffix(sl.last());
+                        mmSpeakerImages.insert(speakerImage->speakerId(), speakerImage);
+                    }
+                } else {
+                    qDebug() << "IMAGE NEW";
+                    SpeakerImage* speakerImage = mDataManager->createSpeakerImage();
+                    speakerImage->setSpeakerId(speaker->speakerId());
+                    speakerImage->setOriginImageUrl(avatar);
+                    speakerImage->setSuffix(sl.last());
+                    speakerImage->setInAssets(false);
+                    mDataManager->insertSpeakerImage(speakerImage);
+                    speaker->resolveSpeakerImageAsDataObject(speakerImage);
+                    mmSpeakerImages.insert(speakerImage->speakerId(), speakerImage);
+                }
+            } // end if valid Avatar URL
+        } // end check avatar if URL && not default
+        // using MultiMap to get Speakers sorted
+        mmSpeaker.insert(speaker->sortKey(), speaker);
+    } // for speaker from server
     //
-    emit updateDone();
+    qDebug() << "SPEAKERS: " << mDataManager->mAllSpeaker.size() << " --> " << mmSpeaker.size() << " IMG: " << mmSpeakerImages.size();
+    //emit updateDone();
 
     // FAILED ??
     // mDataManager->init();
@@ -969,28 +1062,27 @@ void DataUtil::onServerSuccess()
         emit checkForUpdateFailed(tr("Error: Received Map missed 'schedule'."));
         return;
     }
-    QString apiVersion;
-    apiVersion = map.value("version").toString();
-    qDebug() << "VERSION: " + apiVersion;
+    mNewApi = map.value("version").toString();
+    qDebug() << "VERSION: " + mNewApi;
 
-    if(apiVersion.length() == 0) {
+    if(mNewApi.length() == 0) {
         emit checkForUpdateFailed(tr("Error: Received Map missed 'version'."));
         return;
     }
     QStringList versionList;
-    versionList = apiVersion.split(".");
+    versionList = mNewApi.split(".");
     if(versionList.size() != 2) {
-        emit checkForUpdateFailed(tr("Error: 'Version' wrong: ")+apiVersion);
+        emit checkForUpdateFailed(tr("Error: 'Version' wrong: ")+mNewApi);
         return;
     }
     if(mDataManager->mSettingsData->apiVersion().length() == 0) {
-        emit updateAvailable(apiVersion);
+        emit updateAvailable(mNewApi);
         return;
     }
     QStringList oldVersionList;
     oldVersionList = mDataManager->mSettingsData->apiVersion().split(".");
     if(oldVersionList.size() != 2) {
-        emit updateAvailable(apiVersion);
+        emit updateAvailable(mNewApi);
         return;
     }
     int oldValue = oldVersionList.at(0).toInt();
@@ -1002,13 +1094,13 @@ void DataUtil::onServerSuccess()
     oldValue = oldVersionList.at(0).toInt();
     newValue = versionList.at(0).toInt();
     if(oldValue < newValue) {
-        emit updateAvailable(apiVersion);
+        emit updateAvailable(mNewApi);
         return;
     }
     oldValue = oldVersionList.at(1).toInt();
     newValue = versionList.at(1).toInt();
     if(oldValue <  newValue) {
-        emit updateAvailable(apiVersion);
+        emit updateAvailable(mNewApi);
         return;
     }
     emit noUpdateRequired();

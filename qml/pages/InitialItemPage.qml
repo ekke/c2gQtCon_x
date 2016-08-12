@@ -35,9 +35,21 @@ Pane {
         topPadding: 12
         color: primaryColor
     }
+    LabelSubheading {
+        id: progressLabel
+        anchors.top: infoLabel.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        wrapMode: Label.WordWrap
+        horizontalAlignment: Qt.AlignHCenter
+        topPadding: 6
+        leftPadding: 16
+        rightPadding: 16
+        color: accentColor
+    }
     Item {
         id: imageItem
-        anchors.top: infoLabel.bottom
+        anchors.top: progressLabel.bottom
         property int size: Math.min(400, (rootPane.width-60))
         width: size
         Image {
@@ -61,6 +73,10 @@ Pane {
         imageItem.visible = false
         initLabel.text = qsTr("Conference2Go APP\nfor\nQtCon 2016")
         infoLabel.text = qsTr("Conference Schedule will be updated...")
+    }
+
+    function showProgress(info) {
+        progressLabel.text = info
     }
 
     function showInfo(info) {

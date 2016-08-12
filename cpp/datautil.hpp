@@ -63,19 +63,21 @@ public:
 signals:
     void myScheduleRefreshed();
 
-    void updateAvailable(QString apiVersion);
+    void updateAvailable(const QString apiVersion);
     void noUpdateRequired();
-    void checkForUpdateFailed(QString message);
+    void checkForUpdateFailed(const QString message);
 
     void updateDone();
-    void updateFailed(QString message);
+    void updateFailed(const QString message);
+
+    void progressInfo(const QString progressInfo);
 
 public slots:
     void onSpeakerImageLoaded(QObject* dataObject, int width, int height);
 
 private slots:
     void onServerSuccess();
-    void onServerFailed(QString message);
+    void onServerFailed(const QString message);
 
 private:
 
@@ -91,7 +93,12 @@ private:
     void prepareEventData();
 
     bool checkDirs();
+
+    // UPDATE
     QVariantMap readScheduleFile(const QString schedulePath);
+    QString mNewApi;
+    QVariantList readSpeakerFile(const QString speakerPath);
+    void calcSpeakerName(Speaker *speaker, SpeakerAPI *speakerAPI);
 };
 
 #endif // DATAUTIL_H

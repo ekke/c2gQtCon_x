@@ -340,7 +340,13 @@ ApplicationWindow {
             // read all data
             startupDelayedTimer.start()
         }
-
+        function showUpdateProgress(progressInfo) {
+            initialPlaceholder.item.showProgress(progressInfo)
+        }
+        Connections {
+            target: dataUtil
+            onProgressInfo: rootPane.showUpdateProgress(progressInfo)
+        }
         Connections {
             target: dataUtil
             onUpdateDone: rootPane.updateDone()
