@@ -330,6 +330,7 @@ ApplicationWindow {
             }
         } // updatePopup
         function updateFailed(message) {
+            dataUtil.reloadData()
             // info and reload prev stuff
             updatePopup.text = message
             updatePopup.buttonsVisible = true

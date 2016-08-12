@@ -6,7 +6,7 @@ import "../common"
 Pane {
     property string name: "InitialItemPage"
     property int myIndex: -1
-    width: rootPane.width
+    width: appWindow.width
     LabelHeadline {
         id: initLabel
         anchors.left: parent.left
@@ -40,8 +40,7 @@ Pane {
         anchors.top: infoLabel.bottom
         anchors.left: parent.left
         anchors.right: parent.right
-        wrapMode: Label.WordWrap
-        horizontalAlignment: Qt.AlignHCenter
+        wrapMode: Label.WrapAnywhere
         topPadding: 6
         leftPadding: 16
         rightPadding: 16

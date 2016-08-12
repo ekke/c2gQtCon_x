@@ -60,6 +60,8 @@ public:
     Q_INVOKABLE
     QString apiInfo();
 
+    Q_INVOKABLE
+    void reloadData();
 signals:
     void myScheduleRefreshed();
 
@@ -97,6 +99,7 @@ private:
     // UPDATE
     QString mNewApi;
     QString mProgressInfotext;
+    QMultiMap<QString, Session*> mMultiSession;
     QMultiMap<QString, Speaker*> mMultiSpeaker;
     QMultiMap<bool, SpeakerImage*> mMultiSpeakerImages;
     QVariantMap readScheduleFile(const QString schedulePath);
@@ -104,6 +107,11 @@ private:
     void calcSpeakerName(Speaker *speaker, SpeakerAPI *speakerAPI);
     void updateSpeakerImages();
     void updateSessions();
+    Day *findDayForServerDate(const QString &dayDate);
+    void adjustPersons(QVariantMap &sessionMap);
+    bool checkIfIgnored(SessionAPI *sessionAPI);
+    void setDuration(SessionAPI *sessionAPI, Session* session);
+    void setTrackAndType(SessionAPI *sessionAPI, Session *session, Conference *conference, const bool isUpdate);
 };
 
 #endif // DATAUTIL_H

@@ -12,6 +12,7 @@ const QString HH_MM = "HH:mm";
 const QString YYYY_MM_DD_HH_MM = "yyyy-MM-ddHH:mm";
 const QString DAYNAME_HH_MM = "dddd, HH:mm";
 const QString DEFAULT_SPEAKER_IMAGE_URL = "http://conf.qtcon.org/person_original.png";
+const QString EMPTY_TRACK = "*****";
 
 DataUtil::DataUtil(QObject *parent) : QObject(parent)
 {
@@ -37,6 +38,20 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
     if (!res) {
         Q_ASSERT(res);
     }
+}
+
+// if update failed Data in memory is inconsistent
+// delete all, then do init again
+void DataUtil::reloadData() {
+    // delete all to avoid orphans
+    mProgressInfotext.append(tr(" Rollback"));
+    emit progressInfo(mProgressInfotext);
+    // DO IT
+    // reload
+    mProgressInfotext.append(tr(" Reload"));
+    emit progressInfo(mProgressInfotext);
+    // DO IT
+    mDataManager->init();
 }
 
 // creates missing dirs if preparing conference (pre-conf-stuff)
@@ -274,6 +289,158 @@ QVariantMap DataUtil::readScheduleFile(const QString schedulePath) {
     return map;
 }
 
+Day* DataUtil::findDayForServerDate(const QString& dayDate) {
+    Day* day;
+    bool found = false;
+    for (int dl = 0; dl < mDataManager->mAllDay.size(); ++dl) {
+        day = (Day*) mDataManager->mAllDay.at(dl);
+        if(day->conferenceDay().toString(YYYY_MM_DD) == dayDate) {
+            found = true;
+            break;
+        }
+    }
+    if(found) {
+        return day;
+    }
+    return 0;
+}
+
+void DataUtil::adjustPersons(QVariantMap& sessionMap) {
+    QStringList personKeys;
+    QVariantList personsList;
+    personsList = sessionMap.value("persons").toList();
+    if (personsList.size() > 0) {
+        for (int pvl = 0; pvl < personsList.size(); ++pvl) {
+            QVariantMap map = personsList.at(pvl).toMap();
+            if(map.contains("id")) {
+                personKeys.append(map.value("id").toString());
+            }
+        }
+        sessionMap.insert("persons", personKeys);
+    }
+}
+
+bool DataUtil::checkIfIgnored(SessionAPI* sessionAPI) {
+    if(sessionAPI->title() == "Registration and Coffee" && sessionAPI->room() != "B02") {
+        qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+        return true;
+    }
+    if(sessionAPI->title() == "Lunch" && sessionAPI->room() != "B02") {
+        qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+        return true;
+    }
+    if(sessionAPI->title() == "Coffee break" && sessionAPI->room() != "B02") {
+        qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+        return true;
+    }
+    if(sessionAPI->title() == "Evening event" && sessionAPI->room() != "B02") {
+        qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+        return true;
+    }
+    if(sessionAPI->title() == "Welcome" && sessionAPI->room() != "C01") {
+        qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+        return true;
+    }
+    return false;
+}
+
+void DataUtil::setDuration(SessionAPI* sessionAPI, Session* session) {
+    QStringList duration;
+    duration = sessionAPI->duration().split(":");
+    int minutes = 0;
+    if(duration.length() == 2) {
+        minutes = duration.last().toInt();
+        minutes += duration.first().toInt()*60;
+    } else {
+        qWarning() << "Duration wrong: " << sessionAPI->duration() << " session ID: " << sessionAPI->sessionId();
+    }
+    session->setMinutes(minutes);
+    session->setEndTime(session->startTime().addSecs(minutes * 60));
+}
+
+void DataUtil::setTrackAndType(SessionAPI* sessionAPI, Session* session, Conference* conference, const bool isUpdate) {
+    SessionTrack* sessionTrack;
+    bool found = false;
+    QString trackName;
+    trackName = sessionAPI->track();
+    if(trackName.isEmpty()) {
+        trackName = EMPTY_TRACK;
+    }
+    for (int tr = 0; tr < mDataManager->mAllSessionTrack.size(); ++tr) {
+        sessionTrack = (SessionTrack*) mDataManager->mAllSessionTrack.at(tr);
+        if(sessionTrack->name() == trackName) {
+            found = true;
+            break;
+        }
+    }
+    if(!found) {
+        sessionTrack = mDataManager->createSessionTrack();
+        conference->setLastSessionTrackId(conference->lastSessionTrackId()+1);
+        sessionTrack->setTrackId(conference->lastSessionTrackId());
+        sessionTrack->setName(trackName);
+        sessionTrack->setInAssets(isUpdate?false:true);
+        mDataManager->insertSessionTrack(sessionTrack);
+    }
+    session->setSessionTrack(sessionTrack->trackId());
+    // SCHEDULE or what else
+    // setting some boolean here makes it easier to distinguish in UI
+    if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
+        ScheduleItem* scheduleItem;
+        if(isUpdate && session->hasScheduleItem()) {
+            scheduleItem = session->scheduleItemAsDataObject();
+        } else {
+            scheduleItem = mDataManager->createScheduleItem();
+            scheduleItem->setSessionId(session->sessionId());
+            session->setScheduleItem(scheduleItem->sessionId());
+            scheduleItem->setSession(session->sessionId());
+            mDataManager->insertScheduleItem(scheduleItem);
+        }
+        if(session->title().contains("Evening event") || session->title().contains("SHOW EUROPE")) {
+            scheduleItem->setIsEvent(true);
+        } else {
+            if(session->title().contains("Registration")) {
+                scheduleItem->setIsRegistration(true);
+            } else {
+                if(session->title().contains("Lunch")) {
+                    scheduleItem->setIsLunch(true);
+                } else {
+                    scheduleItem->setIsBreak(true);
+                }
+            }
+        }
+    } else {
+        if(isUpdate && session->hasScheduleItem()) {
+            // Session type changed, so remove any old schedule items
+            mDataManager->deleteScheduleItemBySessionId(session->sessionId());
+        }
+        if(session->title().contains("Lightning") || session->sessionType().contains("lightning_talk")) {
+            session->setIsLightning(true);
+        } else {
+            if(session->title().contains("Keynote")) {
+                session->setIsKeynote(true);
+            } else {
+                if(trackName == "Community") {
+                    session->setIsCommunity(true);
+                } else {
+                    if(session->sessionDayAsDataObject()->conferenceDay().toString(YYYY_MM_DD) == "2016-09-01" && session->title().contains("Training")) {
+                        session->setIsTraining(true);
+                    } else {
+                        if(session->sessionType() == "meeting") {
+                            session->setIsMeeting(true);
+                        } else {
+                            if(session->title().contains("Unconference")) {
+                                session->setIsUnconference(true);
+                            } else {
+                                session->setIsSession(true);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 void DataUtil::prepareSessions()
 {
     const QString schedulePath = mDataManager->mDataAssetsPath + "conference/schedule.json";
@@ -297,7 +464,6 @@ void DataUtil::prepareSessions()
         return;
     }
 
-
     qDebug() << "TITLE: " << map.value("title").toString();
     Conference* conference;
     conference = (Conference*) mDataManager->allConference().first();
@@ -319,19 +485,14 @@ void DataUtil::prepareSessions()
         QString dayDate;
         dayDate = dayMap.value("date").toString();
         qDebug() << "processing DATE: " << dayDate;
-        Day* day;
-        bool found = false;
-        for (int dl = 0; dl < mDataManager->mAllDay.size(); ++dl) {
-            day = (Day*) mDataManager->mAllDay.at(dl);
-            if(day->conferenceDay().toString(YYYY_MM_DD) == dayDate) {
-                found = true;
-                break;
-            }
-        }
-        if(!found) {
+
+        Day* day = findDayForServerDate(dayDate);
+        if(!day) {
             qWarning() << "No Day* found for " << dayDate;
             continue;
         }
+
+        bool found = false;
         QVariantMap roomMap;
         roomMap = dayMap.value("rooms").toMap();
         QStringList roomKeys = roomMap.keys();
@@ -368,19 +529,8 @@ void DataUtil::prepareSessions()
                     continue;
                 }
                 // adjust persons
-                // TODO if full_public_name set it to Speaker where it's not delivered from Server
-                QStringList personKeys;
-                QVariantList personsList;
-                personsList = sessionMap.value("persons").toList();
-                if (personsList.size() > 0) {
-                    for (int pvl = 0; pvl < personsList.size(); ++pvl) {
-                        QVariantMap map = personsList.at(pvl).toMap();
-                        if(map.contains("id")) {
-                            personKeys.append(map.value("id").toString());
-                        }
-                    }
-                    sessionMap.insert("persons", personKeys);
-                }
+                adjustPersons(sessionMap);
+
                 // create and adjust links
                 QStringList linkKeys;
                 QVariantList linksList;
@@ -401,116 +551,19 @@ void DataUtil::prepareSessions()
                 SessionAPI* sessionAPI = mDataManager->createSessionAPI();
                 sessionAPI->fillFromForeignMap(sessionMap);
                 // ignore unwanted Sessions
-                if(sessionAPI->title() == "Registration and Coffee" && sessionAPI->room() != "B02") {
-                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
-                    continue;
-                }
-                if(sessionAPI->title() == "Lunch" && sessionAPI->room() != "B02") {
-                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
-                    continue;
-                }
-                if(sessionAPI->title() == "Coffee break" && sessionAPI->room() != "B02") {
-                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
-                    continue;
-                }
-                if(sessionAPI->title() == "Evening event" && sessionAPI->room() != "B02") {
-                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
-                    continue;
-                }
-                if(sessionAPI->title() == "Welcome" && sessionAPI->room() != "C01") {
-                    qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
+                if (checkIfIgnored(sessionAPI)) {
                     continue;
                 }
                 Session* session = mDataManager->createSession();
                 session->fillFromMap(sessionAPI->toMap());
-                QStringList duration;
-                duration = sessionAPI->duration().split(":");
-                int minutes = 0;
-                if(duration.length() == 2) {
-                    minutes = duration.last().toInt();
-                    minutes += duration.first().toInt()*60;
-                } else {
-                    qWarning() << "Duration wrong: " << sessionAPI->duration() << " DAY: " << dayDate << " ROOM: " << roomKeys.at(r);
-                }
-                session->setMinutes(minutes);
-                session->setEndTime(session->startTime().addSecs(minutes * 60));
+                setDuration(sessionAPI, session);
                 // refs
                 // DAY
                 session->setSessionDay(day->id());
                 // ROOM
                 session->setRoom(room->roomId());
-                // TRACK
-                SessionTrack* sessionTrack;
-                found = false;
-                QString trackName;
-                trackName = sessionAPI->track();
-                if(trackName.isEmpty()) {
-                    trackName = "*****";
-                }
-                for (int tr = 0; tr < mDataManager->mAllSessionTrack.size(); ++tr) {
-                    sessionTrack = (SessionTrack*) mDataManager->mAllSessionTrack.at(tr);
-                    if(sessionTrack->name() == trackName) {
-                        found = true;
-                        break;
-                    }
-                }
-                if(!found) {
-                    sessionTrack = mDataManager->createSessionTrack();
-                    conference->setLastSessionTrackId(conference->lastSessionTrackId()+1);
-                    sessionTrack->setTrackId(conference->lastSessionTrackId());
-                    sessionTrack->setName(trackName);
-                    sessionTrack->setInAssets(true);
-                    mDataManager->insertSessionTrack(sessionTrack);
-                }
-                session->setSessionTrack(sessionTrack->trackId());
-                // SCHEDULE or what else
-                // setting some boolean here makes it easier to distinguish in UI
-                if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
-                    ScheduleItem* scheduleItem = mDataManager->createScheduleItem();
-                    if(session->title().contains("Evening event") || session->title().contains("SHOW EUROPE")) {
-                        scheduleItem->setIsEvent(true);
-                    } else {
-                        if(session->title().contains("Registration")) {
-                            scheduleItem->setIsRegistration(true);
-                        } else {
-                            if(session->title().contains("Lunch")) {
-                                scheduleItem->setIsLunch(true);
-                            } else {
-                                scheduleItem->setIsBreak(true);
-                            }
-                        }
-                    }
-                    scheduleItem->setSessionId(session->sessionId());
-                    session->setScheduleItem(scheduleItem->sessionId());
-                    scheduleItem->setSession(session->sessionId());
-                    mDataManager->insertScheduleItem(scheduleItem);
-                } else {
-                    if(session->title().contains("Lightning") || session->sessionType().contains("lightning_talk")) {
-                        session->setIsLightning(true);
-                    } else {
-                        if(session->title().contains("Keynote")) {
-                            session->setIsKeynote(true);
-                        } else {
-                            if(trackName == "Community") {
-                                session->setIsCommunity(true);
-                            } else {
-                                if(dayDate == "2016-09-01" && session->title().contains("Training")) {
-                                    session->setIsTraining(true);
-                                } else {
-                                    if(session->sessionType() == "meeting") {
-                                        session->setIsMeeting(true);
-                                    } else {
-                                        if(session->title().contains("Unconference")) {
-                                            session->setIsUnconference(true);
-                                        } else {
-                                            session->setIsSession(true);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
+                // TRACK TYPE SCHEDULE
+                setTrackAndType(sessionAPI, session, conference, false);
                 // SORT
                 session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString(HH_MM));
                 sessionSortMap.insert(session->sortKey(), session);
@@ -775,6 +828,134 @@ void DataUtil::updateSpeakerImages() {
 void DataUtil::updateSessions() {
     mProgressInfotext.append("\n").append(tr("Sync Sessions"));
     emit progressInfo(mProgressInfotext);
+    mMultiSession.clear();
+    const QString schedulePath = mDataManager->mDataPath + "conference/schedule.json";
+    QVariantMap map;
+    map = readScheduleFile(schedulePath);
+    if(map.isEmpty()) {
+        qWarning() << "Schedule is no Map";
+        emit updateFailed(tr("Error: Received Map is empty."));
+        return;
+    }
+    map = map.value("schedule").toMap();
+    if(map.isEmpty()) {
+        qWarning() << "No 'schedule' found";
+        emit updateFailed(tr("Error: Received Map missed 'schedule'."));
+        return;
+    }
+    map = map.value("conference").toMap();
+    if(map.isEmpty()) {
+        qWarning() << "No 'conference' found";
+        emit updateFailed(tr("Error: Received Map missed 'conference'."));
+        return;
+    }
+    Conference* conference;
+    conference = (Conference*) mDataManager->allConference().first();
+    QVariantList dayList;
+    dayList = map.value("days").toList();
+    if(dayList.isEmpty()) {
+        qWarning() << "No 'days' found";
+        emit updateFailed(tr("Error: Received Map missed 'days'."));
+        return;
+    }
+    if(dayList.size() != 4) {
+        qWarning() << "Wrong number of 'days' found";
+        emit updateFailed(tr("Error: # of 'days' expected: 4 - but got ")+QString::number(dayList.size()));
+        return;
+    }
+    for (int i = 0; i < dayList.size(); ++i) {
+        QVariantMap dayMap;
+        dayMap = dayList.at(i).toMap();
+        if(dayMap.isEmpty()) {
+            qWarning() << "No 'DAY' found #" << i;
+            emit updateFailed(tr("Map for Day missed from Server"));
+            continue;
+        }
+        QString dayDate;
+        dayDate = dayMap.value("date").toString();
+        qDebug() << "processing DATE: " << dayDate;
+        Day* day = findDayForServerDate(dayDate);
+        if(!day) {
+            qWarning() << "No Day* found for " << dayDate;
+            emit updateFailed(tr("No Day* found for ")+dayDate);
+            return;
+        }
+        bool found = false;
+        QVariantMap roomMap;
+        roomMap = dayMap.value("rooms").toMap();
+        QStringList roomKeys = roomMap.keys();
+        if(roomKeys.isEmpty()) {
+            qWarning() << "No 'ROOMS' found for DAY # i";
+            emit updateFailed(tr("No 'ROOMS' found for DAY ") + dayDate);
+            return;
+        }
+        for (int r = 0; r < roomKeys.size(); ++r) {
+            QVariantList sessionList;
+            sessionList = roomMap.value(roomKeys.at(r)).toList();
+            if(sessionList.isEmpty()) {
+                qWarning() << "DAY: " << dayDate << " ROOM: " << roomKeys.at(r) << " ignored - No Sessions available";
+                continue;
+            }
+            Room* room;
+            found = false;
+            for (int rl = 0; rl < mDataManager->mAllRoom.size(); ++rl) {
+                room = (Room*) mDataManager->mAllRoom.at(rl);
+                if(room->roomName() == roomKeys.at(r)) {
+                    found = true;
+                    break;
+                }
+            }
+            if(!found) {
+                qDebug() << "Room* not found for " << dayDate << " Room: " << roomKeys.at(r);
+                room = mDataManager->createRoom();
+                conference->setLastRoomId(conference->lastRoomId()+1);
+                room->setRoomId(conference->lastRoomId());
+                room->setInAssets(false);
+                room->setRoomName(roomKeys.at(r));
+                mDataManager->insertRoom(room);
+                mProgressInfotext.append("R");
+                progressInfo(mProgressInfotext);
+            }
+            for (int sl = 0; sl < sessionList.size(); ++sl) {
+                QVariantMap sessionMap;
+                sessionMap = sessionList.at(sl).toMap();
+                if(sessionMap.isEmpty()) {
+                    qWarning() << "No 'SESSION' Map DAY: " << dayDate << " ROOM: " << roomKeys.at(r);
+                    continue;
+                }
+                // adjust persons
+                adjustPersons(sessionMap);
+                // TODO SessionLink
+                SessionAPI* sessionAPI = mDataManager->createSessionAPI();
+                sessionAPI->fillFromForeignMap(sessionMap);
+                // ignore unwanted Sessions
+                if (checkIfIgnored(sessionAPI)) {
+                    continue;
+                }
+                Session* session = mDataManager->findSessionBySessionId(sessionAPI->sessionId());
+                if(!session) {
+                    // NEW
+                    mProgressInfotext.append("+");
+                } else {
+                    // Update
+                    mProgressInfotext.append(".");
+                }
+                emit progressInfo(mProgressInfotext);
+                session->fillFromMap(sessionAPI->toMap());
+                setDuration(sessionAPI, session);
+                // refs
+                // DAY
+                session->setSessionDay(day->id());
+                // ROOM
+                session->setRoom(room->roomId());
+                // TRACK TYPE SCHEDULE isUpdate=true
+                setTrackAndType(sessionAPI, session, conference, true);
+                // SORT
+                session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString(HH_MM));
+                mMultiSession.insert(session->sortKey(), session);
+            } // end for sessions of a room of a day
+        } // end for rooms of a day
+    } // end for list of days from server
 
 
     //emit updateDone();
