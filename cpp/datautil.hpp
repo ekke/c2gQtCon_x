@@ -77,6 +77,9 @@ signals:
 public slots:
     void onSpeakerImageLoaded(QObject* dataObject, int width, int height);
 
+    void onSpeakerImageUpdateLoaded(QObject *dataObject, int width, int height);
+    void onSpeakerImageFailed(QObject *dataObject, QString message);
+    void onSpeakerImageUpdateFailed(QObject *dataObject, QString message);
 private slots:
     void onServerSuccess();
     void onServerFailed(const QString message);

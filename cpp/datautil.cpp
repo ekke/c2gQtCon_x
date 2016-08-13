@@ -718,6 +718,11 @@ void DataUtil::prepareSpeakerImages()
         if (!res) {
             Q_ASSERT(res);
         }
+        res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
+                                       SLOT(onSpeakerImageFailed(QObject*, QString)));
+        if (!res) {
+            Q_ASSERT(res);
+        }
         mImageLoader->loadSpeaker(speakerImage);
     }
 }
@@ -821,7 +826,25 @@ void DataUtil::updateSpeakerImages() {
             mProgressInfotext.append(".");
             emit progressInfo(mProgressInfotext);
             // DO IT
-            //SpeakerImage* speakerImage = waitingForDownload.first();
+            const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+            SpeakerImage* speakerImage = waitingForDownload.first();
+            QString fileName;
+            fileName = "speaker_";
+            fileName.append(QString::number(speakerImage->speakerId()));
+            fileName.append('.');
+            fileName.append(speakerImage->suffix());
+            mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagesPath+fileName, this);
+            bool res = connect(mImageLoader, SIGNAL(loaded(QObject*, int, int)), this,
+                               SLOT(onSpeakerImageUpdateLoaded(QObject*, int, int)));
+            if (!res) {
+                Q_ASSERT(res);
+            }
+            res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
+                                           SLOT(onSpeakerImageUpdateFailed(QObject*, QString)));
+            if (!res) {
+                Q_ASSERT(res);
+            }
+            mImageLoader->loadSpeaker(speakerImage);
             return;
         } // waiting for download
     } // new images map
@@ -1123,7 +1146,33 @@ QString DataUtil::apiInfo()
 
 
 //   DOWNLOAD   S P E A K E R I M A G E S
-// SLOT
+// SLOT   UPDATE CONFERENCE
+void DataUtil::onSpeakerImageUpdateLoaded(QObject *dataObject, int width, int height)
+{
+    mImageLoader->deleteLater();
+    SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
+    qDebug() << "onSpeakerImage  L O A D E D ";
+    speakerImage->setDownloadSuccess(true);
+    speakerImage->setDownloadFailed(false);
+    speakerImage->setInAssets(false);
+    speakerImage->setInData(true);
+    prepareHighDpiImages(speakerImage, width, height);
+    // set update flag
+    int count = mMultiSpeakerImages.remove(false, speakerImage);
+    if(count != 1) {
+        qWarning() << "something went wrong: the SpeakerImage MUST exist in MultiMap";
+    }
+    mMultiSpeakerImages.insert(true, speakerImage);
+    // check for more
+    updateSpeakerImages();
+}
+void DataUtil::onSpeakerImageUpdateFailed(QObject *dataObject, QString message) {
+    SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
+    qDebug() << "UPDATE: Cannot load Speaker Image:  " << message << speakerImage->speakerId();
+}
+
+
+// SLOT  PREPARE CONFERENCE
 void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
 {
     mImageLoader->deleteLater();
@@ -1151,6 +1200,11 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
             if (!res) {
                 Q_ASSERT(res);
             }
+            res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
+                                           SLOT(onSpeakerImageFailed(QObject*, QString)));
+            if (!res) {
+                Q_ASSERT(res);
+            }
             mImageLoader->loadSpeaker(speakerImage);
             return;
         }
@@ -1158,6 +1212,11 @@ void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
     // N OW cache speaker images
     mDataManager->saveSpeakerImageToCache();
     qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
+}
+
+void DataUtil::onSpeakerImageFailed(QObject *dataObject, QString message) {
+    SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
+    qDebug() << "PREPARE: Cannot load Speaker Image:  " << message << speakerImage->speakerId();
 }
 
 void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {
