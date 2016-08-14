@@ -67,7 +67,7 @@ public:
     void reloadData();
 
     Q_INVOKABLE
-    QString conferenceDataPath();
+    QString conferenceDataPath4QML();
 
 signals:
     void myScheduleRefreshed();

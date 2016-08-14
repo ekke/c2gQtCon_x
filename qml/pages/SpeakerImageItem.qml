@@ -10,6 +10,8 @@ import "../common"
 
 Item {
     property Speaker speaker
+    property string assetsSource: "qrc:/data-assets/conference/speakerImages/speaker_"
+    property string dataSource: dataUtil.conferenceDataPath4QML()+"speakerImages/speaker_"
     id: imageItem
     height: 64
     width: 64
@@ -18,7 +20,8 @@ Item {
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenter: parent.horizontalCenter
         fillMode: Image.Pad
-        source: speaker.hasSpeakerImage()? "qrc:/data-assets/conference/speakerImages/speaker_"+speaker.speakerId+"."+speaker.speakerImageAsDataObject.suffix : ""
+        source: speaker.hasSpeakerImage()? speaker.speakerImageAsDataObject.inAssets? assetsSource+speaker.speakerId+"."+speaker.speakerImageAsDataObject.suffix
+                                           : speaker.speakerImageAsDataObject.inData? dataSource+speaker.speakerId+"."+speaker.speakerImageAsDataObject.suffix : "" : ""
     } // image
     IconInactive {
         visible: speaker && !speaker.hasSpeakerImage()

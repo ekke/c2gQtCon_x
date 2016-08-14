@@ -41,8 +41,8 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
     }
 }
 
-QString DataUtil::conferenceDataPath() {
-    return mConferenceDataPath;
+QString DataUtil::conferenceDataPath4QML() {
+    return "file://"+mConferenceDataPath;
 }
 
 // if update failed Data in memory is inconsistent
