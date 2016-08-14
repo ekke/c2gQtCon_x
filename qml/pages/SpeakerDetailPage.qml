@@ -65,10 +65,16 @@ Page {
                             text: speaker.bio
                         }
                     }
-
-
                 } // row
-                HorizontalDivider {}
+                LabelBodySecondary {
+                    text: "# "+speaker.speakerId
+                    font.italic: true
+                    transform: Translate{y: -12}
+                }
+                HorizontalDivider{
+                    height: 3
+                    transform: Translate{y: -8}
+                }
                 RowLayout {
                     visible: speaker.sessionsPropertyList.length
                     Layout.leftMargin: 16

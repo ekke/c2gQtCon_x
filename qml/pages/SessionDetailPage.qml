@@ -161,8 +161,15 @@ Page {
                         }
                     } // favoritesIcon
                 }
-
-                HorizontalDivider{}
+                LabelBodySecondary {
+                    text: "# "+session.sessionId
+                    font.italic: true
+                    transform: Translate{y: -8}
+                }
+                HorizontalDivider{
+                    height: 3
+                    transform: Translate{y: -8}
+                }
                 LabelSubheading {
                     visible: session.subtitle.length
                     Layout.leftMargin: 16
