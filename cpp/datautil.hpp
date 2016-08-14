@@ -69,6 +69,9 @@ public:
     Q_INVOKABLE
     QString conferenceDataPath4QML();
 
+    Q_INVOKABLE
+    bool isDateTooLate();
+
 signals:
     void myScheduleRefreshed();
 

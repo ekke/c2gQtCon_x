@@ -45,6 +45,14 @@ QString DataUtil::conferenceDataPath4QML() {
     return "file://"+mConferenceDataPath;
 }
 
+bool DataUtil::isDateTooLate()
+{
+    QString todayDate = QDate::currentDate().toString(YYYY_MM_DD);
+    QString lastConferenceDay = ((Day*) mDataManager->mAllDay.last())->conferenceDay().toString(YYYY_MM_DD);
+    qDebug() << "todayDate" << todayDate << "lastConferenceDay" << lastConferenceDay;
+    return todayDate > lastConferenceDay;
+}
+
 // if update failed Data in memory is inconsistent
 // delete all, then do init again
 void DataUtil::reloadData() {

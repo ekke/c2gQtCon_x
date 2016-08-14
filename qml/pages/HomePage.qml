@@ -103,7 +103,13 @@ Flickable {
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
-            // dialog and start
+            // check if date is OK
+            if(dataUtil.isDateTooLate()) {
+                appWindow.showToast(qsTr("Sorry - the Conference is closed.\nNo more Updates available"))
+                return
+            }
+
+            // open modal dialog and wait if update required
             updatePopup.text = qsTr("Checking QtCon Server\nfor new Schedule Data ...")
             updatePopup.buttonsVisible = false
             updatePopup.isUpdate = false
