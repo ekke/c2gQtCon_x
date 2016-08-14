@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.0
 import QtGraphicalEffects 1.0
 import org.ekkescorner.data 1.0
 import "../common"
+import "../popups"
 
 Page {
     id: myScheduleListPage
@@ -77,11 +78,22 @@ Page {
         cleanup()
     }
 
+    PopupInfo {
+        id: popupScheduleEmpty
+        text: qsTr("Your Personal Schedule is empty.\nTap on the 'Star' to add or remove")
+        buttonText: "OK"
+        modal: true
+        closePolicy: Popup.NoAutoClose
+        onClosed: {
+            navPane.toggleSchedule()
+        }
+    } // popupInfo
+
     function myScheduleRefreshed() {
         sessionLists = dataUtil.mySchedule()
         listView.model = sessionLists.scheduledSessionsPropertyList
         if(sessionLists.scheduledSessionsPropertyList.length == 0) {
-            appWindow.showToast(qsTr("Your Personal Schedule is empty."))
+            popupScheduleEmpty.open()
         }
     }
     Connections {

@@ -189,6 +189,14 @@ Page {
             }
         } // popOnePage
 
+        function toggleSchedule() {
+            if(myScheduleLoader.active) {
+                initialItemLoader.active = true
+            } else {
+                myScheduleLoader.active = true
+            }
+        }
+
     } // navPane
 
     FloatingActionButton {
@@ -216,11 +224,7 @@ Page {
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
         backgroundColor: accentColor
         onClicked: {
-            if(myScheduleLoader.active) {
-                initialItemLoader.active = true
-            } else {
-                myScheduleLoader.active = true
-            }
+            navPane.toggleSchedule()
         }
     } // FAB
 
