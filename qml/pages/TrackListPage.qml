@@ -31,7 +31,14 @@ Page {
         delegate: Loader {
             id: sessionTrackLoader
             // define Components inside Loader to enable direct access to ListView functions and modelData
-            sourceComponent: trackRowComponent
+            sourceComponent: sessionsPropertyList.length? trackRowComponent :emptyTrackComponent
+
+            Component {
+                id: emptyTrackComponent
+                // can happen after Schedule Updates
+                // that a Track has no more sessions
+                Item {}
+            }
 
             // LIST ROW DELEGTE
             Component {
