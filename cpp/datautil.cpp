@@ -766,7 +766,7 @@ void DataUtil::startUpdate()
         emit updateFailed(tr("Update failed. No Speaker received.\nReloading current Data"));
         return;
     }
-
+    mMultiSession.clear();
     mMultiSpeaker.clear();
     mMultiSpeakerImages.clear();
     for (int i = 0; i < dataList.size(); ++i) {
@@ -1044,6 +1044,84 @@ void DataUtil::updateSessions() {
     // delete orphans
     mProgressInfotext.append("\n").append(tr("Schedule and Speaker successfully synchronized :)"));
     emit progressInfo(mProgressInfotext);
+    finishUpdate();
+}
+
+void DataUtil::finishUpdate() {
+    mProgressInfotext.append("\n").append(tr("Now saving Conference Data to Cache"));
+    emit progressInfo(mProgressInfotext);
+    // Conference save last xxx Id's
+    mDataManager->saveConferenceToCache();
+
+    // Building not changed - always initialized from Prepare Conference
+
+    // Floor not changed - always initialized from Prepare Conference
+
+    // Room: update sorted Sessions
+    for (int r = 0; r < mDataManager->allRoom().size(); ++r) {
+        Room* room = (Room*) mDataManager->allRoom().at(r);
+        room->clearSessions();
+    }
+    // TODO
+
+    // Session: insert sorted Sessions
+    // presenter, sessionLinks, day, room, track scheduleItem are updated
+    mDataManager->mAllSession.clear();
+    QMapIterator<QString, Session*> sessionIterator(mMultiSession);
+    while (sessionIterator.hasNext()) {
+        sessionIterator.next();
+        mDataManager->insertSession(sessionIterator.value());
+    }
+    mDataManager->saveSessionToCache();
+
+    // SessionLink
+    mDataManager->saveSessionLinkToCache();
+
+    // ScheduleItem
+    mDataManager->saveScheduleItemToCache();
+
+    // Speaker: insert sorted Speakers
+    mDataManager->mAllSpeaker.clear();
+    QMapIterator<QString, Speaker*> speakerIterator(mMultiSpeaker);
+    while (speakerIterator.hasNext()) {
+        speakerIterator.next();
+        mDataManager->insertSpeaker(speakerIterator.value());
+    }
+    // TODO Speaker -> Sessions sorted ??
+    mDataManager->saveSpeakerToCache();
+
+    // insert Speaker Images
+    mDataManager->mAllSpeakerImage.clear();
+    QMapIterator<QString, SpeakerImage*> speakerImagesIterator(mMultiSpeakerImages);
+    while (speakerImagesIterator.hasNext()) {
+        speakerImagesIterator.next();
+        mDataManager->insertSpeakerImage(speakerImagesIterator.value());
+    }
+    mDataManager->saveSpeakerImageToCache();
+
+    // SessionTrack: sort Tracks
+    QMultiMap<QString, SessionTrack*> sessionTrackSortMap;
+    for (int i = 0; i < mDataManager->allSessionTrack().size(); ++i) {
+        SessionTrack* sessionTrack = (SessionTrack*) mDataManager->allSessionTrack().at(i);
+        sessionTrackSortMap.insert(sessionTrack->name(), sessionTrack);
+    }
+    mDataManager->mAllSessionTrack.clear();
+    QMapIterator<QString, SessionTrack*> sessionTrackIterator(sessionTrackSortMap);
+    while (sessionTrackIterator.hasNext()) {
+        sessionTrackIterator.next();
+        SessionTrack* sessionTrack = sessionTrackIterator.value();
+        mDataManager->insertSessionTrack(sessionTrack);
+    }
+    // TODO sort Sessions for Tracks
+    mDataManager->saveSessionTrackToCache();
+
+    // Day: sort Sessions for day
+    // TODO
+    mDataManager->saveDayToCache();
+
+    // SETTINGS update API
+    mDataManager->mSettingsData->setApiVersion(mNewApi);
+    //
     emit updateDone();
 }
 

@@ -117,6 +117,7 @@ private:
     void setTrackAndType(SessionAPI *sessionAPI, Session *session, Conference *conference, const bool isUpdate);
     void createAndAdjustLinks(QVariantMap &sessionMap);
     void updateAndAdjustLinks(QVariantMap &sessionMap);
+    void finishUpdate();
 };
 
 #endif // DATAUTIL_H
