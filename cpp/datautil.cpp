@@ -1069,18 +1069,25 @@ void DataUtil::finishUpdate() {
         Room* room = (Room*) mDataManager->allRoom().at(r);
         room->clearSessions();
     }
+    // to reset all correct
+    resolveSessionsForRooms();
     qDebug() << "FINISH: Rooms sessions cleared";
     // SessionTrack: clear sessions for update
     for (int st = 0; st < mDataManager->allSessionTrack().size(); ++st) {
         SessionTrack* track = (SessionTrack*) mDataManager->allSessionTrack().at(st);
         track->clearSessions();
+        qDebug() << "clear sessions for Track " << track->name();
     }
+    // to reset all correct
+    resolveSessionsForTracks();
     qDebug() << "FINISH: Tracks sessions cleared";
     // Day: clear sessions for update
     for (int d = 0; d < mDataManager->allDay().size(); ++d) {
         Day* day = (Day*) mDataManager->allDay().at(d);
         day->clearSessions();
     }
+    // to reset all correct
+    resolveSessionsForSchedule();
     qDebug() << "FINISH: Days sessions cleared";
     // Speaker: insert sorted Speakers, clear Sessions
     mDataManager->mAllSpeaker.clear();
@@ -1089,6 +1096,7 @@ void DataUtil::finishUpdate() {
         speakerIterator.next();
         Speaker* speaker = speakerIterator.value();
         speaker->clearSessions();
+        resolveSessionsForSpeaker(speaker);
         mDataManager->insertSpeaker(speaker);
     }
     qDebug() << "FINISH: Sorted Speakers inserted";
@@ -1116,16 +1124,16 @@ void DataUtil::finishUpdate() {
     // Session: insert sorted Sessions
     // presenter, sessionLinks, day, room, track scheduleItem are updated
     mDataManager->mAllSession.clear();
-    QMapIterator<QString, Session*> sessionIterator(mMultiSession);
-    while (sessionIterator.hasNext()) {
-        sessionIterator.next();
-        mDataManager->insertSession(sessionIterator.value());
-    }
-    mDataManager->saveSessionToCache();
-    qDebug() << "FINISH: Sessions saved";
-    // now update sorted Sessions Day, Room, Tracks, Speaker
+//    QMapIterator<QString, Session*> sessionIterator(mMultiSession);
+//    while (sessionIterator.hasNext()) {
+//        sessionIterator.next();
+//        mDataManager->insertSession(sessionIterator.value());
+//    }
+    // now insert sorted Sessions, update sessions for Day, Room, Tracks, Speaker
     sortedSessionsIntoRoomDayTrackSpeaker();
     qDebug() << "FINISH: Rooms Days Tracks Speaker Sessions sorted";
+    mDataManager->saveSessionToCache();
+    qDebug() << "FINISH: Sessions saved";
     // SessionLink
     mDataManager->saveSessionLinkToCache();
     qDebug() << "FINISH: SessionLinks saved";
@@ -1251,6 +1259,11 @@ void DataUtil::resolveSessionsForRooms()
         Room* room = (Room*) mDataManager->mAllRoom.at(i);
         room->resolveSessionsKeys(mDataManager->listOfSessionForKeys(room->sessionsKeys()));
     }
+}
+
+void DataUtil::resolveSessionsForSpeaker(Speaker* speaker)
+{
+    speaker->resolveSessionsKeys(mDataManager->listOfSessionForKeys(speaker->sessionsKeys()));
 }
 
 QString DataUtil::scheduleTabName(int tabBarIndex)

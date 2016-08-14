@@ -40,6 +40,9 @@ public:
     void resolveSessionsForRooms();
 
     Q_INVOKABLE
+    void resolveSessionsForSpeaker(Speaker *speaker);
+
+    Q_INVOKABLE
     QString scheduleTabName(int tabBarIndex);
 
     Q_INVOKABLE
@@ -62,6 +65,7 @@ public:
 
     Q_INVOKABLE
     void reloadData();
+
 signals:
     void myScheduleRefreshed();
 
