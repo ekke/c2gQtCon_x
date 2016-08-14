@@ -66,6 +66,9 @@ public:
     Q_INVOKABLE
     void reloadData();
 
+    Q_INVOKABLE
+    QString conferenceDataPath();
+
 signals:
     void myScheduleRefreshed();
 
@@ -102,6 +105,7 @@ private:
     void prepareEventData();
 
     bool checkDirs();
+    QString mConferenceDataPath;
 
     // UPDATE
     QString mNewApi;

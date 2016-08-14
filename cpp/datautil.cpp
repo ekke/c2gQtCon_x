@@ -23,7 +23,8 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
 {
     mDataManager = dataManager;
     mDataServer = dataServer;
-    mDataServer->setConferenceDataPath(mDataManager->mDataPath + "conference/");
+    mConferenceDataPath = mDataManager->mDataPath + "conference/";
+    mDataServer->setConferenceDataPath(mConferenceDataPath);
     // used for temp dynamic lists as QQmlPropertyLists
     mSessionLists = mDataManager->createSessionLists();
 
@@ -38,6 +39,10 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
     if (!res) {
         Q_ASSERT(res);
     }
+}
+
+QString DataUtil::conferenceDataPath() {
+    return mConferenceDataPath;
 }
 
 // if update failed Data in memory is inconsistent
@@ -714,7 +719,7 @@ void DataUtil::prepareSpeaker()
 
 void DataUtil::prepareSpeakerImages()
 {
-    const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    const QString speakerImagesPath = mConferenceDataPath + "speakerImages/";
     for (int i = 0; i < mDataManager->allSpeakerImage().size(); ++i) {
         SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->allSpeakerImage().at(i);
         if (!speakerImage->downloadSuccess() && !speakerImage->downloadFailed()) {
@@ -763,7 +768,7 @@ void DataUtil::startUpdate()
     // S P E A K E R
     mProgressInfotext = tr("Sync Speaker");
     emit progressInfo(mProgressInfotext);
-    const QString speakersPath = mDataManager->mDataPath + "conference/speaker.json";
+    const QString speakersPath = mConferenceDataPath + "speaker.json";
     qDebug() << "PREPARE SPEAKER ";
     QVariantList dataList;
     dataList = readSpeakerFile(speakersPath);
@@ -843,7 +848,7 @@ void DataUtil::updateSpeakerImages() {
             mProgressInfotext.append(".");
             emit progressInfo(mProgressInfotext);
             // DO IT
-            const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+            const QString speakerImagesPath = mConferenceDataPath + "speakerImages/";
             SpeakerImage* speakerImage = waitingForDownload.first();
             QString fileName;
             fileName = "speaker_";
@@ -906,7 +911,7 @@ void DataUtil::updateSessions() {
     mProgressInfotext.append("\n").append(tr("Sync Sessions"));
     emit progressInfo(mProgressInfotext);
     mMultiSession.clear();
-    const QString schedulePath = mDataManager->mDataPath + "conference/schedule.json";
+    const QString schedulePath = mConferenceDataPath + "schedule.json";
     QVariantMap map;
     map = readScheduleFile(schedulePath);
     if(map.isEmpty()) {
@@ -1119,7 +1124,7 @@ void DataUtil::finishUpdate() {
             qDebug() << "Session removed: " << session->sessionId();
         }
     }
-    qDebug() << "FINISH: Test deleted Sessions done";
+    qDebug() << "FINISH: Session orphans deleted";
 
     // Session: insert sorted Sessions
     // presenter, sessionLinks, day, room, track scheduleItem are updated
@@ -1147,11 +1152,19 @@ void DataUtil::finishUpdate() {
     qDebug() << "FINISH: Speaker saved";
 
     // insert Speaker Images
-    mDataManager->mAllSpeakerImage.clear();
+    // do NOT mDataManager->mAllSpeakerImage.clear();
+    // mMultiSpeakerImages contains NEW or UPDATED Speaker Images !
     QMapIterator<bool, SpeakerImage*> speakerImagesIterator(mMultiSpeakerImages);
     while (speakerImagesIterator.hasNext()) {
         speakerImagesIterator.next();
-        mDataManager->insertSpeakerImage(speakerImagesIterator.value());
+        SpeakerImage* speakerImage = speakerImagesIterator.value();
+        if(!mDataManager->findSpeakerImageBySpeakerId(speakerImage->speakerId())) {
+            // a NEW Speaker Image
+            qDebug() << "detcted NEW Speaker Image: " << speakerImage->speakerId();
+            mDataManager->insertSpeakerImage(speakerImage);
+        } else {
+            qDebug() << "detcted UPDATED Speaker Image: " << speakerImage->speakerId();
+        }
     }
     mDataManager->saveSpeakerImageToCache();
     qDebug() << "FINISH: Speaker Images saved";
@@ -1410,7 +1423,7 @@ void DataUtil::onSpeakerImageFailed(QObject *dataObject, QString message) {
 }
 
 void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {
-    const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
+    const QString speakerImagesPath = mConferenceDataPath + "speakerImages/";
     QString fileName;
     fileName = speakerImagesPath + "speaker_";
     fileName.append(QString::number(speakerImage->speakerId()));
@@ -1508,7 +1521,7 @@ void DataUtil::onServerSuccess()
 {
     qDebug() << "S U C C E S S";
 
-    const QString schedulePath = mDataManager->mDataPath + "conference/schedule.json";
+    const QString schedulePath = mConferenceDataPath + "schedule.json";
     qDebug() << "CHECK FOR UPDATE SESSIONS ";
     QVariantMap map;
     map = readScheduleFile(schedulePath);

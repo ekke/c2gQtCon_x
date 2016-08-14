@@ -178,6 +178,7 @@ Page {
                                                 }
                                                 MenuItem {
                                                     text: qsTr("Room Info")
+                                                    visible: modelData.roomAsDataObject.inAssets
                                                     onTriggered: {
                                                         navPane.pushRoomDetail(modelData.roomAsDataObject.roomId)
                                                     }
