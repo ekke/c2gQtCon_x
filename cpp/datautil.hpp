@@ -115,6 +115,8 @@ private:
     bool checkIfIgnored(SessionAPI *sessionAPI);
     void setDuration(SessionAPI *sessionAPI, Session* session);
     void setTrackAndType(SessionAPI *sessionAPI, Session *session, Conference *conference, const bool isUpdate);
+    void createAndAdjustLinks(QVariantMap &sessionMap);
+    void updateAndAdjustLinks(QVariantMap &sessionMap);
 };
 
 #endif // DATAUTIL_H

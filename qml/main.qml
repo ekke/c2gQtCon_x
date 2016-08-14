@@ -343,7 +343,7 @@ ApplicationWindow {
             repeat: false
             onTriggered: {
                 // read all data
-                startupDelayedTimer.start()
+                //startupDelayedTimer.start()
             }
         } // updateTimer
         function updateDone() {

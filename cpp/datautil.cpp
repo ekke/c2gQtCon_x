@@ -322,6 +322,25 @@ void DataUtil::adjustPersons(QVariantMap& sessionMap) {
     }
 }
 
+void DataUtil::createAndAdjustLinks(QVariantMap& sessionMap) {
+    QStringList linkKeys;
+    QVariantList linksList;
+    linksList = sessionMap.value("links").toList();
+    if (linksList.size() > 0) {
+        for (int lvl = 0; lvl < linksList.size(); ++lvl) {
+            QVariantMap map = linksList.at(lvl).toMap();
+            if(map.contains("url")) {
+                SessionLink* sessionLink = mDataManager->createSessionLink();
+                sessionLink->setUrl(map.value("url").toString());
+                sessionLink->setTitle(map.value("title").toString());
+                mDataManager->insertSessionLink(sessionLink);
+                linkKeys.append(sessionLink->uuid());
+            }
+        }
+        sessionMap.insert("links", linkKeys);
+    }
+}
+
 bool DataUtil::checkIfIgnored(SessionAPI* sessionAPI) {
     if(sessionAPI->title() == "Registration and Coffee" && sessionAPI->room() != "B02") {
         qDebug() << "unwanted session: " << sessionAPI->sessionId() << " " << sessionAPI->title() << " " << sessionAPI->room();
@@ -536,22 +555,8 @@ void DataUtil::prepareSessions()
                 adjustPersons(sessionMap);
 
                 // create and adjust links
-                QStringList linkKeys;
-                QVariantList linksList;
-                linksList = sessionMap.value("links").toList();
-                if (linksList.size() > 0) {
-                    for (int lvl = 0; lvl < linksList.size(); ++lvl) {
-                        QVariantMap map = linksList.at(lvl).toMap();
-                        if(map.contains("url")) {
-                            SessionLink* sessionLink = mDataManager->createSessionLink();
-                            sessionLink->setUrl(map.value("url").toString());
-                            sessionLink->setTitle(map.value("title").toString());
-                            mDataManager->insertSessionLink(sessionLink);
-                            linkKeys.append(sessionLink->uuid());
-                        }
-                    }
-                    sessionMap.insert("links", linkKeys);
-                }
+                createAndAdjustLinks(sessionMap);
+
                 SessionAPI* sessionAPI = mDataManager->createSessionAPI();
                 sessionAPI->fillFromForeignMap(sessionMap);
                 // ignore unwanted Sessions
@@ -704,27 +709,33 @@ void DataUtil::prepareSpeaker()
 void DataUtil::prepareSpeakerImages()
 {
     const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
-    qDebug() << "storing Speaker Images here: " << speakerImagesPath;
-    if (mDataManager->allSpeakerImage().size() > 0) {
-        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->mAllSpeakerImage.at(0);
-        QString fileName;
-        fileName = "speaker_";
-        fileName.append(QString::number(speakerImage->speakerId()));
-        fileName.append('.');
-        fileName.append(speakerImage->suffix());
-        mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagesPath+fileName, this);
-        bool res = connect(mImageLoader, SIGNAL(loaded(QObject*, int, int)), this,
-                           SLOT(onSpeakerImageLoaded(QObject*, int, int)));
-        if (!res) {
-            Q_ASSERT(res);
+    for (int i = 0; i < mDataManager->allSpeakerImage().size(); ++i) {
+        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->allSpeakerImage().at(i);
+        if (!speakerImage->downloadSuccess() && !speakerImage->downloadFailed()) {
+            qDebug() << "loading..." << speakerImage->speakerId();
+            QString fileName;
+            fileName = "speaker_";
+            fileName.append(QString::number(speakerImage->speakerId()));
+            fileName.append('.');
+            fileName.append(speakerImage->suffix());
+            mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagesPath+fileName, this);
+            bool res = connect(mImageLoader, SIGNAL(loaded(QObject*, int, int)), this,
+                               SLOT(onSpeakerImageLoaded(QObject*, int, int)));
+            if (!res) {
+                Q_ASSERT(res);
+            }
+            res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
+                                           SLOT(onSpeakerImageFailed(QObject*, QString)));
+            if (!res) {
+                Q_ASSERT(res);
+            }
+            mImageLoader->loadSpeaker(speakerImage);
+            return;
         }
-        res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
-                                       SLOT(onSpeakerImageFailed(QObject*, QString)));
-        if (!res) {
-            Q_ASSERT(res);
-        }
-        mImageLoader->loadSpeaker(speakerImage);
-    }
+    } // for all speaker images
+    // N OW cache speaker images
+    mDataManager->saveSpeakerImageToCache();
+    qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
 }
 
 void DataUtil::checkForUpdateSchedule()
@@ -814,13 +825,13 @@ void DataUtil::startUpdate()
     } // for speaker from server
     //
     qDebug() << "SPEAKERS: " << mDataManager->mAllSpeaker.size() << " --> " << mMultiSpeaker.size() << " IMG: " << mMultiSpeakerImages.size();
+    mProgressInfotext.append("\n").append(tr("Sync Speaker Images"));
+    emit progressInfo(mProgressInfotext);
     updateSpeakerImages();
 }
 
 void DataUtil::updateSpeakerImages() {
     if(mMultiSpeakerImages.size() > 0) {
-        mProgressInfotext.append("\n").append(tr("Sync Speaker Images"));
-        emit progressInfo(mProgressInfotext);
         QList<SpeakerImage*> waitingForDownload = mMultiSpeakerImages.values(false);
         if(waitingForDownload.size() > 0) {
             mProgressInfotext.append(".");
@@ -850,6 +861,39 @@ void DataUtil::updateSpeakerImages() {
     } // new images map
     // all done
     updateSessions();
+}
+
+void DataUtil::updateAndAdjustLinks(QVariantMap &sessionMap) {
+    QStringList linkKeys;
+    QVariantList linksList;
+    linksList = sessionMap.value("links").toList();
+    if (linksList.size() > 0) {
+        for (int lvl = 0; lvl < linksList.size(); ++lvl) {
+            QVariantMap map = linksList.at(lvl).toMap();
+            if(map.contains("url")) {
+                QString linkUrl = map.value("url").toString();
+                SessionLink* sessionLink;
+                bool linkFound = false;
+                for (int xsl = 0; xsl < mDataManager->allSessionLink().size(); ++xsl) {
+                    sessionLink = (SessionLink*) mDataManager->allSessionLink().at(xsl);
+                    if(sessionLink->url() == linkUrl) {
+                        linkFound = true;
+                        break;
+                    }
+                } // end for all existing links
+                if(!linkFound) {
+                    sessionLink = mDataManager->createSessionLink();
+                }
+                sessionLink->setUrl(linkUrl);
+                sessionLink->setTitle(map.value("title").toString());
+                if(!linkFound) {
+                    mDataManager->insertSessionLink(sessionLink);
+                }
+                linkKeys.append(sessionLink->uuid());
+            } // map contains url
+        } // end for all links
+        sessionMap.insert("links", linkKeys);
+    } // end if linklist size
 }
 
 void DataUtil::updateSessions() {
@@ -952,13 +996,16 @@ void DataUtil::updateSessions() {
                 }
                 // adjust persons
                 adjustPersons(sessionMap);
-                // TODO SessionLink
+                // update and adjust SessionLink
+                updateAndAdjustLinks(sessionMap);
+
                 SessionAPI* sessionAPI = mDataManager->createSessionAPI();
                 sessionAPI->fillFromForeignMap(sessionMap);
                 // ignore unwanted Sessions
                 if (checkIfIgnored(sessionAPI)) {
                     continue;
                 }
+
                 Session* session = mDataManager->findSessionBySessionId(sessionAPI->sessionId());
                 if(!session) {
                     // NEW
@@ -983,6 +1030,8 @@ void DataUtil::updateSessions() {
                 session->resolveRoomAsDataObject(room);
                 // TRACK TYPE SCHEDULE isUpdate=true
                 setTrackAndType(sessionAPI, session, conference, true);
+                // SessionLinks
+
                 // SORT
                 session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString(HH_MM));
                 mMultiSession.insert(session->sortKey(), session);
@@ -991,7 +1040,6 @@ void DataUtil::updateSessions() {
     } // end for list of days from server
 
     qDebug() << "SESSIONS: " << mDataManager->mAllSession.size() << " --> " << mMultiSession.size();
-    // todo download speaker images loop
     // speaker, images, sessions, days, rooms, tracks --> cache
     // delete orphans
     mProgressInfotext.append("\n").append(tr("Schedule and Speaker successfully synchronized :)"));
@@ -1167,8 +1215,21 @@ void DataUtil::onSpeakerImageUpdateLoaded(QObject *dataObject, int width, int he
     updateSpeakerImages();
 }
 void DataUtil::onSpeakerImageUpdateFailed(QObject *dataObject, QString message) {
+    mImageLoader->deleteLater();
     SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
     qDebug() << "UPDATE: Cannot load Speaker Image:  " << message << speakerImage->speakerId();
+    speakerImage->setDownloadSuccess(false);
+    speakerImage->setDownloadFailed(true);
+    speakerImage->setInAssets(false);
+    speakerImage->setInData(false);
+    // set update flag
+    int count = mMultiSpeakerImages.remove(false, speakerImage);
+    if(count != 1) {
+        qWarning() << "something went wrong: the SpeakerImage MUST exist in MultiMap";
+    }
+    mMultiSpeakerImages.insert(true, speakerImage);
+    // check for more
+    updateSpeakerImages();
 }
 
 
@@ -1176,47 +1237,27 @@ void DataUtil::onSpeakerImageUpdateFailed(QObject *dataObject, QString message) 
 void DataUtil::onSpeakerImageLoaded(QObject *dataObject, int width, int height)
 {
     mImageLoader->deleteLater();
-    qDebug() << "onSpeakerImage  L O A D E D ";
     SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
+    qDebug() << "loaded..." << speakerImage->speakerId() << " " << width << "x" << height;
     speakerImage->setDownloadSuccess(true);
     speakerImage->setDownloadFailed(false);
     speakerImage->setInAssets(true);
     speakerImage->setInData(false);
     prepareHighDpiImages(speakerImage, width, height);
     // more to load ?
-    const QString speakerImagesPath = mDataManager->mDataPath + "conference/speakerImages/";
-    for (int i = 0; i < mDataManager->allSpeakerImage().size(); ++i) {
-        SpeakerImage* speakerImage = (SpeakerImage*) mDataManager->allSpeakerImage().at(i);
-        if (!speakerImage->downloadSuccess() && !speakerImage->downloadFailed()) {
-            qDebug() << "loading..." << speakerImage->speakerId() << " " << width << "x" << height;
-            QString fileName;
-            fileName = "speaker_";
-            fileName.append(QString::number(speakerImage->speakerId()));
-            fileName.append('.');
-            fileName.append(speakerImage->suffix());
-            mImageLoader = new ImageLoader(speakerImage->originImageUrl(), speakerImagesPath+fileName, this);
-            bool res = connect(mImageLoader, SIGNAL(loaded(QObject*, int, int)), this,
-                               SLOT(onSpeakerImageLoaded(QObject*, int, int)));
-            if (!res) {
-                Q_ASSERT(res);
-            }
-            res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
-                                           SLOT(onSpeakerImageFailed(QObject*, QString)));
-            if (!res) {
-                Q_ASSERT(res);
-            }
-            mImageLoader->loadSpeaker(speakerImage);
-            return;
-        }
-    } // for all speaker images
-    // N OW cache speaker images
-    mDataManager->saveSpeakerImageToCache();
-    qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
+    prepareSpeakerImages();
 }
 
 void DataUtil::onSpeakerImageFailed(QObject *dataObject, QString message) {
+    mImageLoader->deleteLater();
     SpeakerImage* speakerImage = (SpeakerImage*) dataObject;
     qDebug() << "PREPARE: Cannot load Speaker Image:  " << message << speakerImage->speakerId();
+    speakerImage->setDownloadSuccess(false);
+    speakerImage->setDownloadFailed(true);
+    speakerImage->setInAssets(false);
+    speakerImage->setInData(false);
+    // more to load ?
+    prepareSpeakerImages();
 }
 
 void DataUtil::prepareHighDpiImages(SpeakerImage* speakerImage, int width, int height) {
