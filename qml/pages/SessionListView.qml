@@ -45,7 +45,7 @@ ListView {
                         IconActive {
                             //transform: Translate { x: -36 }
                             imageSize: 36
-                            imageName: listView.scheduleItemImage(model.modelData)
+                            imageName: dataUtil.scheduleItemImageForSession(model.modelData)
                             // opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
                         } // scheduleItemImage
                     } // left column
@@ -94,7 +94,7 @@ ListView {
                     ColumnLayout {
                         CharCircle {
                             size: 24
-                            text: listView.characterForButton(model.modelData)
+                            text: dataUtil.letterForButton(model.modelData)
                         }
                     } // left column
                     ColumnLayout {
@@ -142,7 +142,7 @@ ListView {
                             LabelBody {
                                 id: speakerNamesLabel
                                 font.italic: true
-                                text: listView.speakerNames(model.modelData)
+                                text: dataUtil.speakerNamesForSession(model.modelData)
                                 elide: Label.ElideRight
                             }
                         }
@@ -186,53 +186,5 @@ ListView {
     section.delegate: sectionHeading
 
     ScrollIndicator.vertical: ScrollIndicator { }
-    function speakerNames(session) {
-        var s = ""
 
-        for (var i = 0; i < session.presenterPropertyList.length; i++) {
-            var pName = session.presenterPropertyList[i].name
-            if(pName.length) {
-                if(s.length) {
-                    s += ", "
-                }
-                s += pName
-            }
-        } // for
-        return s
-    }
-
-    function scheduleItemImage(session) {
-        if(session.scheduleItemAsDataObject.isRegistration) {
-            return "key.png"
-        }
-        if(session.scheduleItemAsDataObject.isLunch) {
-            return "lunch.png"
-        }
-        if(session.scheduleItemAsDataObject.isEvent) {
-            return "party_event.png"
-        }
-        return "break.png"
-    }
-
-    function characterForButton(session) {
-        if(session.isTraining) {
-            return "T"
-        }
-        if(session.isLightning) {
-            return "L"
-        }
-        if(session.isKeynote) {
-            return "K"
-        }
-        if(session.isCommunity) {
-            return "C"
-        }
-        if(session.isMeeting) {
-            return "M"
-        }
-        if(session.isUnconference) {
-            return "U"
-        }
-        return "S"
-    }
 } // end listView

@@ -66,11 +66,30 @@ public:
     Q_INVOKABLE
     void reloadData();
 
+    // some helpers for QML UI
     Q_INVOKABLE
     QString conferenceDataPath4QML();
 
     Q_INVOKABLE
     bool isDateTooLate();
+
+    Q_INVOKABLE
+    QString sessionInfoForSpeaker(Speaker* speaker);
+
+    Q_INVOKABLE
+    QString speakerNamesForSession(Session* session);
+
+    Q_INVOKABLE
+    QString scheduleItemImageForSession(Session* session);
+
+    Q_INVOKABLE
+    QString letterForButton(Session* session);
+
+    Q_INVOKABLE
+    QString textForSessionTrack(Session* session);
+
+    Q_INVOKABLE
+    QString textForSessionType(Session* session);
 
 signals:
     void myScheduleRefreshed();

@@ -59,20 +59,20 @@ Page {
                     ButtonOneCharUncolored {
                         visible: !isScheduleItem
                         anchors.verticalCenter: parent.verticalCenter
-                        text: sessionDetailPage.characterForButton()
+                        text: dataUtil.letterForButton(session)
                     } // button one char
                     IconActive {
                         visible: isScheduleItem
                         anchors.verticalCenter: parent.verticalCenter
                         //transform: Translate { x: -36 }
                         imageSize: 24
-                        imageName: scheduleItemImage()
+                        imageName: isScheduleItem? dataUtil.scheduleItemImageForSession(session) : ""
                     } // scheduleItemImage
 
                     LabelSubheading {
                         Layout.leftMargin: 16
                         anchors.verticalCenter: parent.verticalCenter
-                        text: sessionDetailPage.textForSessionType()
+                        text: dataUtil.textForSessionType(session)
                         wrapMode: Text.WordWrap
                     }
                     IconActive {
@@ -110,7 +110,7 @@ Page {
                     LabelSubheading {
                         id: trackLabel
                         Layout.leftMargin: 16
-                        text: sessionDetailPage.textForSessionTrack()
+                        text: dataUtil.textForSessionTrack(session)
                     }
                 }
                 RowLayout {
@@ -209,7 +209,7 @@ Page {
                         //transform: Translate { x: -36 }
                         imageSize: 36
                         imageName: "speaker.png"
-                    } // scheduleItemImage
+                    } // speaker image
                     LabelHeadline {
                         leftPadding: 10
                         text: qsTr("Speaker")
@@ -260,7 +260,7 @@ Page {
                                         wrapMode: Label.WordWrap
                                     } // label
                                     LabelBody {
-                                        text: sessionDetailPage.sessionInfo(model.modelData)
+                                        text: dataUtil.sessionInfoForSpeaker(model.modelData)
                                         wrapMode: Label.WordWrap
                                         maximumLineCount: 3
                                         elide: Label.ElideRight
@@ -284,110 +284,6 @@ Page {
         }// root pane
         ScrollIndicator.vertical: ScrollIndicator { }
     } // flickable
-
-    function scheduleItemImage() {
-        if(!isScheduleItem) {
-            return ""
-        }
-        if(session.scheduleItemAsDataObject.isRegistration) {
-            return "key.png"
-        }
-        if(session.scheduleItemAsDataObject.isLunch) {
-            return "lunch.png"
-        }
-        if(session.scheduleItemAsDataObject.isEvent) {
-            return "party_event.png"
-        }
-        return "break.png"
-    }
-    function characterForButton() {
-        if(session.isTraining) {
-            return "T"
-        }
-        if(session.isLightning) {
-            return "L"
-        }
-        if(session.isKeynote) {
-            return "K"
-        }
-        if(session.isCommunity) {
-            return "C"
-        }
-        if(session.isMeeting) {
-            return "M"
-        }
-        if(session.isUnconference) {
-            return "U"
-        }
-        return "S"
-    }
-    function textForSessionTrack() {
-        if(session.hasScheduleItem()) {
-            return ""
-        }
-        var s = session.sessionTrackAsDataObject.name
-        if(s == "Community") {
-            return ""
-        }
-        if(s == "*****") {
-            return ""
-        }
-        if(s == "Unconference") {
-            return ""
-        }
-        return s
-    }
-
-    function textForSessionType() {
-        var s = ""
-        if (isScheduleItem) {
-            if(session.scheduleItemAsDataObject.isRegistration) {
-                s = qsTr("Registration")
-            } else
-                if(session.scheduleItemAsDataObject.isEvent) {
-                    s = qsTr("Event")
-                } else
-                    if(session.scheduleItemAsDataObject.isLunch) {
-                        s = qsTr("Lunch")
-                    } else {
-                        s = qsTr("Break")
-                    }
-        } else {
-            if(session.isTraining) {
-                s = qsTr("Training ")
-            } else
-                if(session.isLightning) {
-                    s = qsTr("Lightning Talk")
-                } else
-                    if(session.isKeynote) {
-                        s = qsTr("Keynote")
-                    } else
-                        if(session.isCommunity) {
-                            s = qsTr("Community")
-                        } else {
-                            if(session.isUnconference) {
-                                s = qsTr("Unconference")
-                            } else {
-                                if(session.isMeeting) {
-                                    s =qsTr("Meeting")
-                                } else {
-                                    s =qsTr("Session")
-                                }
-                            }
-                        }
-        }
-        return s + " (" + session.minutes + qsTr(" Minutes)")
-    }
-    function sessionInfo(speaker) {
-        var s = ""
-        for (var i = 0; i < speaker.sessionsPropertyList.length; i++) {
-            if(i > 0) {
-                s += "\n"
-            }
-            s += speaker.sessionsPropertyList[i].title
-        }
-        return s
-    }
 
     // called immediately after Loader.loaded
     function init() {

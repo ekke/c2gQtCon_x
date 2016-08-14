@@ -53,6 +53,144 @@ bool DataUtil::isDateTooLate()
     return todayDate > lastConferenceDay;
 }
 
+/**
+ * @brief DataUtil::sessionInfoForSpeaker
+ * @param speaker
+ * @return all Session Title line by line
+ */
+QString DataUtil::sessionInfoForSpeaker(Speaker *speaker)
+{
+    QString info;
+    if(!speaker) {
+        return info;
+    }
+    for (int i = 0; i < speaker->sessions().size(); ++i) {
+        if(i > 0) {
+            info.append("\n");
+        }
+        info.append(speaker->sessions().at(i)->title());
+    }
+    return info;
+}
+
+QString DataUtil::speakerNamesForSession(Session *session)
+{
+    QString info;
+    if(!session) {
+        return info;
+    }
+    for (int i = 0; i < session->presenter().size(); ++i) {
+        QString name = session->presenter().at(i)->name();
+        if(name.length()) {
+            if(info.length()) {
+                info.append(", ");
+            }
+            info.append(name);
+        }
+    }
+    return info;
+}
+
+QString DataUtil::scheduleItemImageForSession(Session *session)
+{
+    if(!session || !session->hasScheduleItem()) {
+        return "";
+    }
+    if(session->scheduleItemAsDataObject()->isRegistration()) {
+        return "key.png";
+    }
+    if(session->scheduleItemAsDataObject()->isLunch()) {
+        return "lunch.png";
+    }
+    if(session->scheduleItemAsDataObject()->isEvent()) {
+        return "party_event.png";
+    }
+    return "break.png";
+}
+
+QString DataUtil::letterForButton(Session *session)
+{
+    if(!session) {
+        return "S";
+    }
+    if(session->isTraining()) {
+        return "T";
+    }
+    if(session->isLightning()) {
+        return "L";
+    }
+    if (session->isKeynote()) {
+        return "K";
+    }
+    if(session->isCommunity()) {
+        return "C";
+    }
+    if(session->isMeeting()) {
+        return "M";
+    }
+    if(session->isUnconference()) {
+        return "U";
+    }
+    return "S";
+}
+
+QString DataUtil::textForSessionTrack(Session *session)
+{
+    if(!session || !session->hasSessionTrack()) {
+        return "";
+    }
+    QString name = session->sessionTrackAsDataObject()->name();
+    if(name == "Community") {
+        return "";
+    }
+    if(name == "*****") {
+        return "";
+    }
+    if(name == "Unconference") {
+        return "";
+    }
+    return name;
+}
+
+QString DataUtil::textForSessionType(Session *session)
+{
+    if(!session) {
+        return "";
+    }
+    QString info = " (" + QString::number(session->minutes()) + tr(" Minutes)");
+    if(session->hasScheduleItem()) {
+        if(session->scheduleItemAsDataObject()->isRegistration()) {
+            return tr("Registration")+info;
+        }
+        if(session->scheduleItemAsDataObject()->isEvent()) {
+            return tr("Event")+info;
+        }
+        if(session->scheduleItemAsDataObject()->isLunch()) {
+            return tr("Lunch")+info;
+        }
+        return tr("Break")+info;
+    }
+    if(session->isTraining()) {
+        return tr("Training")+info;
+    }
+    if(session->isLightning()) {
+        return tr("Lightning Talk")+info;
+    }
+    if(session->isKeynote()) {
+        return tr("Keynote")+info;
+    }
+    if(session->isCommunity()) {
+        return tr("Community")+info;
+    }
+    if(session->isUnconference()) {
+        return tr("Unconference")+info;
+    }
+    if(session->isMeeting()) {
+        return tr("Meeting")+info;
+    }
+    return tr("Session")+info;
+}
+
 // if update failed Data in memory is inconsistent
 // delete all, then do init again
 void DataUtil::reloadData() {

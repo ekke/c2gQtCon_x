@@ -61,7 +61,7 @@ Page {
 
                     LabelBody {
                         rightPadding: 12
-                        text: speakerRow.ListView.view.sessionInfo(model.modelData)
+                        text: dataUtil.sessionInfoForSpeaker(model.modelData)
                         wrapMode: Label.WordWrap
                         maximumLineCount: 3
                         elide: Label.ElideRight
@@ -102,17 +102,6 @@ Page {
         section.delegate: sectionHeading
 
         ScrollIndicator.vertical: ScrollIndicator { }
-
-        function sessionInfo(speaker) {
-            var s = ""
-            for (var i = 0; i < speaker.sessionsPropertyList.length; i++) {
-                if(i > 0) {
-                    s += "\n"
-                }
-                s += speaker.sessionsPropertyList[i].title
-            }
-            return s
-        }
     } // end listView
 
     function goToItemIndex(theIndex) {

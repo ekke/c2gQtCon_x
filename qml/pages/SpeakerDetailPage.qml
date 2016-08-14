@@ -133,7 +133,7 @@ Page {
                                     CharCircle {
                                         Layout.leftMargin: 14
                                         size: 36
-                                        text: speakerDetailPage.characterForButton(modelData)
+                                        text: dataUtil.letterForButton(modelData)
                                     }
                                     LabelBody {
                                         text: modelData.minutes + qsTr(" Minutes")
@@ -310,28 +310,6 @@ Page {
     // emitting a Signal could be another option
     Component.onDestruction: {
         cleanup()
-    }
-
-    function characterForButton(session) {
-        if(session.isTraining) {
-            return "T"
-        }
-        if(session.isLightning) {
-            return "L"
-        }
-        if(session.isKeynote) {
-            return "K"
-        }
-        if(session.isCommunity) {
-            return "C"
-        }
-        if(session.isMeeting) {
-            return "M"
-        }
-        if(session.isUnconference) {
-            return "U"
-        }
-        return "S"
     }
 
     // called immediately after Loader.loaded
