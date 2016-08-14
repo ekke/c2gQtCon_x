@@ -1137,11 +1137,6 @@ void DataUtil::finishUpdate() {
     // Session: insert sorted Sessions
     // presenter, sessionLinks, day, room, track scheduleItem are updated
     mDataManager->mAllSession.clear();
-//    QMapIterator<QString, Session*> sessionIterator(mMultiSession);
-//    while (sessionIterator.hasNext()) {
-//        sessionIterator.next();
-//        mDataManager->insertSession(sessionIterator.value());
-//    }
     // now insert sorted Sessions, update sessions for Day, Room, Tracks, Speaker
     sortedSessionsIntoRoomDayTrackSpeaker();
     qDebug() << "FINISH: Rooms Days Tracks Speaker Sessions sorted";
@@ -1204,7 +1199,7 @@ void DataUtil::finishUpdate() {
     qDebug() << "FINISH: Rooms saved";
 
     // SETTINGS update API
-    //mDataManager->mSettingsData->setApiVersion(mNewApi);
+    mDataManager->mSettingsData->setApiVersion(mNewApi);
     //
     mProgressInfotext.append("\n").append(tr("All done"));
     emit progressInfo(mProgressInfotext);
