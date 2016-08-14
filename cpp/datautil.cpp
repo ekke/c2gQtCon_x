@@ -496,7 +496,7 @@ void DataUtil::prepareSessions()
         qWarning() << "No 'days' found";
         return;
     }
-    QMultiMap<QString, Session*> sessionSortMap;
+    mMultiSession.clear();
     qDebug() << "DAYS: " << dayList.size();
     for (int i = 0; i < dayList.size(); ++i) {
         QVariantMap dayMap;
@@ -575,12 +575,18 @@ void DataUtil::prepareSessions()
                 setTrackAndType(sessionAPI, session, conference, false);
                 // SORT
                 session->setSortKey(day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString(HH_MM));
-                sessionSortMap.insert(session->sortKey(), session);
+                mMultiSession.insert(session->sortKey(), session);
             } // end for session of a room
         } // room keys
     } // for days list
     // insert sorted Sessions
-    QMapIterator<QString, Session*> sessionIterator(sessionSortMap);
+    sortedSessionsIntoRoomDayTrackSpeaker();
+}
+
+// sessions must be cleared before for Day Track, Room, Speaker
+// always if prepare Conference, explicitely if Update Schedule
+void DataUtil::sortedSessionsIntoRoomDayTrackSpeaker() {
+    QMapIterator<QString, Session*> sessionIterator(mMultiSession);
     while (sessionIterator.hasNext()) {
         sessionIterator.next();
         Session* session = sessionIterator.value();
@@ -1057,12 +1063,30 @@ void DataUtil::finishUpdate() {
 
     // Floor not changed - always initialized from Prepare Conference
 
-    // Room: update sorted Sessions
+    // Room: clear sessions for update
     for (int r = 0; r < mDataManager->allRoom().size(); ++r) {
         Room* room = (Room*) mDataManager->allRoom().at(r);
         room->clearSessions();
     }
-    // TODO
+    // SessionTrack: clear sessions for update
+    for (int st = 0; st < mDataManager->allSessionTrack().size(); ++st) {
+        SessionTrack* track = (SessionTrack*) mDataManager->allSessionTrack().at(st);
+        track->clearSessions();
+    }
+    // Day: clear sessions for update
+    for (int d = 0; d < mDataManager->allDay().size(); ++d) {
+        Day* day = (Day*) mDataManager->allDay().at(d);
+        day->clearSessions();
+    }
+    // Speaker: insert sorted Speakers, clear Sessions
+    mDataManager->mAllSpeaker.clear();
+    QMapIterator<QString, Speaker*> speakerIterator(mMultiSpeaker);
+    while (speakerIterator.hasNext()) {
+        speakerIterator.next();
+        Speaker* speaker = speakerIterator.value();
+        speaker->clearSessions();
+        mDataManager->insertSpeaker(speaker);
+    }
 
     // Session: insert sorted Sessions
     // presenter, sessionLinks, day, room, track scheduleItem are updated
@@ -1073,6 +1097,8 @@ void DataUtil::finishUpdate() {
         mDataManager->insertSession(sessionIterator.value());
     }
     mDataManager->saveSessionToCache();
+    // now update sorted Sessions Day, Room, Tracks, Speaker
+    sortedSessionsIntoRoomDayTrackSpeaker();
 
     // SessionLink
     mDataManager->saveSessionLinkToCache();
@@ -1080,26 +1106,19 @@ void DataUtil::finishUpdate() {
     // ScheduleItem
     mDataManager->saveScheduleItemToCache();
 
-    // Speaker: insert sorted Speakers
-    mDataManager->mAllSpeaker.clear();
-    QMapIterator<QString, Speaker*> speakerIterator(mMultiSpeaker);
-    while (speakerIterator.hasNext()) {
-        speakerIterator.next();
-        mDataManager->insertSpeaker(speakerIterator.value());
-    }
-    // TODO Speaker -> Sessions sorted ??
+    // SPEAKER
     mDataManager->saveSpeakerToCache();
 
     // insert Speaker Images
     mDataManager->mAllSpeakerImage.clear();
-    QMapIterator<QString, SpeakerImage*> speakerImagesIterator(mMultiSpeakerImages);
+    QMapIterator<bool, SpeakerImage*> speakerImagesIterator(mMultiSpeakerImages);
     while (speakerImagesIterator.hasNext()) {
         speakerImagesIterator.next();
         mDataManager->insertSpeakerImage(speakerImagesIterator.value());
     }
     mDataManager->saveSpeakerImageToCache();
 
-    // SessionTrack: sort Tracks
+    // Track sort by Name
     QMultiMap<QString, SessionTrack*> sessionTrackSortMap;
     for (int i = 0; i < mDataManager->allSessionTrack().size(); ++i) {
         SessionTrack* sessionTrack = (SessionTrack*) mDataManager->allSessionTrack().at(i);
@@ -1112,16 +1131,20 @@ void DataUtil::finishUpdate() {
         SessionTrack* sessionTrack = sessionTrackIterator.value();
         mDataManager->insertSessionTrack(sessionTrack);
     }
-    // TODO sort Sessions for Tracks
+    // save all Tracks with sorted Sessions
     mDataManager->saveSessionTrackToCache();
 
-    // Day: sort Sessions for day
-    // TODO
+    // Day: save all days with sorted Sessions
     mDataManager->saveDayToCache();
+
+    // Rooms: save all Rooms with sorted Sessions
+    mDataManager->saveRoomToCache();
 
     // SETTINGS update API
     mDataManager->mSettingsData->setApiVersion(mNewApi);
     //
+    mProgressInfotext.append("\n").append(tr("All done"));
+    emit progressInfo(mProgressInfotext);
     emit updateDone();
 }
 

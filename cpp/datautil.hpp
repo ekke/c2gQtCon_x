@@ -118,6 +118,7 @@ private:
     void createAndAdjustLinks(QVariantMap &sessionMap);
     void updateAndAdjustLinks(QVariantMap &sessionMap);
     void finishUpdate();
+    void sortedSessionsIntoRoomDayTrackSpeaker();
 };
 
 #endif // DATAUTIL_H
