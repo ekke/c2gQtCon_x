@@ -94,16 +94,8 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Need a Business APP for BlackBerry10, Android, iOS ?")
+                    text: qsTr("Thanks !")
                     color: primaryColor
-                }
-            }
-            RowLayout {
-                LabelSubheading {
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("ekke is doing international development for Enterprise and SMB (Small and Medium Business). Most APPs are 'hidden' because they're running as inhouse APP at customer site.\nThis Conference App will give you some impressions what kind of APPs you can expect. Need an APP ? ask ekke")
                 }
             }
             RowLayout {
@@ -136,6 +128,24 @@ Flickable {
                     rightPadding: 10
                     wrapMode: Text.WordWrap
                     text: qsTr("Thanks J-P Nurmi, Mitch Curtis and others @qt.io for help, bug-fixing and inspirations.")
+                }
+            }
+            HorizontalDivider {}
+            RowLayout {
+                LabelTitle {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Need a Business APP for BlackBerry10, Android, iOS ?")
+                    color: primaryColor
+                }
+            }
+            RowLayout {
+                LabelSubheading {
+                    leftPadding: 10
+                    rightPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("ekke is doing international development for Enterprise and SMB (Small and Medium Business). Most APPs are 'hidden' because they're running as inhouse APP at customer site.\nThis Conference App will give you some impressions what kind of APPs you can expect. Need an APP ? ask ekke")
                 }
             }
             HorizontalDivider {}
