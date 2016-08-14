@@ -1058,6 +1058,7 @@ void DataUtil::finishUpdate() {
     emit progressInfo(mProgressInfotext);
     // Conference save last xxx Id's
     mDataManager->saveConferenceToCache();
+    qDebug() << "FINISH: Conference saved";
 
     // Building not changed - always initialized from Prepare Conference
 
@@ -1068,16 +1069,19 @@ void DataUtil::finishUpdate() {
         Room* room = (Room*) mDataManager->allRoom().at(r);
         room->clearSessions();
     }
+    qDebug() << "FINISH: Rooms sessions cleared";
     // SessionTrack: clear sessions for update
     for (int st = 0; st < mDataManager->allSessionTrack().size(); ++st) {
         SessionTrack* track = (SessionTrack*) mDataManager->allSessionTrack().at(st);
         track->clearSessions();
     }
+    qDebug() << "FINISH: Tracks sessions cleared";
     // Day: clear sessions for update
     for (int d = 0; d < mDataManager->allDay().size(); ++d) {
         Day* day = (Day*) mDataManager->allDay().at(d);
         day->clearSessions();
     }
+    qDebug() << "FINISH: Days sessions cleared";
     // Speaker: insert sorted Speakers, clear Sessions
     mDataManager->mAllSpeaker.clear();
     QMapIterator<QString, Speaker*> speakerIterator(mMultiSpeaker);
@@ -1087,6 +1091,27 @@ void DataUtil::finishUpdate() {
         speaker->clearSessions();
         mDataManager->insertSpeaker(speaker);
     }
+    qDebug() << "FINISH: Sorted Speakers inserted";
+
+    // Check orphans
+    for (int i = 0; i < mDataManager->mAllSession.size(); ++i) {
+        Session* session = (Session*) mDataManager->mAllSession.at(i);
+        bool sessionFound = false;
+        QMapIterator<QString, Session*> sessionIterator(mMultiSession);
+        while (sessionIterator.hasNext()) {
+            sessionIterator.next();
+            Session* updatedSession = sessionIterator.value();
+            if(updatedSession->sessionId() == session->sessionId()) {
+                sessionFound = true;
+                break;
+            }
+        }
+        if(!sessionFound) {
+            session->deleteLater();
+            qDebug() << "Session removed: " << session->sessionId();
+        }
+    }
+    qDebug() << "FINISH: Test deleted Sessions done";
 
     // Session: insert sorted Sessions
     // presenter, sessionLinks, day, room, track scheduleItem are updated
@@ -1097,17 +1122,21 @@ void DataUtil::finishUpdate() {
         mDataManager->insertSession(sessionIterator.value());
     }
     mDataManager->saveSessionToCache();
+    qDebug() << "FINISH: Sessions saved";
     // now update sorted Sessions Day, Room, Tracks, Speaker
     sortedSessionsIntoRoomDayTrackSpeaker();
-
+    qDebug() << "FINISH: Rooms Days Tracks Speaker Sessions sorted";
     // SessionLink
     mDataManager->saveSessionLinkToCache();
+    qDebug() << "FINISH: SessionLinks saved";
 
     // ScheduleItem
     mDataManager->saveScheduleItemToCache();
+    qDebug() << "FINISH: ScheduleItems saved";
 
     // SPEAKER
     mDataManager->saveSpeakerToCache();
+    qDebug() << "FINISH: Speaker saved";
 
     // insert Speaker Images
     mDataManager->mAllSpeakerImage.clear();
@@ -1117,6 +1146,7 @@ void DataUtil::finishUpdate() {
         mDataManager->insertSpeakerImage(speakerImagesIterator.value());
     }
     mDataManager->saveSpeakerImageToCache();
+    qDebug() << "FINISH: Speaker Images saved";
 
     // Track sort by Name
     QMultiMap<QString, SessionTrack*> sessionTrackSortMap;
@@ -1124,6 +1154,7 @@ void DataUtil::finishUpdate() {
         SessionTrack* sessionTrack = (SessionTrack*) mDataManager->allSessionTrack().at(i);
         sessionTrackSortMap.insert(sessionTrack->name(), sessionTrack);
     }
+    qDebug() << "FINISH: Tracks sorted by Name";
     mDataManager->mAllSessionTrack.clear();
     QMapIterator<QString, SessionTrack*> sessionTrackIterator(sessionTrackSortMap);
     while (sessionTrackIterator.hasNext()) {
@@ -1133,18 +1164,22 @@ void DataUtil::finishUpdate() {
     }
     // save all Tracks with sorted Sessions
     mDataManager->saveSessionTrackToCache();
+    qDebug() << "FINISH: Tracks saved";
 
     // Day: save all days with sorted Sessions
     mDataManager->saveDayToCache();
+    qDebug() << "FINISH: Days saved";
 
     // Rooms: save all Rooms with sorted Sessions
     mDataManager->saveRoomToCache();
+    qDebug() << "FINISH: Rooms saved";
 
     // SETTINGS update API
-    mDataManager->mSettingsData->setApiVersion(mNewApi);
+    //mDataManager->mSettingsData->setApiVersion(mNewApi);
     //
     mProgressInfotext.append("\n").append(tr("All done"));
     emit progressInfo(mProgressInfotext);
+    qDebug() << "FINISH: All Done";
     emit updateDone();
 }
 
