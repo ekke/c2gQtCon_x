@@ -162,6 +162,8 @@ void DataUtil::prepareConference() {
     mDataManager->saveSessionLinkToCache();
 
     mDataManager->saveSpeakerToCache();
+    // set API Version
+    mDataManager->mSettingsData->setApiVersion(mNewApi);
     qDebug() << "PREPARE   D O N E - WAIT FOR IMAGES";
 }
 
@@ -493,7 +495,9 @@ void DataUtil::prepareSessions()
         qWarning() << "No 'schedule' found";
         return;
     }
-    qDebug() << "VERSION: " + map.value("version").toString();
+    mNewApi = map.value("version").toString();
+    qDebug() << "VERSION: " + mNewApi;
+
     map = map.value("conference").toMap();
     if(map.isEmpty()) {
         qWarning() << "No 'conference' found";
@@ -682,7 +686,8 @@ void DataUtil::prepareSpeaker()
         qWarning() << "Speaker List empty";
         return;
     }
-    QMultiMap<QString, Speaker*> mm;
+
+    mMultiSpeaker.clear();
     for (int i = 0; i < dataList.size(); ++i) {
         SpeakerAPI* speakerAPI = mDataManager->createSpeakerAPI();
         speakerAPI->fillFromForeignMap(dataList.at(i).toMap());
@@ -714,11 +719,11 @@ void DataUtil::prepareSpeaker()
             }
         }
         // using MultiMap to get Speakers sorted
-        mm.insert(speaker->sortKey(), speaker);
+        mMultiSpeaker.insert(speaker->sortKey(), speaker);
     } // end for all SpeakersAPI
     // insert sorted Speakers
     mDataManager->mAllSpeaker.clear();
-    QMapIterator<QString, Speaker*> speakerIterator(mm);
+    QMapIterator<QString, Speaker*> speakerIterator(mMultiSpeaker);
     while (speakerIterator.hasNext()) {
         speakerIterator.next();
         mDataManager->insertSpeaker(speakerIterator.value());
