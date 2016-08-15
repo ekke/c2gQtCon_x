@@ -112,6 +112,20 @@
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
+    "id": 1344,
+    "first_name": "André",
+    "last_name": "Kunz",
+    "abstract": "Chief Communications Officer\r\nHead of Open Source Solutions\r\nDeputy Chief Sales Officer\r\nBSc in Kommunikation ZFH\r\nInformatiker mit eidg. Fachausweis",
+    "avatar": "http://conf.qtcon.org//system/avatars/1344/original/andre.png?1471254573"
+  },
+  {
+    "id": 1284,
+    "first_name": "Ronald",
+    "last_name": "Bultje",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
     "id": 636,
     "first_name": "Boudhayan",
     "last_name": "Gupta",
@@ -276,7 +290,7 @@
     "id": 827,
     "first_name": "Matthias ",
     "last_name": "Kirschner",
-    "abstract": "Matthias Kirschner is President of FSFE. In 1999 he started using GNU/Linux and realised that software is deeply involved in all aspects of our lives. Matthias is convinced that this technology has to empower society not restrict it. While studying Political and Administrative Science he joined FSFE in 2004.\r\n\r\nHe helps other organisations, companies and governments to understand how they can benefit from Free Software -- which gives everybody the rights to use, understand, adapt and share software -- and how those rights help to support freedom of speech, freedom of press or privacy.\r\n\r\nMatthias loves playing with his baby son, and in his spare time assists in wilderness first aid seminars, enjoys comics like XKCD and Transmetropolitan; Monty Python and Die Ärzte.",
+    "abstract": "Matthias Kirschner is the President of FSFE. In 1999 he started using GNU/Linux and realised that software is deeply involved in all aspects of our lives. Matthias is convinced that this technology has to empower society not restrict it. While studying Political and Administrative Science he joined FSFE in 2004.\r\n\r\nHe helps other organisations, companies and governments to understand how they can benefit from Free Software -- which gives everybody the rights to use, understand, adapt and share software -- and how those rights help to support freedom of speech, freedom of press or privacy.\r\n\r\nMatthias loves playing with his baby son, and in his spare time assists in wilderness first aid seminars, enjoys comics like XKCD and Transmetropolitan; Monty Python and Die Ärzte.",
     "avatar": "http://conf.qtcon.org//system/avatars/827/original/kirschner.jpg?1466498233"
   },
   {
@@ -327,6 +341,20 @@
     "last_name": "Pintscher",
     "abstract": "Lydia is the current President of KDE e.V. She is passionate about enabling people to make awesome happen around Free Software and Free Culture.",
     "avatar": "http://conf.qtcon.org//system/avatars/50/original/Lydia-Pintscher2.jpg?1434214461"
+  },
+  {
+    "id": 880,
+    "first_name": "Friedemann",
+    "last_name": "Kleint",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 826,
+    "first_name": "Michael",
+    "last_name": "Tims",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
     "id": 802,
@@ -455,6 +483,13 @@
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
+    "id": 980,
+    "first_name": "Rostislav",
+    "last_name": "Pehlivanov",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
     "id": 692,
     "first_name": "BogDan",
     "last_name": "Vatra",
@@ -466,6 +501,13 @@
     "first_name": "Bhushan",
     "last_name": "Shah",
     "abstract": "",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 979,
+    "first_name": "Hugo",
+    "last_name": "Beauzée-Luyssen",
+    "abstract": null,
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
@@ -487,6 +529,13 @@
     "first_name": "David",
     "last_name": "Edmundson",
     "abstract": "David Edmundson is a long time KDE hacker currently working for Blue Systems. David is now an active maintainer of the Plasma desktop.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 992,
+    "first_name": "Timothy",
+    "last_name": "Terriberry",
+    "abstract": null,
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
@@ -530,6 +579,13 @@
     "last_name": "Ottens",
     "abstract": "Kevin Ottens has more than 10 years experience working with Qt. He is also a long term contributor of the KDE community where he focused for a long while on libraries API design and architecture. Graduating in 2007, he has a PhD in computer science which led him to focus on ontologies engineering and multi-agent systems. In 2012, he participated in the creation of the KDE Manifesto. Nowadays he spends time rethinking his job via a strong interest in software craftsmanship. Kevin's job at KDAB includes giving trainings and the responsibility of community liaison with KDE. He still lives in Toulouse where he serves as part time teacher in his former university.",
     "avatar": "http://conf.qtcon.org//system/avatars/124/original/kevin_ottens.png?1399407684"
+  },
+  {
+    "id": 251,
+    "first_name": "Felix Paul",
+    "last_name": "Kühne",
+    "abstract": "",
+    "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
     "id": 158,
@@ -686,10 +742,24 @@
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
+    "id": 985,
+    "first_name": "Alex",
+    "last_name": "Converse",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
     "id": 686,
     "first_name": "Giuseppe",
     "last_name": "D'Angelo",
     "abstract": "Giuseppe holds a BSc in Computer Science. He is a long time contributor to Qt, having used Qt since 2000, and an Approver in the Qt Project. In KDAB, Giuseppe is a Senior Software Engineer and a Trainer, working on a number of C++ and QML projects, most of them requiring OpenGL knowledge. His contributions to Qt range from containers and regular expressions to GUI and OpenGL. A free software passionate, before joining KDAB, he organized conferences on opensource around Italy, especially about Perl.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 1011,
+    "first_name": "Pradeep",
+    "last_name": "Ramachandran",
+    "abstract": null,
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
@@ -732,6 +802,13 @@
     "first_name": "Stephen",
     "last_name": "Kelly",
     "abstract": "Stephen has been a KDE user and contributor for almost 10 years, moving through the application stack to the Frameworks and the buildsystem. This also led to contributions in Qt through the qt-project and consulting as part of KDAB.\r\n\r\nCurrently Stephen is at Ableton in Berlin working on frameworks based on Qt and QML.",
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
+    "id": 1027,
+    "first_name": "Thomas",
+    "last_name": "Guillem",
+    "abstract": null,
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {

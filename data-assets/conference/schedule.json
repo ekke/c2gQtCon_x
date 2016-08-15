@@ -3008,18 +3008,18 @@
                   },
  
                   {
-                    "id": "744",
-                    "start": "14:45",
-                    "duration": "01:00",
+                    "id": "478",
+                    "start": "15:15",
+                    "duration": "00:30",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-02_14:45_-_simon_phipps_and_stephan_urbach_-_744",
-                    "title": "Simon Phipps and Stephan Urbach",
-                    "subtitle": "not final yet",
-                    "track": "Community",
-                    "type": "60min",
+                    "slug": "a03_-_2016-09-02_15:15_-_overhead_or_over_your_head_-_478",
+                    "title": "Overhead or Over Your Head?",
+                    "subtitle": "Overhead or Over Your Head?",
+                    "track": "Let‘s talk business",
+                    "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "Overhead or Over Your Head?",
+                    "description": "Funding, donations, grants ",
                     "persons": [
                     ],
                     "links": [
@@ -3149,25 +3149,6 @@
                   },
  
                   {
-                    "id": "480",
-                    "start": "13:30",
-                    "duration": "00:30",
-                    "room": "A04",
-                    "slug": "a04_-_2016-09-02_13:30_-_sustaining_open-source_endeavour_how_have_we_funded_the_serval_project_to_date_-_480",
-                    "title": "Sustaining Open-Source Endeavour: How have we funded the Serval Project to date?",
-                    "subtitle": "Sustaining Open-Source Endeavour: How have we funded the Serval Project to date?",
-                    "track": "Let‘s talk business",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "Sustaining Open-Source Endeavour: How have we funded the Serval Project to date?",
-                    "description": "Funding, communications, censorship, surveillance circumvention",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
                     "id": "401",
                     "start": "14:45",
                     "duration": "00:30",
@@ -3182,25 +3163,6 @@
                     "description": "Last year I talked about the Plasma Desktop and the changes over 2014/2015.   This talk is the patch release to that talk, addressing any new developments over the past year. ",
                     "persons": [
                         {"id": "150",  "full_public_name": "d_ed", "first_name": "David", "last_name": "Edmundson" }
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "446",
-                    "start": "14:45",
-                    "duration": "00:30",
-                    "room": "A04",
-                    "slug": "a04_-_2016-09-02_14:45_-_umbrellas_for_europe_-_446",
-                    "title": "Umbrellas For Europe",
-                    "subtitle": "Umbrellas For Europe",
-                    "track": "Let‘s talk business",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": " Do you need to start a Foundation for your project? Many free software and open source projects choose to become legal entities to support their collaboration. In the USA, there are several general purpose bodies for hosting projects, but up to now there have been none in Europe - so we've started one. This session will explain what several of us are doing to address the need and how you can benefit. ",
-                    "description": " Free software and open source projects often choose to become legal entities so they can handle money and share assets between their collaborators more easily (among other benefits). This proves burdensome for developers; creating and sustaining a legal entity is not for everyone. In the USA there are purpose-made umbrella organisations for hosting projects, such as Software in the Public Interest, Software Freedom Conservancy and the Apache Software Foundation. But until now there have been none in Europe. This session will:      Explain why projects may need a legal entity     Explain the role of a fiduciary umbrella      Describe the new non-profit umbrellas that started in Europe in 2016, including Public Software CIC and Commons Conservancy     Provide an opportunity to ask questions on behalf of your project ",
-                    "persons": [
                     ],
                     "links": [
                     ]
@@ -3472,15 +3434,16 @@
                     "start": "12:00",
                     "duration": "00:30",
                     "room": "A06",
-                    "slug": "a06_-_2016-09-02_12:00_-_fsfe_community_session_-_714",
-                    "title": "FSFE community session",
+                    "slug": "a06_-_2016-09-02_12:00_-_hitobito_-_a_free_software_community_solution_for_everybody_-_andre_kunz_-_714",
+                    "title": "Hitobito - a Free Software Community Solution for Everybody",
                     "subtitle": "FSFE community session",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
-                    "description": "",
+                    "description": "Community solutions based on free software unite companies and organizations with the same or similar needs. The associated business model is based on the idea of crowdfunding. The customers form a community which finance the solution and develop it together with potentially several companies or individuals. The architecture of the solution makes it possible to preserve individual needs and still benefit from the joint development.  In collaboration with the largest children and youth organizations in Switzerland, we built hitobito [0] - a solution for the membership and course management. I would like to explain the idea of ​​community solutions and share our experiences from the projects. Moreover, we are constantly looking for new organizations or developers/companies who share our vision of collaborative software development. In this way, we help establishing free software, particularly in the public administration sector and NGOs.  The audience learns about the architecture of a customable business solution and how to run a successful business with free software.",
                     "persons": [
+                        {"id": "1344",  "full_public_name": "André Kunz", "first_name": "André", "last_name": "Kunz" }
                     ],
                     "links": [
                     ]
@@ -3738,16 +3701,16 @@
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-02_13:30_-_qt_contributor_summit_unconference_-__-_521",
-                    "title": "Qt Contributor Summit Unconference",
+                    "slug": "b04_-_2016-09-02_13:30_-_qt_on_windows_-_not_applicable_-_521",
+                    "title": "Qt on Windows",
                     "subtitle": "",
-                    "track": "",
-                    "type": "",
+                    "track": "In depth",
+                    "type": "workshop",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "Qt on Windows, what will be coming.",
                     "description": "",
                     "persons": [
-                        {"id": "137",  "full_public_name": ".", "first_name": "", "last_name": "" }
+                        {"id": "880",  "full_public_name": "Not Applicable", "first_name": "Friedemann", "last_name": "Kleint" }
                     ],
                     "links": [
                     ]
@@ -3857,13 +3820,13 @@
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-02_16:15_-_qt_contributor_summit_unconference_-_524",
-                    "title": "Qt Contributor Summit Unconference",
+                    "slug": "b95_-_2016-09-02_16:15_-_gplv3_in_the_automotive_industry_-_524",
+                    "title": "GPLv3 in the automotive industry",
                     "subtitle": "",
-                    "track": "",
-                    "type": "",
+                    "track": "Automotive, Mobile and Embedded",
+                    "type": "60min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "The impacts of using GPLv3 code in the automotive industry. What is the way to talk about licenses and show the different sides and benefits they provide.",
                     "description": "",
                     "persons": [
                     ],
@@ -4026,7 +3989,7 @@
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "B05+B06",
-                    "slug": "b05_b06_-_2016-09-03_13:45_-_programming_in_the_geographic_context_a_case_study_in_cross-platform_and_spatially-enabled_qt_applications_-__-_379",
+                    "slug": "b05_b06_-_2016-09-03_13:45_-_programming_in_the_geographic_context_a_case_study_in_cross-platform_and_spatially-enabled_qt_applications_-__-_not_applicable_-_379",
                     "title": "Programming in the Geographic Context: A case study in cross-platform and spatially-enabled Qt applications",
                     "subtitle": "",
                     "track": "Geolocation",
@@ -4035,7 +3998,8 @@
                     "abstract": "The Qt platform continues to strengthen with innovative contributions from a diverse user and developer community. Qt is beginning to enable location awareness in mission-critical systems world-wide, with visualization and mapping services and technologies leading the way. The key ingredient to any successful spatial app built with Qt is a strong, rich and intuitive geoservices API, giving the indispensable value of “the geographic context” to Qt applications and the decision-making process. Information that is analyzed in its geographic context provides deeper meaning to the analytical result. There are many well-known patterns, practices and standards-based approaches to bringing location information to the Qt platform and the broadening of it. Many location API contributors follow these important standards, and Esri is one of these. This paper talks about the critical value of geospatial contributions to the platform through the use of Esri’s ArcGIS Services and API platform, including Esri’s opensource geoservices plugin for Qt. ",
                     "description": "There are a number of very good Qt-based geolocation APIs available to developers. This session will give the audience a glimpse at how geospatial capabilities can be realized in Qt applications, using ArcGIS Qt APIs from Esri. It also covers what Esri's Qt APIs look like, how they work, and what can be created with them. ",
                     "persons": [
-                        {"id": "690",  "full_public_name": ".", "first_name": "Eric", "last_name": "Bader" }
+                        {"id": "690",  "full_public_name": ".", "first_name": "Eric", "last_name": "Bader" },
+                        {"id": "826",  "full_public_name": "Not Applicable", "first_name": "Michael", "last_name": "Tims" }
                     ],
                     "links": [
                     ]
@@ -4167,15 +4131,15 @@
               "B09": [  
                  
                   {
-                    "id": "499",
+                    "id": "747",
                     "start": "11:15",
-                    "duration": "01:00",
+                    "duration": "00:10",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_11:15_-_vlc_state_of_the_union_-_j-b_-_499",
-                    "title": "VLC State of the Union",
-                    "subtitle": "Overview of the current and future development of VLC on all platforms",
+                    "slug": "b09_-_2016-09-03_11:15_-_videolan_introduction_-_j-b_-_747",
+                    "title": "VideoLAN Introduction",
+                    "subtitle": "Welcome to the VideoLAN Track!",
                     "track": "Community",
-                    "type": "60min",
+                    "type": "30min",
                     "language": "",
                     "abstract": "",
                     "description": "",
@@ -4187,19 +4151,20 @@
                   },
  
                   {
-                    "id": "747",
-                    "start": "13:15",
-                    "duration": "00:30",
+                    "id": "501",
+                    "start": "11:25",
+                    "duration": "00:25",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_13:15_-_videolan_lunch_break_talk_-_747",
-                    "title": "VideoLAN Lunch Break Talk",
+                    "slug": "b09_-_2016-09-03_11:25_-_update_on_vpx_-_peloverde_-_501",
+                    "title": "Update on VPX",
                     "subtitle": "",
-                    "track": "Community",
+                    "track": "Codecs",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
                     "description": "",
                     "persons": [
+                        {"id": "985",  "full_public_name": "peloverde", "first_name": "Alex", "last_name": "Converse" }
                     ],
                     "links": [
                     ]
@@ -4207,18 +4172,19 @@
  
                   {
                     "id": "505",
-                    "start": "13:45",
-                    "duration": "00:30",
+                    "start": "11:50",
+                    "duration": "00:25",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_13:45_-_a_vc-2_encoder_-_505",
+                    "slug": "b09_-_2016-09-03_11:50_-_a_vc-2_encoder_-_atomnuker_-_505",
                     "title": "A VC-2 Encoder",
-                    "subtitle": "Talk by Rostislav Pehlivanov",
+                    "subtitle": "",
                     "track": "Codecs",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
                     "description": "",
                     "persons": [
+                        {"id": "980",  "full_public_name": "atomnuker", "first_name": "Rostislav", "last_name": "Pehlivanov" }
                     ],
                     "links": [
                     ]
@@ -4226,56 +4192,62 @@
  
                   {
                     "id": "500",
-                    "start": "14:15",
+                    "start": "13:30",
                     "duration": "00:30",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_14:15_-_a_vp9_encoder_-_500",
+                    "slug": "b09_-_2016-09-03_13:30_-_a_vp9_encoder_-_bbb_-_500",
                     "title": "A VP9 Encoder",
-                    "subtitle": "Talk by Ronald Bultje",
+                    "subtitle": "",
                     "track": "Codecs",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
                     "description": "",
                     "persons": [
+                        {"id": "1284",  "full_public_name": "BBB", "first_name": "Ronald", "last_name": "Bultje" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "533",
-                    "start": "15:00",
-                    "duration": "00:30",
+                    "id": "499",
+                    "start": "14:00",
+                    "duration": "00:45",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_15:00_-_cultural_learnings_of_albanian_fs_movement_for_make_benefit_glorious_similar_communities_in_europe_-_533",
-                    "title": "Cultural Learnings of Albanian FS movement for Make Benefit Glorious Similar Communities in Europe",
-                    "subtitle": "Cultural Learnings of Albanian FS movement for Make Benefit Glorious Similar Communities in Europe",
-                    "track": "Beyond Code",
-                    "type": "30min",
+                    "slug": "b09_-_2016-09-03_14:00_-_vlc_state_of_the_union_-_feepk_-_j-b_-_chouquette_-_tguillem_-_499",
+                    "title": "VLC State of the Union",
+                    "subtitle": "Overview of the current and future development of VLC on all platforms",
+                    "track": "Tooling",
+                    "type": "60min",
                     "language": "",
                     "abstract": "",
                     "description": "",
                     "persons": [
+                        {"id": "251",  "full_public_name": "feepk", "first_name": "Felix Paul", "last_name": "Kühne" },
+                        {"id": "256",  "full_public_name": "j-b", "first_name": "Jean-Baptiste", "last_name": "Kempf" },
+                        {"id": "979",  "full_public_name": "chouquette", "first_name": "Hugo", "last_name": "Beauzée-Luyssen" },
+                        {"id": "1027",  "full_public_name": "tguillem", "first_name": "Thomas", "last_name": "Guillem" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "501",
+                    "id": "506",
                     "start": "15:00",
-                    "duration": "00:30",
+                    "duration": "00:25",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_15:00_-_update_on_vpx_-_501",
-                    "title": "Update on VPX",
-                    "subtitle": "Talk by Alex Converse",
+                    "slug": "b09_-_2016-09-03_15:00_-_daala_-_derf_-_506",
+                    "title": "Daala",
+                    "subtitle": "",
                     "track": "Codecs",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
                     "description": "",
                     "persons": [
+                        {"id": "992",  "full_public_name": "derf", "first_name": "Timothy", "last_name": "Terriberry" }
                     ],
                     "links": [
                     ]
@@ -4283,18 +4255,39 @@
  
                   {
                     "id": "516",
-                    "start": "15:30",
-                    "duration": "00:30",
+                    "start": "15:25",
+                    "duration": "00:25",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-03_15:30_-_update_on_x265_-_516",
+                    "slug": "b09_-_2016-09-03_15:25_-_update_on_x265_-_pradeeprama_-_516",
                     "title": "Update on x265",
-                    "subtitle": "Talk by Deepthi Nandakumar",
+                    "subtitle": "",
                     "track": "Codecs",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
                     "description": "",
                     "persons": [
+                        {"id": "1011",  "full_public_name": "pradeeprama", "first_name": "Pradeep", "last_name": "Ramachandran" }
+                    ],
+                    "links": [
+                    ]
+                  },
+ 
+                  {
+                    "id": "748",
+                    "start": "15:50",
+                    "duration": "00:10",
+                    "room": "B09",
+                    "slug": "b09_-_2016-09-03_15:50_-_vlmc_-_chouquette_-_748",
+                    "title": "VLMC",
+                    "subtitle": "A non-linear video editor",
+                    "track": "Tooling",
+                    "type": "lightning_talk",
+                    "language": "",
+                    "abstract": "",
+                    "description": "",
+                    "persons": [
+                        {"id": "979",  "full_public_name": "chouquette", "first_name": "Hugo", "last_name": "Beauzée-Luyssen" }
                     ],
                     "links": [
                     ]
@@ -4305,7 +4298,7 @@
                   {
                     "id": "464",
                     "start": "11:15",
-                    "duration": "00:30",
+                    "duration": "00:25",
                     "room": "A03",
                     "slug": "a03_-_2016-09-03_11:15_-_the_emergence_of_governance_norms_in_floss_communities_-_miroslav_-_464",
                     "title": "The emergence of governance norms in FLOSS communities",
@@ -4324,10 +4317,10 @@
  
                   {
                     "id": "453",
-                    "start": "11:45",
+                    "start": "11:40",
                     "duration": "00:30",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-03_11:45_-_public_administrations_and_foss_-_not_always_an_happy_relationship_-_karel_de_vriendt_-_453",
+                    "slug": "a03_-_2016-09-03_11:40_-_public_administrations_and_foss_-_not_always_an_happy_relationship_-_karel_de_vriendt_-_453",
                     "title": "Public administrations and FOSS - not always an happy relationship",
                     "subtitle": "Public administrations and FOSS - not always an happy relationship",
                     "track": "Free Software policies and politics",
@@ -4349,11 +4342,11 @@
                     "room": "A03",
                     "slug": "a03_-_2016-09-03_13:45_-_free_software_1_1_explaining_typical_misunderstandings_-_matthias_kirschner_-_489",
                     "title": "Free Software 1+1: Explaining typical misunderstandings",
-                    "subtitle": "Free Software 1+1: Explaining typical misunderstandings",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "Although Free Software/Open Source Software is becoming the norm in many areas, some misunderstandings still widely exist:  1) Free Software is gratis  2) You cannot earn money with Free Software 3) If you change Free Software, you have to give your changes to everybody else  4) Free Software is different software than Open Source software.   5) Free Software is more/less secure than proprietary software  6) Free Software is the superior development model 7) I do not get any benefits from Free Software if I cannot program.  Unfortunately those misunderstandings are still widely propagated. They often prevent -- or make it harder -- for individuals, companies, governmental and non-governmental organisations to use the full potential of Free Software.  This talk is for you, if you wonder why any of the above statements is wrong, or if you want to get some inspiration how to effectively counter such claims in less than 3 minutes.",
                     "description": "",
                     "persons": [
                         {"id": "827",  "full_public_name": "Matthias Kirschner", "first_name": "Matthias ", "last_name": "Kirschner" }
@@ -4982,15 +4975,16 @@
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "B03",
-                    "slug": "b03_-_2016-09-03_16:30_-_qt_contributor_summit_unconference_-_529",
-                    "title": "Qt Contributor Summit Unconference",
+                    "slug": "b03_-_2016-09-03_16:30_-_qt_3d_contributors_discussion_-__-_529",
+                    "title": "Qt 3D contributors discussion",
                     "subtitle": "",
-                    "track": "",
-                    "type": "",
+                    "track": "3D",
+                    "type": "workshop",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "A session for Qt contributors to get together and talk on the future development of Qt 3D.",
                     "description": "",
                     "persons": [
+                        {"id": "696",  "full_public_name": ".", "first_name": "Sean", "last_name": "Harmer" }
                     ],
                     "links": [
                     ]
@@ -5135,10 +5129,10 @@
                  
                   {
                     "id": "456",
-                    "start": "11:45",
+                    "start": "11:15",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-03_11:45_-_community_guidelines_as_role_model_for_modern_diplomacy_-_kristi_progri_-_456",
+                    "slug": "b95_-_2016-09-03_11:15_-_community_guidelines_as_role_model_for_modern_diplomacy_-_kristi_progri_-_456",
                     "title": "Community guidelines as role model for modern diplomacy",
                     "subtitle": "Community guidelines as role model for modern diplomacy",
                     "track": "Community",
@@ -5148,25 +5142,6 @@
                     "description": "Advocacy, net neutrality, diplomacy ",
                     "persons": [
                         {"id": "867",  "full_public_name": "Kristi Progri", "first_name": "Kristi", "last_name": "Progri" }
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "478",
-                    "start": "11:45",
-                    "duration": "00:30",
-                    "room": "B95",
-                    "slug": "b95_-_2016-09-03_11:45_-_overhead_or_over_your_head_-_478",
-                    "title": "Overhead or Over Your Head?",
-                    "subtitle": "Overhead or Over Your Head?",
-                    "track": "Let‘s talk business",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "Overhead or Over Your Head?",
-                    "description": "Funding, donations, grants ",
-                    "persons": [
                     ],
                     "links": [
                     ]
@@ -5231,11 +5206,11 @@
                   },
  
                   {
-                    "id": "733",
-                    "start": "15:00",
+                    "id": "735",
+                    "start": "15:30",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-03_15:00_-_fsfe_community_session_-_733",
+                    "slug": "b95_-_2016-09-03_15:30_-_fsfe_community_session_-_735",
                     "title": "FSFE community session",
                     "subtitle": "FSFE community session",
                     "track": "Community",
@@ -5250,34 +5225,15 @@
                   },
  
                   {
-                    "id": "469",
-                    "start": "15:30",
-                    "duration": "00:30",
+                    "id": "749",
+                    "start": "16:30",
+                    "duration": "01:00",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-03_15:30_-_zerocat_chipflasher_-_469",
-                    "title": "Zerocat chipflasher",
-                    "subtitle": "Zerocat chipflasher",
-                    "track": "Let‘s talk software",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "Zerocat chipflasher",
-                    "description": "Open design, open hardware, parallax propeller, gplv3, zerocat chipflasher, thinkpad x200, coreboot, libreboot ",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "735",
-                    "start": "15:30",
-                    "duration": "00:30",
-                    "room": "B95",
-                    "slug": "b95_-_2016-09-03_15:30_-_fsfe_community_session_-_735",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b95_-_2016-09-03_16:30_-_videolan_unconference_-_749",
+                    "title": "VideoLAN unconference",
+                    "subtitle": "Unconference slot to be defined on-site",
                     "track": "Community",
-                    "type": "30min",
+                    "type": "workshop",
                     "language": "",
                     "abstract": "",
                     "description": "",
@@ -5588,14 +5544,14 @@
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "B07+B08",
-                    "slug": "b07_b08_-_2016-09-04_14:15_-_kde_lightning_talks_-_496",
-                    "title": "KDE Lightning Talks",
-                    "subtitle": "",
+                    "slug": "b07_b08_-_2016-09-04_14:15_-_do_good_things_and_talk_about_it_-_pr_for_oss_projects_-_496",
+                    "title": "Do good things and talk about it - PR for OSS projects",
+                    "subtitle": "Lessons learned in 20 years of Open Source PR",
                     "track": "Community",
-                    "type": "",
+                    "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "This talk will tell, teach and train open source community members, company leaders, developers and open source project leads how to deal with the press.",
+                    "description": "This talk will tell, teach and train open source community members, company leaders, developers and open source project leads how to deal with the press. I will explain basic terms like kitchen call, elevator pitch, nutgraphs, leads, venn diagrams, how to build a decent project description and a working project website. Furthermore, the audience will learn how to write effective news releases and how to talk to the press both in written and spoken word. I will show how to build a working press team and how to address the specific needs of the press. Examples of big corporations and working OSS websites will guide through working out your own examples. Generating viral videos, your own text and how to use language properly are also parts of this workshop, as well as general presentation and communication techniques, like spotting the communication partner's  interests and how to use different media to attract users, press and media people.",
                     "persons": [
                     ],
                     "links": [
@@ -5812,10 +5768,10 @@
  
                   {
                     "id": "462",
-                    "start": "11:45",
+                    "start": "11:50",
                     "duration": "00:30",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-04_11:45_-_women_in_open_source_-_jona_azizaj_-_462",
+                    "slug": "a03_-_2016-09-04_11:50_-_women_in_open_source_-_jona_azizaj_-_462",
                     "title": "Women in Open Source",
                     "subtitle": "Women in Open Source",
                     "track": "Community",
@@ -5825,25 +5781,6 @@
                     "description": "My presentation will highlight different aspect of diversity and how fedora is supporting diversity in all terms. It is wonderful to be a women and women should have equal rights to man - be it social, political, economic, or cultural. But, If we look at the percentage of women participation in any field, be it tech or any other field, ratio is damn poor. We, being in the eligible category to guide other women to open source culture, should take steps forward to make this ratio better. I know, taking an initiative in this man dominant area is not easy. But together, we can and we will make the difference. Every tiny little step counts, like educating poor female children, reaching out to college girls to spread knowledge and opportunities about open source, educating them about Ada Initiative, the GNOME Project’s Outreach Program for Women, OpenHatch, Women in Drupal and other similar projects. There are so many nice outreach programs for women in open source, we just need to spread the knowledge and motivate every women out there to join the movement. There are lots of things to do, not just coding and developing, everybody can find other exciting things to do in open source projects i.e. writing, documentation, designing, translation, testing etc. Every established women in open source should feel obligated to educate/ help/ motivate at least two other women in her life span to join open source community and make this open source culture more lovable and beautiful and little more feminist. ",
                     "persons": [
                         {"id": "818",  "full_public_name": "Jona Azizaj", "first_name": "Jona", "last_name": "Azizaj" }
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "493",
-                    "start": "11:45",
-                    "duration": "00:30",
-                    "room": "A03",
-                    "slug": "a03_-_2016-09-04_11:45_-_how_to_become_a_freifunker_-_493",
-                    "title": "How to become a Freifunker",
-                    "subtitle": "How to become a Freifunker",
-                    "track": "Beyond Code",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "How to become a Freifunker",
-                    "description": "Freifunk, free wifi, diy networks education, ",
-                    "persons": [
                     ],
                     "links": [
                     ]
@@ -5883,25 +5820,6 @@
                     "description": "For us, using Free Software is both convenient technically and natural politically. To us, Free Software and Internet are two sides of the same coin. Without Free Software, we wouldn't have been able to build networks. More than that, a subscriber of one of these networks is not just able to know what's going on on her computer, but also on the very network which brings Internet to her home. We'll also share what we think is missing either or how we dealt with common free software issues, like how we ended maintaining l2tpns upstream, a software required for providing broadband (xDSL) access. ",
                     "persons": [
                         {"id": "916",  "full_public_name": "Julien Rabier", "first_name": "Julien", "last_name": "Rabier" }
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "517",
-                    "start": "14:45",
-                    "duration": "00:30",
-                    "room": "A03",
-                    "slug": "a03_-_2016-09-04_14:45_-_the_purity_law_for_honest_and_trustworthy_internet_services_-_517",
-                    "title": "The Purity Law for Honest and Trustworthy Internet Services",
-                    "subtitle": "The Purity Law for Honest and Trustworthy Internet Services",
-                    "track": "Let‘s talk business",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": " 2016 marks the 500th anniversary of the Reinheitsgebot, the ‘German Beer Purity Law’. For half a millennium this Bavarian mandate has ensured the purity and quality of German beer to the continued delight of drinkers all over the world. However, when we examine the developing landscape of digital and online services in 2016 we could only dream of having an equivalent quality standard. At every turn we see technology companies, governments and venture capitalists scrambling to take advantage of our user data. We must ask ourselves; ‘what internet do we want to pass on to our children?’ One that is structured to ensure maximum profit for advertisers, or one that focuses instead on the preservation of quality and purity for the enjoyment and benefit of all users? For this reason we propose a set of Honest Internet Purity Laws to uphold trustworthy and open internet services as a required standard. The principles of open source software don’t just make better technology — they are a blueprint for a better, more open society. ",
-                    "description": "As governments increasingly seek to restrict our digital freedoms and global companies look for new ways to monetise consumer data, open source technology is needed more than ever. It is our joint responsibility to continue to champion the open source approach and forge the kind of society we want to our children to enjoy. To ensure a commitment to user choice and transparency in the long-term, Rafael will share four tenets that are mandatory for Trusted Internet Services. ",
-                    "persons": [
                     ],
                     "links": [
                     ]
@@ -6329,25 +6247,6 @@
               ],
               "B04": [  
                  
-                  {
-                    "id": "722",
-                    "start": "10:00",
-                    "duration": "00:30",
-                    "room": "B04",
-                    "slug": "b04_-_2016-09-04_10:00_-_fsfe_community_session_-_722",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
                   {
                     "id": "470",
                     "start": "10:00",
