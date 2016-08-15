@@ -60,7 +60,7 @@
 	<key>CFBundleExecutable</key>
 	<string>c2gQtCon_x</string>
 	<key>CFBundleIdentifier</key>
-	<string>ekkes-corner.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>org.ekkescorner.c2g.qtcon</string>
 	<key>CFBundleDisplayName</key>
 	<string>QtCon</string>
 	<key>CFBundleName</key>
