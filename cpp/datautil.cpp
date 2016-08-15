@@ -9,7 +9,9 @@
 
 const QString YYYY_MM_DD = "yyyy-MM-dd";
 const QString HH_MM = "HH:mm";
+const QString LOCAL_HH_MM = "hh:mm";
 const QString YYYY_MM_DD_HH_MM = "yyyy-MM-ddHH:mm";
+const QString DAYNAME = "dddd";
 const QString DAYNAME_HH_MM = "dddd, HH:mm";
 const QString DEFAULT_SPEAKER_IMAGE_URL = "http://conf.qtcon.org/person_original.png";
 const QString EMPTY_TRACK = "*****";
@@ -1484,7 +1486,12 @@ int DataUtil::findFirstSpeakerItem(QString letter)
 // Sortkey: day->conferenceDay().toString(YYYY_MM_DD)+session->startTime().toString("HH:mm")
 QString DataUtil::localWeekdayAndTime(QString sessionSortkey)
 {
-    return QDateTime::fromString(sessionSortkey, YYYY_MM_DD_HH_MM).toString(DAYNAME_HH_MM);
+    QDateTime sortTime = QDateTime::fromString(sessionSortkey, YYYY_MM_DD_HH_MM);
+    QString weekDayAndTime = sortTime.toString(DAYNAME);
+    weekDayAndTime.append(", ");
+    QTime myTime = QTime::fromString(sessionSortkey.right(5));
+    weekDayAndTime.append(myTime.toString(Qt::SystemLocaleShortDate));
+    return weekDayAndTime;
 }
 
 QString DataUtil::apiInfo()
