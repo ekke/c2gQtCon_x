@@ -1410,7 +1410,28 @@ Tap on the Star Icon to add to / remove from your personal schedule.</source>
     <message>
         <location filename="../qml/main.qml" line="38"/>
         <location filename="../qml/main.qml" line="40"/>
+        <location filename="../qml/main.qml" line="142"/>
         <source>Schedule</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="143"/>
+        <source>Speaker</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="147"/>
+        <source>Settings</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="148"/>
+        <source>Help</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="149"/>
+        <source>About this App</source>
         <translation></translation>
     </message>
     <message>

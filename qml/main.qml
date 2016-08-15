@@ -139,14 +139,14 @@ ApplicationWindow {
     property var navigationModel: [
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Schedule", "icon": "schedule.png", "source": "../navigation/ScheduleNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Speaker", "icon": "speaker.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Schedule"), "icon": "schedule.png", "source": "../navigation/ScheduleNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Speaker"), "icon": "speaker.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Tracks", "icon": "tag.png", "source": "../navigation/TrackNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Venue", "icon": "venue.png", "source": "../navigation/VenueNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Settings", "icon": "settings.png", "source": "../navigation/SettingsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":true},
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "Help", "icon": "help.png", "source": "../pages/HelpPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false},
-        {"type": "../navigation/DrawerNavigationTextButton.qml", "name": "About this App", "icon": "", "source": "../pages/AboutPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false}
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Settings"), "icon": "settings.png", "source": "../navigation/SettingsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Help"), "icon": "help.png", "source": "../pages/HelpPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false},
+        {"type": "../navigation/DrawerNavigationTextButton.qml", "name": qsTr("About this App"), "icon": "", "source": "../pages/AboutPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false}
     ]
     property var developerModel: {
         "type": "../navigation/DrawerNavigationButton.qml", "name": "Developer Tools", "icon": "code.png", "source": "../pages/DevToolsPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false

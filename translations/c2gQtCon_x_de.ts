@@ -1211,7 +1211,7 @@ Akzentfarbe: Deep Orange</translation>
     <message>
         <location filename="../qml/common/SimpleTextTitle.qml" line="39"/>
         <source>Dark Theme</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dunkles Thema</translation>
     </message>
     <message>
         <location filename="../qml/common/SimpleTextTitle.qml" line="45"/>
@@ -1315,7 +1315,7 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
     <message>
         <location filename="../qml/common/StackTextTitle.qml" line="52"/>
         <source>Dark Theme</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dunkles Thema</translation>
     </message>
     <message>
         <location filename="../qml/common/StackTextTitle.qml" line="58"/>
@@ -1338,7 +1338,7 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
     <message>
         <location filename="../qml/common/SwipeTextTitle.qml" line="53"/>
         <source>Dark Theme</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Dunkles Thema</translation>
     </message>
     <message>
         <location filename="../qml/common/SwipeTextTitle.qml" line="59"/>
@@ -1439,8 +1439,29 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
     <message>
         <location filename="../qml/main.qml" line="38"/>
         <location filename="../qml/main.qml" line="40"/>
+        <location filename="../qml/main.qml" line="142"/>
         <source>Schedule</source>
         <translation>Zeitplan</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="143"/>
+        <source>Speaker</source>
+        <translation>Sprecher</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="147"/>
+        <source>Settings</source>
+        <translation>Einstellungen</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="148"/>
+        <source>Help</source>
+        <translation>Hilfe</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="149"/>
+        <source>About this App</source>
+        <translation>Über diese App</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="157"/>
