@@ -138,7 +138,7 @@
         <file>data-assets/conference/speakerImages/speaker_88@3x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_88@4x.jpg</file>
         <file>data-assets/conference/schedule.json</file>
-        <file>data-assets/conference/speakers.json</file>
+        <file>data-assets/conference/speaker.json</file>
         <file>data-assets/prod/cacheBookmark.json</file>
         <file>data-assets/prod/cacheBuilding.json</file>
         <file>data-assets/prod/cacheConference.json</file>
@@ -153,5 +153,8 @@
         <file>data-assets/prod/cacheSpeaker.json</file>
         <file>data-assets/prod/cacheSpeakerImage.json</file>
         <file>data-assets/cacheSettingsData.json</file>
+        <file>data-assets/conference/speakerImages/speaker_1344.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1344@2x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1344@3x.png</file>
     </qresource>
 </RCC>
