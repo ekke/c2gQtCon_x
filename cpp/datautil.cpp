@@ -818,7 +818,7 @@ void DataUtil::calcSpeakerName(Speaker* speaker, SpeakerAPI* speakerAPI) {
 
 void DataUtil::prepareSpeaker()
 {
-    const QString speakersPath = mDataManager->mDataAssetsPath + "conference/speakers.json";
+    const QString speakersPath = mDataManager->mDataAssetsPath + "conference/speaker.json";
     qDebug() << "PREPARE SPEAKER ";
     QVariantList dataList;
     dataList = readSpeakerFile(speakersPath);
