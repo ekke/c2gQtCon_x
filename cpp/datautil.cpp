@@ -1345,6 +1345,7 @@ void DataUtil::finishUpdate() {
 
     // SETTINGS update API
     mDataManager->mSettingsData->setApiVersion(mNewApi);
+    mDataManager->mSettingsData->setLastUpdate(QDateTime::currentDateTime());
     //
     mProgressInfotext.append("\n").append(tr("All done"));
     emit progressInfo(mProgressInfotext);
