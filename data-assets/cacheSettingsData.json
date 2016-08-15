@@ -7,5 +7,6 @@
     "primaryColor": 4,
     "useCompactJsonFormat": true,
     "version": 1,
+    "apiVersion":"1.4",
     "publicRoot4Dev":"/data/ekkescorner/c2gQtCon_x"
 }
