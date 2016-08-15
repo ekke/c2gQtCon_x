@@ -143,3 +143,17 @@ DISTFILES += \
     android/gradlew.bat
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+
+ios {
+    QMAKE_INFO_PLIST = ios/Info.plist
+    ios_icon.files = $$files($$PWD/ios/AppIcon*.png)
+    QMAKE_BUNDLE_DATA += ios_icon
+    ios_artwork.files = $$files($$PWD/ios/iTunesArtwork*.png)
+    QMAKE_BUNDLE_DATA += ios_artwork
+    app_launch_images.files = $$files($$PWD/ios/LaunchImage*.png)
+    QMAKE_BUNDLE_DATA += app_launch_images
+    app_launch_screen.files = $$files($$PWD/ios/MyLaunchScreen.xib)
+    QMAKE_BUNDLE_DATA += app_launch_screen
+
+    QMAKE_IOS_DEPLOYMENT_TARGET = 8.2
+}
