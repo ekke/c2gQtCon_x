@@ -34,3 +34,7 @@ Makefile*
 *.qmlproject.user.*
 
 *.qm
+
+android/gradle.properties
+android/local.properties
+
