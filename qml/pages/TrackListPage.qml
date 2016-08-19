@@ -11,8 +11,8 @@ Page {
     id: trackListPage
     focus: true
     property string name: "trackListPage"
-    bottomPadding: 24
-    topPadding: 16
+    bottomPadding: 6
+    topPadding: 6
 
     // LIST VIEW
     ListView {
@@ -43,46 +43,62 @@ Page {
             // LIST ROW DELEGTE
             Component {
                 id: trackRowComponent
-                ColumnLayout {
-                    id: trackRow
-                    // without this divider not over total width
+                Item {
+                    id: theItem
+                    height: trackRow.height
                     implicitWidth: appWindow.width
-                    spacing: 0
-                    RowLayout {
-                        //implicitWidth: appWindow.width
-
-                        ColumnLayout {
-                            Layout.fillWidth: true
-                            Layout.leftMargin: 36
-                            Layout.rightMargin: 12
-                            Layout.topMargin: 12
-                            Layout.bottomMargin: 12
-                            // without setting a maximum width, word wrap not working
-                            Layout.maximumWidth: appWindow.width-60
-                            Layout.minimumWidth: appWindow.width-60
-
-                            LabelHeadline {
-                                text: model.modelData.name != "*****" ? model.modelData.name : qsTr("* No Track assigned *")
-                                color: primaryColor
-                                wrapMode: Label.WordWrap
-                            } // label
-
-                            LabelBody {
-                                text: model.modelData.sessionsPropertyList.length + qsTr(" Sessions")
-                                wrapMode: Label.WordWrap
-                                maximumLineCount: 2
-                                elide: Label.ElideRight
-                            }
-                        }
-                        ListRowButton {
-                            onClicked: {
-                                navPane.pushTrackSessions(model.modelData.trackId)
-                            }
-                        }
+                    Rectangle {
+                        anchors.top: theItem.top
+                        height: trackRow.height
+                        width: 8
+                        color: dataUtil.trackColor(model.modelData.trackId)
                     }
 
-                    HorizontalListDivider{}
-                } // end Col Layout speaker row
+                    ColumnLayout {
+                        id: trackRow
+                        anchors.top: theItem.top
+                        // without this divider not over total width
+                        implicitWidth: appWindow.width
+                        spacing: 0
+                        RowLayout {
+                            //implicitWidth: appWindow.width
+                            ColumnLayout {
+                                id: theColumn
+                                Layout.fillWidth: true
+                                Layout.leftMargin: 36
+                                Layout.rightMargin: 12
+                                Layout.topMargin: 12
+                                Layout.bottomMargin: 12
+                                // without setting a maximum width, word wrap not working
+                                Layout.maximumWidth: appWindow.width-60
+                                Layout.minimumWidth: appWindow.width-60
+
+                                LabelHeadline {
+                                    text: model.modelData.name != "*****" ? model.modelData.name : qsTr("* No Track assigned *")
+                                    color: primaryColor
+                                    wrapMode: Label.WordWrap
+                                } // label
+
+                                LabelBody {
+                                    text: model.modelData.sessionsPropertyList.length + qsTr(" Sessions")
+                                    wrapMode: Label.WordWrap
+                                    maximumLineCount: 2
+                                    elide: Label.ElideRight
+                                }
+                            }
+                            ListRowButton {
+                                onClicked: {
+                                    navPane.pushTrackSessions(model.modelData.trackId)
+                                }
+                            }
+                        }
+                        HorizontalListDivider{}
+                    } // end Col Layout speaker row
+
+                } // row item
+
+
+
             } // trackRowComponent
 
         } // sessionTrackLoader

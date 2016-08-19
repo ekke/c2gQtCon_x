@@ -193,6 +193,90 @@ QString DataUtil::textForSessionType(Session *session)
     return tr("Session")+info;
 }
 
+QString DataUtil::trackColor(const int trackId)
+{
+    switch (trackId) {
+    case 3:
+        // *****
+        return "transparent";
+    case 25:
+        // 3D
+        return "#FFCDD2";
+    case 18:
+        // Automotive, Mobile and Embedded
+        return "#F06292";
+    case 21:
+        // Best practices
+        return "#BA68C8";
+    case 14:
+        // Beyond Code
+        return "#D1C4E9";
+    case 2:
+        // Break
+        return "#FFFFFF";
+    case 23:
+        // Codecs
+        return "#E8EAF6";
+    case 4:
+        // Community
+        return "#B3E5FC";
+    case 12:
+        // Distributing Software and Resources
+        return "#64B5F6";
+    case 6:
+        // Free Software policies and politics
+        return "#4DD0E1";
+    case 16:
+        // Geolocation
+        return "#CDDC39";
+    case 13:
+        // In depth
+        return "#26A69A";
+    case 10:
+        // KDE‘s Latest and Greatest
+        return "#2196F3";
+    case 5:
+        // Let‘s talk business
+        return "#FFEB3B";
+    case 24:
+        // Let‘s talk software
+        return "#FFC107";
+    case 1:
+        // Misc
+        return "#FF9890";
+    case 17:
+        // Multithreading
+        return "#FF7043";
+    case 22:
+        // OpenGL and 3D
+        return "#E53935";
+    case 11:
+        // Platforms and Integration
+        return "#BCAAA4";
+    case 9:
+        // Qt in Use
+        return "#4CAF50";
+    case 15:
+        // QtQuick
+        return "#8BC34A";
+    case 20:
+        // Technical Discussions
+        return "#8D6E63";
+    case 8:
+        // Testing and Continuous Integration
+        return "#E0E0E0";
+    case 7:
+        // Tooling
+        return "#90A4AE";
+    case 19:
+        // Web
+        return "#607D8B";
+    default:
+        // transparent
+        return "transparent";
+    }
+}
+
 // if update failed Data in memory is inconsistent
 // delete all, then do init again
 void DataUtil::reloadData() {

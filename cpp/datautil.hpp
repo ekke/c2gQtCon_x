@@ -91,6 +91,9 @@ public:
     Q_INVOKABLE
     QString textForSessionType(Session* session);
 
+    Q_INVOKABLE
+    QString trackColor(const int trackId);
+
 signals:
     void myScheduleRefreshed();
 

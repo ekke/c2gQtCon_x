@@ -11,8 +11,8 @@ Page {
     id: roomListPage
     focus: true
     property string name: "RoomListPage"
-    bottomPadding: 24
-    topPadding: 16
+    bottomPadding: 6
+    topPadding: 6
 
     // LIST VIEW
     ListView {

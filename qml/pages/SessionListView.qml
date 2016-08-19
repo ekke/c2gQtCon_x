@@ -82,101 +82,117 @@ ListView {
 
         Component {
             id: sessionRowComponent
-            ColumnLayout {
-                id: sessionRow
-                // without this divider not over total width
+            Item {
+                id: theItem
+                height: sessionRow.height
                 implicitWidth: appWindow.width
-                RowLayout {
-                    spacing: 20
-                    Layout.leftMargin: 16+12
-                    Layout.rightMargin: 6
-                    Layout.topMargin: 6
-                    ColumnLayout {
-                        CharCircle {
-                            size: 24
-                            text: dataUtil.letterForButton(model.modelData)
-                        }
-                    } // left column
-                    ColumnLayout {
-                        Layout.fillWidth: true
-                        // without setting a maximum width, word wrap not working
-                        Layout.maximumWidth: appWindow.width-132
-                        Layout.minimumWidth: appWindow.width-132
-                        spacing: 0
-                        LabelSubheading {
-                            rightPadding: 12
-                            text: model.modelData.title
-                            font.bold: true
-                            wrapMode: Label.WordWrap
-                            maximumLineCount: 2
-                            elide: Label.ElideRight
-                        } // label
-                        LabelBody {
-                            visible: model.modelData.subtitle.length
-                            rightPadding: 12
-                            text: model.modelData.subtitle
-                            wrapMode: Label.WordWrap
-                            maximumLineCount: 2
-                            elide: Label.ElideRight
-                        }
-                        RowLayout {
+                Rectangle {
+                    anchors.top: theItem.top
+                    height: sessionRow.height
+                    width: 8
+                    color: model.modelData.isKeynote? "#B2DFDB" : dataUtil.trackColor(model.modelData.sessionTrack)
+                }
+
+                ColumnLayout {
+                    id: sessionRow
+                    // without this divider not over total width
+                    implicitWidth: appWindow.width
+                    RowLayout {
+                        spacing: 20
+                        Layout.leftMargin: 16+12
+                        Layout.rightMargin: 6
+                        Layout.topMargin: 6
+                        ColumnLayout {
+                            CharCircle {
+                                size: 24
+                                text: dataUtil.letterForButton(model.modelData)
+                            }
+                        } // left column
+                        ColumnLayout {
+                            Layout.fillWidth: true
+                            // without setting a maximum width, word wrap not working
+                            Layout.maximumWidth: appWindow.width-132
+                            Layout.minimumWidth: appWindow.width-132
+                            spacing: 0
+                            LabelSubheading {
+                                rightPadding: 12
+                                text: model.modelData.title
+                                font.bold: true
+                                wrapMode: Label.WordWrap
+                                maximumLineCount: 2
+                                elide: Label.ElideRight
+                            } // label
                             LabelBody {
-                                Layout.fillWidth: false
-                                text: model.modelData.startTime.toLocaleTimeString("HH:mm") + " - " + model.modelData.endTime.toLocaleTimeString("HH:mm") + ","
-                            }
-                            IconActive{
-                                imageSize: 18
-                                imageName: "directions.png"
-                            }
-                            LabelBody {
-                                Layout.fillWidth: false
-                                text: qsTr("Room ") + model.modelData.roomAsDataObject.roomName
-                            }
-                        }
-                        RowLayout {
-                            visible: speakerNamesLabel.text.length
-                            IconActive{
-                                imageSize: 18
-                                imageName: "speaker.png"
-                            }
-                            LabelBody {
-                                id: speakerNamesLabel
-                                font.italic: true
-                                text: dataUtil.speakerNamesForSession(model.modelData)
+                                visible: model.modelData.subtitle.length
+                                rightPadding: 12
+                                text: model.modelData.subtitle
+                                wrapMode: Label.WordWrap
+                                maximumLineCount: 2
                                 elide: Label.ElideRight
                             }
-                        }
-                    } // middle column
-                    ListRowButton {
-                        onClicked: {
-                            navPane.pushSessionDetail(model.modelData.sessionId)
-                        }
-                    }
-                    ColumnLayout {
-                        Layout.rightMargin: 16
-                        IconActive {
-                            transform: Translate { x: -46 }
-                            imageSize: 36
-                            imageName: "stars.png"
-                            opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
-                            ListRowButton {
-                                onClicked: {
-                                    model.modelData.isFavorite = !model.modelData.isFavorite
-                                    if(model.modelData.isFavorite) {
-                                        appWindow.showToast(qsTr("Added to Personal Schedule"))
-                                    } else {
-                                        appWindow.showToast(qsTr("Removed from Personal Schedule"))
-                                    }
-                                    if(appWindow.myScheduleActive) {
-                                        dataUtil.refreshMySchedule()
-                                    }
+                            RowLayout {
+                                LabelBody {
+                                    Layout.fillWidth: false
+                                    text: model.modelData.startTime.toLocaleTimeString("HH:mm") + " - " + model.modelData.endTime.toLocaleTimeString("HH:mm") + ","
+                                }
+                                IconActive{
+                                    imageSize: 18
+                                    imageName: "directions.png"
+                                }
+                                LabelBody {
+                                    Layout.fillWidth: false
+                                    text: qsTr("Room ") + model.modelData.roomAsDataObject.roomName
                                 }
                             }
-                        } // favoritesIcon
-                    } // right column
-                } // end Row Layout
-                HorizontalListDivider{}
-            } // end Col Layout speaker row
+                            RowLayout {
+                                visible: speakerNamesLabel.text.length
+                                IconActive{
+                                    imageSize: 18
+                                    imageName: "speaker.png"
+                                }
+                                LabelBody {
+                                    id: speakerNamesLabel
+                                    font.italic: true
+                                    text: dataUtil.speakerNamesForSession(model.modelData)
+                                    elide: Label.ElideRight
+                                }
+                            }
+                        } // middle column
+                        ListRowButton {
+                            onClicked: {
+                                navPane.pushSessionDetail(model.modelData.sessionId)
+                            }
+                        }
+                        ColumnLayout {
+                            Layout.rightMargin: 16
+                            IconActive {
+                                transform: Translate { x: -46 }
+                                imageSize: 36
+                                imageName: "stars.png"
+                                opacity: model.modelData.isFavorite? opacityToggleActive : opacityToggleInactive
+                                ListRowButton {
+                                    onClicked: {
+                                        model.modelData.isFavorite = !model.modelData.isFavorite
+                                        if(model.modelData.isFavorite) {
+                                            appWindow.showToast(qsTr("Added to Personal Schedule"))
+                                        } else {
+                                            appWindow.showToast(qsTr("Removed from Personal Schedule"))
+                                        }
+                                        if(appWindow.myScheduleActive) {
+                                            dataUtil.refreshMySchedule()
+                                        }
+                                    }
+                                }
+                            } // favoritesIcon
+                        } // right column
+                    } // end Row Layout
+                    HorizontalListDivider{}
+                } // end Col Layout speaker row
+
+            } // row item
+
+
+
         } // sessionRowComponent
 
     } // sessionLoader

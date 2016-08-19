@@ -11,8 +11,8 @@ Page {
     id: speakerListPage
     focus: true
     property string name: "SpeakerListPage"
-    bottomPadding: 24
-    topPadding: 16
+    bottomPadding: 6
+    topPadding: 6
 
     // SECTION HEADER
     Component {
