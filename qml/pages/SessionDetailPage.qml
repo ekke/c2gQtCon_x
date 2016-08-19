@@ -285,6 +285,10 @@ Page {
         ScrollIndicator.vertical: ScrollIndicator { }
     } // flickable
 
+    Component.onDestruction: {
+        cleanup()
+    }
+
     // called immediately after Loader.loaded
     function init() {
         console.log(qsTr("Init done from SessionDetailPage"))

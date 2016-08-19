@@ -27,8 +27,8 @@ Page {
         property string name: "roomDetail"
         // need some extra space if scrolling to bottom
         // and nothing covered by the FAB
-        contentHeight: roomImage.height + 60 // some space for buttons
-        contentWidth: roomImage.width
+        contentHeight: roomImage.sourceSize.height * roomImage.scale + 60
+        contentWidth: roomImage.sourceSize.width * roomImage.scale
         anchors.fill: parent
 
             Image {
@@ -49,7 +49,7 @@ Page {
     } // flickable
 
     FloatingActionMiniButton {
-        visible: roomImage.scale >= 0.4
+        visible: roomImage.scale >= 0.2
         property string imageName: "/remove.png"
         z: 1
         anchors.leftMargin: 20
@@ -64,7 +64,6 @@ Page {
         }
     } // FAB
     FloatingActionMiniButton {
-        visible: roomImage.scale <= 1.0
         property string imageName: "/aspect_ratio.png"
         z: 1
         anchors.leftMargin: 80
@@ -96,20 +95,26 @@ Page {
 
     function fitIntoWindow() {
         var widthScale = (appWindow.width-20) / roomImage.sourceSize.width
-        var heightScale = (appWindow.height-60) / roomImage.sourceSize.height
+        var heightScale = (appWindow.height-20) / roomImage.sourceSize.height
         roomImage.scale = Math.min(widthScale, heightScale)
         flickable.contentX = 0
         flickable.contentY = 0
+    }
+
+    Component.onDestruction: {
+        cleanup()
     }
 
     // called immediately after Loader.loaded
     function init() {
         fitIntoWindow()
         console.log(qsTr("Init done from RoomDetailPage"))
+        appWindow.setDefaultTitleBarInLandscape()
     }
     // called from Component.destruction
     function cleanup() {
         console.log(qsTr("Cleanup done from RoomDetailPage"))
+        appWindow.resetDefaultTitleBarInLandscape()
     }
 
 } // roomDetailPage

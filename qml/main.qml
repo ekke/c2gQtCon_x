@@ -137,7 +137,7 @@ ApplicationWindow {
     property int helpNavigationIndex: 8
     property int aboutNavigationIndex: 9
     property var navigationModel: [
-        {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Schedule"), "icon": "schedule.png", "source": "../navigation/ScheduleNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Speaker"), "icon": "speaker.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
@@ -205,26 +205,32 @@ ApplicationWindow {
     // header per Page, footer global in Portrait + perhaps per Page, too
     // header and footer invisible until initDone
     footer: initDone && !isLandscape && drawerLoader.status == Loader.Ready && navigationBar.position == 0 ? favoritesLoader.item : null
-    header: isLandscape || !initDone ? null : titleBar
+    header: (isLandscape && !useDefaultTitleBarInLandscape) || !initDone ? null : titleBar
     // show TITLE  BARS is delayed until INIT DONE
+    property bool useDefaultTitleBarInLandscape: false
     Loader {
         id: titleBar
-        visible: !isLandscape && initDone
-        active: !isLandscape && initDone
+        visible: (!isLandscape || useDefaultTitleBarInLandscape) && initDone
+        active: (!isLandscape || useDefaultTitleBarInLandscape) && initDone
         source: "navigation/DrawerTitleBar.qml"
     }
     // in LANDSCAPE header is null and we have a floating TitleBar
     Loader {
         id: titleBarFloating
-        visible: isLandscape && initDone
-        active: isLandscape && initDone
+        visible: !useDefaultTitleBarInLandscape && isLandscape && initDone
+        active: !useDefaultTitleBarInLandscape && isLandscape && initDone
         source: "navigation/DrawerTitleBar.qml"
         anchors.top: parent.top
         anchors.left: parent.left
         anchors.right: parent.right
     }
     // end TITLE BARS
-
+    function resetDefaultTitleBarInLandscape() {
+        useDefaultTitleBarInLandscape = false
+    }
+    function setDefaultTitleBarInLandscape() {
+        useDefaultTitleBarInLandscape = true
+    }
 
     // STACK VIEW (rootPane)
     // the ROOT contains always only one Page,

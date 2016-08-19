@@ -9,86 +9,88 @@ import org.ekkescorner.data 1.0
 import "../common"
 import "../popups"
 
-Flickable {
+Pane {
     id: homePage
-    contentHeight: appWindow.height
-    contentWidth: appWindow.width
-    property Conference conference
-    // StackView manages this, so please no anchors here
-    // anchors.fill: parent
+    height: appWindow.height
     property string name: "HomePage"
+    property Conference conference
+    topPadding: 12
+    Image {
+        id: conferenceImage
+        x: 24
+        property real portraitScale: 1.0
+        property real landscapeScale: 1.0
+        scale: isLandscape? landscapeScale : portraitScale
+        anchors.top: parent.top
+        anchors.left: parent.left
+        width: sourceSize.width
+        height: sourceSize.height
+        fillMode: Image.PreserveAspectFit
+        source: isDarkTheme? "qrc:/images/extra/qt-con-logo-white.png":"qrc:/images/extra/qt-con-logo.png"
+        horizontalAlignment: Image.AlignLeft
+        verticalAlignment: Image.AlignTop
+        transformOrigin: Item.TopLeft
+    } // image
 
-    Pane {
-        id: root
-        anchors.fill: parent
-        topPadding: 12
-        width: appWindow.width
-        Image {
-            id: conferenceImage
-            x: 24
-            property real portraitScale: 1.0
-            property real landscapeScale: 1.0
-            scale: isLandscape? landscapeScale : portraitScale
-            anchors.top: parent.top
-            anchors.left: parent.left
-            width: sourceSize.width
-            height: sourceSize.height
-            fillMode: Image.PreserveAspectFit
-            source: isDarkTheme? "qrc:/images/extra/qt-con-logo-white.png":"qrc:/images/extra/qt-con-logo.png"
-            horizontalAlignment: Image.AlignLeft
-            verticalAlignment: Image.AlignTop
-            transformOrigin: Item.TopLeft
-        } // image
+    ColumnLayout {
+        Layout.fillWidth: true
+        anchors.right: parent.right
+        anchors.left: parent.left
+        transform: Translate {
+            x: isLandscape ? conferenceImage.width*conferenceImage.scale:0
+            y: isLandscape? -22 : conferenceImage.height*conferenceImage.scale
+        } // translate
 
-        ColumnLayout {
-            Layout.fillWidth: true
-            anchors.right: parent.right
-            anchors.left: parent.left
-            transform: Translate {
-                x: isLandscape ? conferenceImage.width*conferenceImage.scale:0
-                y: isLandscape? -22 : conferenceImage.height*conferenceImage.scale
-            } // translate
-
-            RowLayout {
-                LabelHeadline {
-                    Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
-                    topPadding: 24
-                    leftPadding: 16
-                    rightPadding: 16
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Welcome to ekke's Conference2Go APP\nQtCon 2016, Berlin\n01. - 04. September")
-                    color: accentColor
-                }
+        RowLayout {
+            LabelHeadline {
+                Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
+                topPadding: 8
+                leftPadding: 16
+                rightPadding: 16
+                wrapMode: Text.WordWrap
+                text: qsTr("QtCon 2016, Berlin\n01. - 04. September")
+                color: primaryColor
             }
-            RowLayout {
-                LabelTitle {
-                    Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
-                    topPadding: 36
-                    leftPadding: 16
-                    rightPadding: 16
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Developed with Qt 5.7\nQt Quick Controls 2\n(Material Style)")
-                    color: primaryColor
-                }
+        }
+        RowLayout {
+            LabelHeadline {
+                Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
+                topPadding: 12
+                leftPadding: 16
+                rightPadding: 16
+                wrapMode: Text.WordWrap
+                text: qsTr("Welcome to ekke's Conference2Go APP")
+                color: accentColor
             }
-            RowLayout {
-                LabelHeadline {
-                    Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
-                    topPadding: 36
-                    leftPadding: 16
-                    rightPadding: 16
-                    wrapMode: Text.WordWrap
-                    text: conference.hashTag
-                    color: accentColor
-                }
+        }
+        RowLayout {
+            LabelTitle {
+                Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
+                topPadding: 16
+                leftPadding: 16
+                rightPadding: 16
+                wrapMode: Text.WordWrap
+                text: qsTr("Developed with Qt 5.7\nQt Quick Controls 2\n(Material Style)")
+                color: primaryColor
             }
-        } // col layout
-    } // root
-    ScrollIndicator.vertical: ScrollIndicator { }
+        }
+        RowLayout {
+            LabelTitle {
+                id: hashtagLabel
+                Layout.maximumWidth: isLandscape? appWindow.width-12-(conferenceImage.width*conferenceImage.scale) : appWindow.width-12
+                topPadding: 10
+                leftPadding: 16
+                rightPadding: 16
+                wrapMode: Text.WordWrap
+                text: conference? conference.hashTag : ""
+                color: accentColor
+            }
+        }
+    } // col layout
 
     LabelBodySecondary {
         anchors.leftMargin: 22
-        anchors.bottomMargin: isLandscape? 64 : 116
+        anchors.bottomMargin: isLandscape? 48 : 100
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         text: dataUtil.apiInfo()
@@ -96,8 +98,8 @@ Flickable {
     FloatingActionButton {
         property string imageName: "/refresh.png"
         z: 1
-        anchors.rightMargin: 58
-        anchors.bottomMargin:isLandscape? 64 : isDarkTheme? 116 : 110
+        anchors.margins: 8
+        anchors.bottomMargin: isLandscape? 60:112
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName

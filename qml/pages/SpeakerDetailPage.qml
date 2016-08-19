@@ -158,6 +158,7 @@ Page {
                                         }
                                         LabelBody {
                                             text: modelData.sessionDayAsDataObject.conferenceDay.toLocaleDateString()
+                                            wrapMode: Text.WordWrap
                                         }
                                         IconActive {
                                             //id: menuIcon
