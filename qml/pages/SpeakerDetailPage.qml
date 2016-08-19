@@ -249,9 +249,17 @@ Page {
                                             imageSize: 18
                                             imageName: "tag.png"
                                         }
+                                        Rectangle {
+                                            width: 16
+                                            height: 16
+                                            color: dataUtil.trackColor(modelData.sessionTrack)
+                                            radius: width / 2
+                                        }
                                         LabelBody {
                                             id: trackLabel
                                             text: modelData.sessionTrackAsDataObject.name != "*****" ? modelData.sessionTrackAsDataObject.name : ""
+                                            rightPadding: 16
+                                            wrapMode: Text.WordWrap
                                         }
                                     } // repeater track row
 

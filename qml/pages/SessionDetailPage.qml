@@ -106,10 +106,18 @@ Page {
                         imageSize: 24
                         imageName: "tag.png"
                     }
+                    Rectangle {
+                        Layout.leftMargin: 16
+                        width: 16
+                        height: 16
+                        color: dataUtil.trackColor(session.sessionTrack)
+                        radius: width / 2
+                    }
                     LabelSubheading {
                         id: trackLabel
-                        Layout.leftMargin: 16
+                        rightPadding: 16
                         text: dataUtil.textForSessionTrack(session)
+                        wrapMode: Text.WordWrap
                     }
                 }
                 RowLayout {
@@ -139,6 +147,7 @@ Page {
                 RowLayout {
                     Layout.leftMargin: 16
                     Layout.rightMargin: 16
+                    transform: Translate{y: -10}
                     IconActive{
                         imageSize: 24
                         imageName: "directions.png"
@@ -150,7 +159,7 @@ Page {
                     FloatingActionMiniButton {
                         z: 1
                         visible: session.roomAsDataObject.inAssets
-                        transform: Translate{y: -16}
+                        transform: Translate{y: -6}
                         showShadow: true
                         imageSource: "qrc:/images/"+iconOnAccentFolder+"/directions.png"
                         backgroundColor: accentColor
@@ -260,6 +269,7 @@ Page {
                                     } // label
                                     LabelBody {
                                         text: dataUtil.sessionInfoForSpeaker(model.modelData)
+                                        rightPadding: 12
                                         wrapMode: Label.WordWrap
                                         maximumLineCount: 3
                                         elide: Label.ElideRight

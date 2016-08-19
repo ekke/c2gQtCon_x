@@ -142,9 +142,9 @@ QString DataUtil::textForSessionTrack(Session *session)
         return "";
     }
     QString name = session->sessionTrackAsDataObject()->name();
-    if(name == "Community") {
-        return "";
-    }
+//    if(name == "Community") {
+//        return "";
+//    }
     if(name == "*****") {
         return "";
     }
