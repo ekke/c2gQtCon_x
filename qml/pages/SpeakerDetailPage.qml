@@ -67,7 +67,7 @@ Page {
                     }
                 } // row
                 LabelBodySecondary {
-                    text: "# "+speaker.speakerId
+                    text: "id "+speaker.speakerId
                     font.italic: true
                     transform: Translate{y: -12}
                 }
@@ -162,7 +162,6 @@ Page {
                                         }
                                         IconActive {
                                             //id: menuIcon
-                                            transform: Translate { y: -8 }
                                             imageSize: 24
                                             imageName: "more_vert.png"
                                             anchors.right: parent.right
@@ -220,8 +219,8 @@ Page {
                                             } // repeater room row
                                         } // // time room column
                                         IconActive {
-                                            transform: Translate { x: 6; y: 2 }
-                                            imageSize: 48
+                                            transform: Translate { x: 6; y: 8 }
+                                            imageSize: 36
                                             imageName: "stars.png"
                                             opacity: modelData.isFavorite? opacityToggleActive : opacityToggleInactive
                                             anchors.right: parent.right

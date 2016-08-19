@@ -79,7 +79,7 @@ Flickable {
                 helpText: qsTr("Complete Conference Schedule separated by Days and sorted by Starttime. Switch between Conference Days by Swiping left/right or tapping on a Tab from Tab Bar.")
             }
             HelpRow {
-                iconName: "schedule_my.png"
+                iconName: "stars.png"
                 helpText: qsTr("Button to see your Personal Conference Schedule. Mark Sessions for your Personal Schedule by checking the Favorites Button.")
             }
             HelpRow {

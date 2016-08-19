@@ -77,8 +77,7 @@ Page {
                     }
                     IconActive {
                         visible: !isScheduleItem
-                        //transform: Translate { y: 8 }
-                        imageSize: 48
+                        imageSize: 36
                         imageName: "stars.png"
                         opacity: session.isFavorite? opacityToggleActive : opacityToggleInactive
                         anchors.right: parent.right
@@ -162,7 +161,7 @@ Page {
                     } // favoritesIcon
                 }
                 LabelBodySecondary {
-                    text: "# "+session.sessionId
+                    text: "id "+session.sessionId
                     font.italic: true
                     transform: Translate{y: -8}
                 }

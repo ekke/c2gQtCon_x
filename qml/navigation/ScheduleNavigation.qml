@@ -214,7 +214,7 @@ Page {
     } // FAB
     FloatingActionButton {
         visible: navPane.depth == 1
-        property string imageName: appWindow.myScheduleActive? "/schedule.png" : "/schedule_my.png"
+        property string imageName: appWindow.myScheduleActive? "/schedule.png" : "/stars.png"
         z: 1
         anchors.margins: 20
         anchors.right: parent.right

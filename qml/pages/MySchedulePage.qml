@@ -101,10 +101,6 @@ Page {
         onMyScheduleRefreshed: myScheduleRefreshed()
     }
 
-    Component.onDestruction: {
-        cleanup()
-    }
-
     // called immediately after Loader.loaded
     function init() {
         console.log(qsTr("Init from myScheduleListPage"))

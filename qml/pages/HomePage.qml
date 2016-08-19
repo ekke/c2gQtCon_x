@@ -59,7 +59,7 @@ Pane {
                 leftPadding: 16
                 rightPadding: 16
                 wrapMode: Text.WordWrap
-                text: qsTr("Welcome to ekke's Conference2Go APP")
+                text: qsTr("Welcome to ekke's Conference2Go app")
                 color: accentColor
             }
         }
@@ -82,7 +82,7 @@ Pane {
                 leftPadding: 16
                 rightPadding: 16
                 wrapMode: Text.WordWrap
-                text: conference? conference.hashTag : ""
+                text: conference? "Twitter " + conference.hashTag : ""
                 color: accentColor
             }
         }

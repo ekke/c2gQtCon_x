@@ -28,9 +28,9 @@ ApplicationWindow {
     onMyScheduleActiveChanged: {
         if(myScheduleActive) {
             //navigationModel[2].icon = "schedule_my.png"
-            drawerLoader.item.replaceIcon(scheduleNavigationIndex,"schedule_my.png")
+            drawerLoader.item.replaceIcon(scheduleNavigationIndex,"stars.png")
             drawerLoader.item.replaceText(scheduleNavigationIndex,qsTr("My Schedule"))
-            favoritesLoader.item.replaceIcon(scheduleFavoritesIndex,"schedule_my.png")
+            favoritesLoader.item.replaceIcon(scheduleFavoritesIndex,"stars.png")
             favoritesLoader.item.replaceText(scheduleFavoritesIndex,qsTr("My Schedule"))
         } else {
             //navigationModel[2].icon = "schedule.png"
@@ -75,8 +75,11 @@ ApplicationWindow {
     property real toolBarInactiveOpacity: themePalette[12]
     property color toastColor: themePalette[13]
     property real toastOpacity: themePalette[14]
-    // Material.dropShadowColor  OK for Light, but too dark for dark theme
-    property color dropShadow: isDarkTheme? "#E4E4E4" : Material.dropShadowColor
+    // 5.7: dropShafowColor is ok - the shadow is darker as the background
+    // but not so easy to distinguish as in light theme
+    // optional:
+    // isDarkTheme? "#E4E4E4" : Material.dropShadowColor
+    property color dropShadow: Material.dropShadowColor
     onIsDarkThemeChanged: {
         if(isDarkTheme == 1) {
             Material.theme = Material.Dark

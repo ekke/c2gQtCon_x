@@ -104,24 +104,6 @@ Flickable {
                 }
             } // row accent
             HorizontalDivider {}
-//            RowLayout {
-//                LabelBodySecondary {
-//                    Layout.preferredWidth: 1
-//                    topPadding: 6
-//                    leftPadding: 10
-//                    rightPadding: 10
-//                    wrapMode: Text.WordWrap
-//                    text: qsTr("Last Number:")
-//                }
-//                LabelBody {
-//                    Layout.preferredWidth: 1
-//                    topPadding: 6
-//                    leftPadding: 10
-//                    rightPadding: 10
-//                    wrapMode: Text.WordWrap
-//                    text: dataManager.settingsData().lastUsedNumber
-//                }
-//            }
             RowLayout {
                 LabelBodySecondary {
                     Layout.preferredWidth: 1
@@ -156,7 +138,7 @@ Flickable {
                     leftPadding: 10
                     rightPadding: 10
                     wrapMode: Text.WordWrap
-                    text: qsTr("Switching to aDark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.")
+                    text: qsTr("Switching to Dark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.")
                 }
             }
             HorizontalDivider {}
