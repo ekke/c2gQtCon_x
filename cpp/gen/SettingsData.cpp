@@ -21,6 +21,9 @@ static const QString publicRoot4DevKey = "publicRoot4Dev";
 static const QString autoUpdateKey = "autoUpdate";
 static const QString autoUpdateEveryHoursKey = "autoUpdateEveryHours";
 static const QString lastUpdateStampKey = "lastUpdateStamp";
+static const QString navigationStyleKey = "navigationStyle";
+static const QString oneMenuButtonKey = "oneMenuButton";
+static const QString classicStackNavigationKey = "classicStackNavigation";
 
 // keys used from Server API etc
 static const QString idForeignKey = "id";
@@ -41,12 +44,15 @@ static const QString publicRoot4DevForeignKey = "publicRoot4Dev";
 static const QString autoUpdateForeignKey = "autoUpdate";
 static const QString autoUpdateEveryHoursForeignKey = "autoUpdateEveryHours";
 static const QString lastUpdateStampForeignKey = "lastUpdateStamp";
+static const QString navigationStyleForeignKey = "navigationStyle";
+static const QString oneMenuButtonForeignKey = "oneMenuButton";
+static const QString classicStackNavigationForeignKey = "classicStackNavigation";
 
 /*
  * Default Constructor if SettingsData not initialized from QVariantMap
  */
 SettingsData::SettingsData(QObject *parent) :
-        QObject(parent), mId(-1), mVersion(0), mApiVersion(""), mIsProductionEnvironment(false), mPrimaryColor(0), mAccentColor(0), mDarkTheme(false), mUseMarkerColors(false), mDefaultMarkerColors(false), mMarkerColors(""), mHasPublicCache(false), mUseCompactJsonFormat(false), mLastUsedNumber(0), mPublicRoot4Dev(""), mAutoUpdate(false), mAutoUpdateEveryHours(0)
+        QObject(parent), mId(-1), mVersion(0), mApiVersion(""), mIsProductionEnvironment(false), mPrimaryColor(0), mAccentColor(0), mDarkTheme(false), mUseMarkerColors(false), mDefaultMarkerColors(false), mMarkerColors(""), mHasPublicCache(false), mUseCompactJsonFormat(false), mLastUsedNumber(0), mPublicRoot4Dev(""), mAutoUpdate(false), mAutoUpdateEveryHours(0), mNavigationStyle(0), mOneMenuButton(false), mClassicStackNavigation(false)
 {
 	// Date, Time or Timestamp ? construct null value
 	mLastUpdate = QDateTime();
@@ -96,6 +102,9 @@ void SettingsData::fillFromMap(const QVariantMap& settingsDataMap)
 			qDebug() << "mLastUpdateStamp is not valid for String: " << lastUpdateStampAsString;
 		}
 	}
+	mNavigationStyle = settingsDataMap.value(navigationStyleKey).toInt();
+	mOneMenuButton = settingsDataMap.value(oneMenuButtonKey).toBool();
+	mClassicStackNavigation = settingsDataMap.value(classicStackNavigationKey).toBool();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -140,6 +149,9 @@ void SettingsData::fillFromForeignMap(const QVariantMap& settingsDataMap)
 			qDebug() << "mLastUpdateStamp is not valid for String: " << lastUpdateStampAsString;
 		}
 	}
+	mNavigationStyle = settingsDataMap.value(navigationStyleForeignKey).toInt();
+	mOneMenuButton = settingsDataMap.value(oneMenuButtonForeignKey).toBool();
+	mClassicStackNavigation = settingsDataMap.value(classicStackNavigationForeignKey).toBool();
 }
 /*
  * initialize OrderData from QVariantMap
@@ -184,6 +196,9 @@ void SettingsData::fillFromCacheMap(const QVariantMap& settingsDataMap)
 			qDebug() << "mLastUpdateStamp is not valid for String: " << lastUpdateStampAsString;
 		}
 	}
+	mNavigationStyle = settingsDataMap.value(navigationStyleKey).toInt();
+	mOneMenuButton = settingsDataMap.value(oneMenuButtonKey).toBool();
+	mClassicStackNavigation = settingsDataMap.value(classicStackNavigationKey).toBool();
 }
 
 void SettingsData::prepareNew()
@@ -231,6 +246,9 @@ QVariantMap SettingsData::toMap()
 	if (hasLastUpdateStamp()) {
 		settingsDataMap.insert(lastUpdateStampKey, mLastUpdateStamp.toString(Qt::ISODate));
 	}
+	settingsDataMap.insert(navigationStyleKey, mNavigationStyle);
+	settingsDataMap.insert(oneMenuButtonKey, mOneMenuButton);
+	settingsDataMap.insert(classicStackNavigationKey, mClassicStackNavigation);
 	return settingsDataMap;
 }
 
@@ -264,6 +282,9 @@ QVariantMap SettingsData::toForeignMap()
 	if (hasLastUpdateStamp()) {
 		settingsDataMap.insert(lastUpdateStampForeignKey, mLastUpdateStamp.toString(Qt::ISODate));
 	}
+	settingsDataMap.insert(navigationStyleForeignKey, mNavigationStyle);
+	settingsDataMap.insert(oneMenuButtonForeignKey, mOneMenuButton);
+	settingsDataMap.insert(classicStackNavigationForeignKey, mClassicStackNavigation);
 	return settingsDataMap;
 }
 
@@ -539,6 +560,48 @@ void SettingsData::setLastUpdateStamp(QDateTime lastUpdateStamp)
 bool SettingsData::hasLastUpdateStamp()
 {
 	return !mLastUpdateStamp.isNull() && mLastUpdateStamp.isValid();
+}
+// ATT 
+// Optional: navigationStyle
+int SettingsData::navigationStyle() const
+{
+	return mNavigationStyle;
+}
+
+void SettingsData::setNavigationStyle(int navigationStyle)
+{
+	if (navigationStyle != mNavigationStyle) {
+		mNavigationStyle = navigationStyle;
+		emit navigationStyleChanged(navigationStyle);
+	}
+}
+// ATT 
+// Optional: oneMenuButton
+bool SettingsData::oneMenuButton() const
+{
+	return mOneMenuButton;
+}
+
+void SettingsData::setOneMenuButton(bool oneMenuButton)
+{
+	if (oneMenuButton != mOneMenuButton) {
+		mOneMenuButton = oneMenuButton;
+		emit oneMenuButtonChanged(oneMenuButton);
+	}
+}
+// ATT 
+// Optional: classicStackNavigation
+bool SettingsData::classicStackNavigation() const
+{
+	return mClassicStackNavigation;
+}
+
+void SettingsData::setClassicStackNavigation(bool classicStackNavigation)
+{
+	if (classicStackNavigation != mClassicStackNavigation) {
+		mClassicStackNavigation = classicStackNavigation;
+		emit classicStackNavigationChanged(classicStackNavigation);
+	}
 }
 
 

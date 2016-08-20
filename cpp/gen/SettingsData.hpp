@@ -30,6 +30,9 @@ class SettingsData: public QObject
 	Q_PROPERTY(bool autoUpdate READ autoUpdate WRITE setAutoUpdate NOTIFY autoUpdateChanged FINAL)
 	Q_PROPERTY(int autoUpdateEveryHours READ autoUpdateEveryHours WRITE setAutoUpdateEveryHours NOTIFY autoUpdateEveryHoursChanged FINAL)
 	Q_PROPERTY(QDateTime lastUpdateStamp READ lastUpdateStamp WRITE setLastUpdateStamp NOTIFY lastUpdateStampChanged FINAL)
+	Q_PROPERTY(int navigationStyle READ navigationStyle WRITE setNavigationStyle NOTIFY navigationStyleChanged FINAL)
+	Q_PROPERTY(bool oneMenuButton READ oneMenuButton WRITE setOneMenuButton NOTIFY oneMenuButtonChanged FINAL)
+	Q_PROPERTY(bool classicStackNavigation READ classicStackNavigation WRITE setClassicStackNavigation NOTIFY classicStackNavigationChanged FINAL)
 
 
 public:
@@ -91,6 +94,12 @@ public:
 	Q_INVOKABLE
 	bool hasLastUpdateStamp();
 	void setLastUpdateStamp(QDateTime lastUpdateStamp);
+	int navigationStyle() const;
+	void setNavigationStyle(int navigationStyle);
+	bool oneMenuButton() const;
+	void setOneMenuButton(bool oneMenuButton);
+	bool classicStackNavigation() const;
+	void setClassicStackNavigation(bool classicStackNavigation);
 
 
 
@@ -116,6 +125,9 @@ public:
 	void autoUpdateChanged(bool autoUpdate);
 	void autoUpdateEveryHoursChanged(int autoUpdateEveryHours);
 	void lastUpdateStampChanged(QDateTime lastUpdateStamp);
+	void navigationStyleChanged(int navigationStyle);
+	void oneMenuButtonChanged(bool oneMenuButton);
+	void classicStackNavigationChanged(bool classicStackNavigation);
 	
 
 private:
@@ -138,6 +150,9 @@ private:
 	bool mAutoUpdate;
 	int mAutoUpdateEveryHours;
 	QDateTime mLastUpdateStamp;
+	int mNavigationStyle;
+	bool mOneMenuButton;
+	bool mClassicStackNavigation;
 
 	Q_DISABLE_COPY (SettingsData)
 };

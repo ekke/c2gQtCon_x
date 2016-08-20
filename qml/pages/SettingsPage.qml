@@ -6,6 +6,7 @@ import QtQuick.Controls.Material 2.0
 import QtGraphicalEffects 1.0
 
 import "../common"
+import org.ekkescorner.data 1.0
 
 Flickable {
     property string name: "SettingsPage"
@@ -19,6 +20,7 @@ Flickable {
     Pane {
         id: root
         anchors.fill: parent
+        property SettingsData settings
 
         ColumnLayout {
             id: theContent
@@ -37,8 +39,13 @@ Flickable {
                 }
             }
             HorizontalDivider {}
+            LabelTitle {
+                topPadding: 6
+                text: qsTr("Theme")
+                color: primaryColor
+            }
             RowLayout {
-                LabelBodySecondary {
+                LabelSubheading {
                     topPadding: 6
                     leftPadding: 10
                     wrapMode: Text.WordWrap
@@ -56,8 +63,13 @@ Flickable {
                     }
                 } // switch darktheme
             } // row switch dar theme
+            LabelTitle {
+                topPadding: 6
+                text: qsTr("Colors")
+                color: primaryColor
+            }
             RowLayout {
-                LabelBodySecondary {
+                LabelSubheading {
                     id: labelPrimary
                     topPadding: 6
                     leftPadding: 10
@@ -82,7 +94,7 @@ Flickable {
                 height: 6
             }
             RowLayout {
-                LabelBodySecondary {
+                LabelSubheading {
                     id: labelAccent
                     topPadding: 6
                     leftPadding: 10
@@ -105,7 +117,7 @@ Flickable {
             } // row accent
             HorizontalDivider {}
             RowLayout {
-                LabelBodySecondary {
+                LabelSubheading {
                     Layout.preferredWidth: 1
                     topPadding: 6
                     leftPadding: 10
@@ -123,6 +135,7 @@ Flickable {
                 }
             }
             RowLayout {
+                Layout.bottomMargin: 6
                 LabelBodySecondary {
                     Layout.preferredWidth: 1
                     topPadding: 6
@@ -140,6 +153,153 @@ Flickable {
                     wrapMode: Text.WordWrap
                     text: qsTr("Switching to Dark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.")
                 }
+            }
+            HorizontalDivider {}
+            LabelTitle {
+                topPadding: 6
+                text: qsTr("Navigation Style")
+                color: primaryColor
+            }
+            RowLayout {
+                LabelSubheading {
+                    topPadding: 6
+                    leftPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Classic Material Navigation")
+                    color:accentColor
+                }
+                Switch {
+                    id: classicNavigationSwitch
+                    topPadding: 6
+                    anchors.right: parent.right
+                    focusPolicy: Qt.NoFocus
+                    checked: root.settings? root.settings.navigationStyle == 2:false
+                    onCheckedChanged: {
+                        if(root.settings && checked ) {
+                            root.settings.navigationStyle = 2
+                            oneHandNavigationSwitch.checked = false
+                            bottomNavigationSwitch.checked = false
+                        }
+                    }
+                } // classicNavigationSwitch
+            } // row classicNavigationSwitch
+            LabelBodySecondary {
+                leftPadding: 20
+                wrapMode: Text.WordWrap
+                text: qsTr("Menu and Back Buttons: Top-Left\nBack Button on Android also at bottom.\nOpen Drawer: swipe from left side or tap on Menu Button.\nThis is the classic Navigation Style using a Drawer to get access to all destinations.")
+            }
+            RowLayout {
+                LabelSubheading {
+                    topPadding: 6
+                    leftPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Material Bottom Navigation")
+                    color: accentColor
+                }
+                Switch {
+                    id: bottomNavigationSwitch
+                    topPadding: 6
+                    anchors.right: parent.right
+                    focusPolicy: Qt.NoFocus
+                    checked: root.settings? root.settings.navigationStyle == 1:false
+                    onCheckedChanged: {
+                        if(root.settings && checked ) {
+                            root.settings.navigationStyle = 1
+                            oneHandNavigationSwitch.checked = false
+                            classicNavigationSwitch.checked = false
+                        }
+                    }
+                } // bottomNavigationSwitch
+            } // row bottomNavigationSwitch
+            LabelBodySecondary {
+                leftPadding: 20
+                wrapMode: Text.WordWrap
+                text: qsTr("Same as Classic Navigation\nplus: Bottom Navigation Bar.\nBottom Navigation is a new way Google added recently to Google Material Style Guide.\nBottom Navigation Bar is only visible in Portrait Mode - in Landscape Mode it would occupy too much space from available height.\nQtCon Conference App uses Bottom Navigation Bar for easy access to Home, Schedule, Speaker and Tracks.\nTo access other destinations you must open Drawer from Menu Button or swipe from left side.")
+            }
+            RowLayout {
+                LabelSubheading {
+                    topPadding: 6
+                    leftPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("One Hand Comfort Navigation")
+                    color: accentColor
+                }
+                Switch {
+                    id: oneHandComfortNavigationSwitch
+                    topPadding: 6
+                    anchors.right: parent.right
+                    focusPolicy: Qt.NoFocus
+                    checked: root.settings? root.settings.navigationStyle == 0:false
+                    onCheckedChanged: {
+                        if(root.settings && checked ) {
+                            root.settings.navigationStyle = 0
+                            oneHandNavigationSwitch.checked = false
+                            classicNavigationSwitch.checked = false
+                        }
+                    }
+                } // oneHandComfortNavigationSwitch
+            } // row bottomNavigationSwitch
+            LabelBodySecondary {
+                text: qsTr("Same as Classic Navigation plus Bottom Navigation Bar\nplus: Menu Button (Hamburger Button) added to left most position of Bottom Navigation Bar.\nNow the Menu Button can be reached easy without moving fingers to Top Left Menu Button.\nComing from BlackBerry 10 ? Then you already used the Menu Button from bottom left.")
+                leftPadding: 20
+                wrapMode: Text.WordWrap
+            }
+            RowLayout {
+                visible: root.settings && root.settings.navigationStyle == 0? true:false
+                LabelSubheading {
+                    topPadding: 6
+                    leftPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("Only one Menu Button")
+                    color: accentColor
+                }
+                Switch {
+                    id: oneMenuSwitch
+                    topPadding: 6
+                    anchors.right: parent.right
+                    focusPolicy: Qt.NoFocus
+                    checked: root.settings && root.settings.oneMenuButton? true:false
+                    onCheckedChanged: {
+                        root.settings.oneMenuButton = checked
+                    }
+                } // oneMenuSwitch
+            } // row oneMenuSwitch
+            LabelBodySecondary {
+                visible: root.settings? root.settings.navigationStyle == 0:false
+                text: qsTr("Using the Comfort Navigation and you don't like to have two Menu Buttons ?\nYou can hide the Top-Left Menu Button in Portrait Mode and always use the one from Bottom Navigation Bar.")
+                leftPadding: 20
+                wrapMode: Text.WordWrap
+            }
+            HorizontalDivider {}
+            LabelTitle {
+                topPadding: 6
+                text: qsTr("Stack Navigation")
+                color: primaryColor
+            }
+            RowLayout {
+                LabelSubheading {
+                    topPadding: 6
+                    leftPadding: 10
+                    wrapMode: Text.WordWrap
+                    text: qsTr("ekke's Speed Navigation")
+                }
+                Switch {
+                    id: sppeedNavigationSwitch
+                    topPadding: 6
+                    anchors.right: parent.right
+                    focusPolicy: Qt.NoFocus
+                    checked: root.settings? !root.settings.classicStackNavigation:true
+                    onCheckedChanged: {
+                        if(root.settings) {
+                            root.settings.classicStackNavigation = !checked
+                        }
+                    }
+                } // sppeedNavigationSwitch
+            } // row sppeedNavigationSwitch
+            LabelBodySecondary {
+                text: qsTr("ekke's goal is always to provide apps with fluid and fast workflow.\nSome Pages are pushed on top of a Stack. To navigate back you must hit the Back Button.\nIt's a common use-case that there are some Pages on the Stack - per ex. Schedule->Session Detail -> Room Floorplan.\nTo go back to your List of Sessions you have to hit the Back Button multiple times. On Android you can use the bottom Back Button, but on iOS you always have to hit the Back Button from Top-Left.\nTo provide a faster workflow and also comfortable using the Smartphone with one hand, the FAB (Floating Action Button) is used to jump back to the last List below.\nYou're confused ? Switch it off")
+                leftPadding: 20
+                wrapMode: Text.WordWrap
             }
             HorizontalDivider {}
             RowLayout {
@@ -172,7 +332,9 @@ Flickable {
 
     // called immediately after Loader.loaded
     function init() {
+        root.settings = dataManager.settingsData()
         console.log(qsTr("Init done from SettingsPage"))
+        console.log("ROOT SETTINGS "+root.settings.navigationStyle)
     }
     // called from Component.destruction
     function cleanup() {

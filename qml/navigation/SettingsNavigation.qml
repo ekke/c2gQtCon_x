@@ -72,6 +72,7 @@ Page {
 
     function init() {
         console.log("INIT SettingsNavPane")
+        navPane.initialItem.init()
     }
     function cleanup() {
         console.log("CLEANUP SettingsNavPane")
