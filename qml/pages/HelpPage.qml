@@ -152,9 +152,22 @@ Flickable {
                 helpText: qsTr("Session Time from - to.")
             }
             HorizontalDivider {}
+            LabelTitle {
+                leftPadding: 10
+                text: qsTr("Navigation")
+                color: accentColor
+            }
+            HelpRow {
+                iconName: "my_location.png"
+                helpText:  qsTr("QtCon Conference app uses some special Navigation Styles to speed up Navigation.\nIf you don't like this way to go and want to use Google Material Classic Navigation Style you can customize this from 'Settings'.")
+            }
+            HorizontalDivider {}
             LabelSubheading {
+                leftPadding: 10
+                rightPadding: 16
                 text: qsTr("Need more Infos ?\nFollow @ekkescorner at Twitter\nfollow ekkes blogs:\nhttp://appbus.org and http://ekkes-corner.org")
                 font.italic: true
+                wrapMode: Text.WordWrap
             }
         } // col layout
     } // root
