@@ -316,115 +316,115 @@ This Conference App will give you some impressions what kind of APPs you can exp
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="200"/>
+        <location filename="../cpp/datautil.cpp" line="284"/>
         <source> Rollback</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="204"/>
+        <location filename="../cpp/datautil.cpp" line="288"/>
         <source> Reload</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="917"/>
+        <location filename="../cpp/datautil.cpp" line="1001"/>
         <source>Save Favorites</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="922"/>
+        <location filename="../cpp/datautil.cpp" line="1006"/>
         <source>Sync Speaker</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="930"/>
+        <location filename="../cpp/datautil.cpp" line="1014"/>
         <source>Update failed. No Speaker received.
 Reloading current Data</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="992"/>
+        <location filename="../cpp/datautil.cpp" line="1076"/>
         <source>Sync Speaker Images</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1064"/>
+        <location filename="../cpp/datautil.cpp" line="1148"/>
         <source>Sync Sessions</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1072"/>
-        <location filename="../cpp/datautil.cpp" line="1684"/>
+        <location filename="../cpp/datautil.cpp" line="1156"/>
+        <location filename="../cpp/datautil.cpp" line="1769"/>
         <source>Error: Received Map is empty.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1078"/>
-        <location filename="../cpp/datautil.cpp" line="1690"/>
+        <location filename="../cpp/datautil.cpp" line="1162"/>
+        <location filename="../cpp/datautil.cpp" line="1775"/>
         <source>Error: Received Map missed &apos;schedule&apos;.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1084"/>
+        <location filename="../cpp/datautil.cpp" line="1168"/>
         <source>Error: Received Map missed &apos;conference&apos;.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1093"/>
+        <location filename="../cpp/datautil.cpp" line="1177"/>
         <source>Error: Received Map missed &apos;days&apos;.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1098"/>
+        <location filename="../cpp/datautil.cpp" line="1182"/>
         <source>Error: # of &apos;days&apos; expected: 4 - but got </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1106"/>
+        <location filename="../cpp/datautil.cpp" line="1190"/>
         <source>Map for Day missed from Server</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1115"/>
+        <location filename="../cpp/datautil.cpp" line="1199"/>
         <source>No Day* found for </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1124"/>
+        <location filename="../cpp/datautil.cpp" line="1208"/>
         <source>No &apos;ROOMS&apos; found for DAY </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1209"/>
+        <location filename="../cpp/datautil.cpp" line="1293"/>
         <source>Schedule and Speaker successfully synchronized :)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1215"/>
+        <location filename="../cpp/datautil.cpp" line="1299"/>
         <source>Now saving Conference Data to Cache</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1349"/>
+        <location filename="../cpp/datautil.cpp" line="1434"/>
         <source>All done</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1499"/>
+        <location filename="../cpp/datautil.cpp" line="1584"/>
         <source>API Version </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1501"/>
+        <location filename="../cpp/datautil.cpp" line="1586"/>
         <source>Last Update </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1697"/>
+        <location filename="../cpp/datautil.cpp" line="1782"/>
         <source>Error: Received Map missed &apos;version&apos;.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../cpp/datautil.cpp" line="1703"/>
+        <location filename="../cpp/datautil.cpp" line="1788"/>
         <source>Error: &apos;Version&apos; wrong: </source>
         <translation></translation>
     </message>
@@ -541,17 +541,17 @@ More info inside src.</source>
 <context>
     <name>DrawerTitleBar</name>
     <message>
-        <location filename="../qml/navigation/DrawerTitleBar.qml" line="93"/>
+        <location filename="../qml/navigation/DrawerTitleBar.qml" line="100"/>
         <source>Help</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/navigation/DrawerTitleBar.qml" line="99"/>
+        <location filename="../qml/navigation/DrawerTitleBar.qml" line="106"/>
         <source>Settings</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/navigation/DrawerTitleBar.qml" line="105"/>
+        <location filename="../qml/navigation/DrawerTitleBar.qml" line="112"/>
         <source>About</source>
         <translation></translation>
     </message>
@@ -714,7 +714,18 @@ QtCon 2016, Berlin
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HelpPage.qml" line="156"/>
+        <location filename="../qml/pages/HelpPage.qml" line="157"/>
+        <source>Navigation</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/HelpPage.qml" line="162"/>
+        <source>QtCon Conference app uses some special Navigation Styles to speed up Navigation.
+If you don&apos;t like this way to go and want to use Google Material Classic Navigation Style you can customize this from &apos;Settings&apos;.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/HelpPage.qml" line="168"/>
         <source>Need more Infos ?
 Follow @ekkescorner at Twitter
 follow ekkes blogs:
@@ -722,12 +733,12 @@ http://appbus.org and http://ekkes-corner.org</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HelpPage.qml" line="170"/>
+        <location filename="../qml/pages/HelpPage.qml" line="183"/>
         <source>Init done from HELP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HelpPage.qml" line="174"/>
+        <location filename="../qml/pages/HelpPage.qml" line="187"/>
         <source>Cleanup done from HELP</source>
         <translation type="unfinished"></translation>
     </message>
@@ -735,55 +746,59 @@ http://appbus.org and http://ekkes-corner.org</source>
 <context>
     <name>HomePage</name>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="59"/>
-        <source>Welcome to ekke&apos;s Conference2Go APP
-QtCon 2016, Berlin
+        <location filename="../qml/pages/HomePage.qml" line="51"/>
+        <source>QtCon 2016, Berlin
 01. - 04. September</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="70"/>
+        <location filename="../qml/pages/HomePage.qml" line="62"/>
+        <source>Welcome to ekke&apos;s Conference2Go app</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/HomePage.qml" line="73"/>
         <source>Developed with Qt 5.7
 Qt Quick Controls 2
 (Material Style)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="108"/>
+        <location filename="../qml/pages/HomePage.qml" line="110"/>
         <source>Sorry - the Conference is closed.
 No more Updates available</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="113"/>
+        <location filename="../qml/pages/HomePage.qml" line="115"/>
         <source>Checking QtCon Server
 for new Schedule Data ...</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="136"/>
+        <location filename="../qml/pages/HomePage.qml" line="138"/>
         <source>Update available.
 API Version: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="143"/>
+        <location filename="../qml/pages/HomePage.qml" line="145"/>
         <source>No Update required.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="149"/>
+        <location filename="../qml/pages/HomePage.qml" line="151"/>
         <source>Version Check failed:
 </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="188"/>
+        <location filename="../qml/pages/HomePage.qml" line="190"/>
         <source>Init done from Home Page</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/HomePage.qml" line="192"/>
+        <location filename="../qml/pages/HomePage.qml" line="194"/>
         <source>Cleanup done from Home Page</source>
         <translation type="unfinished"></translation>
     </message>
@@ -984,12 +999,12 @@ Tap on the &apos;Star&apos; to add or remove</source>
 <context>
     <name>RoomDetailPage</name>
     <message>
-        <location filename="../qml/pages/RoomDetailPage.qml" line="108"/>
+        <location filename="../qml/pages/RoomDetailPage.qml" line="111"/>
         <source>Init done from RoomDetailPage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/RoomDetailPage.qml" line="112"/>
+        <location filename="../qml/pages/RoomDetailPage.qml" line="116"/>
         <source>Cleanup done from RoomDetailPage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1004,7 +1019,7 @@ Tap on the &apos;Star&apos; to add or remove</source>
     <message>
         <location filename="../qml/pages/RoomListPage.qml" line="70"/>
         <source> Sessions</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../qml/pages/RoomListPage.qml" line="124"/>
@@ -1038,12 +1053,12 @@ Tap on the &apos;Star&apos; to add or remove</source>
 <context>
     <name>ScheduleNavigation</name>
     <message>
-        <location filename="../qml/navigation/ScheduleNavigation.qml" line="239"/>
+        <location filename="../qml/navigation/ScheduleNavigation.qml" line="237"/>
         <source>GoTo Talks @</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/navigation/ScheduleNavigation.qml" line="250"/>
+        <location filename="../qml/navigation/ScheduleNavigation.qml" line="248"/>
         <source>No Time selected</source>
         <translation></translation>
     </message>
@@ -1051,42 +1066,42 @@ Tap on the &apos;Star&apos; to add or remove</source>
 <context>
     <name>SessionDetailPage</name>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="91"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="90"/>
         <source>Added to Personal Schedule</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="93"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="92"/>
         <source>Removed from Personal Schedule</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="149"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="157"/>
         <source>Room: </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="215"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="223"/>
         <source>Speaker</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="223"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="231"/>
         <source>Tap on the Speaker Data to get the Details.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="258"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="266"/>
         <source>Unnamed Speaker</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="290"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="303"/>
         <source>Init done from SessionDetailPage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="294"/>
+        <location filename="../qml/pages/SessionDetailPage.qml" line="307"/>
         <source>Cleanup done from SessionDetailPage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1094,17 +1109,17 @@ Tap on the &apos;Star&apos; to add or remove</source>
 <context>
     <name>SessionListView</name>
     <message>
-        <location filename="../qml/pages/SessionListView.qml" line="133"/>
+        <location filename="../qml/pages/SessionListView.qml" line="144"/>
         <source>Room </source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionListView.qml" line="166"/>
+        <location filename="../qml/pages/SessionListView.qml" line="177"/>
         <source>Added to Personal Schedule</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SessionListView.qml" line="168"/>
+        <location filename="../qml/pages/SessionListView.qml" line="179"/>
         <source>Removed from Personal Schedule</source>
         <translation></translation>
     </message>
@@ -1112,63 +1127,150 @@ Tap on the &apos;Star&apos; to add or remove</source>
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="35"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="37"/>
         <source>Conference2Go
 QtCon 2016, Berlin
 (Qt 5.7 - Android + iOS)</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="45"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="44"/>
+        <source>Theme</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="52"/>
         <source>Dark Theme</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="65"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="68"/>
+        <source>Colors</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="77"/>
         <source>Primary Color:
 Tap on Color Rectangle to edit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="90"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="102"/>
         <source>Accent Color:
 Tap on Color Rectangle to edit</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="132"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="126"/>
         <source>Default Theme:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="140"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="134"/>
         <source>Light Theme
 Primary Color: Indigo
 Accent Color: Deep Orange</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="150"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="145"/>
         <source>Hint:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="159"/>
-        <source>Switching to aDark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.</source>
+        <location filename="../qml/pages/SettingsPage.qml" line="154"/>
+        <source>Switching to Dark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="170"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="160"/>
+        <source>Navigation Style</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="168"/>
+        <source>Classic Material Navigation</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="189"/>
+        <source>Menu and Back Buttons: Top-Left
+Back Button on Android also at bottom.
+Open Drawer: swipe from left side or tap on Menu Button.
+This is the classic Navigation Style using a Drawer to get access to all destinations.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="196"/>
+        <source>Material Bottom Navigation</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="217"/>
+        <source>Same as Classic Navigation
+plus: Bottom Navigation Bar.
+Bottom Navigation is a new way Google added recently to Google Material Style Guide.
+Bottom Navigation Bar is only visible in Portrait Mode - in Landscape Mode it would occupy too much space from available height.
+QtCon Conference App uses Bottom Navigation Bar for easy access to Home, Schedule, Speaker and Tracks.
+To access other destinations you must open Drawer from Menu Button or swipe from left side.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="224"/>
+        <source>One Hand Comfort Navigation</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="243"/>
+        <source>Same as Classic Navigation plus Bottom Navigation Bar
+plus: Menu Button (Hamburger Button) added to left most position of Bottom Navigation Bar.
+Now the Menu Button can be reached easy without moving fingers to Top Left Menu Button.
+Coming from BlackBerry 10 ? Then you already used the Menu Button from bottom left.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="253"/>
+        <source>Only one Menu Button</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="269"/>
+        <source>Using the Comfort Navigation and you don&apos;t like to have two Menu Buttons ?
+You can hide the Top-Left Menu Button in Portrait Mode and always use the one from Bottom Navigation Bar.</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="276"/>
+        <source>Stack Navigation</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="284"/>
+        <source>ekke&apos;s Speed Navigation</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="300"/>
+        <source>ekke&apos;s goal is always to provide apps with fluid and fast workflow.
+Some Pages are pushed on top of a Stack. To navigate back you must hit the Back Button.
+It&apos;s a common use-case that there are some Pages on the Stack - per ex. Schedule-&gt;Session Detail -&gt; Room Floorplan.
+To go back to your List of Sessions you have to hit the Back Button multiple times. On Android you can use the bottom Back Button, but on iOS you always have to hit the Back Button from Top-Left.
+To provide a faster workflow and also comfortable using the Smartphone with one hand, the FAB (Floating Action Button) is used to jump back to the last List below.
+You&apos;re confused ? Switch it off</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="312"/>
         <source>Version:</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="193"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="336"/>
         <source>Init done from SettingsPage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="197"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="341"/>
         <source>Cleanup done from SettingsPage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1240,12 +1342,12 @@ Tap on the Star Icon to add to / remove from your personal schedule.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="317"/>
+        <location filename="../qml/pages/SpeakerDetailPage.qml" line="325"/>
         <source>Init done from SpeakerDetailPage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="321"/>
+        <location filename="../qml/pages/SpeakerDetailPage.qml" line="329"/>
         <source>Cleanup done from SpeakerDetailPage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1271,7 +1373,7 @@ Tap on the Star Icon to add to / remove from your personal schedule.</source>
 <context>
     <name>SpeakerNavigation</name>
     <message>
-        <location filename="../qml/navigation/SpeakerNavigation.qml" line="163"/>
+        <location filename="../qml/navigation/SpeakerNavigation.qml" line="162"/>
         <source>GoTo</source>
         <translation></translation>
     </message>
@@ -1348,22 +1450,22 @@ Tap on the Star Icon to add to / remove from your personal schedule.</source>
 <context>
     <name>TrackListPage</name>
     <message>
-        <location filename="../qml/pages/TrackListPage.qml" line="65"/>
-        <source>* no Track assigned *</source>
+        <location filename="../qml/pages/TrackListPage.qml" line="77"/>
+        <source>* No Track assigned *</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TrackListPage.qml" line="71"/>
+        <location filename="../qml/pages/TrackListPage.qml" line="83"/>
         <source> Sessions</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TrackListPage.qml" line="100"/>
+        <location filename="../qml/pages/TrackListPage.qml" line="116"/>
         <source>Init done from trackListPage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/TrackListPage.qml" line="107"/>
+        <location filename="../qml/pages/TrackListPage.qml" line="123"/>
         <source>Cleanup done from trackListPage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1410,84 +1512,84 @@ Tap on the Star Icon to add to / remove from your personal schedule.</source>
     <message>
         <location filename="../qml/main.qml" line="38"/>
         <location filename="../qml/main.qml" line="40"/>
-        <location filename="../qml/main.qml" line="142"/>
+        <location filename="../qml/main.qml" line="145"/>
         <source>Schedule</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="143"/>
+        <location filename="../qml/main.qml" line="146"/>
         <source>Speaker</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="147"/>
+        <location filename="../qml/main.qml" line="150"/>
         <source>Settings</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="148"/>
+        <location filename="../qml/main.qml" line="151"/>
         <source>Help</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="149"/>
+        <location filename="../qml/main.qml" line="152"/>
         <source>About this App</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="157"/>
+        <location filename="../qml/main.qml" line="160"/>
         <source>QtCon 2016 Berlin</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="159"/>
+        <location filename="../qml/main.qml" line="162"/>
         <source>QtCon 2016 Schedule</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="160"/>
+        <location filename="../qml/main.qml" line="163"/>
         <source>QtCon 2016 Speaker</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="161"/>
+        <location filename="../qml/main.qml" line="164"/>
         <source>QtCon 2016 Tracks</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="162"/>
+        <location filename="../qml/main.qml" line="165"/>
         <source>QtCon 2016 Venue</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="164"/>
+        <location filename="../qml/main.qml" line="167"/>
         <source>QtCon 2016 Settings</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="165"/>
+        <location filename="../qml/main.qml" line="168"/>
         <source>QtCon 2016 Help</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="166"/>
+        <location filename="../qml/main.qml" line="169"/>
         <source>QtCon 2016 About</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="167"/>
+        <location filename="../qml/main.qml" line="170"/>
         <source>QtCon 2016 D E V E L O P E R Tools</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="271"/>
+        <location filename="../qml/main.qml" line="305"/>
         <source>No more Pages
 Please use &apos;Android Home&apos; Button
 to leave the App.</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="561"/>
+        <location filename="../qml/main.qml" line="597"/>
         <source>OK</source>
         <translation></translation>
     </message>
