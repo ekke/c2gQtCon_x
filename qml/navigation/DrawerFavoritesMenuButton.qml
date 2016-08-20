@@ -9,6 +9,7 @@ ToolButton {
     focusPolicy: Qt.NoFocus
     implicitHeight: 56
     implicitWidth: 56
+    visible: appWindow.isComfortNavigationStyle
     Column {
         spacing: 0
         topPadding: 0

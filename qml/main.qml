@@ -205,9 +205,34 @@ ApplicationWindow {
 
     property bool highlightActiveNavigationButton : true
 
+    // NAVIGATION STYLE
+    property SettingsData settings
+    property int myNavigationStyle: settings? settings.navigationStyle : -1
+    onMyNavigationStyleChanged: {
+        if(myNavigationStyle == 2) {
+            isClassicNavigationStyle = true
+            isBottomNavigationStyle = false
+            isComfortNavigationStyle = false
+            return
+        }
+        if(myNavigationStyle == 1) {
+            isClassicNavigationStyle = false
+            isBottomNavigationStyle = true
+            isComfortNavigationStyle = false
+            return
+        }
+        isClassicNavigationStyle = false
+        isBottomNavigationStyle = false
+        isComfortNavigationStyle = true
+    }
+    property bool isClassicNavigationStyle: false
+    property bool isBottomNavigationStyle: false
+    property bool isComfortNavigationStyle: true
+    property bool hasOnlyOneMenu: settings? (settings.oneMenuButton && isComfortNavigationStyle) : false
+
     // header per Page, footer global in Portrait + perhaps per Page, too
     // header and footer invisible until initDone
-    footer: initDone && !isLandscape && drawerLoader.status == Loader.Ready && navigationBar.position == 0 ? favoritesLoader.item : null
+    footer: initDone && !isLandscape &&!isClassicNavigationStyle && drawerLoader.status == Loader.Ready && navigationBar.position == 0 ? favoritesLoader.item : null
     header: (isLandscape && !useDefaultTitleBarInLandscape) || !initDone ? null : titleBar
     // show TITLE  BARS is delayed until INIT DONE
     property bool useDefaultTitleBarInLandscape: false
@@ -388,6 +413,7 @@ ApplicationWindow {
                 initialPlaceholder.item.showInfo("Initialize Data ...")
                 if(!initialPlaceholder.isUpdate) {
                     dataManager.init()
+                    settings = dataManager.settingsData()
                 }
                 dataUtil.setSessionFavorites()
                 dataManager.resolveReferencesForAllSpeaker()
@@ -529,11 +555,12 @@ ApplicationWindow {
         visible: initDone
         source: "navigation/DrawerNavigationBar.qml"
     }
+
     Loader {
         id: favoritesLoader
         active: initDone
-        // visible: initDone && !isLandscape && (drawerLoader.status == Loader.Ready? navigationBar.position == 0 : false)
-        visible: initDone && !isLandscape && drawerLoader.status == Loader.Ready && navigationBar.position == 0
+        // attention: set also footer !
+        visible: initDone && !isLandscape && !isClassicNavigationStyle && drawerLoader.status == Loader.Ready && navigationBar.position == 0
         source: "navigation/DrawerFavoritesNavigationBar.qml"
     }
     function openNavigationBar() {
@@ -595,5 +622,13 @@ ApplicationWindow {
         }
     } // popupError
     // end APP WINDOW POPUPS
+
+    // fallback
+    // from time to time it happens that suddenly the back key exits the app
+    // still exploring this so added a fallback here
+    Keys.onBackPressed: {
+        event.accepted = true
+        console.log("U U U P S - all back keys should be accepted from StackView")
+    }
 
 } // app window

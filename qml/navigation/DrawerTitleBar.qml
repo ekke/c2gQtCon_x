@@ -17,7 +17,7 @@ ToolBar {
         }
 
         ToolButton {
-            visible: !backButton.visible
+            visible: !backButton.visible && !appWindow.hasOnlyOneMenu
             focusPolicy: Qt.NoFocus
             Image {
                 anchors.centerIn: parent
@@ -26,7 +26,14 @@ ToolBar {
             onClicked: {
                 appWindow.openNavigationBar()
             }
-        } // menubutton
+        } // menu button
+        // F A K E
+        // fake button to avoid flicker and repositioning of titleLabel
+        ToolButton {
+            visible: !backButton.visible && appWindow.hasOnlyOneMenu
+            enabled: false
+            focusPolicy: Qt.NoFocus
+        } // fake button
         ToolButton {
             id: backButton
             focusPolicy: Qt.NoFocus
