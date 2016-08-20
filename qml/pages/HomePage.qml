@@ -90,7 +90,7 @@ Pane {
 
     LabelBodySecondary {
         anchors.leftMargin: 22
-        anchors.bottomMargin: isLandscape? 48 : 100
+        anchors.bottomMargin: isLandscape || appWindow.isClassicNavigationStyle? 48 : 100
         anchors.left: parent.left
         anchors.bottom: parent.bottom
         text: dataUtil.apiInfo()
@@ -99,7 +99,7 @@ Pane {
         property string imageName: "/refresh.png"
         z: 1
         anchors.margins: 8
-        anchors.bottomMargin: isLandscape? 60:112
+        anchors.bottomMargin: isLandscape || appWindow.isClassicNavigationStyle? 60:112
         anchors.right: parent.right
         anchors.bottom: parent.bottom
         imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
