@@ -88,7 +88,7 @@ ListView {
                 implicitWidth: appWindow.width
                 Rectangle {
                     anchors.top: theItem.top
-                    height: sessionRow.height
+                    height: sessionRow.height-2
                     width: 8
                     color: model.modelData.isKeynote? "#B2DFDB" : dataUtil.trackColor(model.modelData.sessionTrack)
                 }

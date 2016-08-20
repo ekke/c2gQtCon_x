@@ -49,7 +49,7 @@ Page {
                     implicitWidth: appWindow.width
                     Rectangle {
                         anchors.top: theItem.top
-                        height: trackRow.height
+                        height: trackRow.height-2
                         width: 8
                         color: dataUtil.trackColor(model.modelData.trackId)
                     }

@@ -212,8 +212,8 @@ QString DataUtil::trackColor(const int trackId)
         // Beyond Code
         return "#D1C4E9";
     case 2:
-        // Break
-        return "#FFFFFF";
+        // Break "#FFFFFF"
+        return "grey";
     case 23:
         // Codecs
         return "#E8EAF6";
