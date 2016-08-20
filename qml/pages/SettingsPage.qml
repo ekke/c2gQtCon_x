@@ -183,8 +183,9 @@ Flickable {
                     }
                 } // classicNavigationSwitch
             } // row classicNavigationSwitch
-            LabelBodySecondary {
+            LabelBody {
                 leftPadding: 20
+                rightPadding: 16
                 wrapMode: Text.WordWrap
                 text: qsTr("Menu and Back Buttons: Top-Left\nBack Button on Android also at bottom.\nOpen Drawer: swipe from left side or tap on Menu Button.\nThis is the classic Navigation Style using a Drawer to get access to all destinations.")
             }
@@ -211,8 +212,9 @@ Flickable {
                     }
                 } // bottomNavigationSwitch
             } // row bottomNavigationSwitch
-            LabelBodySecondary {
+            LabelBody {
                 leftPadding: 20
+                rightPadding: 16
                 wrapMode: Text.WordWrap
                 text: qsTr("Same as Classic Navigation\nplus: Bottom Navigation Bar.\nBottom Navigation is a new way Google added recently to Google Material Style Guide.\nBottom Navigation Bar is only visible in Portrait Mode - in Landscape Mode it would occupy too much space from available height.\nQtCon Conference App uses Bottom Navigation Bar for easy access to Home, Schedule, Speaker and Tracks.\nTo access other destinations you must open Drawer from Menu Button or swipe from left side.")
             }
@@ -239,9 +241,10 @@ Flickable {
                     }
                 } // oneHandComfortNavigationSwitch
             } // row bottomNavigationSwitch
-            LabelBodySecondary {
+            LabelBody {
                 text: qsTr("Same as Classic Navigation plus Bottom Navigation Bar\nplus: Menu Button (Hamburger Button) added to left most position of Bottom Navigation Bar.\nNow the Menu Button can be reached easy without moving fingers to Top Left Menu Button.\nComing from BlackBerry 10 ? Then you already used the Menu Button from bottom left.")
                 leftPadding: 20
+                rightPadding: 16
                 wrapMode: Text.WordWrap
             }
             RowLayout {
@@ -264,10 +267,11 @@ Flickable {
                     }
                 } // oneMenuSwitch
             } // row oneMenuSwitch
-            LabelBodySecondary {
+            LabelBody {
                 visible: root.settings? root.settings.navigationStyle == 0:false
                 text: qsTr("Using the Comfort Navigation and you don't like to have two Menu Buttons ?\nYou can hide the Top-Left Menu Button in Portrait Mode and always use the one from Bottom Navigation Bar.")
                 leftPadding: 20
+                rightPadding: 16
                 wrapMode: Text.WordWrap
             }
             HorizontalDivider {}
@@ -296,30 +300,31 @@ Flickable {
                     }
                 } // sppeedNavigationSwitch
             } // row sppeedNavigationSwitch
-            LabelBodySecondary {
+            LabelBody {
                 text: qsTr("ekke's goal is always to provide apps with fluid and fast workflow.\nSome Pages are pushed on top of a Stack. To navigate back you must hit the Back Button.\nIt's a common use-case that there are some Pages on the Stack - per ex. Schedule->Session Detail -> Room Floorplan.\nTo go back to your List of Sessions you have to hit the Back Button multiple times. On Android you can use the bottom Back Button, but on iOS you always have to hit the Back Button from Top-Left.\nTo provide a faster workflow and also comfortable using the Smartphone with one hand, the FAB (Floating Action Button) is used to jump back to the last List below.\nYou're confused ? Switch it off")
                 leftPadding: 20
+                rightPadding: 16
                 wrapMode: Text.WordWrap
             }
             HorizontalDivider {}
-            RowLayout {
-                LabelBodySecondary {
-                    Layout.preferredWidth: 1
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Version:")
-                }
-                LabelBody {
-                    Layout.preferredWidth: 2
-                    topPadding: 6
-                    leftPadding: 10
-                    rightPadding: 10
-                    wrapMode: Text.WordWrap
-                    text: dataManager.settingsData().version
-                }
-            }
+//            RowLayout {
+//                LabelBodySecondary {
+//                    Layout.preferredWidth: 1
+//                    topPadding: 6
+//                    leftPadding: 10
+//                    rightPadding: 10
+//                    wrapMode: Text.WordWrap
+//                    text: qsTr("Version:")
+//                }
+//                LabelBody {
+//                    Layout.preferredWidth: 2
+//                    topPadding: 6
+//                    leftPadding: 10
+//                    rightPadding: 10
+//                    wrapMode: Text.WordWrap
+//                    text: dataManager.settingsData().version
+//                }
+//            }
         } // col layout
 
     } // root
