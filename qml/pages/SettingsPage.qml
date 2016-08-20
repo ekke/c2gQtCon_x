@@ -233,7 +233,7 @@ Flickable {
                     onCheckedChanged: {
                         if(root.settings && checked ) {
                             root.settings.navigationStyle = 0
-                            oneHandNavigationSwitch.checked = false
+                            bottomNavigationSwitch.checked = false
                             classicNavigationSwitch.checked = false
                         }
                     }

@@ -200,7 +200,7 @@ Page {
     } // navPane
 
     FloatingActionButton {
-        visible: navPane.depth > 1
+        visible: navPane.depth > 1 && !dataManager.settingsData().classicStackNavigation
         property string imageName: "/list.png"
         z: 1
         anchors.margins: 20

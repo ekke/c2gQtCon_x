@@ -192,7 +192,7 @@ Page {
         }
     } // FAB
     FloatingActionButton {
-        visible: navPane.depth == 2
+        visible: navPane.depth == 2 && !dataManager.settingsData().classicStackNavigation
         property string imageName: "/venue.png"
         z: 1
         anchors.margins: 20
@@ -205,7 +205,7 @@ Page {
         }
     } // FAB
     FloatingActionButton {
-        visible: navPane.depth == 3
+        visible: navPane.depth == 3 && !dataManager.settingsData().classicStackNavigation
         property string imageName: "/directions.png"
         z: 1
         anchors.margins: 20
@@ -218,7 +218,7 @@ Page {
         }
     } // FAB
     FloatingActionButton {
-        visible: navPane.depth > 3
+        visible: navPane.depth > 3 && !dataManager.settingsData().classicStackNavigation
         property string imageName: "/list.png"
         z: 1
         anchors.margins: 20
