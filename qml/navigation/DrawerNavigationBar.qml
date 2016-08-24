@@ -65,10 +65,9 @@ Drawer {
                     height: 64
                     x: 16
                     y: 12
-                    IconColored {
+                    IconOnPrimary {
                         imageName: "venue.png"
                         imageSize: 36
-                        color: textOnPrimary
                     }
                 }
                 Item {
@@ -76,10 +75,9 @@ Drawer {
                     height: 64
                     x: 16+64
                     y: 16
-                    IconColored {
+                    IconOnPrimary {
                         imageName: "schedule.png"
                         imageSize: 36
-                        color: textOnPrimary
                     }
                 }
                 Item {
@@ -87,10 +85,9 @@ Drawer {
                     height: 64
                     x: 16+64+64
                     y: 12
-                    IconColored {
+                    IconOnPrimary {
                         imageName: "speaker.png"
                         imageSize: 36
-                        color: textOnPrimary
                     }
                 }
             }

@@ -80,5 +80,7 @@
         <file>qml/popups/LetterPicker.qml</file>
         <file>qml/pages/HelpRow.qml</file>
         <file>qml/popups/PopupUpdate.qml</file>
+        <file>qml/common/IconOnPrimary.qml</file>
+        <file>qml/common/IconOnAccent.qml</file>
     </qresource>
 </RCC>
