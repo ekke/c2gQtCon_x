@@ -108,12 +108,12 @@ Page {
     // called immediately after Loader.loaded
     function init() {
         fitIntoWindow()
-        console.log(qsTr("Init done from RoomDetailPage"))
+        console.log("Init done from RoomDetailPage")
         appWindow.setDefaultTitleBarInLandscape()
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from RoomDetailPage"))
+        console.log("Cleanup done from RoomDetailPage")
         appWindow.resetDefaultTitleBarInLandscape()
     }
 

@@ -121,12 +121,12 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from SpeakerListPage"))
+        console.log("Init done from SpeakerListPage")
         console.log("Speaker# "+dataManager.speakerPropertyList.length)
         listView.model = dataManager.speakerPropertyList
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from SpeakerListPage"))
+        console.log("Cleanup done from SpeakerListPage")
     }
 } // end primaryPage

@@ -80,7 +80,7 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init from trackSessionListPage"))
+        console.log("Init from trackSessionListPage")
         sessionTrack = dataManager.findSessionTrackByTrackId(trackId)
         // model.modelData.name != "*****" model.modelData.name : qsTr("* no Track assigned *")
         if(sessionTrack.name != "*****") {
@@ -94,6 +94,6 @@ Page {
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from trackSessionListPage"))
+        console.log("Cleanup done from trackSessionListPage")
     }
 } // end primaryPage

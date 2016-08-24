@@ -113,13 +113,13 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from trackListPage"))
+        console.log("Init done from trackListPage")
         console.log("Tracks # "+dataManager.sessionTrackPropertyList.length)
         dataUtil.resolveSessionsForTracks()
         listView.model = dataManager.sessionTrackPropertyList
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from trackListPage"))
+        console.log("Cleanup done from trackListPage")
     }
 } // end tracklistPage

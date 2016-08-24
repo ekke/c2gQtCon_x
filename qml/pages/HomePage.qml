@@ -187,10 +187,10 @@ Pane {
     function init() {
         fitIntoWindow()
         conference = dataManager.conferencePropertyList[0]
-        console.log(qsTr("Init done from Home Page"))
+        console.log("Init done from Home Page")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from Home Page"))
+        console.log("Cleanup done from Home Page")
     }
 } // flickable

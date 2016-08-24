@@ -180,10 +180,10 @@ Flickable {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from ABOUT"))
+        console.log("Init done from ABOUT")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from ABOUT"))
+        console.log("Cleanup done from ABOUT")
     }
 } // flickable

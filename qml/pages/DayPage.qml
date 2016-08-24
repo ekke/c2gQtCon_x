@@ -78,7 +78,7 @@ Page {
     // called immediately after Loader.loaded
 
     function init() {
-        console.log(qsTr("Init done from dayListPage"))
+        console.log("Init done from dayListPage")
         console.log("Day# "+dataManager.dayPropertyList.length)
         conferenceDay = dataManager.dayPropertyList[index]
         console.log(conferenceDay.conferenceDay)
@@ -87,6 +87,6 @@ Page {
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from dayListPage"))
+        console.log("Cleanup done from dayListPage")
     }
 } // end primaryPage

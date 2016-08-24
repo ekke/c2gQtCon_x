@@ -103,7 +103,7 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init from myScheduleListPage"))
+        console.log("Init from myScheduleListPage")
 
         // send signal to refresh the list model
         dataUtil.refreshMySchedule()
@@ -112,6 +112,6 @@ Page {
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from myScheduleListPage"))
+        console.log("Cleanup done from myScheduleListPage")
     }
 } // end primaryPage

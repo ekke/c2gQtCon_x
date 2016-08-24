@@ -80,7 +80,7 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init from roomSessionListPage"))
+        console.log("Init from roomSessionListPage")
         room = dataManager.findRoomByRoomId(roomId)
         headerLabel.text = qsTr("Room ") + room.roomName
         listView.model = room.sessionsPropertyList
@@ -89,6 +89,6 @@ Page {
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from roomSessionListPage"))
+        console.log("Cleanup done from roomSessionListPage")
     }
 } // end primaryPage

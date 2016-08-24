@@ -88,10 +88,10 @@ Flickable {
     function init() {
         conference = dataManager.findConferenceById(-1)
         fitIntoWindow()
-        console.log(qsTr("Init done from VenuePage"))
+        console.log("Init done from VenuePage")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from VenuePage"))
+        console.log("Cleanup done from VenuePage")
     }
 } // flickable

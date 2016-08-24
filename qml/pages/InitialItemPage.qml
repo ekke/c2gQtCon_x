@@ -65,10 +65,10 @@ Pane {
     }
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from InitialItemPage"))
+        console.log("Init done from InitialItemPage")
     }
     function update() {
-        console.log(qsTr("InitialItemPage running from UPDATE"))
+        console.log("InitialItemPage running from UPDATE")
         imageItem.visible = false
         initLabel.text = qsTr("Conference2Go APP\nfor\nQtCon 2016")
         infoLabel.text = qsTr("Conference Schedule will be updated...")
@@ -85,6 +85,6 @@ Pane {
 
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from InitialItemPage"))
+        console.log("Cleanup done from InitialItemPage")
     }
 } // initialItem

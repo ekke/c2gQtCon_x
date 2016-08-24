@@ -300,11 +300,11 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from SessionDetailPage"))
+        console.log("Init done from SessionDetailPage")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from SessionDetailPage"))
+        console.log("Cleanup done from SessionDetailPage")
     }
 
 } // page

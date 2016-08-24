@@ -322,11 +322,11 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init done from SpeakerDetailPage"))
+        console.log("Init done from SpeakerDetailPage")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from SpeakerDetailPage"))
+        console.log("Cleanup done from SpeakerDetailPage")
     }
 
 } // speakerDetailPage

@@ -338,12 +338,12 @@ Flickable {
     // called immediately after Loader.loaded
     function init() {
         root.settings = dataManager.settingsData()
-        console.log(qsTr("Init done from SettingsPage"))
+        console.log("Init done from SettingsPage")
         console.log("ROOT SETTINGS "+root.settings.navigationStyle)
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from SettingsPage"))
+        console.log("Cleanup done from SettingsPage")
     }
 
 } // flickable

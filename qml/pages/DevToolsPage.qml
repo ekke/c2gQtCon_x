@@ -191,10 +191,10 @@ Flickable {
     // called immediately after Loader.loaded
     function init() {
         root.settingsData = dataManager.settingsData()
-        console.log(qsTr("Init done from DEV TOOLS"))
+        console.log("Init done from DEV TOOLS")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup done from DEV TOOLS"))
+        console.log("Cleanup done from DEV TOOLS")
     }
 } // flickable

@@ -15,7 +15,7 @@ QtCon 2016, Berlin
         <source>Conference2Go QtCon 2016
 developed by ekke (@ekkescorner)</source>
         <translation>Conference2Go QtCon 2016
-entwickwelt von ekke (@ekkescorner)</translation>
+entwickelt von ekke (@ekkescorner)</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="55"/>
@@ -73,7 +73,7 @@ http://bit.ly/qtCon2016App</translation>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="130"/>
         <source>Thanks J-P Nurmi, Mitch Curtis and others @qt.io for help, bug-fixing and inspirations.</source>
-        <translation>Besonderen Dank an J-P Nurmi, Mitch Curtis und andere @ wt.io für Hilfe, Bug Fixing und Inspirationen.</translation>
+        <translation>Besonderen Dank an J-P Nurmi, Mitch Curtis und andere @ qt.io für Hilfe, Bug Fixing und Inspirationen.</translation>
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="139"/>
@@ -91,16 +91,6 @@ Diese Konferenz APP gibt einen kleinen Eindruck, was für APPs Sie erwarten kön
         <location filename="../qml/pages/AboutPage.qml" line="158"/>
         <source>ekke is BlackBerry Elite Developer, Enterprise Platinum Partner and certified Builder for Native.</source>
         <translation>ekke ist BlackBerry Elite Developer, Enterprise Platinum Partner und zertifizierter &apos;Builder for Native.&apos;</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AboutPage.qml" line="183"/>
-        <source>Init done from ABOUT</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AboutPage.qml" line="187"/>
-        <source>Cleanup done from ABOUT</source>
-        <translation></translation>
     </message>
 </context>
 <context>
@@ -203,16 +193,6 @@ Diese Konferenz APP gibt einen kleinen Eindruck, was für APPs Sie erwarten kön
     <message>
         <location filename="../qml/pages/AccentColorPage.qml" line="88"/>
         <source>Material BlueGrey</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AccentColorPage.qml" line="99"/>
-        <source>Init AccentColorPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AccentColorPage.qml" line="103"/>
-        <source>Cleanup AccentColorPage</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -466,16 +446,6 @@ Letzte Daten werden wiederhergestellt.</translation>
         <source>Too late for a Session</source>
         <translation>Zu spät für eine Session</translation>
     </message>
-    <message>
-        <location filename="../qml/pages/DayPage.qml" line="81"/>
-        <source>Init done from dayListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/DayPage.qml" line="90"/>
-        <source>Cleanup done from dayListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>DevToolsPage</name>
@@ -532,16 +502,6 @@ More info inside src.</source>
         <location filename="../qml/pages/DevToolsPage.qml" line="177"/>
         <source>Conference data stored at:
 /storage/emulated/0/data/ekkescorner/c2gQtCon_x/data/conference/</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/DevToolsPage.qml" line="194"/>
-        <source>Init done from DEV TOOLS</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/DevToolsPage.qml" line="198"/>
-        <source>Cleanup done from DEV TOOLS</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -743,16 +703,6 @@ Folge @ekkescorner bei Twitter
 Folge ekkes blogs:
 http://appbus.org and http://ekkes-corner.org</translation>
     </message>
-    <message>
-        <location filename="../qml/pages/HelpPage.qml" line="183"/>
-        <source>Init done from HELP</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/HelpPage.qml" line="187"/>
-        <source>Cleanup done from HELP</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>HomePage</name>
@@ -817,16 +767,6 @@ API Version:</translation>
         <translation>Versionsprüfung fehlgeschlagen:
 </translation>
     </message>
-    <message>
-        <location filename="../qml/pages/HomePage.qml" line="190"/>
-        <source>Init done from Home Page</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/HomePage.qml" line="194"/>
-        <source>Cleanup done from Home Page</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>InitialItemPage</name>
@@ -842,16 +782,6 @@ für
 QtCon 2016</translation>
     </message>
     <message>
-        <location filename="../qml/pages/InitialItemPage.qml" line="68"/>
-        <source>Init done from InitialItemPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/InitialItemPage.qml" line="71"/>
-        <source>InitialItemPage running from UPDATE</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/InitialItemPage.qml" line="73"/>
         <source>Conference2Go APP
 for
@@ -864,11 +794,6 @@ QtCon 2016</translation>
         <location filename="../qml/pages/InitialItemPage.qml" line="74"/>
         <source>Conference Schedule will be updated...</source>
         <translation>Konferenz Zeitplan wird aktualisiert...</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/InitialItemPage.qml" line="88"/>
-        <source>Cleanup done from InitialItemPage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -884,16 +809,6 @@ QtCon 2016</translation>
 Tap on the &apos;Star&apos; to add or remove</source>
         <translation>Ihr Persönlicher Zeitplan ist noch leer.
 Aud den &apos;Strern&apos; tippen um hinzuzufügen</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MySchedulePage.qml" line="106"/>
-        <source>Init from myScheduleListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/MySchedulePage.qml" line="115"/>
-        <source>Cleanup done from myScheduleListPage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1016,29 +931,6 @@ Aud den &apos;Strern&apos; tippen um hinzuzufügen</translation>
         <source>Material BlueGrey</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <location filename="../qml/pages/PrimaryColorPage.qml" line="93"/>
-        <source>Init done from PrimaryColorPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/PrimaryColorPage.qml" line="97"/>
-        <source>Cleanup done from PrimaryColorPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>RoomDetailPage</name>
-    <message>
-        <location filename="../qml/pages/RoomDetailPage.qml" line="111"/>
-        <source>Init done from RoomDetailPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/RoomDetailPage.qml" line="116"/>
-        <source>Cleanup done from RoomDetailPage</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>RoomListPage</name>
@@ -1052,33 +944,13 @@ Aud den &apos;Strern&apos; tippen um hinzuzufügen</translation>
         <source> Sessions</source>
         <translation></translation>
     </message>
-    <message>
-        <location filename="../qml/pages/RoomListPage.qml" line="124"/>
-        <source>Init done from RoomListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/RoomListPage.qml" line="131"/>
-        <source>Cleanup done from RoomListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>RoomSessionListPage</name>
     <message>
-        <location filename="../qml/pages/RoomSessionListPage.qml" line="83"/>
-        <source>Init from roomSessionListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/RoomSessionListPage.qml" line="85"/>
         <source>Room </source>
         <translation>Raum</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/RoomSessionListPage.qml" line="92"/>
-        <source>Cleanup done from roomSessionListPage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1125,16 +997,6 @@ Aud den &apos;Strern&apos; tippen um hinzuzufügen</translation>
         <location filename="../qml/pages/SessionDetailPage.qml" line="266"/>
         <source>Unnamed Speaker</source>
         <translation>Unbekannter Sprecher</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="303"/>
-        <source>Init done from SessionDetailPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SessionDetailPage.qml" line="307"/>
-        <source>Cleanup done from SessionDetailPage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1228,7 +1090,7 @@ Akzentfarbe: Deep Orange</translation>
         <translation>Klassische Material Navigation</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="189"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="190"/>
         <source>Menu and Back Buttons: Top-Left
 Back Button on Android also at bottom.
 Open Drawer: swipe from left side or tap on Menu Button.
@@ -1239,12 +1101,12 @@ Zurück Button unter Android auch ganz unten.
 Dies ist der normale Weg unter Material, wenn ein &apos;Drawer&apos; genutzt wird, um die einzelnen Programmbereiche auszuwählen.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="196"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="197"/>
         <source>Material Bottom Navigation</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="217"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="219"/>
         <source>Same as Classic Navigation
 plus: Bottom Navigation Bar.
 Bottom Navigation is a new way Google added recently to Google Material Style Guide.
@@ -1259,12 +1121,12 @@ QtCon Konferenz APP nutzt die &apos;Bottom Navigation Bar&apos; um schnell auf &
 Um andere Programmbereiche aufzurufen, muss der &apos;Drawer&apos; mit dem Menu Button oder durch Wischen vom linken Rand geöffnet werden.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="224"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="226"/>
         <source>One Hand Comfort Navigation</source>
         <translation>Komfort Navigation (mit einer Hand)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="243"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="245"/>
         <source>Same as Classic Navigation plus Bottom Navigation Bar
 plus: Menu Button (Hamburger Button) added to left most position of Bottom Navigation Bar.
 Now the Menu Button can be reached easy without moving fingers to Top Left Menu Button.
@@ -1275,29 +1137,29 @@ Jetzt kann der Menu Button erreicht werden, ohne die Finger nach ganz oben links
 Kommen Sie von BlackBerry 10 ? Dann ist Ihnen dieser Button unten links bereits bekannt.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="253"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="256"/>
         <source>Only one Menu Button</source>
         <translation>Nur einen Menu Button</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="269"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="272"/>
         <source>Using the Comfort Navigation and you don&apos;t like to have two Menu Buttons ?
 You can hide the Top-Left Menu Button in Portrait Mode and always use the one from Bottom Navigation Bar.</source>
         <translation>Bei der Komfort Navigation haben Sie zwei Menu Buttons. Gefällt Ihnen nicht ?
 Sie können im Portrait Modus den oberen Button verbergen und immer den aus der Bottom Navigation Bar nutzen.</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="276"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="280"/>
         <source>Stack Navigation</source>
         <translation>Stapel Navigation</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="284"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="288"/>
         <source>ekke&apos;s Speed Navigation</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="300"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="304"/>
         <source>ekke&apos;s goal is always to provide apps with fluid and fast workflow.
 Some Pages are pushed on top of a Stack. To navigate back you must hit the Back Button.
 It&apos;s a common use-case that there are some Pages on the Stack - per ex. Schedule-&gt;Session Detail -&gt; Room Floorplan.
@@ -1315,21 +1177,6 @@ Das verwirrt Sie ? Einfach hier ausschalten.
     <message>
         <source>Switching to aDark Theme please change Primary Color to Blue, Green or so. Indigo itself is too dark.</source>
         <translation type="vanished">Beim Wechsel zum dunklen Thema bitte die Primärfarbe zu Blue, Green o.ä. wechseln. Indigo ist zu dunkel.</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="312"/>
-        <source>Version:</source>
-        <translation></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="336"/>
-        <source>Init done from SettingsPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="341"/>
-        <source>Cleanup done from SettingsPage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1399,16 +1246,6 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <source>Removed from Personal Schedule</source>
         <translation>Vom Persönlichen Zeitplan entfernt</translation>
     </message>
-    <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="325"/>
-        <source>Init done from SpeakerDetailPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="329"/>
-        <source>Cleanup done from SpeakerDetailPage</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>SpeakerListPage</name>
@@ -1416,16 +1253,6 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <location filename="../qml/pages/SpeakerListPage.qml" line="57"/>
         <source>Unnamed Speaker</source>
         <translation>Unbekannter Sprecher</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SpeakerListPage.qml" line="124"/>
-        <source>Init done from SpeakerListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SpeakerListPage.qml" line="130"/>
-        <source>Cleanup done from SpeakerListPage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1521,46 +1348,13 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <source> Sessions</source>
         <translation></translation>
     </message>
-    <message>
-        <location filename="../qml/pages/TrackListPage.qml" line="116"/>
-        <source>Init done from trackListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/TrackListPage.qml" line="123"/>
-        <source>Cleanup done from trackListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>TrackSessionListPage</name>
     <message>
-        <location filename="../qml/pages/TrackSessionListPage.qml" line="83"/>
-        <source>Init from trackSessionListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/TrackSessionListPage.qml" line="89"/>
         <source>* no Track assigned *</source>
         <translation>* kein Track zugeordnet *</translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/TrackSessionListPage.qml" line="97"/>
-        <source>Cleanup done from trackSessionListPage</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>VenuePage</name>
-    <message>
-        <location filename="../qml/pages/VenuePage.qml" line="91"/>
-        <source>Init done from VenuePage</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/VenuePage.qml" line="95"/>
-        <source>Cleanup done from VenuePage</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1579,9 +1373,8 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <translation>Zeitplan</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="146"/>
         <source>Speaker</source>
-        <translation>Sprecher</translation>
+        <translation type="vanished">Sprecher</translation>
     </message>
     <message>
         <location filename="../qml/main.qml" line="150"/>
@@ -1609,8 +1402,17 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <translation>QtCon 2016 Zeitplan</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="163"/>
         <source>QtCon 2016 Speaker</source>
+        <translation type="vanished">QtCon 2016 Sprecher</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="146"/>
+        <source>Speakers</source>
+        <translation>Sprecher</translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="163"/>
+        <source>QtCon 2016 Speakers</source>
         <translation>QtCon 2016 Sprecher</translation>
     </message>
     <message>

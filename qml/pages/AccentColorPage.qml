@@ -96,10 +96,10 @@ Page {
 
     // called immediately after Loader.loaded
     function init() {
-        console.log(qsTr("Init AccentColorPage"))
+        console.log("Init AccentColorPage")
     }
     // called from Component.destruction
     function cleanup() {
-        console.log(qsTr("Cleanup AccentColorPage"))
+        console.log("Cleanup AccentColorPage")
     }
 } // end accentPage
