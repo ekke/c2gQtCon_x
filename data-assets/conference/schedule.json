@@ -15,6 +15,7 @@
                  
                   {
                     "id": "693",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "C01",
@@ -34,6 +35,7 @@
  
                   {
                     "id": "692",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "C01",
@@ -53,6 +55,7 @@
  
                   {
                     "id": "697",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "C01",
@@ -72,6 +75,7 @@
  
                   {
                     "id": "694",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "C01",
@@ -91,6 +95,7 @@
  
                   {
                     "id": "698",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "C01",
@@ -110,6 +115,7 @@
  
                   {
                     "id": "695",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "C01",
@@ -129,6 +135,7 @@
  
                   {
                     "id": "699",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "C01",
@@ -148,6 +155,7 @@
  
                   {
                     "id": "696",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "C01",
@@ -167,6 +175,7 @@
  
                   {
                     "id": "700",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "C01",
@@ -186,6 +195,7 @@
  
                   {
                     "id": "710",
+                    "hideInApp": "0",
                     "start": "19:55",
                     "duration": "00:05",
                     "room": "C01",
@@ -207,6 +217,7 @@
                  
                   {
                     "id": "638",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B05+B06",
@@ -226,6 +237,7 @@
  
                   {
                     "id": "643",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -245,6 +257,7 @@
  
                   {
                     "id": "640",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B05+B06",
@@ -264,6 +277,7 @@
  
                   {
                     "id": "644",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B05+B06",
@@ -283,6 +297,7 @@
  
                   {
                     "id": "641",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B05+B06",
@@ -302,6 +317,7 @@
  
                   {
                     "id": "645",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B05+B06",
@@ -321,6 +337,7 @@
  
                   {
                     "id": "642",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B05+B06",
@@ -340,6 +357,7 @@
  
                   {
                     "id": "646",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B05+B06",
@@ -361,6 +379,7 @@
                  
                   {
                     "id": "648",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -380,6 +399,7 @@
  
                   {
                     "id": "647",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B07+B08",
@@ -399,6 +419,7 @@
  
                   {
                     "id": "652",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -418,6 +439,7 @@
  
                   {
                     "id": "649",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B07+B08",
@@ -437,6 +459,7 @@
  
                   {
                     "id": "653",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B07+B08",
@@ -456,6 +479,7 @@
  
                   {
                     "id": "650",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B07+B08",
@@ -475,6 +499,7 @@
  
                   {
                     "id": "654",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B07+B08",
@@ -494,6 +519,7 @@
  
                   {
                     "id": "651",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B07+B08",
@@ -513,6 +539,7 @@
  
                   {
                     "id": "655",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B07+B08",
@@ -534,6 +561,7 @@
                  
                   {
                     "id": "657",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B09",
@@ -553,6 +581,7 @@
  
                   {
                     "id": "656",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B09",
@@ -572,6 +601,7 @@
  
                   {
                     "id": "661",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B09",
@@ -591,6 +621,7 @@
  
                   {
                     "id": "658",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B09",
@@ -610,6 +641,7 @@
  
                   {
                     "id": "662",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B09",
@@ -629,6 +661,7 @@
  
                   {
                     "id": "659",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B09",
@@ -648,6 +681,7 @@
  
                   {
                     "id": "663",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B09",
@@ -667,6 +701,7 @@
  
                   {
                     "id": "660",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B09",
@@ -686,6 +721,7 @@
  
                   {
                     "id": "664",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B09",
@@ -707,6 +743,7 @@
                  
                   {
                     "id": "594",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "A03",
@@ -726,6 +763,7 @@
  
                   {
                     "id": "593",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "A03",
@@ -745,6 +783,7 @@
  
                   {
                     "id": "598",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "A03",
@@ -764,6 +803,7 @@
  
                   {
                     "id": "595",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "A03",
@@ -783,6 +823,7 @@
  
                   {
                     "id": "599",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "A03",
@@ -802,6 +843,7 @@
  
                   {
                     "id": "596",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "A03",
@@ -821,6 +863,7 @@
  
                   {
                     "id": "600",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "A03",
@@ -840,6 +883,7 @@
  
                   {
                     "id": "597",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "A03",
@@ -859,6 +903,7 @@
  
                   {
                     "id": "601",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "A03",
@@ -880,6 +925,7 @@
                  
                   {
                     "id": "603",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "A04",
@@ -899,6 +945,7 @@
  
                   {
                     "id": "602",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "A04",
@@ -918,6 +965,7 @@
  
                   {
                     "id": "607",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "A04",
@@ -937,6 +985,7 @@
  
                   {
                     "id": "604",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "A04",
@@ -956,6 +1005,7 @@
  
                   {
                     "id": "608",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "A04",
@@ -975,6 +1025,7 @@
  
                   {
                     "id": "605",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "A04",
@@ -994,6 +1045,7 @@
  
                   {
                     "id": "609",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "A04",
@@ -1013,6 +1065,7 @@
  
                   {
                     "id": "606",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "A04",
@@ -1032,6 +1085,7 @@
  
                   {
                     "id": "610",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "A04",
@@ -1053,6 +1107,7 @@
                  
                   {
                     "id": "630",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "A08",
@@ -1072,6 +1127,7 @@
  
                   {
                     "id": "629",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "A08",
@@ -1091,6 +1147,7 @@
  
                   {
                     "id": "634",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "A08",
@@ -1110,6 +1167,7 @@
  
                   {
                     "id": "631",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "A08",
@@ -1129,6 +1187,7 @@
  
                   {
                     "id": "635",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "A08",
@@ -1148,6 +1207,7 @@
  
                   {
                     "id": "632",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "A08",
@@ -1167,6 +1227,7 @@
  
                   {
                     "id": "636",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "A08",
@@ -1186,6 +1247,7 @@
  
                   {
                     "id": "633",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "A08",
@@ -1205,6 +1267,7 @@
  
                   {
                     "id": "637",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "A08",
@@ -1226,6 +1289,7 @@
                  
                   {
                     "id": "621",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "A06",
@@ -1245,6 +1309,7 @@
  
                   {
                     "id": "620",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "A06",
@@ -1264,6 +1329,7 @@
  
                   {
                     "id": "625",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "A06",
@@ -1283,6 +1349,7 @@
  
                   {
                     "id": "622",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "A06",
@@ -1302,6 +1369,7 @@
  
                   {
                     "id": "626",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "A06",
@@ -1321,6 +1389,7 @@
  
                   {
                     "id": "623",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "A06",
@@ -1340,6 +1409,7 @@
  
                   {
                     "id": "627",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "A06",
@@ -1359,6 +1429,7 @@
  
                   {
                     "id": "624",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "A06",
@@ -1378,6 +1449,7 @@
  
                   {
                     "id": "628",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "A06",
@@ -1399,6 +1471,7 @@
                  
                   {
                     "id": "612",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "A05",
@@ -1418,6 +1491,7 @@
  
                   {
                     "id": "611",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "A05",
@@ -1437,6 +1511,7 @@
  
                   {
                     "id": "616",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "A05",
@@ -1456,6 +1531,7 @@
  
                   {
                     "id": "613",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "A05",
@@ -1475,6 +1551,7 @@
  
                   {
                     "id": "617",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "A05",
@@ -1494,6 +1571,7 @@
  
                   {
                     "id": "614",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "A05",
@@ -1513,6 +1591,7 @@
  
                   {
                     "id": "618",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "A05",
@@ -1532,6 +1611,7 @@
  
                   {
                     "id": "615",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "A05",
@@ -1551,6 +1631,7 @@
  
                   {
                     "id": "619",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "A05",
@@ -1572,6 +1653,7 @@
                  
                   {
                     "id": "666",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B03",
@@ -1591,6 +1673,7 @@
  
                   {
                     "id": "665",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B03",
@@ -1610,6 +1693,7 @@
  
                   {
                     "id": "670",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B03",
@@ -1629,6 +1713,7 @@
  
                   {
                     "id": "667",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B03",
@@ -1648,6 +1733,7 @@
  
                   {
                     "id": "671",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B03",
@@ -1667,6 +1753,7 @@
  
                   {
                     "id": "668",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B03",
@@ -1686,6 +1773,7 @@
  
                   {
                     "id": "672",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B03",
@@ -1705,6 +1793,7 @@
  
                   {
                     "id": "669",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B03",
@@ -1724,6 +1813,7 @@
  
                   {
                     "id": "673",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B03",
@@ -1745,6 +1835,7 @@
                  
                   {
                     "id": "675",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B04",
@@ -1764,6 +1855,7 @@
  
                   {
                     "id": "674",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B04",
@@ -1783,6 +1875,7 @@
  
                   {
                     "id": "679",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B04",
@@ -1802,6 +1895,7 @@
  
                   {
                     "id": "676",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B04",
@@ -1821,6 +1915,7 @@
  
                   {
                     "id": "680",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B04",
@@ -1840,6 +1935,7 @@
  
                   {
                     "id": "677",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B04",
@@ -1859,6 +1955,7 @@
  
                   {
                     "id": "681",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B04",
@@ -1878,6 +1975,7 @@
  
                   {
                     "id": "678",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B04",
@@ -1897,6 +1995,7 @@
  
                   {
                     "id": "682",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B04",
@@ -1918,6 +2017,7 @@
                  
                   {
                     "id": "684",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B95",
@@ -1937,6 +2037,7 @@
  
                   {
                     "id": "683",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B95",
@@ -1956,6 +2057,7 @@
  
                   {
                     "id": "688",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B95",
@@ -1975,6 +2077,7 @@
  
                   {
                     "id": "685",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B95",
@@ -1994,6 +2097,7 @@
  
                   {
                     "id": "689",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B95",
@@ -2013,6 +2117,7 @@
  
                   {
                     "id": "686",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B95",
@@ -2032,6 +2137,7 @@
  
                   {
                     "id": "690",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B95",
@@ -2051,6 +2157,7 @@
  
                   {
                     "id": "687",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B95",
@@ -2070,6 +2177,7 @@
  
                   {
                     "id": "691",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B95",
@@ -2091,6 +2199,7 @@
                  
                   {
                     "id": "564",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B02",
@@ -2110,6 +2219,7 @@
  
                   {
                     "id": "563",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B02",
@@ -2129,6 +2239,7 @@
  
                   {
                     "id": "577",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B02",
@@ -2148,6 +2259,7 @@
  
                   {
                     "id": "574",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B02",
@@ -2167,6 +2279,7 @@
  
                   {
                     "id": "578",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B02",
@@ -2186,6 +2299,7 @@
  
                   {
                     "id": "575",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B02",
@@ -2205,6 +2319,7 @@
  
                   {
                     "id": "579",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B02",
@@ -2224,6 +2339,7 @@
  
                   {
                     "id": "576",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B02",
@@ -2243,6 +2359,7 @@
  
                   {
                     "id": "580",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B02",
@@ -2262,6 +2379,7 @@
  
                   {
                     "id": "561",
+                    "hideInApp": "0",
                     "start": "18:30",
                     "duration": "05:00",
                     "room": "B02",
@@ -2283,6 +2401,7 @@
                  
                   {
                     "id": "702",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B01",
@@ -2302,6 +2421,7 @@
  
                   {
                     "id": "701",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "02:00",
                     "room": "B01",
@@ -2321,6 +2441,7 @@
  
                   {
                     "id": "706",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "01:00",
                     "room": "B01",
@@ -2340,6 +2461,7 @@
  
                   {
                     "id": "703",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:30",
                     "room": "B01",
@@ -2359,6 +2481,7 @@
  
                   {
                     "id": "707",
+                    "hideInApp": "0",
                     "start": "14:30",
                     "duration": "00:15",
                     "room": "B01",
@@ -2378,6 +2501,7 @@
  
                   {
                     "id": "704",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:30",
                     "room": "B01",
@@ -2397,6 +2521,7 @@
  
                   {
                     "id": "708",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:15",
                     "room": "B01",
@@ -2416,6 +2541,7 @@
  
                   {
                     "id": "705",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:15",
                     "room": "B01",
@@ -2435,6 +2561,7 @@
  
                   {
                     "id": "709",
+                    "hideInApp": "0",
                     "start": "18:00",
                     "duration": "02:00",
                     "room": "B01",
@@ -2462,6 +2589,7 @@
                  
                   {
                     "id": "584",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "00:15",
                     "room": "C01",
@@ -2481,6 +2609,7 @@
  
                   {
                     "id": "518",
+                    "hideInApp": "0",
                     "start": "10:15",
                     "duration": "01:00",
                     "room": "C01",
@@ -2501,8 +2630,9 @@
  
                   {
                     "id": "326",
+                    "hideInApp": "0",
                     "start": "11:30",
-                    "duration": "00:10",
+                    "duration": "00:30",
                     "room": "C01",
                     "slug": "c01_-_2016-09-02_11:30_-_kde_development_how_it_was_done_in_the_last_century_-_dfaure_-_326",
                     "title": "KDE development, how it was done in the last century",
@@ -2521,6 +2651,7 @@
  
                   {
                     "id": "427",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "00:30",
                     "room": "C01",
@@ -2541,6 +2672,7 @@
  
                   {
                     "id": "352",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "C01",
@@ -2561,6 +2693,7 @@
  
                   {
                     "id": "364",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "C01",
@@ -2581,6 +2714,7 @@
  
                   {
                     "id": "397",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "C01",
@@ -2601,6 +2735,7 @@
  
                   {
                     "id": "711",
+                    "hideInApp": "0",
                     "start": "22:55",
                     "duration": "00:05",
                     "room": "C01",
@@ -2622,6 +2757,7 @@
                  
                   {
                     "id": "391",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -2644,6 +2780,7 @@
  
                   {
                     "id": "497",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -2662,30 +2799,30 @@
                   },
  
                   {
-                    "id": "400",
+                    "id": "345",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "B05+B06",
-                    "slug": "b05_b06_-_2016-09-02_14:45_-_the_nxp_smartstudio_use_case_-_alicemirror_-_400",
-                    "title": "The NXP SmartStudio Use Case",
-                    "subtitle": "Qt5.5 + PyQt5.5 complex software integration of a multi-platform application in a mixed environment",
+                    "slug": "b05_b06_-_2016-09-02_14:45_-_natural_language_processing_with_qt_-__-_345",
+                    "title": "Natural Language Processing with Qt",
+                    "subtitle": "Artificial Intelligence with Qt",
                     "track": "Qt in Use",
                     "type": "60min",
                     "language": "",
-                    "abstract": "In this talk, we will show the architecture design strategy adopted to create a desktop application interacting with audio hardware platforms through USB direct connection, Network over USB and Ethernet network.  SmartStudio monitosr a wide range of complex DSP real-time data over a user friendly User Interface for the best User Experience, paying special attention to the usability ergonomics of the software.  The key factors empowered by the Qt/QML platform are efficiency, reliability, flexibility and real-time data monitoring with a less than 15 ms expected delay response. ",
-                    "description": "The starting point was an original, partially working application mostly focused on the Python environment and based on the PyQt4/Qt 4.8. The use of the Qt features through PyQt was extremely limited, resulting in a very slow and uneffective application.  During a preliminary step, SmartStudio has been ported to the improved development environment PyQt5/Qt 5.5, and then the internal architecture fully redesigned.  The new version was primarily aimed to gaining a significantly improved speed and efficiency, real-time reactivity and flexibility, in addition to an easy-to-maintain and easy-to-use application set of packages.  Redesigning the application architecture involved the streamlining and reduction of the Python portion of the application, thus managing only the higher level tasks on a model-view-controller application approach based on the company needs.  In this talk, we will analize the architecture design paying special attention to the benefits and advantages of using Qt as a powerful user interface and calculation platform controlled by a Python environment.  Topics:  - Python + PyQt5 + Qt5.5 software design: pros and cons of a multi-language application architecture - SmartStudio efficiency and responsiveness: a key factor in real-time audio DSP data acquisition and visualization - Finding the right code balance between Python and the power of Qt - C++ and QML to design flexible and adaptable User Interfaces and supporting fast and reliable math - The plugin approach: creating modular Qt components to maximize the software flexibility and maintenance - Python as the application super-architecture supported by standard and custom Qt components - C++ Qt modules for real-time data calculation - Python vs Qt components: a message/signal-driven approach in a multi thread architecture",
+                    "abstract": "An artificial Intelligence framework able to understand natural language and to interact with user.",
+                    "description": "Will be explained tecniques to create a neural network and statistical tools for NLP (Natural Language Processing), how Qt Framework contributed for a fast development. A demo of a real running Bot powered by Qt will be showcased.",
                     "persons": [
-                        {"id": "680",  "full_public_name": ".alicemirror", "first_name": "Enrico", "last_name": "Miglino" }
+                        {"id": "671",  "full_public_name": ".", "first_name": "Sebastiano", "last_name": "Galazzo" }
                     ],
                     "links": [
-                        {"url": "http://www.nxp.com/video/demo-boost-micro-speaker-sound-with-tfa9887-mobile-audio-system-from-nxp:TFA9887-MICRO-SPEAKER-DEMO", "title": "NXP Semiconductors Mobile Audio"},
-                        {"url": "http://www.nxp.com/products/media-and-audio-processing/audio-amplifiers/amplifiers-for-portable-devices/3.7-w-audio-system-with-adaptive-sound-maximizer-and-speaker-protection:TFA9887UK", "title": "One of the involved components in the monitoring system"},
-                        {"url": "https://chipworks.secure.force.com/catalog/ProductDetails?sku=NXP-TFA9890&viewState=DetailView&cartID=&g=", "title": "Another monitored device"}
+                        {"url": "https://www.youtube.com/watch?v=KW4w4nqROG8", "title": "Artificial Intelligence for publuc administrations"}
                     ]
                   },
  
                   {
                     "id": "513",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -2705,12 +2842,13 @@
  
                   {
                     "id": "588",
+                    "hideInApp": "0",
                     "start": "17:30",
-                    "duration": "00:30",
+                    "duration": "01:00",
                     "room": "B05+B06",
-                    "slug": "b05_b06_-_2016-09-02_17:30_-_lightning_talks_-_588",
-                    "title": "Lightning talks",
-                    "subtitle": "",
+                    "slug": "b05_b06_-_2016-09-02_17:30_-_lightning_talk_-_588",
+                    "title": "Lightning Talk",
+                    "subtitle": "Topic selection will be announced Friday Aug. 26th",
                     "track": "Misc",
                     "type": "lightning_talk",
                     "language": "",
@@ -2726,6 +2864,7 @@
                  
                   {
                     "id": "355",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -2746,6 +2885,7 @@
  
                   {
                     "id": "421",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "B07+B08",
@@ -2766,6 +2906,7 @@
  
                   {
                     "id": "408",
+                    "hideInApp": "0",
                     "start": "14:00",
                     "duration": "00:30",
                     "room": "B07+B08",
@@ -2786,6 +2927,7 @@
  
                   {
                     "id": "437",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -2806,6 +2948,7 @@
  
                   {
                     "id": "360",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -2826,12 +2969,13 @@
  
                   {
                     "id": "589",
+                    "hideInApp": "0",
                     "start": "17:30",
-                    "duration": "00:30",
+                    "duration": "01:00",
                     "room": "B07+B08",
-                    "slug": "b07_b08_-_2016-09-02_17:30_-_lightning_talks_-_589",
-                    "title": "Lightning talks",
-                    "subtitle": "",
+                    "slug": "b07_b08_-_2016-09-02_17:30_-_lightning_talk_-_589",
+                    "title": "Lightning Talk",
+                    "subtitle": "Topic selection will be announced Friday Aug. 26th",
                     "track": "Misc",
                     "type": "lightning_talk",
                     "language": "",
@@ -2847,6 +2991,7 @@
                  
                   {
                     "id": "411",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "01:00",
                     "room": "B09",
@@ -2867,8 +3012,9 @@
  
                   {
                     "id": "414",
+                    "hideInApp": "0",
                     "start": "13:30",
-                    "duration": "00:10",
+                    "duration": "01:00",
                     "room": "B09",
                     "slug": "b09_-_2016-09-02_13:30_-_qtcreator_as_bmw_car_it_automotive_ide_-_heliocastro_-_414",
                     "title": "QtCreator as BMW Car IT Automotive IDE",
@@ -2887,6 +3033,7 @@
  
                   {
                     "id": "439",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "B09",
@@ -2907,6 +3054,7 @@
  
                   {
                     "id": "344",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:30",
                     "room": "B09",
@@ -2927,10 +3075,11 @@
  
                   {
                     "id": "407",
+                    "hideInApp": "0",
                     "start": "16:45",
                     "duration": "00:30",
                     "room": "B09",
-                    "slug": "b09_-_2016-09-02_16:45_-_qt_c_and_qml_code_coverage_-__-_407",
+                    "slug": "b09_-_2016-09-02_16:45_-_qt_c_and_qml_code_coverage_-_harri_-_407",
                     "title": "Qt C++ and QML Code Coverage",
                     "subtitle": "Measure the degree of your testing",
                     "track": "Testing and Continuous Integration",
@@ -2939,7 +3088,27 @@
                     "abstract": "Code coverage is a metric for the degree of testing that is being done. This talk will explain the various metrics from Statement Coverage to Modified Condition/Decision Coverage (MC/DC), depict their strengths and drawbacks and show how to deal with the challenges posed by Qt C++ and QML code.",
                     "description": "Software safety standards like ISO 26262 (road vehicles), EN 50128 (railway applications) an DO-178 C (airborne systems) and others require software developers to ensure software quality through analysis of code coverage achieved through their tests.  Among other measures. This talk will define what this metric means  and - equally important - what it does not mean.  Standard levels measured are statement coverage, branch coverage, decision coverage and the more complex modified/condition decision coverage (MC/DC) or multiple condition coverage (MCC).  We'll look at the advantages and drawbacks of these levels and what kind of testing efforts they require.  Qt applications pose several special challenges for measurement of code coverage: first, usage of the Meta Object Compiler (MOC), the User Interface Compiler (UIC) and various macros leads to automatically generated code that can sometimes be hard to fully cover. Secondly, the  language QML includes both static declaration and dynamic JavaScript code.   Above topics will be illustrated through some live demonstrations with different tools. The automated Qt tests will serve as a relatively large real-world example for viewing test coverage. Based on selected spots in the code we'll investigate gaps in current QA measures.  Dynamic analysis like code coverage has to be distinguished from static analysis. Nevertheless, some classic static code metrics will be listed as their monitoring is also recommended by the safety standards listed at the beginning.  At the end efforts and benefits of code coverage will be compared with pragmatic recommendations for every day usage.          ",
                     "persons": [
-                        {"id": "697",  "full_public_name": ".", "first_name": "Harri", "last_name": "Porten" }
+                        {"id": "697",  "full_public_name": "harri", "first_name": "Harri", "last_name": "Porten" }
+                    ],
+                    "links": [
+                    ]
+                  },
+ 
+                  {
+                    "id": "585",
+                    "hideInApp": "0",
+                    "start": "17:30",
+                    "duration": "01:00",
+                    "room": "B09",
+                    "slug": "b09_-_2016-09-02_17:30_-_lightning_talk_-_585",
+                    "title": "Lightning Talk",
+                    "subtitle": "Topic selection will be announced Friday Aug. 26th",
+                    "track": "Misc",
+                    "type": "lightning_talk",
+                    "language": "",
+                    "abstract": "Topic selection will be announced Friday Aug. 26th",
+                    "description": "",
+                    "persons": [
                     ],
                     "links": [
                     ]
@@ -2949,6 +3118,7 @@
                  
                   {
                     "id": "445",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "00:30",
                     "room": "A03",
@@ -2969,6 +3139,7 @@
  
                   {
                     "id": "482",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "A03",
@@ -2989,6 +3160,7 @@
  
                   {
                     "id": "475",
+                    "hideInApp": "0",
                     "start": "14:00",
                     "duration": "00:30",
                     "room": "A03",
@@ -2999,7 +3171,7 @@
                     "type": "30min",
                     "language": "",
                     "abstract": " Free software is now the default choice for the digital transformation  ",
-                    "description": "Netscape went public in 1995. Which caused a “browser war”. When Stefan Richter started his company freiheit.com technologies in 1999, people in large corporations said: “This Linux thing. Nobody will ever use it here”. Steve Ballmer, then CEO of Microsoft called it “communism”. Now even Microsoft does “open source” - as it is still called by the unenlightened. The world kept on changing and today - as we all are sure that the internet won’t go away - everybody knows that companies need software for their digital transformations. Free Software is now the default option in all large digitalization projects and internet companies. Google, Amazon and Facebook - none of them would exist today, without free software. Stefan will give us a glimpse into the large projects he is doing today from his customers-list that reads like the Who’s Who of the German and European businesses and industry. Why are enterprises like METRO interested in free software? What are the current trends and why and how are larger corporations using free software as their default choice? This talk will help business people to create their own argumentation on how and why to “sell” the idea of using free software in projects to upper management, by showing real-life cases from the last 20 years in the business. And the same time, it will show programmers how much power they actually have to guide these decisions. ",
+                    "description": "Netscape went public in 1995. Which caused a “browser war”. When Stefan Richter started his company freiheit.com technologies in 1999, people in large corporations said: “This Linux thing. Nobody will ever use it here”. Steve Ballmer, then CEO of Microsoft called it “communism”. Now even Microsoft does “open source” - as it is still called by the unenlightened. The world kept on changing and today - as we all are sure that the internet won’t go away - everybody knows that companies need software for their digital transformations. Free Software is now the default option in all large digitalization projects and internet companies. Google, Amazon and Facebook - none of them would exist today, without free software. Stefan will give us a glimpse into the large projects he is doing today from his customers-list that reads like the Who’s Who of the German and European businesses and industry. Why are enterprises like METRO interested in free software? What are the current trends and why and how are larger corporations using free software as their default choice? This talk will help business people to create their own argumentation on how and why to “sell” the idea of using free software in projects to upper management, by showing real-life cases from the last 20 years in the business. At the same time, it will show programmers how much power they actually have to guide these decisions. ",
                     "persons": [
                         {"id": "801",  "full_public_name": "Stefan Richter", "first_name": "Stefan", "last_name": "Richter" }
                     ],
@@ -3008,19 +3180,24 @@
                   },
  
                   {
-                    "id": "478",
-                    "start": "15:15",
-                    "duration": "00:30",
+                    "id": "744",
+                    "hideInApp": "0",
+                    "start": "14:45",
+                    "duration": "01:00",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-02_15:15_-_overhead_or_over_your_head_-_478",
-                    "title": "Overhead or Over Your Head?",
-                    "subtitle": "Overhead or Over Your Head?",
+                    "slug": "a03_-_2016-09-02_14:45_-_legal_entities_for_free_software_projects_-_not_applicable_-_simon_phipps_-_matija_suklje_-_michiel_leenaars_-_744",
+                    "title": "Legal entities for Free Software projects",
+                    "subtitle": "",
                     "track": "Let‘s talk business",
-                    "type": "30min",
+                    "type": "60min",
                     "language": "",
-                    "abstract": "Overhead or Over Your Head?",
-                    "description": "Funding, donations, grants ",
+                    "abstract": "As a FOSS/OSHW project grows, at some stage it often reaches a point where it requires a legal entity for better operation – whether this be to gather donations, pay for development, handle finances, organise events, consolidate rights, better governance or other reasons. So far in Europe the only real option was to set up an NGO yourself or join an entity in the US.  But finally three conservancy-like organisations are emerging in Europe and aim to offload this overhead from your projects.  Join our panel to learn if and which of these organisations could help your  project flourish best, as well as pose any open questions or concerns you may  still have.",
+                    "description": "",
                     "persons": [
+                        {"id": "1115",  "full_public_name": "Not Applicable", "first_name": "Stephan", "last_name": "Urbach" },
+                        {"id": "1436",  "full_public_name": "Simon Phipps", "first_name": "Simon", "last_name": "Phipps" },
+                        {"id": "1347",  "full_public_name": "Matija Šuklje", "first_name": "Matija ", "last_name": "Šuklje" },
+                        {"id": "1443",  "full_public_name": "Michiel Leenaars", "first_name": "Michiel ", "last_name": "Leenaars" }
                     ],
                     "links": [
                     ]
@@ -3028,6 +3205,7 @@
  
                   {
                     "id": "444",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:30",
                     "room": "A03",
@@ -3048,6 +3226,7 @@
  
                   {
                     "id": "440",
+                    "hideInApp": "0",
                     "start": "16:45",
                     "duration": "00:30",
                     "room": "A03",
@@ -3067,13 +3246,14 @@
                   },
  
                   {
-                    "id": "585",
+                    "id": "586",
+                    "hideInApp": "0",
                     "start": "17:30",
-                    "duration": "00:30",
+                    "duration": "01:00",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-02_17:30_-_lightning_talks_-_585",
-                    "title": "Lightning talks",
-                    "subtitle": "",
+                    "slug": "a03_-_2016-09-02_17:30_-_lightning_talk_-_586",
+                    "title": "Lightning Talk",
+                    "subtitle": "Topic selection will be announced Friday Aug. 26th",
                     "track": "Misc",
                     "type": "lightning_talk",
                     "language": "",
@@ -3089,6 +3269,7 @@
                  
                   {
                     "id": "337",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "00:30",
                     "room": "A04",
@@ -3109,6 +3290,7 @@
  
                   {
                     "id": "349",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "00:30",
                     "room": "A04",
@@ -3130,6 +3312,7 @@
  
                   {
                     "id": "376",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "A04",
@@ -3150,6 +3333,7 @@
  
                   {
                     "id": "401",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "00:30",
                     "room": "A04",
@@ -3170,6 +3354,7 @@
  
                   {
                     "id": "330",
+                    "hideInApp": "0",
                     "start": "15:15",
                     "duration": "00:30",
                     "room": "A04",
@@ -3190,6 +3375,7 @@
  
                   {
                     "id": "415",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:30",
                     "room": "A04",
@@ -3210,6 +3396,7 @@
  
                   {
                     "id": "386",
+                    "hideInApp": "0",
                     "start": "16:45",
                     "duration": "00:30",
                     "room": "A04",
@@ -3226,33 +3413,15 @@
                     ],
                     "links": [
                     ]
-                  },
- 
-                  {
-                    "id": "586",
-                    "start": "17:30",
-                    "duration": "00:30",
-                    "room": "A04",
-                    "slug": "a04_-_2016-09-02_17:30_-_lightning_talks_-_586",
-                    "title": "Lightning talks",
-                    "subtitle": "",
-                    "track": "Misc",
-                    "type": "lightning_talk",
-                    "language": "",
-                    "abstract": "Lightning talks",
-                    "description": "Lightning talks",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
                   }
               ],
               "A08": [  
                  
                   {
                     "id": "742",
+                    "hideInApp": "0",
                     "start": "11:30",
-                    "duration": "00:20",
+                    "duration": "00:30",
                     "room": "A08",
                     "slug": "a08_-_2016-09-02_11:30_-_fsfe_opening_-_742",
                     "title": "FSFE OPENING",
@@ -3270,6 +3439,7 @@
  
                   {
                     "id": "581",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "00:30",
                     "room": "A08",
@@ -3290,6 +3460,7 @@
  
                   {
                     "id": "449",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "A08",
@@ -3310,6 +3481,7 @@
  
                   {
                     "id": "447",
+                    "hideInApp": "0",
                     "start": "14:00",
                     "duration": "00:30",
                     "room": "A08",
@@ -3330,6 +3502,7 @@
  
                   {
                     "id": "441",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "00:30",
                     "room": "A08",
@@ -3350,6 +3523,7 @@
  
                   {
                     "id": "450",
+                    "hideInApp": "0",
                     "start": "15:15",
                     "duration": "00:30",
                     "room": "A08",
@@ -3370,6 +3544,7 @@
  
                   {
                     "id": "458",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:30",
                     "room": "A08",
@@ -3390,6 +3565,7 @@
  
                   {
                     "id": "490",
+                    "hideInApp": "0",
                     "start": "16:45",
                     "duration": "00:30",
                     "room": "A08",
@@ -3406,31 +3582,13 @@
                     ],
                     "links": [
                     ]
-                  },
- 
-                  {
-                    "id": "587",
-                    "start": "17:30",
-                    "duration": "00:30",
-                    "room": "A08",
-                    "slug": "a08_-_2016-09-02_17:30_-_lightning_talks_-_587",
-                    "title": "Lightning talks",
-                    "subtitle": "",
-                    "track": "Misc",
-                    "type": "lightning_talk",
-                    "language": "",
-                    "abstract": "Lightning talks",
-                    "description": "Lightning talks",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
                   }
               ],
               "A06": [  
                  
                   {
                     "id": "714",
+                    "hideInApp": "0",
                     "start": "12:00",
                     "duration": "00:30",
                     "room": "A06",
@@ -3451,6 +3609,7 @@
  
                   {
                     "id": "443",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "A06",
@@ -3471,6 +3630,7 @@
  
                   {
                     "id": "483",
+                    "hideInApp": "0",
                     "start": "14:00",
                     "duration": "00:30",
                     "room": "A06",
@@ -3491,6 +3651,7 @@
  
                   {
                     "id": "484",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "00:30",
                     "room": "A06",
@@ -3510,19 +3671,21 @@
                   },
  
                   {
-                    "id": "715",
+                    "id": "750",
+                    "hideInApp": "0",
                     "start": "15:15",
                     "duration": "00:30",
                     "room": "A06",
-                    "slug": "a06_-_2016-09-02_15:15_-_fsfe_community_session_-_715",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "a06_-_2016-09-02_15:15_-_stratosphere_project_free_software_machine_learning_to_protect_ngos_-_sebastien_garcia_-_750",
+                    "title": "Stratosphere Project: Free Software Machine Learning to protect NGOs",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "NGOs and the civil society is at risk. They are continually being attacked by powerful actors because they are a highly political target. They don't have the resources to protect themselves with expensive solutions and they don't trust most companies. This is why the Czech Technical University started the Stratosphere IPS Project. It is an effort to develop a free software Network Intrusion Prevention System based on advanced Machine Learning algorithms. The goal of the project is to freely protect NGOs and the civil society at large by giving them this advanced defensive tool. The Stratosphere IPS Project provides an off-line free software tool and also a free cloud-based service where NGOs can send they network flows for real time detection. Stratosphere works by modeling the behavioral patterns of known malicious connections from malware and detecting new similar activities by using Markov Chains models. Stratosphere is free software because it is the best way to open our results and because NGOs should trust our work. This talk will show the Stratosphere project, the open model of sharing and how to detect real malware using machine learning in the network.  ",
+                    "description": "Our topic is a very important one: how the security tools should be free software if we are going to trust them. Most current solutions for using machine learning tools are proprietary because the algorithms are an asset of the company. In this business model, NGOs are left alone without any protection. The CTU University proposed to open its state-of-the-art research in order to protect NGOs with a trustable and advanced free software solution. We believe that NGOs need to work with organizations that are open about their work, about their mistakes and that are willing to show what they are doing. Currently Stratosphere is working with four organizations that are sending their data to us and we are doing our best to protect them continually.  ",
                     "persons": [
+                        {"id": "1346",  "full_public_name": "Sebastien Garcia", "first_name": "Sebastien", "last_name": "Garcia" }
                     ],
                     "links": [
                     ]
@@ -3530,6 +3693,7 @@
  
                   {
                     "id": "477",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "00:30",
                     "room": "A06",
@@ -3549,20 +3713,21 @@
                   },
  
                   {
-                    "id": "465",
+                    "id": "455",
+                    "hideInApp": "0",
                     "start": "16:45",
                     "duration": "00:30",
                     "room": "A06",
-                    "slug": "a06_-_2016-09-02_16:45_-_free_software_and_the_network_effect_fight_it_or_ride_it_-_michal_wozniak_-_465",
-                    "title": "Free Software and the Network Effect: fight it or ride it?",
-                    "subtitle": "Free Software and the Network Effect: fight it or ride it?",
-                    "track": "Beyond Code",
+                    "slug": "a06_-_2016-09-02_16:45_-_free_and_open_source_software_in_europe_policies_and_implementations_-_gijs_hillenius_-_455",
+                    "title": "Free And Open Source Software In Europe: Policies And Implementations",
+                    "subtitle": "Free And Open Source Software In Europe: Policies And Implementations",
+                    "track": "Free Software policies and politics",
                     "type": "30min",
                     "language": "",
-                    "abstract": " No free software user is an island. This has been true always, but never has this been truer than lately. With the advent of social walled gardens, positioning themselves as public infrastructure used by more and more other services, the network effect is stronger an enemy than ever. It cannot be ignored, but can it be defeated? Or, perhaps, co-opted?  ",
-                    "description": "The Four Freedoms, while being the cornerstone of the free software movement, only deal with software and ignore the question of data. This is understandable: when they have been created, data almost always resided under users' control, and the real problem was making sure users have the necessary, freedom-preserving tools to work with it. Today, we use free software tools to deal with data that effectively falls outside of our control. Often we cannot access the data directly, export it, import it somewhere else. Garden walls do not have windows, or very small ones only. Even free software itself is more and more often being developed using walled gardens -- GitHub being one example. And, more and more free software is being used to build walled gardens themselves. As is often the case, there is no easy solution. But there are things we as the free software community can do, within the community itself, and as part of our policy work, to push things in the right direction. This requires added focus on some of the values that seem to have taken the back seat in the free software world: compatibility and interoperability. We need to put social back into libre social networks, among others. It is time free software tools became compatible with each other. Good news is, some work is already being done. ",
+                    "abstract": "This talk gives an overview of how public administrations in the European Union are embracing free and open source software solutions. ",
+                    "description": "The talk will outline the major trends, providing a context for European public administrations. The presentation will give plenty of examples of public administrations that jointly develop, share and re-use such software solutions. ",
                     "persons": [
-                        {"id": "831",  "full_public_name": "Michal Wozniak", "first_name": "Michal", "last_name": "Wozniak" }
+                        {"id": "833",  "full_public_name": "Gijs Hillenius ", "first_name": "Gijs", "last_name": "Hillenius " }
                     ],
                     "links": [
                     ]
@@ -3572,6 +3737,7 @@
                  
                   {
                     "id": "431",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "05:45",
                     "room": "A05",
@@ -3596,6 +3762,7 @@
                  
                   {
                     "id": "430",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "01:00",
                     "room": "B03",
@@ -3616,6 +3783,7 @@
  
                   {
                     "id": "394",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "B03",
@@ -3636,6 +3804,7 @@
  
                   {
                     "id": "380",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "B03",
@@ -3656,6 +3825,7 @@
  
                   {
                     "id": "388",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "B03",
@@ -3678,6 +3848,7 @@
                  
                   {
                     "id": "432",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "01:00",
                     "room": "B04",
@@ -3698,6 +3869,7 @@
  
                   {
                     "id": "521",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "B04",
@@ -3718,6 +3890,7 @@
  
                   {
                     "id": "369",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "B04",
@@ -3730,7 +3903,7 @@
                     "abstract": "The new Qt serialbus module covers implementation of interfaces with industrial bus systems. One main component is the Modbus protocol (http://www.modbus.org/). The talk covers implementation details and use with Qt/KDE applications.",
                     "description": "Since Qt 5.6, the serialbus module is introduced with the goal to provide Qt implementations and interfaces to industrial bus systems. Currently, the CAN bus is implemented as a unified abstraction to CAN drivers for Windows and Linux, as well as the Modbus protocol for communicating with industrial devices such as PLCs (programmable logic controllers) that control industrial machines and production chains as well as almost any industrial device containing a higher level of digital logic such as power meters or variable frequency drives. The Qt implementation covers a server and a client interface to serial (RS485/RS232) and TCP networks and implements the Modbus specifications in a most complete way. The talk covers a general overview of history and use of the protocol, the Qt implementation and usage in Qt/KDE applications. A live demonstration of an example application connected to an industrial standard PLC system shows the practical use.  Further, an analysis of other industrial network protocols used widely may give an outlook of the implementation of these protocols in the module in future releases.",
                     "persons": [
-                        {"id": "684",  "full_public_name": "nolden", "first_name": "Ralf", "last_name": "Nolden" }
+                        {"id": "684",  "full_public_name": "nolden", "first_name": "Marie Loise", "last_name": "Nolden" }
                     ],
                     "links": [
                     ]
@@ -3738,6 +3911,7 @@
  
                   {
                     "id": "354",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "B04",
@@ -3760,6 +3934,7 @@
                  
                   {
                     "id": "525",
+                    "hideInApp": "0",
                     "start": "11:30",
                     "duration": "01:00",
                     "room": "B95",
@@ -3779,6 +3954,7 @@
  
                   {
                     "id": "522",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "01:00",
                     "room": "B95",
@@ -3798,6 +3974,7 @@
  
                   {
                     "id": "523",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "01:00",
                     "room": "B95",
@@ -3817,6 +3994,7 @@
  
                   {
                     "id": "524",
+                    "hideInApp": "0",
                     "start": "16:15",
                     "duration": "01:00",
                     "room": "B95",
@@ -3838,6 +4016,7 @@
                  
                   {
                     "id": "562",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B02",
@@ -3857,6 +4036,7 @@
  
                   {
                     "id": "557",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "00:15",
                     "room": "B02",
@@ -3876,6 +4056,7 @@
  
                   {
                     "id": "558",
+                    "hideInApp": "0",
                     "start": "12:30",
                     "duration": "01:00",
                     "room": "B02",
@@ -3883,25 +4064,6 @@
                     "title": "Lunch",
                     "subtitle": "",
                     "track": "Break",
-                    "type": "",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "560",
-                    "start": "17:30",
-                    "duration": "00:30",
-                    "room": "B02",
-                    "slug": "b02_-_2016-09-02_17:30_-_lightning_talks_-_560",
-                    "title": "Lightning Talks",
-                    "subtitle": "",
-                    "track": "Misc",
                     "type": "",
                     "language": "",
                     "abstract": "",
@@ -3924,6 +4086,7 @@
                  
                   {
                     "id": "712",
+                    "hideInApp": "0",
                     "start": "17:55",
                     "duration": "00:05",
                     "room": "C01",
@@ -3945,6 +4108,7 @@
                  
                   {
                     "id": "519",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -3964,28 +4128,32 @@
                   },
  
                   {
-                    "id": "345",
+                    "id": "400",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "B05+B06",
-                    "slug": "b05_b06_-_2016-09-03_11:15_-_natural_language_processing_with_qt_-__-_345",
-                    "title": "Natural Language Processing with Qt",
-                    "subtitle": "Artificial Intelligence with Qt",
+                    "slug": "b05_b06_-_2016-09-03_11:15_-_the_nxp_smartstudio_use_case_-_alicemirror_-_400",
+                    "title": "The NXP SmartStudio Use Case",
+                    "subtitle": "Qt5.5 + PyQt5.5 complex software integration of a multi-platform application in a mixed environment",
                     "track": "Qt in Use",
                     "type": "60min",
                     "language": "",
-                    "abstract": "An artificial Intelligence framework able to understand natural language and to interact with user.",
-                    "description": "Will be explained tecniques to create a neural network and statistical tools for NLP (Natural Language Processing), how Qt Framework contributed for a fast development. A demo of a real running Bot powered by Qt will be showcased.",
+                    "abstract": "In this talk, we will show the architecture design strategy adopted to create a desktop application interacting with audio hardware platforms through USB direct connection, Network over USB and Ethernet network.  SmartStudio monitosr a wide range of complex DSP real-time data over a user friendly User Interface for the best User Experience, paying special attention to the usability ergonomics of the software.  The key factors empowered by the Qt/QML platform are efficiency, reliability, flexibility and real-time data monitoring with a less than 15 ms expected delay response. ",
+                    "description": "The starting point was an original, partially working application mostly focused on the Python environment and based on the PyQt4/Qt 4.8. The use of the Qt features through PyQt was extremely limited, resulting in a very slow and uneffective application.  During a preliminary step, SmartStudio has been ported to the improved development environment PyQt5/Qt 5.5, and then the internal architecture fully redesigned.  The new version was primarily aimed to gaining a significantly improved speed and efficiency, real-time reactivity and flexibility, in addition to an easy-to-maintain and easy-to-use application set of packages.  Redesigning the application architecture involved the streamlining and reduction of the Python portion of the application, thus managing only the higher level tasks on a model-view-controller application approach based on the company needs.  In this talk, we will analize the architecture design paying special attention to the benefits and advantages of using Qt as a powerful user interface and calculation platform controlled by a Python environment.  Topics:  - Python + PyQt5 + Qt5.5 software design: pros and cons of a multi-language application architecture - SmartStudio efficiency and responsiveness: a key factor in real-time audio DSP data acquisition and visualization - Finding the right code balance between Python and the power of Qt - C++ and QML to design flexible and adaptable User Interfaces and supporting fast and reliable math - The plugin approach: creating modular Qt components to maximize the software flexibility and maintenance - Python as the application super-architecture supported by standard and custom Qt components - C++ Qt modules for real-time data calculation - Python vs Qt components: a message/signal-driven approach in a multi thread architecture",
                     "persons": [
-                        {"id": "671",  "full_public_name": ".", "first_name": "Sebastiano", "last_name": "Galazzo" }
+                        {"id": "680",  "full_public_name": ".alicemirror", "first_name": "Enrico", "last_name": "Miglino" }
                     ],
                     "links": [
-                        {"url": "https://www.youtube.com/watch?v=KW4w4nqROG8", "title": "Artificial Intelligence for publuc administrations"}
+                        {"url": "http://www.nxp.com/video/demo-boost-micro-speaker-sound-with-tfa9887-mobile-audio-system-from-nxp:TFA9887-MICRO-SPEAKER-DEMO", "title": "NXP Semiconductors Mobile Audio"},
+                        {"url": "http://www.nxp.com/products/media-and-audio-processing/audio-amplifiers/amplifiers-for-portable-devices/3.7-w-audio-system-with-adaptive-sound-maximizer-and-speaker-protection:TFA9887UK", "title": "One of the involved components in the monitoring system"},
+                        {"url": "https://chipworks.secure.force.com/catalog/ProductDetails?sku=NXP-TFA9890&viewState=DetailView&cartID=&g=", "title": "Another monitored device"}
                     ]
                   },
  
                   {
                     "id": "379",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -4007,6 +4175,7 @@
  
                   {
                     "id": "438",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -4022,26 +4191,29 @@
                         {"id": "712",  "full_public_name": ".", "first_name": "Arno", "last_name": "Schoedl" }
                     ],
                     "links": [
-                        {"url": "https://www.think-cell.com/career", "title": "think-cell career"}
+                        {"url": "https://github.com/think-cell/range", "title": "think-cell range library"},
+                        {"url": "https://www.think-cell.com/career/", "title": "think-cell careers"}
                     ]
                   },
  
                   {
                     "id": "745",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "B05+B06",
                     "slug": "b05_b06_-_2016-09-03_16:30_-_fsfe_15_years_celebration_-_745",
                     "title": "FSFE 15 YEARS CELEBRATION",
-                    "subtitle": "FSFE 15 YEARS CELEBRATION",
+                    "subtitle": "",
                     "track": "Community",
-                    "type": "",
+                    "type": "60min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "Since its foundation in 2001 we have achieved many things. The FSFE has been instrumental in a successful antitrust-case against a big software corporation that was intent on dominating the market of personal computers; we have managed to maintain software patents unenforceable in Europe, avoiding a veritable apocalypse for small and medium-sized tech companies; and we have worked alongside gpl-violations.org to get free licenses vindicated in German courts of law, setting ground-breaking precedents for the whole of the EU. During Saturday afternoon, starting during the QtCon program and continuing through the evening, we'll be celebrating our 15th birthday. You're most welcome to attend, regardless of if you're a part of the FSFE or not.",
                     "description": "",
                     "persons": [
                     ],
                     "links": [
+                        {"url": "https://fsfe.org/campaigns/15years/15years.en.html", "title": "FSFE's 15th Anniversary!"}
                     ]
                   }
               ],
@@ -4049,6 +4221,7 @@
                  
                   {
                     "id": "368",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -4069,6 +4242,7 @@
  
                   {
                     "id": "373",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -4089,6 +4263,7 @@
  
                   {
                     "id": "378",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -4109,6 +4284,7 @@
  
                   {
                     "id": "350",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -4132,6 +4308,7 @@
                  
                   {
                     "id": "747",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:10",
                     "room": "B09",
@@ -4152,6 +4329,7 @@
  
                   {
                     "id": "501",
+                    "hideInApp": "0",
                     "start": "11:25",
                     "duration": "00:25",
                     "room": "B09",
@@ -4172,6 +4350,7 @@
  
                   {
                     "id": "505",
+                    "hideInApp": "0",
                     "start": "11:50",
                     "duration": "00:25",
                     "room": "B09",
@@ -4192,6 +4371,7 @@
  
                   {
                     "id": "500",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "B09",
@@ -4212,6 +4392,7 @@
  
                   {
                     "id": "499",
+                    "hideInApp": "0",
                     "start": "14:00",
                     "duration": "00:45",
                     "room": "B09",
@@ -4235,6 +4416,7 @@
  
                   {
                     "id": "506",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "00:25",
                     "room": "B09",
@@ -4255,6 +4437,7 @@
  
                   {
                     "id": "516",
+                    "hideInApp": "0",
                     "start": "15:25",
                     "duration": "00:25",
                     "room": "B09",
@@ -4275,6 +4458,7 @@
  
                   {
                     "id": "748",
+                    "hideInApp": "0",
                     "start": "15:50",
                     "duration": "00:10",
                     "room": "B09",
@@ -4297,8 +4481,9 @@
                  
                   {
                     "id": "464",
+                    "hideInApp": "0",
                     "start": "11:15",
-                    "duration": "00:25",
+                    "duration": "00:30",
                     "room": "A03",
                     "slug": "a03_-_2016-09-03_11:15_-_the_emergence_of_governance_norms_in_floss_communities_-_miroslav_-_464",
                     "title": "The emergence of governance norms in FLOSS communities",
@@ -4317,10 +4502,11 @@
  
                   {
                     "id": "453",
-                    "start": "11:40",
+                    "hideInApp": "0",
+                    "start": "11:45",
                     "duration": "00:30",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-03_11:40_-_public_administrations_and_foss_-_not_always_an_happy_relationship_-_karel_de_vriendt_-_453",
+                    "slug": "a03_-_2016-09-03_11:45_-_public_administrations_and_foss_-_not_always_an_happy_relationship_-_karel_de_vriendt_-_453",
                     "title": "Public administrations and FOSS - not always an happy relationship",
                     "subtitle": "Public administrations and FOSS - not always an happy relationship",
                     "track": "Free Software policies and politics",
@@ -4337,6 +4523,7 @@
  
                   {
                     "id": "489",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "00:30",
                     "room": "A03",
@@ -4357,6 +4544,7 @@
  
                   {
                     "id": "452",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "00:30",
                     "room": "A03",
@@ -4377,6 +4565,7 @@
  
                   {
                     "id": "454",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "00:30",
                     "room": "A03",
@@ -4396,20 +4585,21 @@
                   },
  
                   {
-                    "id": "455",
+                    "id": "763",
+                    "hideInApp": "0",
                     "start": "15:30",
                     "duration": "00:30",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-03_15:30_-_free_and_open_source_software_in_europe_policies_and_implementations_-_gijs_hillenius_-_455",
-                    "title": "Free And Open Source Software In Europe: Policies And Implementations",
-                    "subtitle": "Free And Open Source Software In Europe: Policies And Implementations",
+                    "slug": "a03_-_2016-09-03_15:30_-_public_money_public_code_improving_the_use_of_free_software_in_public_procurement_-_katharina_nocun_-_763",
+                    "title": "Public Money, Public Code – Improving the use of Free Software in Public Procurement ",
+                    "subtitle": "",
                     "track": "Free Software policies and politics",
                     "type": "30min",
                     "language": "",
-                    "abstract": " This talk gives an overview of how public administrations in the European Union are embracing free and open source software solutions. ",
-                    "description": "The talk will outline the major trends, providing a context for European public administrations. The presentation will give plenty of examples of public administrations that jointly develop, share and re-use such software solutions. ",
+                    "abstract": "Free Software is a perfect fit for the public sector. It is a public resource that government organisations can use, study, improve, and share with each other. For citizens, this means transparency, cost efficiency, and the freedom to interact with their government in the way that suits them best.  But not all government institutions are taking advantage of Free Software. In consequence, public funds are being wasted, and programs that should be free are being locked away. This also makes life hard for the Free Software-based companies who employ people in Europe, and pay their taxes here.    Many procurement officials are still not fully aware of Free Software. Combined with inertia in public sector IT departments, this means that too many public bodies never look beyond their long-standing relations with suppliers of non-free software. The public sector's procurement choices have very real effects on the economy, and play a significant role in determining the sort of firms that thrive in the market. Even with current procurement practices, Free Software already delivers very significant benefits for the European economy. Anecdotal evidence points in the same direction. Many public adminstrations that begin using Free Software see their IT costs drop by 50-90%. Changing the public sector's buying decisions would have a significant influence on the development of a healthy supplier ecosystem for Free Software products and services. With more government institutions as their customers, many such companies could thrive more quickly, and there would be more and better Free Software programs available to the public.   With a campaign focused on gathering information on the status quo of expenses, we want to raise awareness for the tremendous waste of tax money in this field. By providing solid information on the costs of the current procurement policies, we want help decision makers in the public sector  to do better -- not only for their organisations, but also for the citizens whom they serve. ",
+                    "description": "",
                     "persons": [
-                        {"id": "833",  "full_public_name": "Gijs Hillenius ", "first_name": "Gijs", "last_name": "Hillenius " }
+                        {"id": "1474",  "full_public_name": "Katharina Nocun", "first_name": "Katharina  ", "last_name": "Nocun" }
                     ],
                     "links": [
                     ]
@@ -4417,6 +4607,7 @@
  
                   {
                     "id": "374",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "00:30",
                     "room": "A03",
@@ -4437,6 +4628,7 @@
  
                   {
                     "id": "409",
+                    "hideInApp": "0",
                     "start": "17:00",
                     "duration": "00:30",
                     "room": "A03",
@@ -4459,6 +4651,7 @@
                  
                   {
                     "id": "336",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "A04",
@@ -4479,6 +4672,7 @@
  
                   {
                     "id": "381",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "A04",
@@ -4501,6 +4695,7 @@
  
                   {
                     "id": "583",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "A04",
@@ -4522,6 +4717,7 @@
  
                   {
                     "id": "393",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "00:30",
                     "room": "A04",
@@ -4543,6 +4739,7 @@
  
                   {
                     "id": "370",
+                    "hideInApp": "0",
                     "start": "15:30",
                     "duration": "00:30",
                     "room": "A04",
@@ -4555,7 +4752,7 @@
                     "abstract": "The talk gives an overview of the current status of FreeBSD, NetBSD, OpenBSD support and focuses on the work the porting developers do and how packaging/porting practices can be improved to increase the delivery speed of releases into the BSD family's ports system.",
                     "description": "BSD Operating Systems are currently not main targets of Qt and KDE though ports are provided by ports maintainers of the main projects (FreeBSD, NetBSD, OpenBSD). The talk covers porting work on the example of the KDE/FreeBSD initiative (https://freebsd.kde.org/) and focuses mainly on questions of improving operating system support for BSD systems, pre-release packaging and testing and avoiding any after-release patching.  Shorter release cycles of upstream code also require a change of the workflow on the side of packagers to interact with developers to get into the release cycle for providing functional ports at the time of release.",
                     "persons": [
-                        {"id": "684",  "full_public_name": "nolden", "first_name": "Ralf", "last_name": "Nolden" }
+                        {"id": "684",  "full_public_name": "nolden", "first_name": "Marie Loise", "last_name": "Nolden" }
                     ],
                     "links": [
                         {"url": "https://freebsd.kde.org/", "title": "KDE/FreeBSD Team"}
@@ -4564,6 +4761,7 @@
  
                   {
                     "id": "324",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "00:30",
                     "room": "A04",
@@ -4584,6 +4782,7 @@
  
                   {
                     "id": "419",
+                    "hideInApp": "0",
                     "start": "17:00",
                     "duration": "00:30",
                     "room": "A04",
@@ -4606,6 +4805,7 @@
                  
                   {
                     "id": "331",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "A08",
@@ -4628,6 +4828,7 @@
  
                   {
                     "id": "338",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "A08",
@@ -4648,6 +4849,7 @@
  
                   {
                     "id": "399",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "A08",
@@ -4668,6 +4870,7 @@
  
                   {
                     "id": "424",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "00:30",
                     "room": "A08",
@@ -4689,6 +4892,7 @@
  
                   {
                     "id": "418",
+                    "hideInApp": "0",
                     "start": "15:30",
                     "duration": "00:30",
                     "room": "A08",
@@ -4710,6 +4914,7 @@
  
                   {
                     "id": "423",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "00:30",
                     "room": "A08",
@@ -4730,6 +4935,7 @@
  
                   {
                     "id": "426",
+                    "hideInApp": "0",
                     "start": "17:00",
                     "duration": "00:30",
                     "room": "A08",
@@ -4753,6 +4959,7 @@
                  
                   {
                     "id": "433",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "A06",
@@ -4773,6 +4980,7 @@
  
                   {
                     "id": "348",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "A06",
@@ -4793,6 +5001,7 @@
  
                   {
                     "id": "327",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "01:00",
                     "room": "A06",
@@ -4813,6 +5022,7 @@
  
                   {
                     "id": "503",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "A06",
@@ -4834,6 +5044,7 @@
                  
                   {
                     "id": "412",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "A05",
@@ -4854,6 +5065,7 @@
  
                   {
                     "id": "353",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "A05",
@@ -4874,6 +5086,7 @@
  
                   {
                     "id": "429",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "01:00",
                     "room": "A05",
@@ -4894,6 +5107,7 @@
  
                   {
                     "id": "502",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "A05",
@@ -4915,6 +5129,7 @@
                  
                   {
                     "id": "526",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "B03",
@@ -4934,6 +5149,7 @@
  
                   {
                     "id": "527",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "01:00",
                     "room": "B03",
@@ -4953,18 +5169,20 @@
  
                   {
                     "id": "528",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "01:00",
                     "room": "B03",
-                    "slug": "b03_-_2016-09-03_15:00_-_qt_contributor_summit_unconference_-_528",
-                    "title": "Qt Contributor Summit Unconference",
+                    "slug": "b03_-_2016-09-03_15:00_-_managing_qt_s_branches_-_not_applicable_-_528",
+                    "title": "Managing Qt's Branches ",
                     "subtitle": "",
-                    "track": "",
-                    "type": "",
+                    "track": "In depth",
+                    "type": "meeting",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "A meeting to talk about the branch management in Qt. This goes into details and is probably only of interest to Qt contributors.",
                     "description": "",
                     "persons": [
+                        {"id": "880",  "full_public_name": "Not Applicable", "first_name": "Friedemann", "last_name": "Kleint" }
                     ],
                     "links": [
                     ]
@@ -4972,6 +5190,7 @@
  
                   {
                     "id": "529",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "B03",
@@ -4993,114 +5212,107 @@
               "B04": [  
                  
                   {
-                    "id": "716",
+                    "id": "752",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-03_11:15_-_fsfe_community_session_-_716",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b04_-_2016-09-03_11:15_-_fsfe_s_edu-team_-_past_challenges_and_future_-_guido_arnold_-_752",
+                    "title": "FSFE's edu-team - past, challenges and future",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
-                    "description": "",
+                    "description": " The goal of FSFE's Education Team is to bring the benefits of Free Software to all education-related activities and institutions, so pupils across Europe will be aware that Free Software is a  option.   The talk will summarize what's been done to achieve this goal, mention some of the challenges on the way and will end with the current state of the edu-team and future plans.  Guido is looking forward to discuss this topic further with the participants of the summit to improve the work of FSFE's education team.",
                     "persons": [
+                        {"id": "1349",  "full_public_name": " Guido  Arnold", "first_name": " Guido ", "last_name": "Arnold" }
                     ],
                     "links": [
+                        {"url": "https://fsfe.org/activities/education/eduteam.en.html", "title": "eduteam"}
                     ]
                   },
  
                   {
                     "id": "717",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-03_11:45_-_fsfe_community_session_-_717",
-                    "title": "FSFE community session",
+                    "slug": "b04_-_2016-09-03_11:45_-_how_to_write_the_perfect_press_release_-_paul_brown_-_717",
+                    "title": "How to write the perfect Press Release",
                     "subtitle": "FSFE community session",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "Press Releases are seldom read by the people they are aimed at (i.e. journalists). We will work out why this is so and solution that may make your texts more effective.",
                     "description": "",
                     "persons": [
+                        {"id": "1353",  "full_public_name": "Paul Brown", "first_name": "Paul ", "last_name": "Brown" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "718",
+                    "id": "759",
+                    "hideInApp": "0",
                     "start": "13:45",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-03_13:45_-_fsfe_community_session_-_718",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b04_-_2016-09-03_13:45_-_fsfe_it_infrastructure_presentation_and_feedback_bof_-_xmpp_albert_jabber_fsfe_org_-_759",
+                    "title": " FSFE IT Infrastructure Presentation and Feedback BoF",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "A presentation of what infrastructure is actually provided and also collect feedback on what people think they want/need as to improve communication and planning.",
+                    "description": "We currently have some infrastructure that is little known (and used)    and on the otehr hand we don't have some infrastructure people might    want/need. The idea of this BoF would be to improve communication with a face to face session, so that future planning can be improved and we can better find what infrastructure we are willing/able to provide both as an organisation to our volunteers as well as what are the volunteers in the systems administration teams/groups willing to provide. ",
                     "persons": [
+                        {"id": "1354",  "full_public_name": "xmpp://albert@jabber.fsfe.org", "first_name": "Albert", "last_name": "Dengg" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "719",
+                    "id": "754",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-03_14:15_-_fsfe_community_session_-_719",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b04_-_2016-09-03_14:15_-_fsfe_org_webmaster_q_a_-_paul_hansch_-_754",
+                    "title": "fsfe.org Webmaster Q+A",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "The Fellows of FSFE contribue to a website with ressources in over 30 languages. To keep this system reliable, and to enable contributions by people all over the world we employ a uniqe mix of techniques. In this Question and Answer session the current maintainer of FSFE's website pool will try to introduce the audience to ways of contributing to fsfe.org and to make use of the existing toolchain. Questions are welcome at any time in the session. Discussions in greater depth are expected to pursue after the Q+A. ",
                     "description": "",
                     "persons": [
+                        {"id": "1380",  "full_public_name": "Paul Hänsch   ", "first_name": "Paul ", "last_name": "Hänsch  " }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "720",
+                    "id": "757",
+                    "hideInApp": "0",
                     "start": "15:00",
-                    "duration": "00:30",
+                    "duration": "01:00",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-03_15:00_-_fsfe_community_session_-_720",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b04_-_2016-09-03_15:00_-_let_s_enable_people_to_control_technology_in_their_own_language_-_https_quitter_no_ao_-_cryptie_-_757",
+                    "title": "Let's enable people to control technology in their own language",
+                    "subtitle": "",
                     "track": "Community",
-                    "type": "30min",
+                    "type": "60min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "- - Why translating for Free Software matters - - Possibilities to translate and proofread for Free Software - - Actual and future tools and resources for the Free Software translator - - How to sign up as a translator",
+                    "description": "Free Software gives us the four Freedoms. Translating (and proofreading) for Free Software matters because it enables us to reach out to people in their own mother tongue, to strengthen them to take control of technology. Translations of press releases, news letters, web content as well as printable materials are highly appreciated and essential. Today, our site is at least partially translated in 31 languages and our monthly newsletter is usually available in 5 to 7 languages. Free Software and policy specific words are sometimes difficult to translate, this talk will present the main tools and resources you can use to translate and proofread.  We will also explain how to join our translator team. Finally, we will present the current project of the French Team .po which propose to renew our translation tools.",
                     "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "721",
-                    "start": "15:30",
-                    "duration": "00:30",
-                    "room": "B04",
-                    "slug": "b04_-_2016-09-03_15:30_-_fsfe_community_session_-_721",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
+                        {"id": "924",  "full_public_name": "https://quitter.no/ao/", "first_name": "André", "last_name": "Ockers" },
+                        {"id": "1032",  "full_public_name": "Cryptie", "first_name": "Cryptie ", "last_name": "" }
                     ],
                     "links": [
                     ]
@@ -5108,6 +5320,7 @@
  
                   {
                     "id": "504",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "B04",
@@ -5129,6 +5342,7 @@
                  
                   {
                     "id": "456",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "B95",
@@ -5148,38 +5362,64 @@
                   },
  
                   {
-                    "id": "731",
-                    "start": "13:45",
+                    "id": "756",
+                    "hideInApp": "0",
+                    "start": "11:45",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-03_13:45_-_fsfe_community_session_-_731",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b95_-_2016-09-03_11:45_-_fsfe_legal_team_legal_network_yesterday_today_and_tomorrow_-_matija_suklje_-_polina_malaja_-_756",
+                    "title": " FSFE Legal Team & Legal Network – Yesterday, Today and Tomorrow",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "In this talk we will explain the role and tasks of FSFE’s Legal Team – what we do and how we can help you, your project or your company. We will also take a quick dive into its history as well as the that of the Legal Network – the world’s premier network of Free Software legal experts. The session will conclude with a Q&A session. ",
                     "description": "",
                     "persons": [
+                        {"id": "1347",  "full_public_name": "Matija Šuklje", "first_name": "Matija ", "last_name": "Šuklje" },
+                        {"id": "1348",  "full_public_name": "Polina Malaja", "first_name": "Polina", "last_name": "Malaja" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "732",
-                    "start": "14:15",
+                    "id": "761",
+                    "hideInApp": "0",
+                    "start": "13:45",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-03_14:15_-_fsfe_community_session_-_732",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b95_-_2016-09-03_13:45_-_use_your_tools_fsfe_and_its_services_-_erik_albers_-_761",
+                    "title": "Use your tools: FSFE and its services",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "FSFE is community driven and we like to help you and give back. This session will quickly highlight the different services that the FSFE can offer you to get active and public. For example, how can I use the FSFE tools to promote my activities? How can I get into the Newsletter or the front-page? How can I get in contact with Fellows in my region? How can FSFE help me to start a group? Also, bring your own question. ",
                     "description": "",
                     "persons": [
+                        {"id": "1451",  "full_public_name": "Erik Albers ", "first_name": "Erik", "last_name": "Albers " }
+                    ],
+                    "links": [
+                    ]
+                  },
+ 
+                  {
+                    "id": "753",
+                    "hideInApp": "0",
+                    "start": "14:15",
+                    "duration": "00:30",
+                    "room": "B95",
+                    "slug": "b95_-_2016-09-03_14:15_-_advocacy_for_free_software_-_how_we_do_it_-_polina_malaja_-_753",
+                    "title": "Advocacy for Free Software - how we do it?",
+                    "subtitle": "",
+                    "track": "Community",
+                    "type": "30min",
+                    "language": "",
+                    "abstract": "The talk will give a brief introduction to the EU policy work in FSFE, including the main topics FSFE is currently working on: e.g. Digital Single Market, ICT standards, Radio Lockdown Directive. The talk will explain why these EU initiatives are important for software freedom on the EU level, and how Free Software communities shall be involved in order to make a change.",
+                    "description": "",
+                    "persons": [
+                        {"id": "1348",  "full_public_name": "Polina Malaja", "first_name": "Polina", "last_name": "Malaja" }
                     ],
                     "links": [
                     ]
@@ -5187,6 +5427,7 @@
  
                   {
                     "id": "448",
+                    "hideInApp": "0",
                     "start": "15:00",
                     "duration": "00:30",
                     "room": "B95",
@@ -5206,19 +5447,21 @@
                   },
  
                   {
-                    "id": "735",
+                    "id": "722",
+                    "hideInApp": "0",
                     "start": "15:30",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-03_15:30_-_fsfe_community_session_-_735",
-                    "title": "FSFE community session",
+                    "slug": "b95_-_2016-09-03_15:30_-_secure_mobile_messaging_-_hannes_hauswedell_-_722",
+                    "title": "Secure mobile messaging",
                     "subtitle": "FSFE community session",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "Don't trust WhatsApp? Confused by the alternatives? Telegram, Signal, Threema, Allo ... ? Many claim to protect your privacy, but which actually do? And what are all these fancy encryption protocols people are talking about?  In my talk I will try to give an overview over the most popular messaging programs and discuss how their properties and infrastructure relate to the privacy, security and freedom of the user. ",
                     "description": "",
                     "persons": [
+                        {"id": "1355",  "full_public_name": "Hannes Hauswedell", "first_name": "Hannes ", "last_name": "Hauswedell" }
                     ],
                     "links": [
                     ]
@@ -5226,6 +5469,7 @@
  
                   {
                     "id": "749",
+                    "hideInApp": "0",
                     "start": "16:30",
                     "duration": "01:00",
                     "room": "B95",
@@ -5247,6 +5491,7 @@
                  
                   {
                     "id": "565",
+                    "hideInApp": "0",
                     "start": "09:00",
                     "duration": "01:00",
                     "room": "B02",
@@ -5266,6 +5511,7 @@
  
                   {
                     "id": "566",
+                    "hideInApp": "0",
                     "start": "12:15",
                     "duration": "00:20",
                     "room": "B02",
@@ -5285,6 +5531,7 @@
  
                   {
                     "id": "567",
+                    "hideInApp": "0",
                     "start": "12:45",
                     "duration": "01:00",
                     "room": "B02",
@@ -5304,6 +5551,7 @@
  
                   {
                     "id": "568",
+                    "hideInApp": "0",
                     "start": "16:00",
                     "duration": "00:30",
                     "room": "B02",
@@ -5335,6 +5583,7 @@
                  
                   {
                     "id": "371",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -5359,6 +5608,7 @@
  
                   {
                     "id": "387",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -5379,6 +5629,7 @@
  
                   {
                     "id": "392",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -5399,6 +5650,7 @@
  
                   {
                     "id": "405",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "B05+B06",
@@ -5419,19 +5671,20 @@
  
                   {
                     "id": "520",
+                    "hideInApp": "0",
                     "start": "15:45",
                     "duration": "01:00",
                     "room": "B05+B06",
-                    "slug": "b05_b06_-_2016-09-04_15:45_-_keynote_3_-__-_520",
-                    "title": "Keynote 3",
+                    "slug": "b05_b06_-_2016-09-04_15:45_-_keynote_3-_software_as_a_public_service_-_julia_reda_-_520",
+                    "title": "Keynote 3- Software as a public service",
                     "subtitle": "",
-                    "track": "",
+                    "track": "Keynote",
                     "type": "60min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "The FOSSA project to get the European Union to run open source security audits takes a step towards understanding FLOSS as a public service: If free/libre open source software belongs to the public, the public needs to take responsibility for it. Taking such responsibility – and not just for security – is getting more and more urgent as software controls ever more of the world around us. Societies need to ask themselves: Can people be truly emancipated and governments truly independent when they cannot (or just do not) inspect and modify the code that runs their lives?",
                     "description": "",
                     "persons": [
-                        {"id": "137",  "full_public_name": ".", "first_name": "", "last_name": "" }
+                        {"id": "1387",  "full_public_name": "Julia Reda", "first_name": "Julia ", "last_name": "Reda" }
                     ],
                     "links": [
                     ]
@@ -5441,6 +5694,7 @@
                  
                   {
                     "id": "334",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -5461,6 +5715,7 @@
  
                   {
                     "id": "425",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "B07+B08",
@@ -5481,6 +5736,7 @@
  
                   {
                     "id": "325",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "B07+B08",
@@ -5501,6 +5757,7 @@
  
                   {
                     "id": "365",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "00:30",
                     "room": "B07+B08",
@@ -5521,6 +5778,7 @@
  
                   {
                     "id": "385",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "B07+B08",
@@ -5541,6 +5799,7 @@
  
                   {
                     "id": "496",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "B07+B08",
@@ -5562,6 +5821,7 @@
                  
                   {
                     "id": "434",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "00:30",
                     "room": "B09",
@@ -5582,6 +5842,7 @@
  
                   {
                     "id": "416",
+                    "hideInApp": "0",
                     "start": "10:30",
                     "duration": "00:30",
                     "room": "B09",
@@ -5602,6 +5863,7 @@
  
                   {
                     "id": "366",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "B09",
@@ -5625,6 +5887,7 @@
  
                   {
                     "id": "390",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "B09",
@@ -5645,6 +5908,7 @@
  
                   {
                     "id": "339",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "00:30",
                     "room": "B09",
@@ -5666,6 +5930,7 @@
  
                   {
                     "id": "332",
+                    "hideInApp": "0",
                     "start": "13:30",
                     "duration": "00:30",
                     "room": "B09",
@@ -5686,6 +5951,7 @@
  
                   {
                     "id": "403",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "B09",
@@ -5708,6 +5974,7 @@
                  
                   {
                     "id": "582",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "00:30",
                     "room": "A03",
@@ -5728,6 +5995,7 @@
  
                   {
                     "id": "740",
+                    "hideInApp": "0",
                     "start": "10:30",
                     "duration": "00:30",
                     "room": "A03",
@@ -5748,6 +6016,7 @@
  
                   {
                     "id": "466",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "A03",
@@ -5768,10 +6037,11 @@
  
                   {
                     "id": "462",
-                    "start": "11:50",
+                    "hideInApp": "0",
+                    "start": "11:45",
                     "duration": "00:30",
                     "room": "A03",
-                    "slug": "a03_-_2016-09-04_11:50_-_women_in_open_source_-_jona_azizaj_-_462",
+                    "slug": "a03_-_2016-09-04_11:45_-_women_in_open_source_-_jona_azizaj_-_462",
                     "title": "Women in Open Source",
                     "subtitle": "Women in Open Source",
                     "track": "Community",
@@ -5788,17 +6058,18 @@
  
                   {
                     "id": "746",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:00",
                     "room": "A03",
                     "slug": "a03_-_2016-09-04_13:00_-_show_europe_-_746",
                     "title": "SHOW EUROPE",
-                    "subtitle": "SHOW EUROPE",
+                    "subtitle": "To promote national Free Software organizations in Europe",
                     "track": "Community",
                     "type": "60min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "The FSFE hosts a European session to give various (national) organizations that are actively working for Free Software inside Europe the chance to present themselves.   This session shall help the European Free Software movement to see connections, to strengthen ties, to collaborate and to see that we speak with many voices and languages but with one message.   To not distract our participants from this unique event, we (the FSFE summit) explicitly do not let host other sessions during the Show Europe. ",
+                    "description": "So far confirmed participants: <ul> <li>Tiberiu-Cezar Tehnoetic for Fundația Ceata [RO]</li> <li>Alexander Sander for Digitale Gesellschaft [DE]</li> <li>Despoina Mitropoulou for Gfoss [EL]</li> <li>Lipszyc for Fundacja Nowoczesna Polska  [PL]</li> <li>Rui Guimaraes for Ansol [PT]</li> <li>Stuart J. Mackintosh for Open Source Consortium [UK]</li> <li>Walter van Holst for European Digital Rights initiative [EU]</li> <li>Beat Glattfelder for CH Open [CH]</li> </ul>",
                     "persons": [
                     ],
                     "links": [
@@ -5807,6 +6078,7 @@
  
                   {
                     "id": "713",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "00:30",
                     "room": "A03",
@@ -5827,6 +6099,7 @@
  
                   {
                     "id": "457",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "00:30",
                     "room": "A03",
@@ -5850,6 +6123,7 @@
                  
                   {
                     "id": "435",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "A04",
@@ -5870,6 +6144,7 @@
  
                   {
                     "id": "361",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "A04",
@@ -5890,6 +6165,7 @@
  
                   {
                     "id": "358",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:00",
                     "room": "A04",
@@ -5910,6 +6186,7 @@
  
                   {
                     "id": "428",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "A04",
@@ -5932,6 +6209,7 @@
                  
                   {
                     "id": "333",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "A08",
@@ -5951,20 +6229,21 @@
                   },
  
                   {
-                    "id": "436",
+                    "id": "530",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "A08",
-                    "slug": "a08_-_2016-09-04_11:15_-_qt_scxml_-_ulherman_-_436",
-                    "title": "Qt SCXML",
-                    "subtitle": "state charts in Qt",
-                    "track": "In depth",
+                    "slug": "a08_-_2016-09-04_11:15_-_how_to_contribute_to_qt_-_thiago_-_530",
+                    "title": "How to contribute to Qt",
+                    "subtitle": "Getting your first patch through",
+                    "track": "Best practices",
                     "type": "60min",
                     "language": "",
-                    "abstract": "Qt 5.7 comes with a new module, Qt SCXML. The talk will give an introduction and some hands-on examples about what you can do with it.",
-                    "description": "State Chart XML (SCXML) is a common format to specify state machines. It has been standardized by the W3C and there are many applications that produce or process it. State charts provide a graphical way of modeling how a system reacts to stimuli. This is done by defining the possible states that the system can be in, and how the system can move from one state to another. State charts offer a very concise representation of business logic, and limit the potential for unexpected behavior.  Qt 5.7 comes with a technical preview of Qt SCXML, a module to integrate state charts specified in SCXML into your application, and execute them in accordance to the W3C specification. This way a Qt application can be driven from a state chart, rather than from business logic expressed in C++ or QML.  With Qt SCXML, SCXML documents can be compiled into C++, which can then be readily integrated into any Qt application. Alternately, SCXML documents can also be dynamically loaded and interpreted at run time. In both cases, states are exposed via Qt properties, so that QML properties can effortlessly be bound to them. It is thus very easy to attach a Qt Quick UI to an existing, or newly written, state machine.  The talk will show the full workflow of creating a state machine in a visual design tool, integrating it into a project with Qt Creator, adding a custom data model, and attaching a user interface to it, using QML and Qt Quick.",
+                    "abstract": "Contributing code to Qt follows a process that is outlined and followed in this session.",
+                    "description": "",
                     "persons": [
-                        {"id": "674",  "full_public_name": "ulherman", "first_name": "Ulf", "last_name": "Hermann" }
+                        {"id": "135",  "full_public_name": "thiago", "first_name": "Thiago", "last_name": "Macieira" }
                     ],
                     "links": [
                     ]
@@ -5972,8 +6251,9 @@
  
                   {
                     "id": "467",
+                    "hideInApp": "0",
                     "start": "13:00",
-                    "duration": "00:30",
+                    "duration": "01:00",
                     "room": "A08",
                     "slug": "a08_-_2016-09-04_13:00_-_american_fuzzy_lop_and_address_sanitizer_-_hanno_bock_-_467",
                     "title": "American Fuzzy Lop and Address Sanitizer",
@@ -5992,6 +6272,7 @@
  
                   {
                     "id": "359",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "A08",
@@ -6014,6 +6295,7 @@
                  
                   {
                     "id": "508",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "A06",
@@ -6033,6 +6315,7 @@
  
                   {
                     "id": "515",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "A06",
@@ -6052,6 +6335,7 @@
  
                   {
                     "id": "510",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:00",
                     "room": "A06",
@@ -6071,6 +6355,7 @@
  
                   {
                     "id": "512",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "A06",
@@ -6092,6 +6377,7 @@
                  
                   {
                     "id": "507",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "A05",
@@ -6111,6 +6397,7 @@
  
                   {
                     "id": "514",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "A05",
@@ -6130,6 +6417,7 @@
  
                   {
                     "id": "509",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:00",
                     "room": "A05",
@@ -6149,6 +6437,7 @@
  
                   {
                     "id": "511",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "A05",
@@ -6170,6 +6459,7 @@
                  
                   {
                     "id": "384",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "01:00",
                     "room": "B03",
@@ -6189,19 +6479,21 @@
                   },
  
                   {
-                    "id": "530",
+                    "id": "436",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "01:00",
                     "room": "B03",
-                    "slug": "b03_-_2016-09-04_11:15_-_qt_contributor_summit_unconference_-_530",
-                    "title": "Qt Contributor Summit Unconference",
-                    "subtitle": "",
-                    "track": "",
-                    "type": "",
+                    "slug": "b03_-_2016-09-04_11:15_-_qt_scxml_-_ulherman_-_436",
+                    "title": "Qt SCXML",
+                    "subtitle": "state charts in Qt",
+                    "track": "In depth",
+                    "type": "60min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "Qt 5.7 comes with a new module, Qt SCXML. The talk will give an introduction and some hands-on examples about what you can do with it.",
+                    "description": "State Chart XML (SCXML) is a common format to specify state machines. It has been standardized by the W3C and there are many applications that produce or process it. State charts provide a graphical way of modeling how a system reacts to stimuli. This is done by defining the possible states that the system can be in, and how the system can move from one state to another. State charts offer a very concise representation of business logic, and limit the potential for unexpected behavior.  Qt 5.7 comes with a technical preview of Qt SCXML, a module to integrate state charts specified in SCXML into your application, and execute them in accordance to the W3C specification. This way a Qt application can be driven from a state chart, rather than from business logic expressed in C++ or QML.  With Qt SCXML, SCXML documents can be compiled into C++, which can then be readily integrated into any Qt application. Alternately, SCXML documents can also be dynamically loaded and interpreted at run time. In both cases, states are exposed via Qt properties, so that QML properties can effortlessly be bound to them. It is thus very easy to attach a Qt Quick UI to an existing, or newly written, state machine.  The talk will show the full workflow of creating a state machine in a visual design tool, integrating it into a project with Qt Creator, adding a custom data model, and attaching a user interface to it, using QML and Qt Quick.",
                     "persons": [
+                        {"id": "674",  "full_public_name": "ulherman", "first_name": "Ulf", "last_name": "Hermann" }
                     ],
                     "links": [
                     ]
@@ -6209,6 +6501,7 @@
  
                   {
                     "id": "531",
+                    "hideInApp": "0",
                     "start": "13:00",
                     "duration": "01:00",
                     "room": "B03",
@@ -6228,6 +6521,7 @@
  
                   {
                     "id": "532",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "01:00",
                     "room": "B03",
@@ -6248,19 +6542,21 @@
               "B04": [  
                  
                   {
-                    "id": "470",
+                    "id": "760",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-04_10:00_-_freedomvote_-_470",
-                    "title": "Freedomvote",
-                    "subtitle": "Freedomvote",
-                    "track": "Let‘s talk software",
+                    "slug": "b04_-_2016-09-04_10:00_-_fsfe_wiki_caretakers_-_johannes_zarl-zierl_-_760",
+                    "title": " FSFE Wiki Caretakers",
+                    "subtitle": "",
+                    "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "Freedomvote",
+                    "abstract": "Like many wikis, the FSFE community wiki tends to be rather disorganized at  times. This talk covers current developments in the FSFE wiki, with a focus on the wiki caretakers team.",
                     "description": "",
                     "persons": [
+                        {"id": "1449",  "full_public_name": " Johannes Zarl-Zierl", "first_name": " Johannes", "last_name": "Zarl-Zierl" }
                     ],
                     "links": [
                     ]
@@ -6268,127 +6564,99 @@
  
                   {
                     "id": "723",
+                    "hideInApp": "0",
                     "start": "10:30",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-04_10:30_-_fsfe_community_session_-_723",
-                    "title": "FSFE community session",
+                    "slug": "b04_-_2016-09-04_10:30_-_freedomvote_-_bring_ask_your_candidates_to_the_web_-_simon_wachter_-_723",
+                    "title": "Freedomvote - Bring Ask your Candidates to the web",
                     "subtitle": "FSFE community session",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "For the Swiss Parliament Election in 2016, the local group Zurich realized a web version of Ask Your Candidates. The platform allows voter to search for potential politicians that support their political point of view (Free Software) and vote for them. For the community talk we want to talk about the platform itself, the realization of it and all problems we went through. We want to encourage other local groups to use the platform for their next election too. ",
                     "description": "",
                     "persons": [
+                        {"id": "1356",  "full_public_name": "Simon Wächter", "first_name": "Simon", "last_name": "Wächter" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "724",
+                    "id": "471",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-04_11:15_-_fsfe_community_session_-_724",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
+                    "slug": "b04_-_2016-09-04_11:15_-_plussy_display_-_an_fsfe_booth_attractor_-_christian_carlowitz_-_471",
+                    "title": "Plussy Display - An FSFE Booth Attractor",
+                    "subtitle": "Plussy Display - An FSFE Booth Attractor",
+                    "track": "Let‘s talk software",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "Plussy Display is a small matrix of RGB-LEDs arranged to resemble the FSFE's plussy local group logo and to attract attention to Franken's local group's first booth in Bamberg as well as to regular meetings.  Its main components are a matrix of 20 LEDs and a small microcontroller board to generate pre-programmed animations. Attatching a BeagleBoneBlack with WLAN stick also allows concurrent web- or app-based color changing, which is especially great for distracting children while advocating free software to their parents. The complete setup has been designed to allow construction, implementation, programming and usage entirely with free software. Since the coverage of design steps (frame lasercutting, PCB layout, microcontroller programming, SBC GNU/Linux programming and configuration, WLAN adapter choice, Web and Android programming) is quite high, it also provides a good survey of free software and free hardware design for DIY electronics.",
+                    "description": "FSFE Local Group Events, DIY electronics, Free software friendly technologies ",
                     "persons": [
+                        {"id": "1357",  "full_public_name": "Christian Carlowitz", "first_name": "Christian", "last_name": "Carlowitz" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "725",
+                    "id": "755",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-04_11:45_-_fsfe_community_session_-_725",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b04_-_2016-09-04_11:45_-_free_software_and_reprap_3d_printers_-_marco_celagero_-_755",
+                    "title": "Free Software and RepRap 3D printers",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "In this talk Marco will speak about the correlation between free software and the RepRap 3D printers, the economics aspect of the RepRap Project: will replicating machines be the end of shopping, waste & industry? Did Karl Marx had a clue? If you have never heard about Adrian Bowyer and the RepRap project this talk will introduce you on that.",
                     "description": "",
                     "persons": [
+                        {"id": "1381",  "full_public_name": "Marco  Celagero", "first_name": "Marco ", "last_name": "Celagero" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "726",
-                    "start": "13:00",
-                    "duration": "00:30",
-                    "room": "B04",
-                    "slug": "b04_-_2016-09-04_13:00_-_fsfe_community_session_-_726",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "727",
-                    "start": "13:30",
-                    "duration": "00:30",
-                    "room": "B04",
-                    "slug": "b04_-_2016-09-04_13:30_-_fsfe_community_session_-_727",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "729",
+                    "id": "762",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-04_14:15_-_fsfe_community_session_-_729",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
+                    "slug": "b04_-_2016-09-04_14:15_-_after_the_summit_is_before_the_summit_-_erik_albers_-_cellini_-_762",
+                    "title": "After the summit is before the summit?",
+                    "subtitle": "",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
+                    "abstract": "The first ever FSFE summit is closing soon. Before everybody is leaving, time to look back on the weekend and gather your feedback. Tell me what was good and what could have been better? Is it something to repeat or a nice-we-did-it, but ... ?",
                     "description": "",
                     "persons": [
+                        {"id": "1451",  "full_public_name": "Erik Albers ", "first_name": "Erik", "last_name": "Albers " },
+                        {"id": "715",  "full_public_name": "Cellini", "first_name": "Cellini", "last_name": "Bedi" }
                     ],
                     "links": [
                     ]
                   },
  
                   {
-                    "id": "730",
+                    "id": "764",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "00:30",
                     "room": "B04",
-                    "slug": "b04_-_2016-09-04_14:45_-_fsfe_community_session_-_730",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
+                    "slug": "b04_-_2016-09-04_14:45_-_fsfe_community_-_764",
+                    "title": "FSFE Community",
+                    "subtitle": "",
+                    "track": "",
                     "type": "30min",
                     "language": "",
                     "abstract": "",
@@ -6403,6 +6671,7 @@
                  
                   {
                     "id": "463",
+                    "hideInApp": "0",
                     "start": "10:00",
                     "duration": "00:30",
                     "room": "B95",
@@ -6423,6 +6692,7 @@
  
                   {
                     "id": "491",
+                    "hideInApp": "0",
                     "start": "10:30",
                     "duration": "00:30",
                     "room": "B95",
@@ -6443,75 +6713,42 @@
  
                   {
                     "id": "736",
+                    "hideInApp": "0",
                     "start": "11:15",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-04_11:15_-_fsfe_community_session_-_736",
-                    "title": "FSFE community session",
+                    "slug": "b95_-_2016-09-04_11:15_-_zerocat_chipflasher_-_open_hardware_diy_with_the_parallax_propeller_-_kai_mertens_-_736",
+                    "title": "Zerocat chipflasher - open hardware DIY with the Parallax Propeller",
                     "subtitle": "FSFE community session",
                     "track": "Community",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": "The zerocat chipflasher intends to be a true open hardware chip programming tool, all sources released under a free license, even down to the internal chip design files. It makes use of the powerful P8X32A open hardware controller, which had been released under the GPLv3 by Parallax in 2011.",
+                    "description": "Nowadays, there is a bunch of affordable chipflashers available, but none of them is true open design.In projects, where user freedom is the first criterion for quality, this is a severe drawback. For that reason, the zerocat chipflasher would perfectly fit into the coreboot and libreboot philosophy, offering an alternative means for flashing supported machines like the thinkpad x200/x200s. The zerocat label and its chipflasher is now online: http://www.zerocat.org ",
                     "persons": [
+                        {"id": "1351",  "full_public_name": "Kai Mertens", "first_name": "Kai", "last_name": "Mertens" }
                     ],
                     "links": [
+                        {"url": "http://www.zerocat.org", "title": "zerocat label"}
                     ]
                   },
  
                   {
-                    "id": "737",
+                    "id": "465",
+                    "hideInApp": "0",
                     "start": "11:45",
                     "duration": "00:30",
                     "room": "B95",
-                    "slug": "b95_-_2016-09-04_11:45_-_fsfe_community_session_-_737",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
+                    "slug": "b95_-_2016-09-04_11:45_-_free_software_and_the_network_effect_fight_it_or_ride_it_-_michal_wozniak_-_465",
+                    "title": "Free Software and the Network Effect: fight it or ride it?",
+                    "subtitle": "Free Software and the Network Effect: fight it or ride it?",
+                    "track": "Beyond Code",
                     "type": "30min",
                     "language": "",
-                    "abstract": "",
-                    "description": "",
+                    "abstract": " No free software user is an island. This has been true always, but never has this been truer than lately. With the advent of social walled gardens, positioning themselves as public infrastructure used by more and more other services, the network effect is stronger an enemy than ever. It cannot be ignored, but can it be defeated? Or, perhaps, co-opted?  ",
+                    "description": "The Four Freedoms, while being the cornerstone of the free software movement, only deal with software and ignore the question of data. This is understandable: when they have been created, data almost always resided under users' control, and the real problem was making sure users have the necessary, freedom-preserving tools to work with it. Today, we use free software tools to deal with data that effectively falls outside of our control. Often we cannot access the data directly, export it, import it somewhere else. Garden walls do not have windows, or very small ones only. Even free software itself is more and more often being developed using walled gardens -- GitHub being one example. And, more and more free software is being used to build walled gardens themselves. As is often the case, there is no easy solution. But there are things we as the free software community can do, within the community itself, and as part of our policy work, to push things in the right direction. This requires added focus on some of the values that seem to have taken the back seat in the free software world: compatibility and interoperability. We need to put social back into libre social networks, among others. It is time free software tools became compatible with each other. Good news is, some work is already being done. ",
                     "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "738",
-                    "start": "13:00",
-                    "duration": "00:30",
-                    "room": "B95",
-                    "slug": "b95_-_2016-09-04_13:00_-_fsfe_community_session_-_738",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
-                    ],
-                    "links": [
-                    ]
-                  },
- 
-                  {
-                    "id": "728",
-                    "start": "13:30",
-                    "duration": "00:30",
-                    "room": "B95",
-                    "slug": "b95_-_2016-09-04_13:30_-_fsfe_community_session_-_728",
-                    "title": "FSFE community session",
-                    "subtitle": "FSFE community session",
-                    "track": "Community",
-                    "type": "30min",
-                    "language": "",
-                    "abstract": "",
-                    "description": "",
-                    "persons": [
+                        {"id": "831",  "full_public_name": "Michal Wozniak", "first_name": "Michal", "last_name": "Wozniak" }
                     ],
                     "links": [
                     ]
@@ -6519,6 +6756,7 @@
  
                   {
                     "id": "492",
+                    "hideInApp": "0",
                     "start": "14:15",
                     "duration": "00:30",
                     "room": "B95",
@@ -6540,6 +6778,7 @@
  
                   {
                     "id": "459",
+                    "hideInApp": "0",
                     "start": "14:45",
                     "duration": "00:30",
                     "room": "B95",
@@ -6562,6 +6801,7 @@
                  
                   {
                     "id": "569",
+                    "hideInApp": "0",
                     "start": "12:15",
                     "duration": "00:45",
                     "room": "B02",
@@ -6581,6 +6821,7 @@
  
                   {
                     "id": "570",
+                    "hideInApp": "0",
                     "start": "15:15",
                     "duration": "00:30",
                     "room": "B02",
@@ -6600,6 +6841,7 @@
  
                   {
                     "id": "571",
+                    "hideInApp": "0",
                     "start": "16:45",
                     "duration": "00:15",
                     "room": "B02",

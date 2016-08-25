@@ -32,6 +32,9 @@
         <file>data-assets/conference/floorplan/room_7.png</file>
         <file>data-assets/conference/floorplan/room_8.png</file>
         <file>data-assets/conference/floorplan/room_9.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1115.jpeg</file>
+        <file>data-assets/conference/speakerImages/speaker_1115@2x.jpeg</file>
+        <file>data-assets/conference/speakerImages/speaker_1115@3x.jpeg</file>
         <file>data-assets/conference/speakerImages/speaker_118.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_118@2x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_118@3x.jpg</file>
@@ -39,9 +42,55 @@
         <file>data-assets/conference/speakerImages/speaker_124@2x.png</file>
         <file>data-assets/conference/speakerImages/speaker_124@3x.png</file>
         <file>data-assets/conference/speakerImages/speaker_134.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1344.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1344@2x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1344@3x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1346.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1346@2x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1347.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1347@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1347@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1347@4x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1349.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1349@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1349@3x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_134@2x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_134@3x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_134@4x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1351.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1351@2x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1351@3x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1351@4x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1354.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1354@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1354@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1354@4x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1355.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1355@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1355@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1355@4x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1356.jpeg</file>
+        <file>data-assets/conference/speakerImages/speaker_1356@2x.jpeg</file>
+        <file>data-assets/conference/speakerImages/speaker_1356@3x.jpeg</file>
+        <file>data-assets/conference/speakerImages/speaker_1356@4x.jpeg</file>
+        <file>data-assets/conference/speakerImages/speaker_1387.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1387@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1387@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1387@4x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1436.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1436@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1436@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1443.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1443@2x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1443@3x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1451.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1451@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1451@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1451@4x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_1474.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1474@2x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1474@3x.png</file>
+        <file>data-assets/conference/speakerImages/speaker_1474@4x.png</file>
         <file>data-assets/conference/speakerImages/speaker_155.png</file>
         <file>data-assets/conference/speakerImages/speaker_155@2x.png</file>
         <file>data-assets/conference/speakerImages/speaker_155@3x.png</file>
@@ -102,6 +151,12 @@
         <file>data-assets/conference/speakerImages/speaker_698@4x.png</file>
         <file>data-assets/conference/speakerImages/speaker_7.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_709.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_712.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_712@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_715.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_715@2x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_715@3x.jpg</file>
+        <file>data-assets/conference/speakerImages/speaker_715@4x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_796.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_796@2x.jpg</file>
         <file>data-assets/conference/speakerImages/speaker_796@3x.jpg</file>
@@ -153,8 +208,5 @@
         <file>data-assets/prod/cacheSpeaker.json</file>
         <file>data-assets/prod/cacheSpeakerImage.json</file>
         <file>data-assets/cacheSettingsData.json</file>
-        <file>data-assets/conference/speakerImages/speaker_1344.png</file>
-        <file>data-assets/conference/speakerImages/speaker_1344@2x.png</file>
-        <file>data-assets/conference/speakerImages/speaker_1344@3x.png</file>
     </qresource>
 </RCC>
