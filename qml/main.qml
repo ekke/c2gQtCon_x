@@ -423,7 +423,8 @@ ApplicationWindow {
                 // add navigation model for DEBUG BUILD ?
                 if(myApp.isDebugBuild() && !initialPlaceholder.isUpdate) {
                     console.log("DEBUG BUILD added as destination")
-                    navigationModel.push(developerModel)
+                    // special mode for ekke testing the app
+                    // navigationModel.push(developerModel)
                 }
                 // inject model into Destinations Repeater
                 destinations.model = navigationModel
