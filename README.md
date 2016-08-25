@@ -1,5 +1,6 @@
 # QtCon 2016 Conference App
 ![alt tag](https://appbus.files.wordpress.com/2016/08/qtconappicon-180x180.png  "QtCon 2016 App Logo")
+
 Conference2Go QtCon for x-platform (Android, iOS)
 
 [AUTHOR ( ekke )](AUTHOR.md)
@@ -34,7 +35,16 @@ TBD
 ## Download from Apple Appstore
 https://itunes.apple.com/us/app/qtcon-2016-conference-app/id1144162386
 
-
 ## Come to QtCon 2016 and have Fun at BCC in Berlin
 ![alt tag](https://appbus.files.wordpress.com/2016/08/01_venue.png  "QtCon 2016 Conference App at BCC in Berlin")
 
+![alt tag](https://appbus.files.wordpress.com/2016/08/02_schedule.png  "QtCon 2016 Conference App - Schedule")
+
+![alt tag](https://appbus.files.wordpress.com/2016/08/04_speakerlist.png  "QtCon 2016 Conference App - Speaker")
+
+![alt tag](https://appbus.files.wordpress.com/2016/08/06_drawer.png  "QtCon 2016 Conference App - Drawer")
+
+## This was only the beginning
+stay tuned for Qt World Summit 2016 San Francisco Conference App
+
+ekke
