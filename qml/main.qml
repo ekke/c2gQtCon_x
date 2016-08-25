@@ -20,6 +20,11 @@ import "navigation"
 
 ApplicationWindow {
     id: appWindow
+    // running on mobiles you don't need width and height
+    // ApplicationWindow will always fill entire screen
+    // testing also on desktop it makes sense to set values
+    width: 410
+    height: 680
     // visibile must set to true - default is false
     visible: true
     //
