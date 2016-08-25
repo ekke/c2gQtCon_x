@@ -892,7 +892,11 @@ void DataUtil::calcSpeakerName(Speaker* speaker, SpeakerAPI* speakerAPI) {
     }
     speaker->setName(speaker->name()+speakerAPI->lastName());
     if(speaker->name().length() > 0) {
-        speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
+        if(speakerAPI->lastName().length() > 0) {
+             speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
+        } else {
+           speaker->setSortKey(speakerAPI->firstName().left(5).toUpper());
+        }
         speaker->setSortGroup(speaker->sortKey().left(1));
     } else {
         speaker->setSortKey("*");
