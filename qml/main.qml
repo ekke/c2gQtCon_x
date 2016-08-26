@@ -307,7 +307,10 @@ ApplicationWindow {
             if(navigationModel[navigationIndex].canGoBack && destinations.itemAt(navigationIndex).item.depth > 1) {
                 destinations.itemAt(navigationIndex).item.goBack()
             } else {
-                showToast(qsTr("No more Pages\nPlease use 'Android Home' Button\nto leave the App."))
+                if (Qt.platform.os === "winrt")
+                    Qt.quit()
+                else
+                    showToast(qsTr("No more Pages\nPlease use 'Android Home' Button\nto leave the App."))
             }
         }
         // TODO some Shortcuts

@@ -895,7 +895,6 @@
         <file>images/black/search.png</file>
         <file>images/black/search@3x.png</file>
         <file>images/black/search@4x.png</file>
-        <file>images/black/search@“x.png</file>
         <file>images/black/send.png</file>
         <file>images/black/send@2x.png</file>
         <file>images/black/send@3x.png</file>
@@ -1887,7 +1886,6 @@
         <file>images/white/schedule_sametime.png</file>
         <file>images/white/schedule_sametime@3x.png</file>
         <file>images/white/schedule_sametime@4x.png</file>
-        <file>images/white/schedule_sametime@“x.png</file>
         <file>images/white/search.png</file>
         <file>images/white/search@2x.png</file>
         <file>images/white/search@3x.png</file>

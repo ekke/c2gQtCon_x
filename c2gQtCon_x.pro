@@ -159,3 +159,7 @@ ios {
     # Note for devices: 1=iPhone, 2=iPad, 1,2=Universal.
     QMAKE_IOS_TARGETED_DEVICE_FAMILY = 1
 }
+
+winrt {
+    WINRT_MANIFEST.name = Qt Con 2016
+}
