@@ -529,7 +529,7 @@ QVariantMap DataUtil::readScheduleFile(const QString schedulePath) {
 }
 
 Day* DataUtil::findDayForServerDate(const QString& dayDate) {
-    Day* day;
+	Day* day = nullptr;
     bool found = false;
     for (int dl = 0; dl < mDataManager->mAllDay.size(); ++dl) {
         day = (Day*) mDataManager->mAllDay.at(dl);
@@ -619,7 +619,7 @@ void DataUtil::setDuration(SessionAPI* sessionAPI, Session* session) {
 }
 
 void DataUtil::setTrackAndType(SessionAPI* sessionAPI, Session* session, Conference* conference, const bool isUpdate) {
-    SessionTrack* sessionTrack;
+    SessionTrack* sessionTrack = nullptr;
     bool found = false;
     QString trackName;
     trackName = sessionAPI->track();
@@ -641,8 +641,10 @@ void DataUtil::setTrackAndType(SessionAPI* sessionAPI, Session* session, Confere
         sessionTrack->setInAssets(isUpdate?false:true);
         mDataManager->insertSessionTrack(sessionTrack);
     }
-    session->setSessionTrack(sessionTrack->trackId());
-    session->resolveSessionTrackAsDataObject(sessionTrack);
+	if (sessionTrack) {
+		session->setSessionTrack(sessionTrack->trackId());
+		session->resolveSessionTrackAsDataObject(sessionTrack);
+	}
     // SCHEDULE or what else
     // setting some boolean here makes it easier to distinguish in UI
     if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
@@ -771,7 +773,7 @@ void DataUtil::prepareSessions()
                 qWarning() << "DAY: " << dayDate << " ROOM: " << roomKeys.at(r) << " ignored - No Sessions available";
                 continue;
             }
-            Room* room;
+            Room* room = nullptr;
             found = false;
             for (int rl = 0; rl < mDataManager->mAllRoom.size(); ++rl) {
                 room = (Room*) mDataManager->mAllRoom.at(rl);
@@ -1124,7 +1126,7 @@ void DataUtil::updateAndAdjustLinks(QVariantMap &sessionMap) {
             QVariantMap map = linksList.at(lvl).toMap();
             if(map.contains("url")) {
                 QString linkUrl = map.value("url").toString();
-                SessionLink* sessionLink;
+                SessionLink* sessionLink = nullptr;
                 bool linkFound = false;
                 for (int xsl = 0; xsl < mDataManager->allSessionLink().size(); ++xsl) {
                     sessionLink = (SessionLink*) mDataManager->allSessionLink().at(xsl);
@@ -1219,7 +1221,7 @@ void DataUtil::updateSessions() {
                 qWarning() << "DAY: " << dayDate << " ROOM: " << roomKeys.at(r) << " ignored - No Sessions available";
                 continue;
             }
-            Room* room;
+            Room* room = nullptr;
             found = false;
             for (int rl = 0; rl < mDataManager->mAllRoom.size(); ++rl) {
                 room = (Room*) mDataManager->mAllRoom.at(rl);
