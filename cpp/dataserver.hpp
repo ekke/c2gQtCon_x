@@ -23,8 +23,12 @@ public:
     void setConferenceDataPath(const QString& conferenceDataPath);
 
     void requestSchedule();
+    void requestVersion();
 
 signals:
+    void versionSuccess(QByteArray currentVersion);
+    void versionFailed(QString message);
+
     void serverSuccess();
     void serverFailed(QString message);
 
@@ -34,6 +38,8 @@ private slots:
     // REST
     void onFinishedSchedule();
     void onFinishedSpeaker();
+
+    void onFinishedVersion();
 
 private:
 
