@@ -41,6 +41,17 @@ void DataUtil::init(DataManager* dataManager, DataServer* dataServer)
     if (!res) {
         Q_ASSERT(res);
     }
+
+    res = connect(mDataServer, SIGNAL(versionSuccess(QByteArray)), this,
+                  SLOT(onVersionSuccess(QByteArray)));
+    if (!res) {
+        Q_ASSERT(res);
+    }
+    res = connect(mDataServer, SIGNAL(versionFailed(QString)), this,
+                  SLOT(onVersionFailed(QString)));
+    if (!res) {
+        Q_ASSERT(res);
+    }
 }
 
 QString DataUtil::conferenceDataPath4QML() {
@@ -142,9 +153,9 @@ QString DataUtil::textForSessionTrack(Session *session)
         return "";
     }
     QString name = session->sessionTrackAsDataObject()->name();
-//    if(name == "Community") {
-//        return "";
-//    }
+    //    if(name == "Community") {
+    //        return "";
+    //    }
     if(name == "*****") {
         return "";
     }
@@ -529,7 +540,7 @@ QVariantMap DataUtil::readScheduleFile(const QString schedulePath) {
 }
 
 Day* DataUtil::findDayForServerDate(const QString& dayDate) {
-	Day* day = nullptr;
+    Day* day = nullptr;
     bool found = false;
     for (int dl = 0; dl < mDataManager->mAllDay.size(); ++dl) {
         day = (Day*) mDataManager->mAllDay.at(dl);
@@ -641,10 +652,10 @@ void DataUtil::setTrackAndType(SessionAPI* sessionAPI, Session* session, Confere
         sessionTrack->setInAssets(isUpdate?false:true);
         mDataManager->insertSessionTrack(sessionTrack);
     }
-	if (sessionTrack) {
-		session->setSessionTrack(sessionTrack->trackId());
-		session->resolveSessionTrackAsDataObject(sessionTrack);
-	}
+    if (sessionTrack) {
+        session->setSessionTrack(sessionTrack->trackId());
+        session->resolveSessionTrackAsDataObject(sessionTrack);
+    }
     // SCHEDULE or what else
     // setting some boolean here makes it easier to distinguish in UI
     if (trackName == "Break" || (trackName == "Misc" && session->title().contains("Registration"))) {
@@ -895,9 +906,9 @@ void DataUtil::calcSpeakerName(Speaker* speaker, SpeakerAPI* speakerAPI) {
     speaker->setName(speaker->name()+speakerAPI->lastName());
     if(speaker->name().length() > 0) {
         if(speakerAPI->lastName().length() > 0) {
-             speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
+            speaker->setSortKey(speakerAPI->lastName().left(5).toUpper());
         } else {
-           speaker->setSortKey(speakerAPI->firstName().left(5).toUpper());
+            speaker->setSortKey(speakerAPI->firstName().left(5).toUpper());
         }
         speaker->setSortGroup(speaker->sortKey().left(1));
     } else {
@@ -979,7 +990,7 @@ void DataUtil::prepareSpeakerImages()
                 Q_ASSERT(res);
             }
             res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
-                                           SLOT(onSpeakerImageFailed(QObject*, QString)));
+                          SLOT(onSpeakerImageFailed(QObject*, QString)));
             if (!res) {
                 Q_ASSERT(res);
             }
@@ -992,17 +1003,25 @@ void DataUtil::prepareSpeakerImages()
     qDebug() << "SPEAKER IMAGES   D O W N L O A D E D";
 }
 
-void DataUtil::checkForUpdateSchedule()
+void DataUtil::checkVersion()
+{
+    mDataServer->requestVersion();
+}
+
+void DataUtil::startUpdate()
 {
     bool dirOk = checkDirs();
     if(!dirOk) {
         qWarning() << "Cannot create Directories";
+        emit updateFailed(tr("startUpdate - Cannot create Directories"));
         return;
     }
+    mProgressInfotext = tr("Request Schedule and Speakers from Server");
+    emit progressInfo(mProgressInfotext);
     mDataServer->requestSchedule();
 }
 
-void DataUtil::startUpdate()
+void DataUtil::continueUpdate()
 {
     mProgressInfotext = tr("Save Favorites");
     emit progressInfo(mProgressInfotext);
@@ -1105,7 +1124,7 @@ void DataUtil::updateSpeakerImages() {
                 Q_ASSERT(res);
             }
             res = connect(mImageLoader, SIGNAL(loadingFailed(QObject*, QString)), this,
-                                           SLOT(onSpeakerImageUpdateFailed(QObject*, QString)));
+                          SLOT(onSpeakerImageUpdateFailed(QObject*, QString)));
             if (!res) {
                 Q_ASSERT(res);
             }
@@ -1781,19 +1800,43 @@ void DataUtil::onServerSuccess()
         emit checkForUpdateFailed(tr("Error: Received Map missed 'schedule'."));
         return;
     }
-    mNewApi = map.value("version").toString();
-    qDebug() << "VERSION: " + mNewApi;
 
-    if(mNewApi.length() == 0) {
-        emit checkForUpdateFailed(tr("Error: Received Map missed 'version'."));
+    // now do the real work
+    continueUpdate();
+
+}
+
+void DataUtil::onVersionSuccess(QByteArray currentVersionBytes)
+{
+    QJsonDocument jda;
+    jda = QJsonDocument::fromJson(currentVersionBytes);
+    if(!jda.isObject()) {
+        onVersionFailed(tr("No JSON Object received for Version Check"));
         return;
     }
+    QVariantMap versionMap = jda.toVariant().toMap();
+    if(versionMap.isEmpty()) {
+        onVersionFailed(tr("Version Check: received Version Map is empty"));
+        return;
+    }
+    if(!versionMap.contains("version")) {
+        onVersionFailed(tr("Version Check: received Version Map missed Version Property"));
+        return;
+    }
+    mNewApi = versionMap.value("version").toString();
+    if(mNewApi.isEmpty()) {
+        onVersionFailed(tr("Error: Received Map missed 'version'."));
+        return;
+    }
+    qDebug() << "VERSION: " + mNewApi;
+
     QStringList versionList;
     versionList = mNewApi.split(".");
     if(versionList.size() != 2) {
-        emit checkForUpdateFailed(tr("Error: 'Version' wrong: ")+mNewApi);
+        emit onVersionFailed(tr("Error: 'Version' wrong: ")+mNewApi);
         return;
     }
+
     if(mDataManager->mSettingsData->apiVersion().length() == 0) {
         emit updateAvailable(mNewApi);
         return;
@@ -1804,6 +1847,7 @@ void DataUtil::onServerSuccess()
         emit updateAvailable(mNewApi);
         return;
     }
+
     int oldValue = oldVersionList.at(0).toInt();
     int newValue = versionList.at(0).toInt();
     if(oldValue > newValue) {
@@ -1825,9 +1869,15 @@ void DataUtil::onServerSuccess()
     emit noUpdateRequired();
 }
 
+void DataUtil::onVersionFailed(const QString message)
+{
+    qDebug() << "Version failed" << message;
+    emit checkForUpdateFailed(message);
+}
+
 void DataUtil::onServerFailed(QString message)
 {
     qDebug() << "FAILED: " << message;
-    emit checkForUpdateFailed(message);
+    emit updateFailed(message);
 }
 

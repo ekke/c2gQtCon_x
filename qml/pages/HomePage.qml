@@ -124,7 +124,7 @@ Pane {
         modal: true
         closePolicy: Popup.NoAutoClose
         onOpened: {
-            dataUtil.checkForUpdateSchedule()
+            dataUtil.checkVersion()
         }
         onClosed: {
             if(updatePopup.isUpdate) {

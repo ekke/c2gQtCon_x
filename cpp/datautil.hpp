@@ -21,7 +21,7 @@ public:
     void prepareSpeakerImages();
 
     Q_INVOKABLE
-    void checkForUpdateSchedule();
+    void checkVersion();
 
     Q_INVOKABLE
     void startUpdate();
@@ -116,6 +116,9 @@ private slots:
     void onServerSuccess();
     void onServerFailed(const QString message);
 
+    void onVersionSuccess(QByteArray currentVersionBytes);
+    void onVersionFailed(const QString message);
+
 private:
 
     DataManager* mDataManager;
@@ -133,6 +136,7 @@ private:
     QString mConferenceDataPath;
 
     // UPDATE
+    void continueUpdate();
     QString mNewApi;
     QString mProgressInfotext;
     QMultiMap<QString, Session*> mMultiSession;
