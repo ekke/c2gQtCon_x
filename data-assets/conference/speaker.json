@@ -826,11 +826,25 @@
     "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
+    "id": 1497,
+    "first_name": "Lars",
+    "last_name": "Knoll",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
+  },
+  {
     "id": 549,
     "first_name": "Dan Leinir Turthra",
     "last_name": "Jensen",
     "abstract": "Dan, or Leinir as they are known to most, has been an active part of the KDE community for about a decade, through their time at university, which resulted in a Master's degree in Information Technology specialising in Game and Engine Programming. While still at university, they were headhunted to work on the openDesktop.org content distribution network, as a part of the Bretzn project. More recently they were a part of the Calligra team which cooperated with Intel on the creation of Calligra Gemini, an office suite designed for use with multi form factor devices, and which they are now the official maintainer of. After the conclusion of that project, they were hired by blue systems to begin work on Shashlik, and after a while of working on that moved onto building the Peruse comic book reader. Outside of employment, they have worked on the Amarok and GamingFreedom.org projects, and outside of KDE is an author of science fiction and not too shabby when it comes to knocking up a bit of food.",
     "avatar": "http://conf.qtcon.org//system/avatars/549/original/texrat-leinir_256x256-plug-bg.png?1463562487"
+  },
+  {
+    "id": 1383,
+    "first_name": "Markus",
+    "last_name": "Feilner",
+    "abstract": null,
+    "avatar": "http://conf.qtcon.org/person_original.png"
   },
   {
     "id": 46,
