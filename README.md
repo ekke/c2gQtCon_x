@@ -31,6 +31,11 @@ https://play.google.com/store/apps/details?id=org.ekkescorner.c2g.qtcon
 
 Don't have a Google Account ? Grab the APK here: https://app.box.com/s/fgeo14re3hrp47shg915geo1q4gzyxrz
 
+## Download from Amazon App Store
+.com: https://www.amazon.com/ekkescorner-QtCon-2016-Konferenz-App/dp/B01L7DVJTO
+
+.de: https://www.amazon.de/ekkescorner-QtCon-2016-Konferenz-App/dp/B01L7DVJTO
+
 ## Download from Apple Appstore
 https://itunes.apple.com/us/app/qtcon-2016-conference-app/id1144162386
 
