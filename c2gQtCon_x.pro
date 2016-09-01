@@ -168,6 +168,6 @@ winrt {
 	# getting manifest error: WINRT_MANIFEST.identity = org.ekkescorner.c2g.qtcon
 	WINRT_MANIFEST.version = 1.3.0.0
 	
-	#WINRT_MANIFEST = winrt/myManifest.xml.in
+	WINRT_MANIFEST = winrt/myPackage.appxmanifest
 	 
 }

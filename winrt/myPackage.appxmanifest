@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:mobile="http://schemas.microsoft.com/appx/manifest/mobile/windows10" IgnorableNamespaces="uap mp mobile">
+  <Identity Name="org.ekkescorner.c2g.qtcon" Publisher="CN=admin" Version="1.3.0.0" ProcessorArchitecture="arm" />
+  <mp:PhoneIdentity PhoneProductId="7e9cd1c9-abc7-414a-b319-b5096d57b5a6" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
+  <Properties>
+    <DisplayName>Qt Con 2016</DisplayName>
+    <PublisherDisplayName>Default publisher display name</PublisherDisplayName>
+    <Logo>assets\StoreLogo.png</Logo>
+  </Properties>
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.10240.0" MaxVersionTested="10.0.10586.0" />
+  </Dependencies>
+  <Resources>
+    <Resource Language="en" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="c2gQtCon_x.exe" EntryPoint="c2gQtCon_x.App">
+      <uap:VisualElements DisplayName="Qt Con 2016" Description="QtCon 2016 Conference App" BackgroundColor="white" Square150x150Logo="assets\Square150x150Logo.png" Square44x44Logo="assets\Square44x44Logo.png">
+        <uap:LockScreen Notification="badge" BadgeLogo="assets\BadgeLogo.png" />
+        <uap:DefaultTile Square71x71Logo="assets\Square71x71Logo.png" Square310x310Logo="assets\Square310x310Logo.png" Wide310x150Logo="assets\Wide310x150Logo.png">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo" />
+            <uap:ShowOn Tile="wide310x150Logo" />
+            <uap:ShowOn Tile="square310x310Logo" />
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile>
+        <uap:SplashScreen Image="assets\SplashScreen.png" />
+      </uap:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <Capability Name="internetClientServer" />
+  </Capabilities>
+</Package>
