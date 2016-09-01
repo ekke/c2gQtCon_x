@@ -162,4 +162,12 @@ ios {
 
 winrt {
     WINRT_MANIFEST.name = Qt Con 2016
+	WINRT_MANIFEST.background = white
+	WINRT_MANIFEST.default_language = en
+	WINRT_MANIFEST.description = QtCon 2016 Conference App
+	WINRT_MANIFEST.identity = org.ekkescorner.c2g.qtcon
+	WINRT_MANIFEST.version = 1.3.0
+	
+	#WINRT_MANIFEST = winrt/myManifest.xml.in
+	 
 }
