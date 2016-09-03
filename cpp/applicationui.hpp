@@ -9,7 +9,7 @@
 #include "gen/SettingsData.hpp"
 #include "gen/DataManager.hpp"
 #include "dataserver.hpp"
-#include "DataUtil.hpp"
+#include "datautil.hpp"
 
 class ApplicationUI : public QObject
 {
