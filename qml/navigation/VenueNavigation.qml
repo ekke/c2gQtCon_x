@@ -25,109 +25,6 @@ Page {
             id: initialItem
         }
 
-        Loader {
-            id: roomListPageLoader
-            active: false
-            visible: false
-            source: "../pages/RoomListPage.qml"
-            onLoaded: {
-                navPane.push(item)
-                item.init()
-            }
-        }
-        Loader {
-            id: roomDetailPageLoader
-            property int roomId: -1
-            active: false
-            visible: false
-            source: "../pages/RoomDetailPage.qml"
-            onLoaded: {
-                item.roomId = roomId
-                navPane.push(item)
-                item.init()
-            }
-        }
-
-        Loader {
-            id: roomSessionListPageLoader
-            property int roomId: -1
-            active: false
-            visible: false
-            source: "../pages/RoomSessionListPage.qml"
-            onLoaded: {
-                item.roomId = roomId
-                navPane.push(item)
-                item.init()
-            }
-        }
-
-        Loader {
-            id: speakerDetailPageLoader
-            property int speakerId: -1
-            active: false
-            visible: false
-            source: "../pages/SpeakerDetailPage.qml"
-            onLoaded: {
-                item.speakerId = speakerId
-                navPane.push(item)
-                item.init()
-            }
-        }
-
-        Loader {
-            id: sessionDetailPageLoader
-            property int sessionId: -1
-            active: false
-            visible: false
-            source: "../pages/SessionDetailPage.qml"
-            onLoaded: {
-                item.sessionId = sessionId
-                navPane.push(item)
-                item.init()
-            }
-        }
-
-        function pushRoomListPage() {
-            roomListPageLoader.active = true
-        }
-
-        function pushRoomSessions(roomId) {
-            roomSessionListPageLoader.roomId = roomId
-            roomSessionListPageLoader.active = true
-        }
-
-        // only one Speaker Detail in stack allowed to avoid endless growing stacks
-        function pushSpeakerDetail(speakerId) {
-            if(speakerDetailPageLoader.active) {
-                speakerDetailPageLoader.item.speakerId = speakerId
-                var pageStackIndex = findPage(speakerDetailPageLoader.item.name)
-                if(pageStackIndex > 0) {
-                    backToPage(pageStackIndex)
-                }
-            } else {
-                speakerDetailPageLoader.speakerId = speakerId
-                speakerDetailPageLoader.active = true
-            }
-        }
-
-        function pushSessionDetail(sessionId) {
-            if(sessionDetailPageLoader.active) {
-                sessionDetailPageLoader.item.sessionId = sessionId
-                var pageStackIndex = findPage(sessionDetailPageLoader.item.name)
-                if(pageStackIndex > 0) {
-                    backToPage(pageStackIndex)
-                }
-            } else {
-                sessionDetailPageLoader.sessionId = sessionId
-                sessionDetailPageLoader.active = true
-            }
-        }
-
-        function pushRoomDetail(roomId) {
-            roomDetailPageLoader.roomId = roomId
-            roomDetailPageLoader.active = true
-        }
-
         function findPage(pageName) {
             var targetPage = find(function(item) {
                 return item.name == pageName;
@@ -153,83 +50,12 @@ Page {
 
         function popOnePage() {
             var page = pop()
-            if(page.name == "RoomListPage") {
-                roomListPageLoader.active = false
-                return
-            }
-            if(page.name == "roomSessionListPage") {
-                roomSessionListPageLoader.active = false
-                return
-            }
-            if(page.name == "SpeakerDetailPage") {
-                speakerDetailPageLoader.active = false
-                return
-            }
-            if(page.name == "SessionDetailPage") {
-                sessionDetailPageLoader.active = false
-                return
-            }
-            if(page.name == "RoomDetailPage") {
-                roomDetailPageLoader.active = false
-                return
-            }
+            // for future releases
+            // atm no more pages because Rooms List was moved one level up
 
         } // popOnePage
 
     } // navPane
-
-    FloatingActionButton {
-        visible: navPane.depth == 1
-        property string imageName: "/directions.png"
-        z: 1
-        anchors.margins: 20
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
-        backgroundColor: accentColor
-        onClicked: {
-            navPane.pushRoomListPage()
-        }
-    } // FAB
-    FloatingActionButton {
-        visible: navPane.depth == 2 && !dataManager.settingsData().classicStackNavigation
-        property string imageName: "/venue.png"
-        z: 1
-        anchors.margins: 20
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
-        backgroundColor: accentColor
-        onClicked: {
-            navPane.backToRootPage()
-        }
-    } // FAB
-    FloatingActionButton {
-        visible: navPane.depth == 3 && !dataManager.settingsData().classicStackNavigation
-        property string imageName: "/directions.png"
-        z: 1
-        anchors.margins: 20
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
-        backgroundColor: accentColor
-        onClicked: {
-            navPane.backToPage(1)
-        }
-    } // FAB
-    FloatingActionButton {
-        visible: navPane.depth > 3 && !dataManager.settingsData().classicStackNavigation
-        property string imageName: "/list.png"
-        z: 1
-        anchors.margins: 20
-        anchors.right: parent.right
-        anchors.bottom: parent.bottom
-        imageSource: "qrc:/images/"+iconOnAccentFolder+imageName
-        backgroundColor: accentColor
-        onClicked: {
-            navPane.backToPage(2)
-        }
-    } // FAB
 
     function destinationAboutToChange() {
         // nothing

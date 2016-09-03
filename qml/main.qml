@@ -151,6 +151,7 @@ ApplicationWindow {
         {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Speakers"), "icon": "speaker.png", "source": "../navigation/SpeakerNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Tracks", "icon": "tag.png", "source": "../navigation/TrackNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "Venue", "icon": "venue.png", "source": "../navigation/VenueNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
+        {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Rooms"), "icon": "directions.png", "source": "../navigation/RoomsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":2, "canGoBack":true},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Settings"), "icon": "settings.png", "source": "../navigation/SettingsNavigation.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":true},
         {"type": "../navigation/DrawerNavigationButton.qml", "name": qsTr("Help"), "icon": "help.png", "source": "../pages/HelpPage.qml", "showCounter":false, "showMarker":false, "a_p":3, "canGoBack":false},
@@ -168,6 +169,7 @@ ApplicationWindow {
         qsTr("QtCon 2016 Speakers"),
         qsTr("QtCon 2016 Tracks"),
         qsTr("QtCon 2016 Venue"),
+        qsTr("QtCon 2016 Rooms"),
         "",
         qsTr("QtCon 2016 Settings"),
         qsTr("QtCon 2016 Help"),
@@ -180,6 +182,7 @@ ApplicationWindow {
     property var navigationData: [
         {"counter":0, "marker":""},
         {},
+        {"counter":0, "marker":""},
         {"counter":0, "marker":""},
         {"counter":0, "marker":""},
         {"counter":0, "marker":""},
