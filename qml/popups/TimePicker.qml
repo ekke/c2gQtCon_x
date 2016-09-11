@@ -233,6 +233,7 @@ Popup {
 
             Button {
                 id: hrsButton
+                focusPolicy: Qt.NoFocus
                 Layout.alignment: isLandscape? Text.AlignHCenter : Text.AlignRight
                 checked: true
                 checkable: true
@@ -263,6 +264,7 @@ Popup {
 
             Button {
                 id: minutesButton
+                focusPolicy: Qt.NoFocus
                 Layout.alignment: isLandscape? Text.AlignHCenter : Text.AlignLeft
                 checked: false
                 checkable: true
@@ -408,6 +410,7 @@ Popup {
                 model: timePicker.timePickerModel
                 delegate: Button {
                     id: innerButton
+                    focusPolicy: Qt.NoFocus
                     text: timePicker.useWorkTimes? modelData.n : modelData.c2
                     font.bold: checked
                     x: timePicker.innerButtonsPaneSize / 2 - width / 2 //- 20
@@ -471,6 +474,7 @@ Popup {
             model: timePicker.timePickerModel
             delegate: Button {
                 id: outerButton
+                focusPolicy: Qt.NoFocus
                 text: timePicker.pickMinutes? modelData.m : timePicker.useWorkTimes? modelData.d : modelData.c1
                 font.bold: checked || timePicker.pickMinutes && timePicker.onlyQuartersAllowed
                 x: timePicker.timeButtonsPaneSize / 2 - width / 2
