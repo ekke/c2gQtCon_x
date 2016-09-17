@@ -83,5 +83,6 @@
         <file>qml/common/IconOnPrimary.qml</file>
         <file>qml/common/IconOnAccent.qml</file>
         <file>qml/navigation/RoomsNavigation.qml</file>
+        <file>qml/popups/PopupExit.qml</file>
     </qresource>
 </RCC>

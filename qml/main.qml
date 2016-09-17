@@ -301,7 +301,7 @@ ApplicationWindow {
 
         // STACK VIEW KEYS and SHORTCUTS
         // support of BACK key
-        // can be used from StackView pushed on ROOT (OrdersNavigation) tp pop()
+        // can be used from StackView pushed on ROOT
         // or to exit the app
         // https://wiki.qt.io/Qt_for_Android_known_issues
         // By default the Back key will terminate Qt for Android apps, unless the key event is accepted.
@@ -309,12 +309,17 @@ ApplicationWindow {
             event.accepted = true
             if(navigationModel[navigationIndex].canGoBack && destinations.itemAt(navigationIndex).item.depth > 1) {
                 destinations.itemAt(navigationIndex).item.goBack()
-            } else {
-                if (Qt.platform.os === "winrt")
-                    Qt.quit()
-                else
-                    showToast(qsTr("No more Pages\nPlease use 'Android Home' Button\nto leave the App."))
+                return
             }
+            if (Qt.platform.os === "winrt") {
+                Qt.quit()
+                return
+            }
+            if (Qt.platform.os === "android") {
+                popupExitApp.open()
+                return
+            }
+            showToast(qsTr("No more Pages"))
         }
         // TODO some Shortcuts
         // end STACK VIEW KEYS and SHORTCUTS
@@ -612,6 +617,17 @@ ApplicationWindow {
     // end APP WINDOW FUNCTIONS
 
     // APP WINDOW POPUPS
+    PopupExit {
+        id: popupExitApp
+        onAboutToHide: {
+            popupExitApp.stopTimer()
+            resetFocus()
+            if(popupExitApp.isExit) {
+                Qt.quit()
+            }
+        }
+    } // popupExitApp
+
     PopupInfo {
         id: popupInfo
         onAboutToHide: {
@@ -634,13 +650,5 @@ ApplicationWindow {
         }
     } // popupError
     // end APP WINDOW POPUPS
-
-    // fallback
-    // from time to time it happens that suddenly the back key exits the app
-    // still exploring this so added a fallback here
-    Keys.onBackPressed: {
-        event.accepted = true
-        console.log("U U U P S - all back keys should be accepted from StackView")
-    }
 
 } // app window
