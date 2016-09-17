@@ -80,7 +80,7 @@ ApplicationWindow {
     property real toolBarInactiveOpacity: themePalette[12]
     property color toastColor: themePalette[13]
     property real toastOpacity: themePalette[14]
-    // 5.7: dropShafowColor is ok - the shadow is darker as the background
+    // 5.7: dropShadowColor is ok - the shadow is darker as the background
     // but not so easy to distinguish as in light theme
     // optional:
     // isDarkTheme? "#E4E4E4" : Material.dropShadowColor
