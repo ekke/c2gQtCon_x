@@ -17,7 +17,7 @@ ToolBar {
         }
 
         ToolButton {
-            visible: !backButton.visible && !appWindow.hasOnlyOneMenu
+            visible: !backButton.visible && (appWindow.isLandscape || !appWindow.hasOnlyOneMenu)
             focusPolicy: Qt.NoFocus
             Image {
                 anchors.centerIn: parent
@@ -30,7 +30,7 @@ ToolBar {
         // F A K E
         // fake button to avoid flicker and repositioning of titleLabel
         ToolButton {
-            visible: !backButton.visible && appWindow.hasOnlyOneMenu
+            visible: !backButton.visible && appWindow.hasOnlyOneMenu && !appWindow.isLandscape
             enabled: false
             focusPolicy: Qt.NoFocus
         } // fake button
