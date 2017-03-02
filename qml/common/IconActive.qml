@@ -1,5 +1,5 @@
 // ekke (Ekkehard Gentz) @ekkescorner
-import QtQuick 2.6
+import QtQuick 2.7
 
 Image {
     property string imageName: ""

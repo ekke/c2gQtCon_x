@@ -1,6 +1,6 @@
 // ekke (Ekkehard Gentz) @ekkescorner
-import QtQuick 2.6
-import QtQuick.Controls 2.0
+import QtQuick 2.7
+import QtQuick.Controls 2.1
 
 Row {
     property alias text: switchLabel.text
