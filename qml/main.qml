@@ -141,9 +141,9 @@ ApplicationWindow {
     property int speakerNavigationIndex: 3
     property int tracksNavigationIndex: 4
     property int venueNavigationIndex: 5
-    property int settingsNavigationIndex: 7
-    property int helpNavigationIndex: 8
-    property int aboutNavigationIndex: 9
+    property int settingsNavigationIndex: 8
+    property int helpNavigationIndex: 9
+    property int aboutNavigationIndex: 10
     property var navigationModel: [
         {"type": "../navigation/DrawerNavigationButton.qml", "name": "QtCon", "icon": "home.png", "source": "../pages/HomePage.qml", "showCounter":false, "showMarker":false, "a_p":1, "canGoBack":false},
         {"type": "../navigation/DrawerDivider.qml", "name": "", "icon": "", "source": "", "a_p":1, "canGoBack":false},
