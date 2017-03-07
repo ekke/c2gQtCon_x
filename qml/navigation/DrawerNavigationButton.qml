@@ -6,7 +6,7 @@ import QtQuick.Controls.Material 2.1
 import QtGraphicalEffects 1.0
 import "../common"
 
-ToolButton {
+ItemDelegate {
     id: myButton
     property bool isActive: index == navigationIndex
     property string myIconFolder: iconFolder
