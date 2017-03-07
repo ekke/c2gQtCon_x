@@ -8,6 +8,10 @@ import "../common"
 
 Pane {
     id: myBar
+    // Qt 5.8 bug: MENU Button remains visually pressed after drawer was opened
+    // see QTBUG-59293
+    // workaround: toggle between 2 Button instances via Loader
+    property bool favMenuBugfix: false
     Material.elevation: 8
     z: 1
     property real activeOpacity: iconFolder == "black" ?  0.87 : 1.0
@@ -29,8 +33,25 @@ Pane {
         anchors.top: isDarkTheme? darkDivider.bottom : parent.top
         spacing: 0
         // MENU Button
-        DrawerFavoritesMenuButton {
+//        DrawerFavoritesMenuButton {
+//        }
+        // alternate way
+        // see QTBUG-59293
+        Loader {
+            id: favMenuLoader
+            sourceComponent: favMenuBugfix? favMenuComponent1 : favMenuComponent2
         }
+        Component {
+            id: favMenuComponent1
+            DrawerFavoritesMenuButton {
+            }
+        }
+        Component {
+            id: favMenuComponent2
+            DrawerFavoritesMenuButton {
+            }
+        }
+        //
         Repeater {
             id: favoritesButtonRepeater
             model: favoritesModel
