@@ -146,6 +146,10 @@ DISTFILES += \
 
 ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
+# you must provide openssl libs
+# see my repo: https://github.com/ekke/android-openssl-qt
+include(android-openssl.pri)
+
 ios {
     QMAKE_INFO_PLIST = ios/Info.plist
     ios_icon.files = $$files($$PWD/ios/AppIcon*.png)
