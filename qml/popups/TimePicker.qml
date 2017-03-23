@@ -8,6 +8,7 @@ import "../common"
 
 Popup {
     id: timePicker
+    closePolicy: Popup.CloseOnPressOutside
     property alias titleText: headerPane.titleText
     property int timePickerWidth: isLandscape? appWindow.width * 0.85 : appWindow.width * 0.80
     property int timePickerHeight: isLandscape? appWindow.height * 0.90 : appWindow.height * 0.85

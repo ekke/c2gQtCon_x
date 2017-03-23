@@ -8,6 +8,7 @@ import "../common"
 
 Popup {
     id: datePickerRoot
+    closePolicy: Popup.CloseOnPressOutside
     property date selectedDate: new Date()
     property int displayMonth: selectedDate.getMonth()
     property int displayYear: selectedDate.getFullYear()

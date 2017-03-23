@@ -8,6 +8,7 @@ import "../common"
 
 Popup {
     id: popup
+    closePolicy: Popup.CloseOnPressOutside
     property string titleText: "Select Letter"
     property bool isOK: false
     property string selectedLetter: "A"

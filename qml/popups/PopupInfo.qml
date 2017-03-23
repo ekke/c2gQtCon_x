@@ -6,6 +6,7 @@ import "../common"
 
 Popup {
     id: popup
+    closePolicy: Popup.CloseOnPressOutside
     property alias text: popupLabel.text
     property alias buttonText: okButton.text
     x: (parent.width - width) / 2

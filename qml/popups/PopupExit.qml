@@ -6,6 +6,7 @@ import "../common"
 
 Popup {
     id: popup
+    closePolicy: Popup.CloseOnPressOutside
     property bool isExit: false
     x: (parent.width - width) / 2
     y: (parent.height - height) / 2
