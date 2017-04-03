@@ -27,6 +27,7 @@ Popup {
         }
     } // toastTimer
     ColumnLayout {
+        width: parent.width - 32
         Layout.fillWidth: true
         Layout.leftMargin: 16
         Layout.rightMargin: 16

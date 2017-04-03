@@ -26,6 +26,7 @@ Popup {
     } // toastTimer
     Label {
         id: toastLabel
+        width: parent.width
         leftPadding: 16
         rightPadding: 16
         font.pixelSize: 16
