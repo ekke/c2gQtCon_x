@@ -18,6 +18,8 @@ Popup {
     implicitHeight: timePickerHeight
     z: 2
 
+    Material.elevation: 6
+
     background: Rectangle {color:cardAndDialogBackground}
 
     property bool isOK: false
@@ -216,6 +218,7 @@ Popup {
 
         GridLayout {
             id: headerGrid
+            Layout.fillWidth: true
             property int myPointSize: isLandscape? 48 : 64
             anchors.centerIn: parent
             rows: isLandscape? 4 : 2
@@ -224,6 +227,8 @@ Popup {
 
             Label {
                 id: titleLabel
+                Layout.fillWidth: true
+                Layout.maximumWidth: isLandscape? parent.width *0.9 : parent.width
                 Layout.columnSpan: isLandscape? 1 : 3
                 text: headerPane.titleText
                 color: textOnPrimaryDark
@@ -340,6 +345,7 @@ Popup {
         implicitWidth: timePicker.timeButtonsPaneSize
         implicitHeight: timePicker.timeButtonsPaneSize
         padding: 0
+
         x: isLandscape? timePicker.timePickerWidth - timePicker.timeButtonsPaneSize - 20 : 20
         y: isLandscape? 24 : timePicker.timePickerHeight - timePicker.timeButtonsPaneSize - 20 - 20
         background: Rectangle {color: "transparent"}
