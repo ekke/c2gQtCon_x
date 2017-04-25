@@ -29,6 +29,13 @@ ApplicationWindow {
     visible: true
     //
     property bool isLandscape: width > height
+
+    // Samsung XCover3 has 320
+    property bool isSmallDevice: !isLandscape && width < 360
+
+    property bool backKeyfreezed: false
+    property bool modalPopupActive: false
+
     property bool myScheduleActive: false
     onMyScheduleActiveChanged: {
         if(myScheduleActive) {
@@ -307,6 +314,19 @@ ApplicationWindow {
         // By default the Back key will terminate Qt for Android apps, unless the key event is accepted.
         Keys.onBackPressed: {
             event.accepted = true
+
+            if(appWindow.backKeyfreezed) {
+                showToast(qsTr("Please wait. Back key not allowed at the moment."))
+                return
+            }
+            if(appWindow.modalPopupActive) {
+                showToast(qsTr("Back key not allowed - please select an option."))
+                return
+            }
+            if(!initDone) {
+                return
+            }
+
             if(navigationModel[navigationIndex].canGoBack && destinations.itemAt(navigationIndex).item.depth > 1) {
                 destinations.itemAt(navigationIndex).item.goBack()
                 return
