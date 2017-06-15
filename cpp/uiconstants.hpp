@@ -43,7 +43,8 @@ static const QStringList materialLightGreen{"#DCEDC8", "#8BC34A", "#689F38", "#0
 static const QStringList materialLime{"#F0F4C3", "#CDDC39", "#AFB42B", "#000000", "#000000", "#000000", "black", "black", "black"};
 static const QStringList materialYellow{"#FFF9C4", "#FFEB3B", "#FBC02D", "#000000", "#000000", "#000000", "black", "black", "black"};
 static const QStringList materialAmber{"#FFECB3", "#FFC107", "#FFA000", "#000000", "#000000", "#000000", "black", "black", "black"};
-static const QStringList materialOrange{"#FFE0B2", "#FF9800", "#F57C00", "#000000", "#000000", "#000000", "black", "black", "black"};
+// slightly modified from Material defaults: use white color for primary and primary dark
+static const QStringList materialOrange{"#FFE0B2", "#FF9800", "#F57C00", "#000000", "#FFFFFF", "#FFFFFF", "black", "white", "white"};
 static const QStringList materialDeepOrange{"#FFCCBC", "#FF5722", "#E64A19", "#000000", "#FFFFFF", "#FFFFFF", "black", "white", "white"};
 static const QStringList materialBrown{"#D7CCC8", "#795548", "#5D4037", "#000000", "#FFFFFF", "#FFFFFF", "black", "white", "white"};
 static const QStringList materialGrey{"#F5F5F5", "#9E9E9E", "#616161", "#000000", "#000000", "#FFFFFF", "black", "black", "white"};
