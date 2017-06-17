@@ -1,7 +1,7 @@
 // ekke (Ekkehard Gentz) @ekkescorner
-import QtQuick 2.7
-import QtQuick.Controls 2.1
-import QtQuick.Controls.Material 2.1
+import QtQuick 2.9
+import QtQuick.Controls 2.2
+import QtQuick.Controls.Material 2.2
 import QtGraphicalEffects 1.0
 
 Button {
