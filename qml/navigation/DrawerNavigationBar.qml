@@ -13,8 +13,26 @@ Drawer {
     property alias navigationButtons: navigationButtonRepeater
     property real activeOpacity: iconFolder == "black" ?  0.87 : 1.0
     property real inactiveOpacity: iconFolder == "black" ?  0.56 : 0.87 //  0.26 : 0.56
-    width: Math.min(240,  Math.min(appWindow.width, appWindow.height) / 3 * 2 )
+    width: appWindow.backKeyfreezed || appWindow.modalPopupActive? 0 : (Math.min(240,  Math.min(appWindow.width, appWindow.height) / 3 * 2 ) )
     height: appWindow.height
+
+    // BUG in Qt 5.9: tap outside Drawer doesn't close always
+    // but allows clicking on Buttons below
+    // see https://bugreports.qt.io/browse/QTBUG-61581
+    // workaround: 'insert' anotherfake Popup to block unwanted clicks
+    onOpened: {
+        fakePopup.open()
+    }
+    onAboutToHide: {
+        fakePopup.close()
+    }
+    Popup {
+        id: fakePopup
+        z: 0
+        width: appWindow.width
+        height: appWindow.height
+    }
+    // end workaround QTBUG-61581
 
     Flickable {
         contentHeight: myButtons.height
