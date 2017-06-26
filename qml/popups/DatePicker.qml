@@ -217,15 +217,20 @@ Popup {
             month: datePickerRoot.displayMonth
             year: datePickerRoot.displayYear
 
-
-            onClicked: {
-                // Important: check the month to avoid clicking on days outside where opacity 0
-                if(date.getMonth() == datePickerRoot.displayMonth) {
-                    datePickerRoot.selectedDate = date
-                } else {
-                    console.log("outside valid month "+date.getMonth())
-                }
-            }
+            // ATTENTION: on Qt 5.9 clicked signal only if clicked with mouse
+            // no event if tapped on a day
+            // https://bugreports.qt.io/browse/QTBUG-61585
+            // fixed in 5.9.2
+            // so as a woraround I added a MouseArea for the delegate Label
+//            onClicked: {
+//                // Important: check the month to avoid clicking on days outside where opacity 0
+//                if(date.getMonth() == datePickerRoot.displayMonth) {
+//                    datePickerRoot.selectedDate = date
+//                    console.log("tapped on a date ")
+//                } else {
+//                    console.log("outside valid month "+date.getMonth())
+//                }
+//            }
 
             delegate: Label {
                 id: dayLabel
@@ -249,6 +254,20 @@ Popup {
                     color: primaryColor
                     visible: pressed || parent.selected
                 }
+                // WORKAROUND !! see onClicked()
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                        console.log("mouse as click")
+                        // Important: check the month to avoid clicking on days outside where opacity 0
+                        if(date.getMonth() == datePickerRoot.displayMonth) {
+                            datePickerRoot.selectedDate = date
+                            console.log("tapped on a date ")
+                        } else {
+                            console.log("outside valid month "+date.getMonth())
+                        }
+                    }
+                } // mouse
             } // label in month grid
         } // month grid
 
