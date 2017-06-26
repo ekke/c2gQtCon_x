@@ -162,6 +162,11 @@ ios {
     QMAKE_BUNDLE_DATA += app_launch_screen
 
     QMAKE_IOS_DEPLOYMENT_TARGET = 8.2
+
+    disable_warning.name = GCC_WARN_64_TO_32_BIT_CONVERSION
+    disable_warning.value = NO
+    QMAKE_MAC_XCODE_SETTINGS += disable_warning
+
     # Note for devices: 1=iPhone, 2=iPad, 1,2=Universal.
     QMAKE_IOS_TARGETED_DEVICE_FAMILY = 1,2
 }
