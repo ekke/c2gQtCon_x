@@ -10,7 +10,7 @@ ekke's blog series about mobile x-platform development: http://j.mp/qt-x discuss
 Read more about this app here:
 http://bit.ly/qtCon2016App
 
-QtCon 2016 Conference App needs Qt 5.7 Release or greater
+QtCon 2016 Conference App needs Qt 5.9.1 Release or greater
 
 ## License Information
 [see LICENSE ( The Unlicense )](LICENSE)
@@ -24,7 +24,7 @@ Logos, App Icons, Launch Screens under /android and /ios designed by
 Diana de Sousa (qt.io)
 
 ## Qt Quick Controls 2 and Material Style
-This conference app uses Material Design with UI Controls provided by Qt 5.7+ and was designed and tested on Android (BlackBerry PRIV Android 6.0.1) and iOS (iPhone 6s iOS 9.3).
+This conference app uses Material Design with UI Controls provided by Qt 5.9.1+ and was designed and tested on Android (BlackBerry PRIV Android 6.0.1) and iOS (iPhone 6s iOS 9.3).
 
 ## Download from Google Play
 https://play.google.com/store/apps/details?id=org.ekkescorner.c2g.qtcon

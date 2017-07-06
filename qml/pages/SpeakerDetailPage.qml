@@ -174,6 +174,9 @@ Page {
                                             } // mouse area
                                             Menu {
                                                 id: optionsMenu
+                                                modal:true
+                                                dim: false
+                                                closePolicy: Popup.CloseOnPressOutside | Popup.CloseOnEscape
                                                 x: parent.width - width
                                                 transformOrigin: Menu.TopRight
                                                 MenuItem {
