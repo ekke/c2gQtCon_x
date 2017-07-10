@@ -58,7 +58,11 @@ ToolBar {
                         popup.open()
                     }
                 }
+                onAboutToShow: {
+                    appWindow.modalMenuOpen = true
+                }
                 onAboutToHide: {
+                    appWindow.modalMenuOpen = false
                     appWindow.resetFocus()
                 }
             } // end optionsMenu
