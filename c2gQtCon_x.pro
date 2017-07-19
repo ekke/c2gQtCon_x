@@ -168,7 +168,7 @@ ios {
     QMAKE_MAC_XCODE_SETTINGS += disable_warning
 
     # Note for devices: 1=iPhone, 2=iPad, 1,2=Universal.
-    QMAKE_IOS_TARGETED_DEVICE_FAMILY = 1,2
+    QMAKE_APPLE_TARGETED_DEVICE_FAMILY = 1,2
 }
 
 winrt {
