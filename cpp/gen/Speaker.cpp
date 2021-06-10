@@ -219,7 +219,7 @@ QVariantMap Speaker::toForeignMap()
 		session = mSessions.at(i);
 		mSessionsKeys << QString::number(session->sessionId());
 	}
-	speakerMap.insert(sessionsKey, mSessionsKeys);
+	speakerMap.insert(sessionsForeignKey, mSessionsKeys);
 	speakerMap.insert(speakerIdForeignKey, mSpeakerId);
 	speakerMap.insert(isDeprecatedForeignKey, mIsDeprecated);
 	speakerMap.insert(sortKeyForeignKey, mSortKey);
@@ -415,6 +415,14 @@ QVariantList Speaker::sessionsAsQVariantList()
 	QVariantList sessionsList;
 	for (int i = 0; i < mSessions.size(); ++i) {
         sessionsList.append((mSessions.at(i))->toMap());
+    }
+	return sessionsList;
+}
+QVariantList Speaker::sessionsAsCacheQVariantList()
+{
+	QVariantList sessionsList;
+	for (int i = 0; i < mSessions.size(); ++i) {
+        sessionsList.append((mSessions.at(i))->toCacheMap());
     }
 	return sessionsList;
 }

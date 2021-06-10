@@ -95,6 +95,9 @@ public:
 	QVariantList daysAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList daysAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList daysAsForeignQVariantList();
 
 	

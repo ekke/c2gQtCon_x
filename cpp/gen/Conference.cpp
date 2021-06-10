@@ -282,7 +282,7 @@ QVariantMap Conference::toForeignMap()
 		day = mDays.at(i);
 		mDaysKeys << QString::number(day->id());
 	}
-	conferenceMap.insert(daysKey, mDaysKeys);
+	conferenceMap.insert(daysForeignKey, mDaysKeys);
 	conferenceMap.insert(idForeignKey, mId);
 	conferenceMap.insert(conferenceNameForeignKey, mConferenceName);
 	conferenceMap.insert(conferenceCityForeignKey, mConferenceCity);
@@ -559,6 +559,14 @@ QVariantList Conference::daysAsQVariantList()
 	QVariantList daysList;
 	for (int i = 0; i < mDays.size(); ++i) {
         daysList.append((mDays.at(i))->toMap());
+    }
+	return daysList;
+}
+QVariantList Conference::daysAsCacheQVariantList()
+{
+	QVariantList daysList;
+	for (int i = 0; i < mDays.size(); ++i) {
+        daysList.append((mDays.at(i))->toCacheMap());
     }
 	return daysList;
 }

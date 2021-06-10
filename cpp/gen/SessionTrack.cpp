@@ -157,7 +157,7 @@ QVariantMap SessionTrack::toForeignMap()
 		session = mSessions.at(i);
 		mSessionsKeys << QString::number(session->sessionId());
 	}
-	sessionTrackMap.insert(sessionsKey, mSessionsKeys);
+	sessionTrackMap.insert(sessionsForeignKey, mSessionsKeys);
 	sessionTrackMap.insert(trackIdForeignKey, mTrackId);
 	sessionTrackMap.insert(nameForeignKey, mName);
 	sessionTrackMap.insert(inAssetsForeignKey, mInAssets);
@@ -226,6 +226,14 @@ QVariantList SessionTrack::sessionsAsQVariantList()
 	QVariantList sessionsList;
 	for (int i = 0; i < mSessions.size(); ++i) {
         sessionsList.append((mSessions.at(i))->toMap());
+    }
+	return sessionsList;
+}
+QVariantList SessionTrack::sessionsAsCacheQVariantList()
+{
+	QVariantList sessionsList;
+	for (int i = 0; i < mSessions.size(); ++i) {
+        sessionsList.append((mSessions.at(i))->toCacheMap());
     }
 	return sessionsList;
 }

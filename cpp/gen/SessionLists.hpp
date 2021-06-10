@@ -52,6 +52,9 @@ public:
 	QVariantList scheduledSessionsAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList scheduledSessionsAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList scheduledSessionsAsForeignQVariantList();
 
 	
@@ -87,6 +90,9 @@ public:
 	QVariantList sameTimeSessionsAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList sameTimeSessionsAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList sameTimeSessionsAsForeignQVariantList();
 
 	
@@ -120,6 +126,9 @@ public:
 	
 	Q_INVOKABLE
 	QVariantList specialTimeSessionsAsQVariantList();
+	
+	Q_INVOKABLE
+	QVariantList specialTimeSessionsAsCacheQVariantList();
 	
 	Q_INVOKABLE
 	QVariantList specialTimeSessionsAsForeignQVariantList();

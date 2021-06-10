@@ -78,6 +78,9 @@ public:
 	QVariantList roomsAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList roomsAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList roomsAsForeignQVariantList();
 
 	

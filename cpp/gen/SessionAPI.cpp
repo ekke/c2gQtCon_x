@@ -262,7 +262,7 @@ QVariantMap SessionAPI::toForeignMap()
 		personsAPI = mPresenter.at(i);
 		mPresenterKeys << QString::number(personsAPI->speakerId());
 	}
-	sessionAPIMap.insert(presenterKey, mPresenterKeys);
+	sessionAPIMap.insert(presenterForeignKey, mPresenterKeys);
 	// mSessionLinks points to SessionLinkAPI*
 	// lazy array: persist only keys
 	//
@@ -278,7 +278,7 @@ QVariantMap SessionAPI::toForeignMap()
 		sessionLinkAPI = mSessionLinks.at(i);
 		mSessionLinksKeys << sessionLinkAPI->uuid();
 	}
-	sessionAPIMap.insert(sessionLinksKey, mSessionLinksKeys);
+	sessionAPIMap.insert(sessionLinksForeignKey, mSessionLinksKeys);
 	sessionAPIMap.insert(sessionIdForeignKey, mSessionId);
 	sessionAPIMap.insert(titleForeignKey, mTitle);
 	sessionAPIMap.insert(subtitleForeignKey, mSubtitle);
@@ -478,6 +478,14 @@ QVariantList SessionAPI::presenterAsQVariantList()
     }
 	return presenterList;
 }
+QVariantList SessionAPI::presenterAsCacheQVariantList()
+{
+	QVariantList presenterList;
+	for (int i = 0; i < mPresenter.size(); ++i) {
+        presenterList.append((mPresenter.at(i))->toCacheMap());
+    }
+	return presenterList;
+}
 QVariantList SessionAPI::presenterAsForeignQVariantList()
 {
 	QVariantList presenterList;
@@ -642,6 +650,14 @@ QVariantList SessionAPI::sessionLinksAsQVariantList()
 	QVariantList sessionLinksList;
 	for (int i = 0; i < mSessionLinks.size(); ++i) {
         sessionLinksList.append((mSessionLinks.at(i))->toMap());
+    }
+	return sessionLinksList;
+}
+QVariantList SessionAPI::sessionLinksAsCacheQVariantList()
+{
+	QVariantList sessionLinksList;
+	for (int i = 0; i < mSessionLinks.size(); ++i) {
+        sessionLinksList.append((mSessionLinks.at(i))->toCacheMap());
     }
 	return sessionLinksList;
 }

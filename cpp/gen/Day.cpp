@@ -185,7 +185,7 @@ QVariantMap Day::toForeignMap()
 		session = mSessions.at(i);
 		mSessionsKeys << QString::number(session->sessionId());
 	}
-	dayMap.insert(sessionsKey, mSessionsKeys);
+	dayMap.insert(sessionsForeignKey, mSessionsKeys);
 	dayMap.insert(idForeignKey, mId);
 	dayMap.insert(weekDayForeignKey, mWeekDay);
 	if (hasConferenceDay()) {
@@ -268,6 +268,14 @@ QVariantList Day::sessionsAsQVariantList()
 	QVariantList sessionsList;
 	for (int i = 0; i < mSessions.size(); ++i) {
         sessionsList.append((mSessions.at(i))->toMap());
+    }
+	return sessionsList;
+}
+QVariantList Day::sessionsAsCacheQVariantList()
+{
+	QVariantList sessionsList;
+	for (int i = 0; i < mSessions.size(); ++i) {
+        sessionsList.append((mSessions.at(i))->toCacheMap());
     }
 	return sessionsList;
 }

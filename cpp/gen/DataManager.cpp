@@ -272,7 +272,7 @@ SettingsData* DataManager::createSettingsData()
 void DataManager::undoCreateSettingsData(SettingsData* settingsData)
 {
     if (settingsData) {
-        qDebug() << "undoCreateSettingsData " << settingsData->id();
+        // qDebug() << "undoCreateSettingsData " << settingsData->id();
         settingsData->deleteLater();
         settingsData = 0;
     }
@@ -484,7 +484,7 @@ Conference* DataManager::createConference()
 void DataManager::undoCreateConference(Conference* conference)
 {
     if (conference) {
-        qDebug() << "undoCreateConference " << conference->id();
+        // qDebug() << "undoCreateConference " << conference->id();
         conference->deleteLater();
         conference = 0;
     }
@@ -765,7 +765,7 @@ Building* DataManager::createBuilding()
 void DataManager::undoCreateBuilding(Building* building)
 {
     if (building) {
-        qDebug() << "undoCreateBuilding " << building->buildingId();
+        // qDebug() << "undoCreateBuilding " << building->buildingId();
         building->deleteLater();
         building = 0;
     }
@@ -1081,7 +1081,7 @@ Floor* DataManager::createFloor()
 void DataManager::undoCreateFloor(Floor* floor)
 {
     if (floor) {
-        qDebug() << "undoCreateFloor " << floor->floorId();
+        // qDebug() << "undoCreateFloor " << floor->floorId();
         floor->deleteLater();
         floor = 0;
     }
@@ -1397,7 +1397,7 @@ Room* DataManager::createRoom()
 void DataManager::undoCreateRoom(Room* room)
 {
     if (room) {
-        qDebug() << "undoCreateRoom " << room->roomId();
+        // qDebug() << "undoCreateRoom " << room->roomId();
         room->deleteLater();
         room = 0;
     }
@@ -1747,7 +1747,7 @@ Session* DataManager::createSession()
 void DataManager::undoCreateSession(Session* session)
 {
     if (session) {
-        qDebug() << "undoCreateSession " << session->sessionId();
+        // qDebug() << "undoCreateSession " << session->sessionId();
         session->deleteLater();
         session = 0;
     }
@@ -2059,7 +2059,7 @@ ScheduleItem* DataManager::createScheduleItem()
 void DataManager::undoCreateScheduleItem(ScheduleItem* scheduleItem)
 {
     if (scheduleItem) {
-        qDebug() << "undoCreateScheduleItem " << scheduleItem->sessionId();
+        // qDebug() << "undoCreateScheduleItem " << scheduleItem->sessionId();
         scheduleItem->deleteLater();
         scheduleItem = 0;
     }
@@ -2370,7 +2370,7 @@ Favorite* DataManager::createFavorite()
 void DataManager::undoCreateFavorite(Favorite* favorite)
 {
     if (favorite) {
-        qDebug() << "undoCreateFavorite " << favorite->sessionId();
+        // qDebug() << "undoCreateFavorite " << favorite->sessionId();
         favorite->deleteLater();
         favorite = 0;
     }
@@ -2681,7 +2681,7 @@ Bookmark* DataManager::createBookmark()
 void DataManager::undoCreateBookmark(Bookmark* bookmark)
 {
     if (bookmark) {
-        qDebug() << "undoCreateBookmark " << bookmark->sessionId();
+        // qDebug() << "undoCreateBookmark " << bookmark->sessionId();
         bookmark->deleteLater();
         bookmark = 0;
     }
@@ -2962,7 +2962,7 @@ SessionLists* DataManager::createSessionLists()
 void DataManager::undoCreateSessionLists(SessionLists* sessionLists)
 {
     if (sessionLists) {
-        qDebug() << "undoCreateSessionLists " << sessionLists->uuid();
+        // qDebug() << "undoCreateSessionLists " << sessionLists->uuid();
         sessionLists->deleteLater();
         sessionLists = 0;
     }
@@ -3250,7 +3250,7 @@ SessionLink* DataManager::createSessionLink()
 void DataManager::undoCreateSessionLink(SessionLink* sessionLink)
 {
     if (sessionLink) {
-        qDebug() << "undoCreateSessionLink " << sessionLink->uuid();
+        // qDebug() << "undoCreateSessionLink " << sessionLink->uuid();
         sessionLink->deleteLater();
         sessionLink = 0;
     }
@@ -3573,7 +3573,7 @@ Speaker* DataManager::createSpeaker()
 void DataManager::undoCreateSpeaker(Speaker* speaker)
 {
     if (speaker) {
-        qDebug() << "undoCreateSpeaker " << speaker->speakerId();
+        // qDebug() << "undoCreateSpeaker " << speaker->speakerId();
         speaker->deleteLater();
         speaker = 0;
     }
@@ -3854,7 +3854,7 @@ SpeakerImage* DataManager::createSpeakerImage()
 void DataManager::undoCreateSpeakerImage(SpeakerImage* speakerImage)
 {
     if (speakerImage) {
-        qDebug() << "undoCreateSpeakerImage " << speakerImage->speakerId();
+        // qDebug() << "undoCreateSpeakerImage " << speakerImage->speakerId();
         speakerImage->deleteLater();
         speakerImage = 0;
     }
@@ -4135,7 +4135,7 @@ SessionTrack* DataManager::createSessionTrack()
 void DataManager::undoCreateSessionTrack(SessionTrack* sessionTrack)
 {
     if (sessionTrack) {
-        qDebug() << "undoCreateSessionTrack " << sessionTrack->trackId();
+        // qDebug() << "undoCreateSessionTrack " << sessionTrack->trackId();
         sessionTrack->deleteLater();
         sessionTrack = 0;
     }
@@ -4416,7 +4416,7 @@ Day* DataManager::createDay()
 void DataManager::undoCreateDay(Day* day)
 {
     if (day) {
-        qDebug() << "undoCreateDay " << day->id();
+        // qDebug() << "undoCreateDay " << day->id();
         day->deleteLater();
         day = 0;
     }
@@ -4697,7 +4697,7 @@ SessionAPI* DataManager::createSessionAPI()
 void DataManager::undoCreateSessionAPI(SessionAPI* sessionAPI)
 {
     if (sessionAPI) {
-        qDebug() << "undoCreateSessionAPI " << sessionAPI->sessionId();
+        // qDebug() << "undoCreateSessionAPI " << sessionAPI->sessionId();
         sessionAPI->deleteLater();
         sessionAPI = 0;
     }
@@ -4978,7 +4978,7 @@ PersonsAPI* DataManager::createPersonsAPI()
 void DataManager::undoCreatePersonsAPI(PersonsAPI* personsAPI)
 {
     if (personsAPI) {
-        qDebug() << "undoCreatePersonsAPI " << personsAPI->speakerId();
+        // qDebug() << "undoCreatePersonsAPI " << personsAPI->speakerId();
         personsAPI->deleteLater();
         personsAPI = 0;
     }
@@ -5259,7 +5259,7 @@ SessionLinkAPI* DataManager::createSessionLinkAPI()
 void DataManager::undoCreateSessionLinkAPI(SessionLinkAPI* sessionLinkAPI)
 {
     if (sessionLinkAPI) {
-        qDebug() << "undoCreateSessionLinkAPI " << sessionLinkAPI->uuid();
+        // qDebug() << "undoCreateSessionLinkAPI " << sessionLinkAPI->uuid();
         sessionLinkAPI->deleteLater();
         sessionLinkAPI = 0;
     }
@@ -5547,7 +5547,7 @@ SpeakerAPI* DataManager::createSpeakerAPI()
 void DataManager::undoCreateSpeakerAPI(SpeakerAPI* speakerAPI)
 {
     if (speakerAPI) {
-        qDebug() << "undoCreateSpeakerAPI " << speakerAPI->id();
+        // qDebug() << "undoCreateSpeakerAPI " << speakerAPI->id();
         speakerAPI->deleteLater();
         speakerAPI = 0;
     }

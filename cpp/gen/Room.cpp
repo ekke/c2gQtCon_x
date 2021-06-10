@@ -201,7 +201,7 @@ QVariantMap Room::toForeignMap()
 		session = mSessions.at(i);
 		mSessionsKeys << QString::number(session->sessionId());
 	}
-	roomMap.insert(sessionsKey, mSessionsKeys);
+	roomMap.insert(sessionsForeignKey, mSessionsKeys);
 	roomMap.insert(roomIdForeignKey, mRoomId);
 	roomMap.insert(roomNameForeignKey, mRoomName);
 	roomMap.insert(inAssetsForeignKey, mInAssets);
@@ -337,6 +337,14 @@ QVariantList Room::sessionsAsQVariantList()
 	QVariantList sessionsList;
 	for (int i = 0; i < mSessions.size(); ++i) {
         sessionsList.append((mSessions.at(i))->toMap());
+    }
+	return sessionsList;
+}
+QVariantList Room::sessionsAsCacheQVariantList()
+{
+	QVariantList sessionsList;
+	for (int i = 0; i < mSessions.size(); ++i) {
+        sessionsList.append((mSessions.at(i))->toCacheMap());
     }
 	return sessionsList;
 }

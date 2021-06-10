@@ -53,6 +53,9 @@ public:
 	QVariantList floorsAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList floorsAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList floorsAsForeignQVariantList();
 
 	

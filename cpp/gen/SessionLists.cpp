@@ -235,7 +235,7 @@ QVariantMap SessionLists::toForeignMap()
 		session = mScheduledSessions.at(i);
 		mScheduledSessionsKeys << QString::number(session->sessionId());
 	}
-	sessionListsMap.insert(scheduledSessionsKey, mScheduledSessionsKeys);
+	sessionListsMap.insert(scheduledSessionsForeignKey, mScheduledSessionsKeys);
 	// mSameTimeSessions points to Session*
 	// lazy array: persist only keys
 	//
@@ -251,7 +251,7 @@ QVariantMap SessionLists::toForeignMap()
 		session = mSameTimeSessions.at(i);
 		mSameTimeSessionsKeys << QString::number(session->sessionId());
 	}
-	sessionListsMap.insert(sameTimeSessionsKey, mSameTimeSessionsKeys);
+	sessionListsMap.insert(sameTimeSessionsForeignKey, mSameTimeSessionsKeys);
 	// mSpecialTimeSessions points to Session*
 	// lazy array: persist only keys
 	//
@@ -267,7 +267,7 @@ QVariantMap SessionLists::toForeignMap()
 		session = mSpecialTimeSessions.at(i);
 		mSpecialTimeSessionsKeys << QString::number(session->sessionId());
 	}
-	sessionListsMap.insert(specialTimeSessionsKey, mSpecialTimeSessionsKeys);
+	sessionListsMap.insert(specialTimeSessionsForeignKey, mSpecialTimeSessionsKeys);
 	sessionListsMap.insert(uuidForeignKey, mUuid);
 	return sessionListsMap;
 }
@@ -306,6 +306,14 @@ QVariantList SessionLists::scheduledSessionsAsQVariantList()
 	QVariantList scheduledSessionsList;
 	for (int i = 0; i < mScheduledSessions.size(); ++i) {
         scheduledSessionsList.append((mScheduledSessions.at(i))->toMap());
+    }
+	return scheduledSessionsList;
+}
+QVariantList SessionLists::scheduledSessionsAsCacheQVariantList()
+{
+	QVariantList scheduledSessionsList;
+	for (int i = 0; i < mScheduledSessions.size(); ++i) {
+        scheduledSessionsList.append((mScheduledSessions.at(i))->toCacheMap());
     }
 	return scheduledSessionsList;
 }
@@ -476,6 +484,14 @@ QVariantList SessionLists::sameTimeSessionsAsQVariantList()
     }
 	return sameTimeSessionsList;
 }
+QVariantList SessionLists::sameTimeSessionsAsCacheQVariantList()
+{
+	QVariantList sameTimeSessionsList;
+	for (int i = 0; i < mSameTimeSessions.size(); ++i) {
+        sameTimeSessionsList.append((mSameTimeSessions.at(i))->toCacheMap());
+    }
+	return sameTimeSessionsList;
+}
 QVariantList SessionLists::sameTimeSessionsAsForeignQVariantList()
 {
 	QVariantList sameTimeSessionsList;
@@ -640,6 +656,14 @@ QVariantList SessionLists::specialTimeSessionsAsQVariantList()
 	QVariantList specialTimeSessionsList;
 	for (int i = 0; i < mSpecialTimeSessions.size(); ++i) {
         specialTimeSessionsList.append((mSpecialTimeSessions.at(i))->toMap());
+    }
+	return specialTimeSessionsList;
+}
+QVariantList SessionLists::specialTimeSessionsAsCacheQVariantList()
+{
+	QVariantList specialTimeSessionsList;
+	for (int i = 0; i < mSpecialTimeSessions.size(); ++i) {
+        specialTimeSessionsList.append((mSpecialTimeSessions.at(i))->toCacheMap());
     }
 	return specialTimeSessionsList;
 }

@@ -83,6 +83,9 @@ public:
 	QVariantList presenterAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList presenterAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList presenterAsForeignQVariantList();
 
 	
@@ -116,6 +119,9 @@ public:
 	
 	Q_INVOKABLE
 	QVariantList sessionLinksAsQVariantList();
+	
+	Q_INVOKABLE
+	QVariantList sessionLinksAsCacheQVariantList();
 	
 	Q_INVOKABLE
 	QVariantList sessionLinksAsForeignQVariantList();

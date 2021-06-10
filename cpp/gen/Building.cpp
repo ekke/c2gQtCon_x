@@ -157,7 +157,7 @@ QVariantMap Building::toForeignMap()
 		floor = mFloors.at(i);
 		mFloorsKeys << QString::number(floor->floorId());
 	}
-	buildingMap.insert(floorsKey, mFloorsKeys);
+	buildingMap.insert(floorsForeignKey, mFloorsKeys);
 	buildingMap.insert(buildingIdForeignKey, mBuildingId);
 	buildingMap.insert(buildingNameForeignKey, mBuildingName);
 	buildingMap.insert(inAssetsForeignKey, mInAssets);
@@ -226,6 +226,14 @@ QVariantList Building::floorsAsQVariantList()
 	QVariantList floorsList;
 	for (int i = 0; i < mFloors.size(); ++i) {
         floorsList.append((mFloors.at(i))->toMap());
+    }
+	return floorsList;
+}
+QVariantList Building::floorsAsCacheQVariantList()
+{
+	QVariantList floorsList;
+	for (int i = 0; i < mFloors.size(); ++i) {
+        floorsList.append((mFloors.at(i))->toCacheMap());
     }
 	return floorsList;
 }

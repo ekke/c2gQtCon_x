@@ -89,6 +89,9 @@ public:
 	QVariantList sessionsAsQVariantList();
 	
 	Q_INVOKABLE
+	QVariantList sessionsAsCacheQVariantList();
+	
+	Q_INVOKABLE
 	QVariantList sessionsAsForeignQVariantList();
 
 	
