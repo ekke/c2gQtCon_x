@@ -5,6 +5,12 @@ TARGET = c2gQtCon_x
 QT += qml quick core network
 CONFIG += c++11
 
+# QT_NO_DEPRECATED_WARNINGS will show no deprecated warnings
+# comment out and build-clean-project to see them all
+# should be done from time to time
+# while preparing src for Qt6
+DEFINES += QT_NO_DEPRECATED_WARNINGS
+
 HEADERS += \
     cpp/applicationui.hpp \
     cpp/uiconstants.hpp \
