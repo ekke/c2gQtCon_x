@@ -145,16 +145,43 @@ DISTFILES += \
     android/gradlew \
     android/res/values/libs.xml \
     android/build.gradle \
+    android/gradle.properties \
     android/gradle/wrapper/gradle-wrapper.properties \
     android/gradlew.bat \
     winrt/*.appxmanifest \
     winrt/assets/*.png
 
-ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
+android {
+    ANDROID_PACKAGE_SOURCE_DIR = $$PWD/android
 
-# you must provide openssl libs
-# see my repo: https://github.com/ekke/android-openssl-qt
-include(android-openssl.pri)
+    # deploying 32-bit and 64-bit APKs you need different VersionCode
+    # here's my way to solve this - per ex. Version 1.2.3
+    # aabcddeef aa: 21 (MY_MIN_API), b: 0 (32 Bit) or 1 (64 Bit)  c: 0 (unused)
+    # dd: 01 (Major Release), ee: 02 (Minor Release), f:  3 (Patch Release)
+    # VersionName 1.2.3
+    # VersionCode 32 Bit: 210001023
+    # VersionCode 64 Bit: 211001023
+    defineReplace(droidVersionCode) {
+        segments = $$split(1, ".")
+        for (segment, segments): vCode = "$$first(vCode)$$format_number($$segment, width=2 zeropad)"
+        equals(ANDROID_ABIS, arm64-v8a): \
+            prefix = 1
+        else: equals(ANDROID_ABIS, armeabi-v7a): \
+            prefix = 0
+        else: prefix = 2
+        # add more cases as needed
+        return($$first(prefix)0$$first(vCode))
+    }
+    MY_VERSION = 1.4
+    MY_PATCH_VERSION = 0
+    MY_MIN_API = 21
+    ANDROID_VERSION_NAME = $$MY_VERSION"."$$MY_PATCH_VERSION
+    ANDROID_VERSION_CODE = $$MY_MIN_API$$droidVersionCode($$MY_VERSION)$$MY_PATCH_VERSION
+
+    # find this in shadow build android-build gradle.properties
+    ANDROID_MIN_SDK_VERSION = "21"
+    ANDROID_TARGET_SDK_VERSION = "29"
+}
 
 ios {
     QMAKE_INFO_PLIST = ios/Info.plist
@@ -167,7 +194,7 @@ ios {
     app_launch_screen.files = $$files($$PWD/ios/MyLaunchScreen.xib)
     QMAKE_BUNDLE_DATA += app_launch_screen
 
-    QMAKE_IOS_DEPLOYMENT_TARGET = 8.2
+    QMAKE_IOS_DEPLOYMENT_TARGET = 12.0
 
     disable_warning.name = GCC_WARN_64_TO_32_BIT_CONVERSION
     disable_warning.value = NO
@@ -187,3 +214,7 @@ winrt {
 	
     WINRT_MANIFEST = winrt/myPackage.appxmanifest
 }
+
+# do not move to other location in .pro
+# otherwise build settings can loose the info
+android: include(/Applications/daten/_android/android-sdk-26_1_1/android_openssl/openssl.pri)
