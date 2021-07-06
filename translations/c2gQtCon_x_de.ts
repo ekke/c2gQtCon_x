@@ -461,17 +461,17 @@ Letzte Daten werden wiederhergestellt.</translation>
 <context>
     <name>DatePicker</name>
     <message>
-        <location filename="../qml/popups/DatePicker.qml" line="264"/>
+        <location filename="../qml/popups/DatePicker.qml" line="284"/>
         <source>Today</source>
         <translation>Heute</translation>
     </message>
     <message>
-        <location filename="../qml/popups/DatePicker.qml" line="275"/>
+        <location filename="../qml/popups/DatePicker.qml" line="295"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../qml/popups/DatePicker.qml" line="284"/>
+        <location filename="../qml/popups/DatePicker.qml" line="304"/>
         <source>OK</source>
         <translation></translation>
     </message>
@@ -550,17 +550,17 @@ More info inside src.</source>
 <context>
     <name>DrawerTitleBar</name>
     <message>
-        <location filename="../qml/navigation/DrawerTitleBar.qml" line="100"/>
+        <location filename="../qml/navigation/DrawerTitleBar.qml" line="103"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../qml/navigation/DrawerTitleBar.qml" line="106"/>
+        <location filename="../qml/navigation/DrawerTitleBar.qml" line="109"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../qml/navigation/DrawerTitleBar.qml" line="112"/>
+        <location filename="../qml/navigation/DrawerTitleBar.qml" line="115"/>
         <source>About</source>
         <translation>Über diese App</translation>
     </message>
@@ -851,6 +851,27 @@ QtCon 2016</translation>
 Tap on the &apos;Star&apos; to add or remove</source>
         <translation>Ihr Persönlicher Zeitplan ist noch leer.
 Aud den &apos;Strern&apos; tippen um hinzuzufügen</translation>
+    </message>
+</context>
+<context>
+    <name>PopupExit</name>
+    <message>
+        <location filename="../qml/popups/PopupExit.qml" line="24"/>
+        <source>No more Pages
+Do you want to exit and leave the App ?
+
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/popups/PopupExit.qml" line="33"/>
+        <source>Cancel</source>
+        <translation type="unfinished">Abbrechen</translation>
+    </message>
+    <message>
+        <location filename="../qml/popups/PopupExit.qml" line="42"/>
+        <source>Exit the App</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1224,22 +1245,22 @@ Das verwirrt Sie ? Einfach hier ausschalten.
 <context>
     <name>SimpleTextTitle</name>
     <message>
-        <location filename="../qml/common/SimpleTextTitle.qml" line="39"/>
+        <location filename="../qml/common/SimpleTextTitle.qml" line="42"/>
         <source>Light Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/common/SimpleTextTitle.qml" line="39"/>
+        <location filename="../qml/common/SimpleTextTitle.qml" line="42"/>
         <source>Dark Theme</source>
         <translation type="unfinished">Dunkles Thema</translation>
     </message>
     <message>
-        <location filename="../qml/common/SimpleTextTitle.qml" line="45"/>
+        <location filename="../qml/common/SimpleTextTitle.qml" line="48"/>
         <source>Select Primary Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/common/SimpleTextTitle.qml" line="52"/>
+        <location filename="../qml/common/SimpleTextTitle.qml" line="55"/>
         <source>Select Accent Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1269,22 +1290,22 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <translation> Minuten</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="180"/>
+        <location filename="../qml/pages/SpeakerDetailPage.qml" line="183"/>
         <source>Session Details</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="186"/>
+        <location filename="../qml/pages/SpeakerDetailPage.qml" line="189"/>
         <source>Room Info</source>
         <translation>Raum Info</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="233"/>
+        <location filename="../qml/pages/SpeakerDetailPage.qml" line="243"/>
         <source>Added to Personal Schedule</source>
         <translation>Zum Persönlichen Zeitplan zugefügt</translation>
     </message>
     <message>
-        <location filename="../qml/pages/SpeakerDetailPage.qml" line="235"/>
+        <location filename="../qml/pages/SpeakerDetailPage.qml" line="245"/>
         <source>Removed from Personal Schedule</source>
         <translation>Vom Persönlichen Zeitplan entfernt</translation>
     </message>
@@ -1308,22 +1329,22 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
 <context>
     <name>StackTextTitle</name>
     <message>
-        <location filename="../qml/common/StackTextTitle.qml" line="52"/>
+        <location filename="../qml/common/StackTextTitle.qml" line="55"/>
         <source>Light Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/common/StackTextTitle.qml" line="52"/>
+        <location filename="../qml/common/StackTextTitle.qml" line="55"/>
         <source>Dark Theme</source>
         <translation type="unfinished">Dunkles Thema</translation>
     </message>
     <message>
-        <location filename="../qml/common/StackTextTitle.qml" line="58"/>
+        <location filename="../qml/common/StackTextTitle.qml" line="61"/>
         <source>Select Primary Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/common/StackTextTitle.qml" line="65"/>
+        <location filename="../qml/common/StackTextTitle.qml" line="68"/>
         <source>Select Accent Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1331,22 +1352,22 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
 <context>
     <name>SwipeTextTitle</name>
     <message>
-        <location filename="../qml/common/SwipeTextTitle.qml" line="53"/>
+        <location filename="../qml/common/SwipeTextTitle.qml" line="56"/>
         <source>Light Theme</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/common/SwipeTextTitle.qml" line="53"/>
+        <location filename="../qml/common/SwipeTextTitle.qml" line="56"/>
         <source>Dark Theme</source>
         <translation type="unfinished">Dunkles Thema</translation>
     </message>
     <message>
-        <location filename="../qml/common/SwipeTextTitle.qml" line="59"/>
+        <location filename="../qml/common/SwipeTextTitle.qml" line="62"/>
         <source>Select Primary Color</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/common/SwipeTextTitle.qml" line="66"/>
+        <location filename="../qml/common/SwipeTextTitle.qml" line="69"/>
         <source>Select Accent Color</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1354,22 +1375,22 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
 <context>
     <name>TimePicker</name>
     <message>
-        <location filename="../qml/popups/TimePicker.qml" line="207"/>
+        <location filename="../qml/popups/TimePicker.qml" line="210"/>
         <source>Time (HH:MM)</source>
         <translation>Zeit (HH:MM)</translation>
     </message>
     <message>
-        <location filename="../qml/popups/TimePicker.qml" line="310"/>
+        <location filename="../qml/popups/TimePicker.qml" line="318"/>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
     <message>
-        <location filename="../qml/popups/TimePicker.qml" line="323"/>
+        <location filename="../qml/popups/TimePicker.qml" line="331"/>
         <source>OK</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/popups/TimePicker.qml" line="353"/>
+        <location filename="../qml/popups/TimePicker.qml" line="362"/>
         <source>Now</source>
         <translation>Jetzt</translation>
     </message>
@@ -1402,15 +1423,15 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
 <context>
     <name>main</name>
     <message>
-        <location filename="../qml/main.qml" line="37"/>
-        <location filename="../qml/main.qml" line="39"/>
+        <location filename="../qml/main.qml" line="45"/>
+        <location filename="../qml/main.qml" line="47"/>
         <source>My Schedule</source>
         <translation>Mein Plan</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="43"/>
-        <location filename="../qml/main.qml" line="45"/>
-        <location filename="../qml/main.qml" line="150"/>
+        <location filename="../qml/main.qml" line="51"/>
+        <location filename="../qml/main.qml" line="53"/>
+        <location filename="../qml/main.qml" line="158"/>
         <source>Schedule</source>
         <translation>Zeitplan</translation>
     </message>
@@ -1419,27 +1440,27 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <translation type="vanished">Sprecher</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="156"/>
+        <location filename="../qml/main.qml" line="164"/>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="157"/>
+        <location filename="../qml/main.qml" line="165"/>
         <source>Help</source>
         <translation>Hilfe</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="158"/>
+        <location filename="../qml/main.qml" line="166"/>
         <source>About this App</source>
         <translation>Über diese App</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="166"/>
+        <location filename="../qml/main.qml" line="174"/>
         <source>QtCon 2016 Berlin</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="168"/>
+        <location filename="../qml/main.qml" line="176"/>
         <source>QtCon 2016 Schedule</source>
         <translation>QtCon 2016 Zeitplan</translation>
     </message>
@@ -1448,66 +1469,80 @@ Auf das &apos;Stern&apos; Icon klicken um zum Persönlichen Zeitplan zuzufügen 
         <translation type="vanished">QtCon 2016 Sprecher</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="151"/>
+        <location filename="../qml/main.qml" line="159"/>
         <source>Speakers</source>
         <translation>Sprecher</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="154"/>
+        <location filename="../qml/main.qml" line="162"/>
         <source>Rooms</source>
         <translation>Räume</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="169"/>
+        <location filename="../qml/main.qml" line="177"/>
         <source>QtCon 2016 Speakers</source>
         <translation>QtCon 2016 Sprecher</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="170"/>
+        <location filename="../qml/main.qml" line="178"/>
         <source>QtCon 2016 Tracks</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="171"/>
+        <location filename="../qml/main.qml" line="179"/>
         <source>QtCon 2016 Venue</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="172"/>
+        <location filename="../qml/main.qml" line="180"/>
         <source>QtCon 2016 Rooms</source>
         <translation>QtCon 2016 Räume</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="174"/>
+        <location filename="../qml/main.qml" line="182"/>
         <source>QtCon 2016 Settings</source>
         <translation>QtCon 2016 Einstellungen</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="175"/>
+        <location filename="../qml/main.qml" line="183"/>
         <source>QtCon 2016 Help</source>
         <translation>QtCon 2016 Hilfe</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="176"/>
+        <location filename="../qml/main.qml" line="184"/>
         <source>QtCon 2016 About</source>
         <translation>QtCon 2016 Über</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="177"/>
+        <location filename="../qml/main.qml" line="185"/>
         <source>QtCon 2016 D E V E L O P E R Tools</source>
         <translation></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="316"/>
+        <location filename="../qml/main.qml" line="320"/>
+        <source>Please wait. Back key not allowed at the moment.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="324"/>
+        <source>Back key not allowed - please select an option.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/main.qml" line="345"/>
+        <source>No more Pages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No more Pages
 Please use &apos;Android Home&apos; Button
 to leave the App.</source>
-        <translation>Keine weiteren Seiten
+        <translation type="vanished">Keine weiteren Seiten
 Bitte den &apos;Android Home Button&apos; nutzen
 um die APP zu verlassen.</translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="609"/>
+        <location filename="../qml/main.qml" line="637"/>
         <source>OK</source>
         <translation></translation>
     </message>
